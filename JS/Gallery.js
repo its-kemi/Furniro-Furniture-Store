@@ -1,15 +1,15 @@
-/* ==================================================
+/* 
    GALLERY LIGHTBOX
-================================================== */
+ */
 
 document.addEventListener(
     "DOMContentLoaded",
     function () {
 
 
-        /* ==================================================
+        /* 
            GALLERY IMAGES
-        ================================================== */
+         */
 
         const galleryImages =
             document.querySelectorAll(
@@ -17,9 +17,9 @@ document.addEventListener(
             );
 
 
-        /* ==================================================
+        /* 
            LIGHTBOX
-        ================================================== */
+         */
 
         const galleryLightbox =
             document.querySelector(
@@ -39,9 +39,9 @@ document.addEventListener(
             );
 
 
-        /* ==================================================
+        /* 
            CHECK ELEMENTS
-        ================================================== */
+         */
 
         if (
             galleryImages.length === 0 ||
@@ -59,9 +59,9 @@ document.addEventListener(
         }
 
 
-        /* ==================================================
+        /* 
            OPEN LIGHTBOX
-        ================================================== */
+         */
 
         galleryImages.forEach(
             function (image) {
@@ -90,9 +90,9 @@ document.addEventListener(
         );
 
 
-        /* ==================================================
+        /* 
            CLOSE LIGHTBOX
-        ================================================== */
+         */
 
         function closeLightbox() {
 
@@ -109,9 +109,9 @@ document.addEventListener(
         }
 
 
-        /* ==================================================
+        /* 
            CLOSE BUTTON
-        ================================================== */
+         */
 
         galleryLightboxClose.addEventListener(
             "click",
@@ -127,9 +127,9 @@ document.addEventListener(
         );
 
 
-        /* ==================================================
+        /* 
            CLICK OUTSIDE IMAGE
-        ================================================== */
+         */
 
         galleryLightbox.addEventListener(
             "click",
@@ -148,9 +148,9 @@ document.addEventListener(
         );
 
 
-        /* ==================================================
+        /* 
            ESCAPE KEY
-        ================================================== */
+         */
 
         document.addEventListener(
             "keydown",

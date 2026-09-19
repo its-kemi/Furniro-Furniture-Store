@@ -851,9 +851,9 @@ const products = {
 
 
 
-        /* ==================================================
+        /* 
            CART SIDEBAR ELEMENTS
-        ================================================== */
+         */
 
         const cartOverlay =
             document.querySelector(
@@ -882,9 +882,9 @@ const products = {
 
 
 
-        /* ==================================================
+        /* 
            OPEN CART
-        ================================================== */
+        */
 
         function openCartSidebar() {
 
@@ -914,9 +914,9 @@ const products = {
 
 
 
-        /* ==================================================
+        /* 
            CLOSE CART
-        ================================================== */
+         */
 
         function closeCartSidebar() {
 
@@ -946,9 +946,9 @@ const products = {
 
 
 
-        /* ==================================================
+        /* 
            ADD PRODUCT TO CART
-        ================================================== */
+         */
 
         function addProductToCart(
             selectedProduct,
@@ -1005,9 +1005,9 @@ const products = {
 
 
 
-        /* ==================================================
+        /* 
            MAIN ADD TO CART
-        ================================================== */
+         */
 
         const addCartButton =
             document.querySelector(
@@ -1039,9 +1039,9 @@ const products = {
 
 
 
-        /* ==================================================
+        /* 
            RENDER CART SIDEBAR
-        ================================================== */
+         */
 
         function renderCartSidebar() {
 
@@ -1177,9 +1177,9 @@ const products = {
 
 
 
-        /* ==================================================
+        /* 
            REMOVE FROM CART
-        ================================================== */
+        */
 
         if (cartItems) {
 
@@ -1226,9 +1226,9 @@ const products = {
 
 
 
-        /* ==================================================
+        /* 
            CART HEADER ICON
-        ================================================== */
+        */
 
         const headerCartLink =
             document.querySelector(
@@ -1253,9 +1253,9 @@ const products = {
 
 
 
-        /* ==================================================
+        /* 
            CART CLOSE BUTTON
-        ================================================== */
+         */
 
         if (cartClose) {
 
@@ -1272,9 +1272,9 @@ const products = {
 
 
 
-        /* ==================================================
+        /* 
            CART OVERLAY
-        ================================================== */
+        */
 
         if (cartOverlay) {
 
@@ -1291,9 +1291,9 @@ const products = {
 
 
 
-        /* ==================================================
+        /* 
            ESCAPE FOR CART
-        ================================================== */
+         */
 
         document.addEventListener(
             "keydown",
@@ -1312,9 +1312,9 @@ const products = {
 
 
 
-        /* ==================================================
+        /* 
            SINGLE PRODUCT COMPARE
-        ================================================== */
+        */
 
         const singleCompareButton =
             document.querySelector(
@@ -1453,9 +1453,9 @@ const products = {
 
 
 
-        /* ==================================================
+        /* 
            DESCRIPTION TABS
-        ================================================== */
+         */
 
         const descriptionTabs =
             document.querySelectorAll(
@@ -1528,9 +1528,9 @@ const products = {
 
 
 
-        /* ==================================================
+        /* 
            RELATED PRODUCTS
-        ================================================== */
+         */
 
         const relatedGrid =
             document.querySelector(
@@ -1778,9 +1778,9 @@ const products = {
 
 
 
-        /* ==================================================
+        /*
            RELATED SHOW MORE
-        ================================================== */
+         */
 
         function updateRelatedVisibility() {
 
@@ -1861,9 +1861,9 @@ const products = {
 
 
 
-        /* ==================================================
+        /* 
            RELATED PRODUCT ACTIONS
-        ================================================== */
+        */
 
         if (relatedGrid) {
 
@@ -1872,9 +1872,9 @@ const products = {
                 function (event) {
 
 
-                    /* ==========================
+                    /* 
                        GET RELATED PRODUCT
-                    ========================== */
+                     */
 
                     const card =
                         event.target.closest(
@@ -1901,9 +1901,9 @@ const products = {
 
 
 
-                    /* ==========================
+                    /* 
                        ADD TO CART
-                    ========================== */
+                     */
 
                     const addButton =
                         event.target.closest(
@@ -1928,9 +1928,9 @@ const products = {
 
 
 
-                    /* ==========================
+                    /* 
                        COMPARE
-                    ========================== */
+                    */
 
                     const compareButton =
                         event.target.closest(
@@ -1963,9 +1963,9 @@ const products = {
 
 
 
-                    /* ==========================
+                    /* 
                        LIKE / WISHLIST
-                    ========================== */
+                     */
 
                     const likeButton =
                         event.target.closest(
@@ -2073,9 +2073,9 @@ const products = {
 
 
 
-                    /* ==========================
+                    /* 
                        SHARE
-                    ========================== */
+                     */
 
                     const shareButton =
                         event.target.closest(
@@ -2104,9 +2104,9 @@ const products = {
 
 
 
-        /* ==================================================
+        /* 
            SHARE PRODUCT
-        ================================================== */
+        */
 
         function shareProduct(
             selectedProduct
@@ -2166,9 +2166,9 @@ const products = {
 
 
 
-        /* ==================================================
+        /* 
            COPY TEXT
-        ================================================== */
+       */
 
         function copyText(
             text
@@ -2235,9 +2235,9 @@ const products = {
 
 
 
-        /* ==================================================
+        /* 
            PRODUCT META SOCIAL SHARE
-        ================================================== */
+        */
 
         const metaShareLinks =
             document.querySelectorAll(
@@ -2321,9 +2321,9 @@ const products = {
 
 
 
-        /* ==================================================
+        /* 
            DESCRIPTION IMAGE LIGHTBOX
-        ================================================== */
+         */
 
         const descriptionImages =
             document.querySelectorAll(
@@ -2425,9 +2425,9 @@ const products = {
         ) {
 
 
-            /* ==========================
+            /* 
                OPEN
-            ========================== */
+             */
 
             descriptionImages.forEach(
                 function (image) {
@@ -2458,9 +2458,9 @@ const products = {
             );
 
 
-            /* ==========================
+            /* 
                CLOSE FUNCTION
-            ========================== */
+             */
 
             function closeDescriptionLightbox() {
 
@@ -2479,9 +2479,9 @@ const products = {
             }
 
 
-            /* ==========================
+            /* 
                CLOSE BUTTON
-            ========================== */
+             */
 
             descriptionLightboxClose.addEventListener(
                 "click",
@@ -2497,9 +2497,9 @@ const products = {
             );
 
 
-            /* ==========================
+            /* 
                CLICK OUTSIDE
-            ========================== */
+            */
 
             descriptionLightbox.addEventListener(
                 "click",
@@ -2518,9 +2518,9 @@ const products = {
             );
 
 
-            /* ==========================
+            /* 
                ESCAPE
-            ========================== */
+             */
 
             document.addEventListener(
                 "keydown",
@@ -2544,9 +2544,9 @@ const products = {
 
 
 
-        /* ==================================================
+        /* 
            FOOTER NEWSLETTER
-        ================================================== */
+        */
 
         const footerNewsletterForm =
             document.querySelector(
@@ -2602,9 +2602,9 @@ const products = {
 
 
 
-        /* ==================================================
+        /*
            INITIAL CART
-        ================================================== */
+         */
 
         renderCartSidebar();
 

@@ -1,11 +1,9 @@
-/* ==================================================
-   PRODUCT COMPARISON
-================================================== */
 
 
-/* ==================================================
+
+/* 
    GET COMPARISON
-================================================== */
+ */
 
 let comparison =
     JSON.parse(
@@ -13,9 +11,9 @@ let comparison =
     ) || [];
 
 
-/* ==================================================
+/* 
    SAVE COMPARISON
-================================================== */
+ */
 
 function saveComparison() {
 
@@ -27,9 +25,9 @@ function saveComparison() {
 }
 
 
-/* ==================================================
+/* 
    ADD PRODUCT TO COMPARISON
-================================================== */
+ */
 
 const compareButtons =
     document.querySelectorAll(
@@ -44,9 +42,9 @@ compareButtons.forEach(function (button) {
         function () {
 
 
-            /* ==========================
+            /* 
                GET PRODUCT CARD
-            ========================== */
+             */
 
             const productCard =
                 button.closest(
@@ -61,9 +59,9 @@ compareButtons.forEach(function (button) {
             }
 
 
-            /* ==========================
+            /* 
                GET PRODUCT INFORMATION
-            ========================== */
+             */
 
             const productId =
                 productCard.dataset.id;
@@ -92,9 +90,9 @@ compareButtons.forEach(function (button) {
             }
 
 
-            /* ==========================
+            /* 
                CHECK DUPLICATE
-            ========================== */
+         */
 
             const alreadyExists =
                 comparison.some(
@@ -119,9 +117,9 @@ compareButtons.forEach(function (button) {
             }
 
 
-            /* ==========================
+            /* 
                MAXIMUM TWO PRODUCTS
-            ========================== */
+             */
 
             if (comparison.length >= 2) {
 
@@ -134,9 +132,9 @@ compareButtons.forEach(function (button) {
             }
 
 
-            /* ==========================
+            /* 
                ADD PRODUCT
-            ========================== */
+             */
 
             comparison.push({
 
@@ -154,16 +152,16 @@ compareButtons.forEach(function (button) {
             });
 
 
-            /* ==========================
+            /* 
                SAVE
-            ========================== */
+             */
 
             saveComparison();
 
 
-            /* ==========================
+            /* 
                SUCCESS MESSAGE
-            ========================== */
+             */
 
             alert(
                 productName +
@@ -171,9 +169,9 @@ compareButtons.forEach(function (button) {
             );
 
 
-            /* ==========================
+            /* 
                GO TO COMPARISON PAGE
-            ========================== */
+             */
 
             window.location.href =
                 "Product-Comparison.html";

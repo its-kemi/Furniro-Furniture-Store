@@ -1,11 +1,9 @@
-/* ==================================================
-   SHOW MORE PRODUCTS
-================================================== */
 
 
-/* ==================================================
+
+/* 
    GET SHOW MORE BUTTON
-================================================== */
+ */
 
 const showMoreButton =
     document.querySelector(
@@ -13,9 +11,9 @@ const showMoreButton =
     );
 
 
-/* ==================================================
+/* 
    GET ALL HOME PRODUCTS
-================================================== */
+ */
 
 const homeProducts =
     document.querySelectorAll(
@@ -23,9 +21,9 @@ const homeProducts =
     );
 
 
-/* ==================================================
+/* 
    CHECK ELEMENTS
-================================================== */
+ */
 
 if (
     showMoreButton &&
@@ -33,9 +31,9 @@ if (
 ) {
 
 
-    /* ==================================================
+    /* 
        HIDE PRODUCTS 9 TO 16
-    ================================================== */
+     */
 
     homeProducts.forEach(
         function (product, index) {
@@ -51,18 +49,18 @@ if (
     );
 
 
-    /* ==================================================
+    /* 
        SHOW MORE BUTTON
-    ================================================== */
+     */
 
     showMoreButton.addEventListener(
         "click",
         function () {
 
 
-            /* ==========================
+            /* 
                SHOW PRODUCTS 9 TO 16
-            ========================== */
+             */
 
             homeProducts.forEach(
                 function (product, index) {
@@ -78,9 +76,9 @@ if (
             );
 
 
-            /* ==========================
+            /* 
                HIDE SHOW MORE BUTTON
-            ========================== */
+             */
 
             showMoreButton.style.display =
                 "none";

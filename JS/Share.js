@@ -1,11 +1,9 @@
-/* ==================================================
-   SHARE PRODUCT POPUP
-================================================== */
 
 
-/* ==================================================
+
+/* 
    SHARE BUTTONS
-================================================== */
+ */
 
 const shareButtons =
     document.querySelectorAll(
@@ -13,9 +11,9 @@ const shareButtons =
     );
 
 
-/* ==================================================
+/* 
    SHARE ELEMENTS
-================================================== */
+*/
 
 const shareOverlay =
     document.querySelector(
@@ -71,9 +69,9 @@ const shareMessage =
     );
 
 
-/* ==================================================
+/* 
    OPEN SHARE POPUP
-================================================== */
+ */
 
 shareButtons.forEach(function (button) {
 
@@ -82,9 +80,9 @@ shareButtons.forEach(function (button) {
         function () {
 
 
-            /* ==========================
+            /* 
                GET PRODUCT DATA
-            ========================== */
+             */
 
             const productId =
                 button.dataset.id;
@@ -94,9 +92,9 @@ shareButtons.forEach(function (button) {
                 button.dataset.name;
 
 
-            /* ==========================
+            /* 
                CREATE PRODUCT URL
-            ========================== */
+             */
 
             const productUrl =
                 new URL(
@@ -106,17 +104,17 @@ shareButtons.forEach(function (button) {
                 ).href;
 
 
-            /* ==========================
+            /* 
                PRODUCT NAME
-            ========================== */
+             */
 
             shareProductName.textContent =
                 productName;
 
 
-            /* ==========================
+            /* 
                WHATSAPP
-            ========================== */
+             */
 
             shareWhatsApp.href =
                 "https://wa.me/?text=" +
@@ -128,9 +126,9 @@ shareButtons.forEach(function (button) {
                 );
 
 
-            /* ==========================
+            /* 
                TELEGRAM
-            ========================== */
+             */
 
             shareTelegram.href =
                 "https://t.me/share/url?url=" +
@@ -145,9 +143,9 @@ shareButtons.forEach(function (button) {
                 );
 
 
-            /* ==========================
+            /* 
                FACEBOOK
-            ========================== */
+             */
 
             shareFacebook.href =
                 "https://www.facebook.com/sharer/sharer.php?u=" +
@@ -156,9 +154,9 @@ shareButtons.forEach(function (button) {
                 );
 
 
-            /* ==========================
+            /* 
                X
-            ========================== */
+             */
 
             shareX.href =
                 "https://twitter.com/intent/tweet?text=" +
@@ -173,17 +171,17 @@ shareButtons.forEach(function (button) {
                 );
 
 
-            /* ==========================
+            /* 
                RESET MESSAGE
-            ========================== */
+             */
 
             shareMessage.textContent =
                 "";
 
 
-            /* ==========================
+            /* 
                OPEN POPUP
-            ========================== */
+             */
 
             shareOverlay.classList.add(
                 "active"
@@ -196,9 +194,9 @@ shareButtons.forEach(function (button) {
 });
 
 
-/* ==================================================
+/* 
    CLOSE BUTTON
-================================================== */
+ */
 
 shareClose.addEventListener(
     "click",
@@ -212,9 +210,9 @@ shareClose.addEventListener(
 );
 
 
-/* ==================================================
+/* 
    CLICK OUTSIDE POPUP
-================================================== */
+ */
 
 shareOverlay.addEventListener(
     "click",
@@ -235,9 +233,9 @@ shareOverlay.addEventListener(
 );
 
 
-/* ==================================================
+/* 
    ESC KEY
-================================================== */
+ */
 
 document.addEventListener(
     "keydown",
@@ -257,9 +255,9 @@ document.addEventListener(
 );
 
 
-/* ==================================================
+/* 
    COPY PRODUCT LINK
-================================================== */
+*/
 
 shareCopy.addEventListener(
     "click",

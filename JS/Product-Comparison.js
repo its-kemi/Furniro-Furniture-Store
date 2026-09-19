@@ -1,11 +1,9 @@
-/* ==================================================
-   PRODUCT COMPARISON PAGE
-================================================== */
 
 
-/* ==================================================
+
+/* 
    GET COMPARISON PRODUCTS
-================================================== */
+ */
 
 const comparisonProducts =
     JSON.parse(
@@ -13,9 +11,8 @@ const comparisonProducts =
     ) || [];
 
 
-/* ==================================================
-   PRODUCT ELEMENTS
-================================================== */
+/* 
+   PRODUCT ELEMENTS */
 
 const comparisonProductTitles =
     document.querySelectorAll(
@@ -47,9 +44,9 @@ const comparisonProductPrices =
     );
 
 
-/* ==================================================
+/* 
    TABLE PRODUCT TITLES
-================================================== */
+ */
 
 function updateTableTitles() {
 
@@ -75,9 +72,9 @@ function updateTableTitles() {
 }
 
 
-/* ==================================================
+/* 
    UPDATE PRODUCT INTRO
-================================================== */
+ */
 
 function updateProductIntro() {
 
@@ -90,9 +87,9 @@ function updateProductIntro() {
                 comparisonProducts[index];
 
 
-            /* ==========================
+            /* 
                PRODUCT EXISTS
-            ========================== */
+             */
 
             if (product) {
 
@@ -146,9 +143,9 @@ function updateProductIntro() {
             }
 
 
-            /* ==========================
+            /* 
                PRODUCT DOES NOT EXIST
-            ========================== */
+             */
 
             else {
 
@@ -206,9 +203,9 @@ function updateProductIntro() {
 }
 
 
-/* ==================================================
+/* 
    FORMAT PRICE
-================================================== */
+ */
 
 function formatPrice(price) {
 
@@ -222,9 +219,8 @@ function formatPrice(price) {
 }
 
 
-/* ==================================================
-   EMPTY PRODUCT CELLS
-================================================== */
+/* 
+   EMPTY PRODUCT CELLS */
 
 function updateEmptyColumns() {
 
@@ -247,9 +243,9 @@ function updateEmptyColumns() {
 }
 
 
-/* ==================================================
+/* 
    RUN
-================================================== */
+ */
 
 updateTableTitles();
 
