@@ -1,0 +1,434 @@
+/* ==================================================
+   SHARE OVERLAY
+================================================== */
+
+.share-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background-color:
+        rgba(0, 0, 0, 0.45);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    z-index: 9999;
+
+}
+
+
+/* ==================================================
+   SHOW SHARE OVERLAY
+================================================== */
+
+.share-overlay.active {
+
+    display: flex;
+
+}
+
+
+/* ==================================================
+   SHARE POPUP
+================================================== */
+
+.share-popup {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 430px;
+
+    padding: 40px 30px 35px;
+
+    background-color: #ffffff;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 15px 45px
+        rgba(0, 0, 0, 0.20);
+
+    animation:
+        sharePopupShow 0.3s ease;
+
+}
+
+
+/* ==================================================
+   POPUP ANIMATION
+================================================== */
+
+@keyframes sharePopupShow {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(0.95);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* ==================================================
+   CLOSE BUTTON
+================================================== */
+
+.share-close {
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 15px;
+
+    width: 35px;
+
+    height: 35px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background-color: #f5f5f5;
+
+    color: #555;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+
+}
+
+
+.share-close:hover {
+
+    background-color: #742277;
+
+    color: #ffffff;
+
+}
+
+
+/* ==================================================
+   MAIN SHARE ICON
+================================================== */
+
+.share-popup-icon {
+
+    width: 65px;
+
+    height: 65px;
+
+    margin: 0 auto 18px;
+
+    border-radius: 50%;
+
+    background-color: #f4e6f4;
+
+    color: #742277;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 27px;
+
+}
+
+
+/* ==================================================
+   POPUP TITLE
+================================================== */
+
+.share-popup h2 {
+
+    margin: 0 0 8px;
+
+    font-size: 25px;
+
+    color: #333;
+
+}
+
+
+/* ==================================================
+   DESCRIPTION
+================================================== */
+
+.share-popup-text {
+
+    margin: 0 0 12px;
+
+    color: #777;
+
+    font-size: 14px;
+
+}
+
+
+/* ==================================================
+   PRODUCT NAME
+================================================== */
+
+.share-product-name {
+
+    margin: 0 0 25px;
+
+    color: #742277;
+
+    font-size: 19px;
+
+    font-weight: 600;
+
+}
+
+
+/* ==================================================
+   SOCIAL ICONS
+================================================== */
+
+.share-social-icons {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+}
+
+
+/* ==================================================
+   SOCIAL BUTTON
+================================================== */
+
+.share-social {
+
+    width: 52px;
+
+    height: 52px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    font-size: 22px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+.share-social:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 8px 18px
+        rgba(0, 0, 0, 0.15);
+
+}
+
+
+/* ==================================================
+   WHATSAPP
+================================================== */
+
+.share-social.whatsapp {
+
+    background-color: #e8f8ef;
+
+    color: #25D366;
+
+}
+
+
+/* ==================================================
+   TELEGRAM
+================================================== */
+
+.share-social.telegram {
+
+    background-color: #e7f5fc;
+
+    color: #229ED9;
+
+}
+
+
+/* ==================================================
+   FACEBOOK
+================================================== */
+
+.share-social.facebook {
+
+    background-color: #e9efff;
+
+    color: #1877F2;
+
+}
+
+
+/* ==================================================
+   X
+================================================== */
+
+.share-social.x-social {
+
+    background-color: #eeeeee;
+
+    color: #000000;
+
+}
+
+
+/* ==================================================
+   COPY LINK
+================================================== */
+
+.share-social.copy-link {
+
+    background-color: #f4e6f4;
+
+    color: #742277;
+
+}
+
+
+/* ==================================================
+   MESSAGE
+================================================== */
+
+.share-message {
+
+    min-height: 20px;
+
+    margin: 20px 0 0;
+
+    color: #742277;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 500px) {
+
+    .share-overlay {
+
+        padding: 15px;
+
+    }
+
+
+    .share-popup {
+
+        max-width: 360px;
+
+        padding:
+            35px 20px 30px;
+
+        border-radius: 16px;
+
+    }
+
+
+    .share-popup h2 {
+
+        font-size: 22px;
+
+    }
+
+
+    .share-product-name {
+
+        font-size: 17px;
+
+    }
+
+
+    .share-social-icons {
+
+        gap: 12px;
+
+    }
+
+
+    .share-social {
+
+        width: 48px;
+
+        height: 48px;
+
+        font-size: 20px;
+
+    }
+
+}

@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout - Furniro</title>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet"
+        href="CSS/style.css">
+
+    <link rel="stylesheet"
+        href="CSS/Checkout.css">
+
+</head>
+
+
+<body>
+
+
+<!-- 
+     HEADER
+ -->
+
+<header>
+
+    <div class="logo">
+
+        <img src="images/logo.png"
+            alt="Furniro Logo">
+
+        <h3>
+            Furniro
+        </h3>
+
+    </div>
+
+
+    <nav>
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="Shop.html">
+                    Shop
+                </a>
+            </li>
+
+            <li>
+                <a href="About.html">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="Contact.html">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+   
+    <div class="icons">
+
+        <a href="Account.html">
+            <i class="fas fa-user-alt"></i>
+        </a>
+
+        <a href="Wishlist.html">
+            <i class="far fa-heart"></i>
+        </a>
+
+        <a href="Search.html">
+            <i class="fa fa-search"></i>
+        </a>
+
+        <a href="Cart.html">
+            <i class="fa fa-shopping-cart"></i>
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- 
+     CHECKOUT BANNER
+ -->
+
+<section class="checkout-banner">
+
+    <div class="checkout-banner-bg"></div>
+
+    <div class="checkout-banner-overlay"></div>
+
+
+    <div class="checkout-banner-content">
+
+        <img src="images/logo.png"
+            alt="Furniro Logo">
+
+        <h1>
+            Checkout
+        </h1>
+
+        <p>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <span>
+                ›
+            </span>
+
+            Checkout
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!--
+     CHECKOUT MAIN
+ -->
+
+<section class="checkout-page">
+
+
+    <!-- 
+         BILLING DETAILS
+     -->
+
+    <div class="billing-details">
+
+        <h2>
+            Billing Details
+        </h2>
+
+
+        <form>
+
+
+            <!-- FIRST + LAST NAME -->
+
+            <div class="name-fields">
+
+
+                <div class="form-group">
+
+                    <label>
+                        First Name
+                    </label>
+
+                    <input
+                        type="text"
+                        name="first-name"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Last Name
+                    </label>
+
+                    <input
+                        type="text"
+                        name="last-name"
+                        required>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- COMPANY -->
+
+            <div class="form-group">
+
+                <label>
+                    Company Name
+                    <span>
+                        (Optional)
+                    </span>
+                </label>
+
+                <input
+                    type="text"
+                    name="company">
+
+            </div>
+
+
+
+            <!-- COUNTRY -->
+
+            <div class="form-group">
+
+                <label>
+                    Country / Region
+                </label>
+
+                <select
+                    name="country"
+                    required>
+
+                    <option value="">
+                        Select a country
+                    </option>
+
+                    <option>
+                        Afghanistan
+                    </option>
+
+                    <option>
+                        Pakistan
+                    </option>
+
+                    <option>
+                        India
+                    </option>
+
+                    <option>
+                        United Arab Emirates
+                    </option>
+
+                    <option>
+                        Saudi Arabia
+                    </option>
+
+                    <option>
+                        Turkey
+                    </option>
+
+                    <option>
+                        Canada
+                    </option>
+
+                    <option>
+                        United States
+                    </option>
+
+                    <option>
+                        United Kingdom
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- STREET ADDRESS -->
+
+            <div class="form-group">
+
+                <label>
+                    Street Address
+                </label>
+
+                <input
+                    type="text"
+                    name="street-address"
+                    required>
+
+            </div>
+
+
+
+            <!-- TOWN -->
+
+            <div class="form-group">
+
+                <label>
+                    Town / City
+                </label>
+
+                <input
+                    type="text"
+                    name="city"
+                    required>
+
+            </div>
+
+
+
+            <!-- PROVINCE -->
+
+            <div class="form-group">
+
+                <label>
+                    Province
+                </label>
+
+                <select
+                    name="province"
+                    required>
+
+                    <option value="">
+                        Select a province
+                    </option>
+
+                    <option>
+                        Kabul
+                    </option>
+
+                    <option>
+                        Takhar
+                    </option>
+
+                    <option>
+                        Balkh
+                    </option>
+
+                    <option>
+                        Herat
+                    </option>
+
+                    <option>
+                        Kandahar
+                    </option>
+
+                    <option>
+                        Nangarhar
+                    </option>
+
+                    <option>
+                        Kunduz
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- ZIP -->
+
+            <div class="form-group">
+
+                <label>
+                    ZIP Code
+                </label>
+
+                <input
+                    type="text"
+                    name="zip-code">
+
+            </div>
+
+
+
+            <!-- PHONE -->
+
+            <div class="form-group">
+
+                <label>
+                    Phone
+                </label>
+
+                <input
+                    type="tel"
+                    name="phone"
+                    required>
+
+            </div>
+
+
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+
+                <label>
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    name="email"
+                    required>
+
+            </div>
+
+
+
+            <!-- ADDITIONAL INFORMATION -->
+
+            <div class="form-group">
+
+                <label>
+                    Additional Information
+                </label>
+
+                <input
+                    type="text"
+                    name="additional-information"
+                    placeholder="Additional information">
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+
+
+    <!-- 
+         ORDER SUMMARY
+     -->
+
+    <div class="order-summary">
+
+
+        <!-- PRODUCT -->
+
+        <div class="order-heading">
+
+            <h3>
+                Product
+            </h3>
+
+            <h3>
+                Subtotal
+            </h3>
+
+        </div>
+
+
+
+        <!-- PRODUCT ITEM -->
+
+        <div class="order-product">
+
+            <div>
+
+                <span class="product-name">
+                    Sofa
+                </span>
+
+                <span class="product-quantity">
+                    × 1
+                </span>
+
+            </div>
+
+            <span>
+                Rp 2,500,000
+            </span>
+
+        </div>
+
+
+
+        <!-- SUBTOTAL -->
+
+        <div class="order-row">
+
+            <span>
+                Subtotal
+            </span>
+
+            <strong>
+                Rp 2,500,000
+            </strong>
+
+        </div>
+
+
+
+        <!-- TOTAL -->
+
+        <div class="order-row order-total">
+
+            <span>
+                Total
+            </span>
+
+            <strong>
+                Rp 2,500,000
+            </strong>
+
+        </div>
+
+
+
+        <!-- LINE -->
+
+        <div class="payment-divider"></div>
+
+
+
+        <!-- DIRECT BANK TRANSFER -->
+
+        <div class="payment-method active">
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="bank"
+                    checked>
+
+                <span>
+                    Direct Bank Transfer
+                </span>
+
+            </label>
+
+
+            <p>
+
+                Make your payment directly into our
+                bank account. Please use your Order ID
+                as the payment reference. Your order
+                will not be shipped until the funds have
+                cleared in our account.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- PAYMENT OPTIONS -->
+
+        <div class="payment-options">
+
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="bank">
+
+                <span>
+                    Direct Bank Transfer
+                </span>
+
+            </label>
+
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="payment"
+                    value="cash">
+
+                <span>
+                    Cash On Delivery
+                </span>
+
+            </label>
+
+
+        </div>
+
+
+
+        <!-- PRIVACY -->
+
+        <p class="privacy-text">
+
+            Your personal data will be used to process
+            your order, support your experience throughout
+            this website, and for other purposes described
+            in our
+            <strong>
+                Privacy Policy
+            </strong>.
+
+        </p>
+
+
+
+        <!-- PLACE ORDER -->
+
+        <button
+            type="submit"
+            class="place-order">
+
+            Place Order
+
+        </button>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- 
+     FEATURES
+ -->
+
+<section class="checkout-features">
+
+
+    <div class="checkout-feature">
+
+        <i class="fa-solid fa-trophy"></i>
+
+        <div>
+
+            <h3>
+                High Quality
+            </h3>
+
+            <p>
+                Crafted from top materials
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="checkout-feature">
+
+        <i class="fa-solid fa-shield-halved"></i>
+
+        <div>
+
+            <h3>
+                Warranty Protection
+            </h3>
+
+            <p>
+                Over 2 years
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="checkout-feature">
+
+        <i class="fa-solid fa-truck"></i>
+
+        <div>
+
+            <h3>
+                Free Shipping
+            </h3>
+
+            <p>
+                Order Over 150 dollars
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="checkout-feature">
+
+        <i class="fa-solid fa-headset"></i>
+
+        <div>
+
+            <h3>
+                24 / 7 Support
+            </h3>
+
+            <p>
+                Dedicated Support
+            </p>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- 
+     FOOTER
+ -->
+
+<div class="footer-line"></div>
+
+
+
+<footer>
+
+
+
+    <div class="footer-top">
+
+        <div class="footer-brand">
+            <h2>Furniro.</h2>
+
+            <p>
+                400 University Drive Suite 200 Coral Gables,
+                FL 33134 USA
+            </p>
+        </div>
+
+
+        <div class="footer-links">
+
+            <h3>Links</h3>
+
+           <a href="index.html">Home</a>
+            <a href="Shop.html">Shop</a>
+            <a href="About.html">About</a>
+            <a href="Contact.html">Contact</a>
+            <a href="Blog.html">Blog</a>
+
+        </div>
+
+
+        <div class="footer-help">
+
+            <h3>Help</h3>
+
+          <a href="Payment-Options.html">Payment Options</a>
+            <a href="Returns.html">Returns</a>
+            <a href="Privacy-Policy.html">Privacy Policies</a>
+            
+
+        </div>
+
+
+        <div class="footer-newsletter">
+
+            <h3>Newsletter</h3>
+
+            <div>
+                <input 
+                    type="email" 
+                    placeholder="Enter your email"
+                >
+
+                <button>SUBSCRIBE</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-line"></div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            2023 Furniro. All rights reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>

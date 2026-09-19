@@ -1,0 +1,414 @@
+/* ================= GENERAL ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+/* ================= HEADER ================= */
+
+header {
+    width: 100%;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 50px;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #f2f3f2;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+header .logo img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+header .logo h3 {
+    margin: 0;
+    font-size: 24px;
+}
+
+header nav ul {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #b88e2f;
+}
+
+header .icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+header .icons a {
+    text-decoration: none;
+    color: black;
+}
+
+header .icons i {
+    font-size: 20px;
+    color: black;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+header .icons i:hover {
+    color: #b88e2f;
+}
+
+
+/* ================= BANNER ================= */
+
+.page-banner {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../assite/Banar-images/banar5.png");
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px);
+    transform: scale(1.05);
+}
+
+.page-banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.45);
+}
+
+.page-banner-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page-banner-content img {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+.page-banner-content h1 {
+    margin: 0 0 12px;
+    font-size: 42px;
+    font-weight: 600;
+    color: #222;
+}
+
+.page-banner-content p {
+    margin: 0;
+    font-size: 15px;
+    color: #333;
+}
+
+.page-banner-content p a {
+    color: #222;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.page-banner-content p a:hover {
+    color: #b88e2f;
+}
+
+.page-banner-content p span {
+    margin: 0 8px;
+}
+
+
+/* ACCOUNT */
+
+.account-section {
+    padding: 70px 5%;
+    background-color: #fafafa;
+}
+
+.account-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.account-box {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.account-box h2 {
+    font-size: 28px;
+    margin-bottom: 12px;
+    color: #222;
+}
+
+.account-text {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.account-box form {
+    display: flex;
+    flex-direction: column;
+}
+
+.account-box label {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.account-box input[type="text"],
+.account-box input[type="email"],
+.account-box input[type="password"] {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.account-box input:focus {
+    border-color: #b88e2f;
+}
+
+
+/*  FORM OPTIONS */
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0 !important;
+}
+
+.remember input {
+    margin: 0;
+}
+
+.form-options a {
+    color: #b88e2f;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.form-options a:hover {
+    text-decoration: underline;
+}
+
+
+/*  BUTTON  */
+
+.account-box button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    background-color: #b88e2f;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.account-box button:hover {
+    background-color: #222;
+}
+
+
+/*  FEATURES  */
+
+.features {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 60px 5%;
+    background-color: #fafafa;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.feature > i {
+    font-size: 35px;
+    color: #b88e2f;
+}
+
+.feature h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.feature p {
+    color: #777;
+    font-size: 14px;
+}
+
+
+/* FOOTER  */
+
+footer {
+    width: 100%;
+    padding: 50px 5% 30px;
+    background-color: white;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.footer-brand {
+    width: 30%;
+}
+
+.footer-brand h2 {
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+.footer-brand p {
+    color: #777;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.footer-links,
+.footer-help {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer-links h3,
+.footer-help h3,
+.footer-newsletter h3 {
+    color: #999;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.footer-links a,
+.footer-help a {
+    text-decoration: none;
+    color: #333;
+    font-size: 15px;
+}
+
+.footer-links a:hover,
+.footer-help a:hover {
+    color: #b88e2f;
+}
+
+.footer-newsletter {
+    width: 25%;
+}
+
+.footer-newsletter div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-newsletter input {
+    width: 180px;
+    border: none;
+    border-bottom: 1px solid #333;
+    padding: 8px 0;
+    outline: none;
+}
+
+.footer-newsletter button {
+    border: none;
+    background: white;
+    border-bottom: 1px solid #333;
+    padding: 8px 0;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.footer-newsletter button:hover {
+    color: #b88e2f;
+}
+
+.footer-line {
+    width: 100%;
+    height: 1px;
+    background-color: #ddd;
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+.footer-bottom {
+    text-align: left;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    color: #333;
+}

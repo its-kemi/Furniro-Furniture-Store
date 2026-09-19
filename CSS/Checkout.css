@@ -1,0 +1,845 @@
+/* ==================================================
+   CHECKOUT BANNER
+================================================== */
+
+.checkout-banner {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 400px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.checkout-banner-bg {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background-image:
+        url("../images/banar5.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    filter: blur(5px);
+
+    transform: scale(1.05);
+
+}
+
+
+.checkout-banner-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(255, 255, 255, 0.45);
+
+}
+
+
+.checkout-banner-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+
+.checkout-banner-content img {
+
+    width: 65px;
+
+    height: 65px;
+
+    object-fit: contain;
+
+    margin-bottom: 12px;
+
+}
+
+
+.checkout-banner-content h1 {
+
+    margin: 0 0 12px;
+
+    font-size: 42px;
+
+    font-weight: 600;
+
+    color: #222;
+
+}
+
+
+.checkout-banner-content p {
+
+    margin: 0;
+
+    font-size: 15px;
+
+    color: #333;
+
+}
+
+
+.checkout-banner-content p a {
+
+    color: #222;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+}
+
+
+.checkout-banner-content p span {
+
+    margin: 0 8px;
+
+}
+
+
+
+/* ==================================================
+   CHECKOUT PAGE
+================================================== */
+
+.checkout-page {
+
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: 80px auto 100px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 0.85fr;
+
+    gap: 90px;
+
+    align-items: start;
+
+}
+
+
+
+/* ==================================================
+   BILLING DETAILS
+================================================== */
+
+.billing-details h2 {
+
+    font-size: 32px;
+
+    margin:
+        0 0 40px;
+
+    color: #222;
+
+}
+
+
+.billing-details form {
+
+    width: 100%;
+
+}
+
+
+.name-fields {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 25px;
+
+}
+
+
+.form-group {
+
+    margin-bottom: 25px;
+
+}
+
+
+.form-group label {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    color: #333;
+
+}
+
+
+.form-group label span {
+
+    color: #888;
+
+    font-weight: 400;
+
+}
+
+
+.form-group input,
+.form-group select {
+
+    width: 100%;
+
+    height: 55px;
+
+    padding:
+        0 18px;
+
+    box-sizing: border-box;
+
+    border:
+        1px solid #ddd;
+
+    border-radius: 5px;
+
+    outline: none;
+
+    background-color: #fff;
+
+    color: #555;
+
+    font-size: 14px;
+
+}
+
+
+.form-group input:focus,
+.form-group select:focus {
+
+    border-color: #b88e2f;
+
+}
+
+
+.form-group input::placeholder {
+
+    color: #aaa;
+
+}
+
+
+
+/* ==================================================
+   ORDER SUMMARY
+================================================== */
+
+.order-summary {
+
+    padding-top: 5px;
+
+}
+
+
+.order-heading {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    margin-bottom: 30px;
+
+}
+
+
+.order-heading h3 {
+
+    margin: 0;
+
+    font-size: 24px;
+
+    color: #222;
+
+}
+
+
+.order-heading h3:last-child {
+
+    text-align: right;
+
+}
+
+
+
+/* ==================================================
+   PRODUCT
+================================================== */
+
+.order-product {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+
+    font-size: 14px;
+
+    color: #666;
+
+}
+
+
+.product-name {
+
+    color: #222;
+
+}
+
+
+.product-quantity {
+
+    margin-left: 8px;
+
+    color: #888;
+
+}
+
+
+.order-product > span {
+
+    color: #555;
+
+}
+
+
+
+/* ==================================================
+   ORDER ROW
+================================================== */
+
+.order-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+
+}
+
+
+.order-row span {
+
+    color: #333;
+
+    font-size: 14px;
+
+}
+
+
+.order-row strong {
+
+    color: #555;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+}
+
+
+.order-total {
+
+    margin-top: 5px;
+
+}
+
+
+.order-total span {
+
+    font-size: 16px;
+
+    color: #222;
+
+}
+
+
+.order-total strong {
+
+    color: #b88e2f;
+
+    font-size: 24px;
+
+    font-weight: 600;
+
+}
+
+
+
+/* ==================================================
+   PAYMENT DIVIDER
+================================================== */
+
+.payment-divider {
+
+    width: 100%;
+
+    height: 1px;
+
+    background-color: #ddd;
+
+    margin:
+        35px 0;
+
+}
+
+
+
+/* ==================================================
+   DIRECT BANK TRANSFER
+================================================== */
+
+.payment-method label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    cursor: pointer;
+
+    color: #222;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+}
+
+
+.payment-method input,
+.payment-options input {
+
+    width: 15px;
+
+    height: 15px;
+
+    accent-color: #222;
+
+}
+
+
+.payment-method p {
+
+    margin:
+        15px 0 25px 25px;
+
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+}
+
+
+
+/* ==================================================
+   PAYMENT OPTIONS
+================================================== */
+
+.payment-options {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.payment-options label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    cursor: pointer;
+
+    color: #666;
+
+    font-size: 14px;
+
+}
+
+
+
+/* ==================================================
+   PRIVACY POLICY
+================================================== */
+
+.privacy-text {
+
+    color: #666;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    margin:
+        0 0 30px;
+
+}
+
+
+.privacy-text strong {
+
+    color: #222;
+
+    font-weight: 600;
+
+}
+
+
+
+/* ==================================================
+   PLACE ORDER
+================================================== */
+
+.place-order {
+
+    display: block;
+
+    width: 220px;
+
+    margin: 0 auto;
+
+    padding:
+        15px 25px;
+
+    border:
+        1px solid #222;
+
+    border-radius: 8px;
+
+    background-color: #fff;
+
+    color: #222;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.place-order:hover {
+
+    background-color: #222;
+
+    color: #fff;
+
+}
+
+
+
+/* ==================================================
+   FEATURES
+================================================== */
+
+.checkout-features {
+
+    width: 100%;
+
+    padding:
+        55px 5%;
+
+    box-sizing: border-box;
+
+    background-color: #fafafa;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 30px;
+
+}
+
+
+.checkout-feature {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+}
+
+
+.checkout-feature > i {
+
+    font-size: 35px;
+
+    color: #b88e2f;
+
+}
+
+
+.checkout-feature h3 {
+
+    margin:
+        0 0 6px;
+
+    font-size: 17px;
+
+    color: #333;
+
+}
+
+
+.checkout-feature p {
+
+    margin: 0;
+
+    color: #888;
+
+    font-size: 13px;
+
+}
+
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 900px) {
+
+    .checkout-page {
+
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+
+    }
+
+    .checkout-features {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .name-fields {
+
+        grid-template-columns: 1fr;
+
+        gap: 0;
+
+    }
+
+
+    .checkout-banner {
+
+        height: 300px;
+
+    }
+
+
+    .checkout-banner-content h1 {
+
+        font-size: 34px;
+
+    }
+
+
+    .checkout-features {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .checkout-page {
+
+        width: 90%;
+
+    }
+
+
+    .place-order {
+
+        width: 100%;
+
+    }
+
+}
+
+
+
+footer {
+    width: 100%;
+    padding: 50px 5% 30px;
+    background-color: white;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+
+
+
+.footer-brand {
+    width: 30%;
+}
+
+.footer-brand h2 {
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+.footer-brand p {
+    color: #777;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+
+
+
+.footer-links,
+.footer-help {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer-links h3,
+.footer-help h3,
+.footer-newsletter h3 {
+    color: #999;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.footer-links a,
+.footer-help a {
+    text-decoration: none;
+    color: #333;
+    font-size: 15px;
+}
+
+
+
+
+.footer-newsletter {
+    width: 25%;
+}
+
+.footer-newsletter div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-newsletter input {
+    width: 180px;
+    border: none;
+    border-bottom: 1px solid #333;
+    padding: 8px 0;
+    outline: none;
+}
+
+.footer-newsletter button {
+    border: none;
+    background: white;
+    border-bottom: 1px solid #333;
+    padding: 8px 0;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
+
+.footer-line {
+    width: 100%;
+    height: 1px;
+    background-color: #ddd;
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+
+
+
+.footer-bottom {
+    text-align: left;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    color: #333;
+}
