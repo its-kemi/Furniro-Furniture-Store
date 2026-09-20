@@ -6,7 +6,10 @@
     <title>Furniro Furniture</title>
     <link rel="stylesheet"  href="CSS/style.css">
     
-   
+   <link
+    rel="stylesheet"
+    href="CSS/Share.css"
+>
     
      <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -72,18 +75,49 @@
 </header>
 
 
-<!-- BANNER VIDEO -->
+<!-- 
+     HOME HERO BANNER
+ -->
 
-<section class="banar">
+<section class="home-banner">
 
-    <video autoplay muted loop playsinline>
+    <img
+        src="assite/Banar-images/banar5.png"
+        alt="Furniro New Collection"
+        class="home-banner-image"
+    >
 
-        <source
-            src="assite/Banar-images/home2-video.mp4.mp4"
-            type="video/mp4"
+
+    <!-- TEXT CONTENT -->
+
+    <div class="home-banner-content">
+
+        <span class="home-banner-small-text">
+            New Arrival
+        </span>
+
+
+        <h1>
+            Discover Our
+            <br>
+            New Collection
+        </h1>
+
+
+        <p>
+            Beautiful furniture designed to make
+            your home more comfortable and stylish.
+        </p>
+
+
+        <a
+            href="Shop.html"
+            class="home-banner-button"
         >
+            BUY NOW
+        </a>
 
-    </video>
+    </div>
 
 </section>
 
@@ -2241,6 +2275,127 @@
 
 
 
+<!-- 
+     SHARE POPUP
+ -->
+
+<div
+    class="share-overlay"
+    id="shareOverlay"
+>
+
+    <div
+        class="share-popup"
+        id="sharePopup"
+    >
+
+        <button
+            class="share-close"
+            id="shareClose"
+            type="button"
+            title="Close"
+        >
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+
+        <div class="share-popup-icon">
+
+            <i class="fa-solid fa-share-nodes"></i>
+
+        </div>
+
+
+        <h2>
+            Share Product
+        </h2>
+
+
+        <p class="share-popup-text">
+            Share this product with your friends
+        </p>
+
+
+        <h3
+            id="shareProductName"
+            class="share-product-name"
+        >
+            Product
+        </h3>
+
+
+        <div class="share-social-icons">
+
+            <a
+                href="#"
+                id="shareWhatsApp"
+                class="share-social whatsapp"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="WhatsApp"
+            >
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+
+
+            <a
+                href="#"
+                id="shareTelegram"
+                class="share-social telegram"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Telegram"
+            >
+                <i class="fa-brands fa-telegram"></i>
+            </a>
+
+
+            <a
+                href="#"
+                id="shareFacebook"
+                class="share-social facebook"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Facebook"
+            >
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+
+
+            <a
+                href="#"
+                id="shareX"
+                class="share-social x-social"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="X"
+            >
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+
+
+            <button
+                type="button"
+                id="shareCopy"
+                class="share-social copy-link"
+                title="Copy Link"
+            >
+                <i class="fa-solid fa-link"></i>
+            </button>
+
+        </div>
+
+
+        <p
+            id="shareMessage"
+            class="share-message"
+        ></p>
+
+    </div>
+
+</div>
 
 
 
@@ -2254,10 +2409,9 @@
 
 
 
-
-    <!-- ==================================================
+    <!--
      SHOW MORE
-================================================== -->
+ -->
 
 <section class="show-more-section">
 
@@ -2273,16 +2427,16 @@
 
      <!---SliderImage p-->
 
-<!-- ==================================================
+<!--
      ASIDE / INSPIRATION
-================================================== -->
+ -->
 
 <section class="aside">
 
 
-    <!-- ==================================================
+    <!-- 
          ASIDE CONTENT
-    ================================================== -->
+     -->
 
     <div class="aside-content">
 
@@ -2312,9 +2466,9 @@
 
 
 
-    <!-- ==================================================
+    <!-- 
          MAIN SLIDER IMAGE
-    ================================================== -->
+   -->
 
     <div class="aside-main">
 
@@ -2347,14 +2501,14 @@
 
 
 
-    <!-- ==================================================
+    <!--
          SLIDER
-    ================================================== -->
+    -->
 
     <div class="aside-slider">
 
 
-        <!-- ================= IMAGES ================= -->
+        <!--  IMAGES -->
 
         <div>
 
@@ -2394,7 +2548,7 @@
         </div>
 
 
-        <!-- ================= DOTS ================= -->
+        <!--  DOTS  -->
 
         <div>
 
@@ -2431,16 +2585,16 @@
 
 
 
-<!-- ==================================================
+<!-- 
      GALLERY
-================================================== -->
+ -->
 
 <section class="gallery">
 
 
-    <!-- ==================================================
+    <!-- 
          GALLERY TITLE
-    ================================================== -->
+     -->
 
     <div class="gallery-title">
 
@@ -2457,9 +2611,9 @@
 
 
 
-    <!-- ==================================================
+    <!-- 
          GALLERY IMAGES
-    ================================================== -->
+    -->
 
     <div class="gallery-images">
 

@@ -10,12 +10,20 @@ body {
 
 }
 
+
+
+
+
+
+
+
+
+
 /* 
    HEADER
  */
 
 header {
-
     width: 100%;
     height: 80px;
 
@@ -25,7 +33,7 @@ header {
 
     padding: 15px 50px;
 
-    background-color: transparent;
+    background-color: #fff;
 
     position: fixed;
 
@@ -34,39 +42,11 @@ header {
 
     z-index: 1000;
 
-    border-bottom: none;
+    border-bottom: 1px solid #e5e5e5;
 
-    transition: border-bottom 0.4s ease,
-                box-shadow 0.4s ease;
-}
-
-
-/* 
-   HEADER BACKGROUND
- */
-
-header::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background-color: white;
-
-    opacity: 0;
-
-    transition: opacity 0.8s ease;
-
-    z-index: -1;
-}
-
-
-header.home-header.scrolled::before {
-
-    opacity: 1;
-
+    box-shadow:
+        0 3px 12px
+        rgba(0, 0, 0, 0.06);
 }
 
 
@@ -75,31 +55,26 @@ header.home-header.scrolled::before {
  */
 
 header .logo {
-
     display: flex;
-
     align-items: center;
-
     gap: 10px;
-
 }
 
+
 header .logo img {
-
     width: 40px;
-
     height: 40px;
 
     object-fit: contain;
-
 }
 
-header .logo h3 {
 
+header .logo h3 {
     margin: 0;
 
     font-size: 24px;
 
+    color: #000;
 }
 
 
@@ -108,7 +83,6 @@ header .logo h3 {
  */
 
 header nav ul {
-
     display: flex;
 
     align-items: center;
@@ -118,27 +92,24 @@ header nav ul {
     list-style: none;
 
     margin: 0;
-
     padding: 0;
-
 }
 
-header nav ul li a {
 
+header nav ul li a {
     text-decoration: none;
 
-    color: black;
+    color: #000;
 
     font-size: 16px;
 
-    transition: 0.3s;
-
+    transition:
+        color 0.3s ease;
 }
 
+
 header nav ul li a:hover {
-
     color: #b88e2f;
-
 }
 
 
@@ -147,96 +118,282 @@ header nav ul li a:hover {
  */
 
 header .icons {
-
     display: flex;
 
     align-items: center;
 
     gap: 20px;
-
 }
+
 
 header .icons a {
-
     text-decoration: none;
-
 }
 
-header .icons i {
 
+header .icons i {
     font-size: 20px;
 
-    color: black;
+    color: #000;
 
     cursor: pointer;
 
-    transition: 0.3s;
-
+    transition:
+        color 0.3s ease,
+        transform 0.2s ease;
 }
+
 
 header .icons i:hover {
-
     color: #b88e2f;
 
+    transform:
+        translateY(-2px);
 }
 
 
+
+
+
+
+
+
+
+
+
+
 /* 
-   VIDEO BANNER
+   HOME BANNER
  */
 
-.banar {
-
-    width: 100%;
-
-    height: 550px;
-
+.home-banner {
     position: relative;
 
-    overflow: hidden;
-
-}
-
-
-.banar video {
-
     width: 100%;
+    height: 650px;
 
-    height: 100%;
-
-    object-fit: cover;
-
-    display: block;
-
+    overflow: hidden;
 }
 
 
 /* 
-   SECOND VIDEO */
+   BANNER IMAGE */
 
-.slide {
-
+.home-banner-image {
     width: 100%;
-
-    text-align: center;
-
-    padding: 50px 20px 30px;
-
-}
-
-.slide video {
-
-    width: 90%;
-
-    height: 430px;
-
-    object-fit: cover;
+    height: 100%;
 
     display: block;
 
-    margin: 0 auto;
-
+    object-fit: cover;
 }
+
+
+/* 
+   DARK SOFT OVERLAY
+ */
+
+.home-banner::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, 0.08);
+
+    z-index: 1;
+}
+
+
+/* 
+   BANNER CONTENT
+*/
+
+.home-banner-content {
+    position: absolute;
+
+    top: 50%;
+    right: 7%;
+
+    transform:
+        translateY(-50%);
+
+    width: 440px;
+
+    padding: 45px 40px;
+
+    background:
+        rgba(255, 247, 237, 0.95);
+
+    z-index: 2;
+}
+
+
+/* 
+   SMALL TEXT
+ */
+
+.home-banner-small-text {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color:
+        #333;
+
+    font-size:
+        15px;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        2px;
+}
+
+
+/* 
+   TITLE
+ */
+
+.home-banner-content h1 {
+    margin:
+        0 0 18px;
+
+    color:
+        #b88e2f;
+
+    font-size:
+        46px;
+
+    line-height:
+        1.15;
+
+    font-weight:
+        700;
+}
+
+
+/* 
+   DESCRIPTION
+*/
+
+.home-banner-content p {
+    margin:
+        0 0 28px;
+
+    color:
+        #555;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.8;
+}
+
+
+/*
+   BUTTON
+ */
+
+.home-banner-button {
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    min-width:
+        150px;
+
+    height:
+        50px;
+
+    padding:
+        0 28px;
+
+    background:
+        #b88e2f;
+
+    color:
+        #fff;
+
+    text-decoration:
+        none;
+
+    font-size:
+        13px;
+
+    font-weight:
+        bold;
+
+    letter-spacing:
+        1px;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.2s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.home-banner-button:hover {
+    background:
+        #927322;
+
+    color:
+        #fff;
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(0, 0, 0, 0.18);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -98,49 +98,200 @@
 
 
 
-<!--Toolbar-->
+
+
+<!-- 
+     SHOP TOOLBAR
+ -->
+
 <section class="shop-toolbar">
+
+
+    <!--
+         TOOLBAR LEFT
+     -->
 
     <div class="toolbar-left">
 
-        <button class="filter-btn">
+
+        <!-- FILTER -->
+
+        <button
+            class="filter-btn"
+            id="filterButton"
+            type="button"
+            aria-label="Open filters"
+        >
+
             <i class="fa-solid fa-sliders"></i>
-            Filter
+
+            <span>
+                Filter
+            </span>
+
         </button>
 
-        <span class="arrow">←</span>
 
-        <span class="arrow">→</span>
+        <!-- DIVIDER -->
 
-        <span class="dots">••••</span>
+        <span class="toolbar-divider"></span>
 
-        <span class="view-icon">☷</span>
 
-        <span class="results">
-            Showing 1–16 of 32 results
-        </span>
+        <!-- PREVIOUS -->
+
+        <button
+            class="toolbar-icon-btn"
+            id="prevPage"
+            type="button"
+            aria-label="Previous products"
+            title="Previous"
+        >
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+        </button>
+
+
+        <!-- NEXT -->
+
+        <button
+            class="toolbar-icon-btn"
+            id="nextPage"
+            type="button"
+            aria-label="Next products"
+            title="Next"
+        >
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </button>
+
+
+        <!-- PAGE DOTS -->
+
+        <div
+            class="toolbar-dots"
+            id="toolbarDots"
+            aria-hidden="true"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+
+        <!-- VIEW TOGGLE -->
+
+        <button
+            class="view-icon"
+            id="viewToggle"
+            type="button"
+            aria-label="Switch product view"
+            title="Change view"
+        >
+
+            <i
+                class="fa-solid fa-grip"
+                id="viewToggleIcon"
+            ></i>
+
+        </button>
+
+
+        <!-- RESULTS -->
+
+        <p
+            class="results"
+            id="resultsText"
+        >
+            Showing 1–16 of 16 results
+        </p>
 
     </div>
 
 
+
+    <!-- 
+         TOOLBAR RIGHT
+     -->
+
     <div class="toolbar-right">
 
-        <label>Show</label>
 
-        <select>
-            <option>16</option>
-            <option>32</option>
-            <option>48</option>
-        </select>
+        <!-- SHOW -->
+
+        <div class="toolbar-select-group">
+
+            <label
+                for="showProducts"
+            >
+                Show
+            </label>
 
 
-        <label>Sort by</label>
+            <select
+                id="showProducts"
+            >
 
-        <select>
-            <option>Default</option>
-            <option>Price</option>
-            <option>Name</option>
-        </select>
+                <option value="16">
+                    16
+                </option>
+
+                <option value="32">
+                    32
+                </option>
+
+                <option value="48">
+                    48
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <!-- SORT -->
+
+        <div class="toolbar-select-group">
+
+            <label
+                for="sortProducts"
+            >
+                Sort by
+            </label>
+
+
+            <select
+                id="sortProducts"
+            >
+
+                <option value="default">
+                    Default
+                </option>
+
+                <option value="price-low">
+                    Price: Low to High
+                </option>
+
+                <option value="price-high">
+                    Price: High to Low
+                </option>
+
+                <option value="name-a-z">
+                    Name: A to Z
+                </option>
+
+                <option value="name-z-a">
+                    Name: Z to A
+                </option>
+
+            </select>
+
+        </div>
 
     </div>
 
@@ -150,11 +301,93 @@
 
 
 
+
+
+
+
+
+
+
+<!-- 
+     SHOP VIDEO
+ -->
+
+<section class="shop-video-section">
+
+    <div class="shop-video-container">
+
+        <video
+            class="shop-video"
+            autoplay
+            muted
+            loop
+            playsinline
+        >
+
+            <source
+                src="assite/Banar-images/home1-video.mp4.mp4"
+                type="video/mp4"
+            >
+
+            Your browser does not support the video tag.
+
+        </video>
+
+
+        <div class="shop-video-overlay">
+
+            <span>
+                Furniro Collection
+            </span>
+
+            <h2>
+                Designed for Beautiful Living
+            </h2>
+
+            <p>
+                Discover elegant furniture made to bring
+                comfort, style and warmth to your home.
+            </p>
+
+            <a
+                href="#shop-products"
+                class="shop-video-button"
+            >
+                Explore Products
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- 
      PRODUCTS GRID
 -->
 
-<section class="products-grid">
+<section class="products-grid"
+id="shop-products"
+>
 
 
     <!-- 
@@ -2195,14 +2428,57 @@
 
 
 
-<!--123-->
 
-<section class="pagination">
 
-    <button class="active">1</button>
-    <button>2</button>
-    <button>3</button>
-    <button>Next</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+     PAGINATION
+ -->
+
+<section class="pagination" id="pagination">
+
+    <button
+        class="pagination-btn active"
+        type="button"
+        data-page="1">
+        1
+    </button>
+
+    <button
+        class="pagination-btn"
+        type="button"
+        data-page="2">
+        2
+    </button>
+
+    <button
+        class="pagination-btn"
+        type="button"
+        data-page="3">
+        3
+    </button>
+
+    <button
+        class="pagination-btn pagination-next"
+        id="paginationNext"
+        type="button">
+        Next
+    </button>
 
 </section>
 
@@ -2210,95 +2486,190 @@
 
 
 
-<!--  FEATURES  -->
+
+
+
+
+
+
+<!-- ================= FEATURES ================= -->
 
 <section class="features">
 
-    <div class="feature">
+    <!-- High Quality -->
+    <button class="feature" type="button" data-feature="quality">
 
         <i class="fa-solid fa-trophy"></i>
 
         <div>
-
             <h3>High Quality</h3>
-
             <p>Crafted from top materials</p>
-
         </div>
 
-    </div>
+    </button>
 
 
-    <div class="feature">
+    <!-- Warranty -->
+    <button class="feature" type="button" data-feature="warranty">
 
         <i class="fa-solid fa-shield-halved"></i>
 
         <div>
-
             <h3>Warranty Protection</h3>
-
             <p>Over 2 years</p>
-
         </div>
 
-    </div>
+    </button>
 
 
-    <div class="feature">
+    <!-- Shipping -->
+    <button class="feature" type="button" data-feature="shipping">
 
         <i class="fa-solid fa-truck"></i>
 
         <div>
-
             <h3>Free Shipping</h3>
-
             <p>Order Over 150 dollars</p>
-
         </div>
 
-    </div>
+    </button>
 
 
-    <div class="feature">
+    <!-- Support -->
+    <button class="feature" type="button" data-feature="support">
 
         <i class="fa-solid fa-headset"></i>
 
         <div>
-
             <h3>24 / 7 Support</h3>
-
             <p>Dedicated Support</p>
-
         </div>
+
+    </button>
+
+</section>
+
+
+<!-- ================= FEATURE MODAL ================= -->
+
+<div class="feature-overlay" id="featureOverlay">
+
+    <div class="feature-modal">
+
+        <button
+            class="feature-close"
+            id="featureClose"
+            type="button"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="feature-modal-icon">
+            <i id="featureModalIcon" class="fa-solid fa-trophy"></i>
+        </div>
+
+        <h2 id="featureModalTitle">
+            High Quality
+        </h2>
+
+        <p id="featureModalText">
+            Crafted from top materials.
+        </p>
 
     </div>
 
-</section>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <div class="footer-line"></div>
 
 
+<!-- ================================
+     FOOTER
+================================ -->
 
 <footer>
 
-
-
     <div class="footer-top">
 
+        <!-- BRAND -->
         <div class="footer-brand">
+
             <h2>Furniro.</h2>
 
             <p>
                 400 University Drive Suite 200 Coral Gables,
                 FL 33134 USA
             </p>
+
         </div>
 
 
+        <!-- LINKS -->
         <div class="footer-links">
 
             <h3>Links</h3>
+
             <a href="index.html">Home</a>
             <a href="Shop.html">Shop</a>
             <a href="About.html">About</a>
@@ -2308,49 +2679,70 @@
         </div>
 
 
+        <!-- HELP -->
         <div class="footer-help">
 
             <h3>Help</h3>
 
-           <a href="Payment-Options.html">Payment Options</a>
-            <a href="Returns.html">Returns</a>
-            <a href="Privacy-Policy.html">Privacy Policies</a>
-           
+            <a href="Payment-Options.html">
+                Payment Options
+            </a>
+
+            <a href="Returns.html">
+                Returns
+            </a>
+
+            <a href="Privacy-Policy.html">
+                Privacy Policies
+            </a>
 
         </div>
 
 
+        <!-- NEWSLETTER -->
         <div class="footer-newsletter">
 
             <h3>Newsletter</h3>
 
-            <div>
-                <input 
-                    type="email" 
+            <form
+                class="newsletter-form"
+                id="newsletterForm"
+            >
+
+                <input
+                    type="email"
+                    id="newsletterEmail"
                     placeholder="Enter your email"
+                    required
                 >
 
-                <button>SUBSCRIBE</button>
-            </div>
+                <button type="submit">
+                    SUBSCRIBE
+                </button>
+
+            </form>
 
         </div>
 
     </div>
 
 
+    <!-- FOOTER LINE -->
+
     <div class="footer-line"></div>
 
+
+    <!-- FOOTER BOTTOM -->
 
     <div class="footer-bottom">
 
         <p>
-            2023 Furniro. All rights reserved.
+            © 2023 Furniro. All rights reserved.
         </p>
 
     </div>
 
 </footer>
-
 
 
 
@@ -2526,7 +2918,10 @@
 
 
 <script src="JS/main.js"></script>
+<script src="JS/Shop-Toolbar.js"></script>
 
+<script src="JS/Pagination.js"></script>
+<script src="JS/Features.js"></script>
 
 <script src="JS/Category.js"></script>
 
@@ -2537,6 +2932,7 @@
 <script src="JS/Comparison.js"></script>
 
 <script src="JS/Share.js"></script>
+<script src="JS/Newsletter.js"></script>
 
 
 

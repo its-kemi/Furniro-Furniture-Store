@@ -1094,3 +1094,230 @@ footer {
     font-size: 14px;
     color: #333;
 }
+/* =========================================
+   ABOUT PAGE ANIMATIONS
+========================================= */
+
+
+/* -----------------------------------------
+   SCROLL REVEAL
+----------------------------------------- */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* -----------------------------------------
+   FEATURE CARDS
+----------------------------------------- */
+
+.feature-card {
+    cursor: pointer;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+.feature-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.10);
+}
+
+
+.feature-card.feature-selected {
+
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 15px 40px rgba(184, 142, 47, 0.20);
+}
+
+
+/* -----------------------------------------
+   VALUE ITEMS
+----------------------------------------- */
+
+.value-item {
+    cursor: pointer;
+
+    transition:
+        transform 0.35s ease,
+        padding-left 0.35s ease;
+}
+
+
+.value-item:hover {
+
+    transform: translateX(8px);
+
+}
+
+
+.value-item.value-selected {
+
+    transform: translateX(10px);
+
+}
+
+
+/* -----------------------------------------
+   SHOWCASE IMAGE
+----------------------------------------- */
+
+.showcase-image {
+
+    overflow: hidden;
+
+}
+
+
+.showcase-image img {
+
+    width: 100%;
+
+    transition:
+        transform 0.7s ease;
+}
+
+
+.showcase-image:hover img {
+
+    transform: scale(1.05);
+
+}
+
+
+/* -----------------------------------------
+   ABOUT INTRO IMAGE
+----------------------------------------- */
+
+.about-intro-image {
+
+    overflow: hidden;
+
+}
+
+
+.about-intro-image img {
+
+    transition:
+        transform 0.7s ease;
+}
+
+
+.about-intro-image:hover img {
+
+    transform: scale(1.05);
+
+}
+
+
+/* -----------------------------------------
+   STATS
+----------------------------------------- */
+
+.stat-item {
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.stat-item:hover {
+
+    transform: translateY(-6px);
+
+}
+
+
+/* -----------------------------------------
+   HEADER SCROLL
+----------------------------------------- */
+
+header {
+
+    transition:
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+header.header-scrolled {
+
+    background-color: rgba(255, 255, 255, 0.96);
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.08);
+
+}
+
+
+/* -----------------------------------------
+   SHOP / CTA LINKS
+----------------------------------------- */
+
+.about-banner-content a,
+.about-intro-text a,
+.showcase-content a,
+.about-cta-content a {
+
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+.about-banner-content a:hover,
+.about-intro-text a:hover,
+.showcase-content a:hover,
+.about-cta-content a:hover {
+
+    transform: translateX(5px);
+
+}
+
+
+/* -----------------------------------------
+   CTA ARROW
+----------------------------------------- */
+
+.about-banner-content a i,
+.about-intro-text a i,
+.showcase-content a i,
+.about-cta-content a i {
+
+    transition:
+        transform 0.3s ease;
+
+}
+
+
+.about-banner-content a:hover i,
+.about-intro-text a:hover i,
+.showcase-content a:hover i,
+.about-cta-content a:hover i {
+
+    transform: translateX(5px);
+
+}
+
+
+
