@@ -1,4 +1,4 @@
-/* ================= GENERAL ================= */
+
 
 * {
     margin: 0;
@@ -12,7 +12,7 @@ body {
 }
 
 
-/* ================= HEADER ================= */
+/*  HEADER  */
 
 header {
     width: 100%;
@@ -92,7 +92,7 @@ header .icons i:hover {
 }
 
 
-/* ================= BANNER ================= */
+/*  BANNER  */
 
 .page-banner {
     position: relative;
@@ -167,7 +167,7 @@ header .icons i:hover {
 }
 
 
-/* ================= PRIVACY POLICY ================= */
+/*  PRIVACY POLICY  */
 
 .privacy-policy {
     padding: 70px 5%;
@@ -220,7 +220,7 @@ header .icons i:hover {
 }
 
 
-/* ================= FEATURES ================= */
+/*  FEATURES  */
 
 .features {
     display: flex;
@@ -252,7 +252,7 @@ header .icons i:hover {
 }
 
 
-/* ================= FOOTER ================= */
+/*  FOOTER  */
 
 footer {
     width: 100%;

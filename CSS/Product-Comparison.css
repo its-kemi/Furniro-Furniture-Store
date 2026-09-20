@@ -1,6 +1,4 @@
-/* ==================================================
-   PRODUCT COMPARISON PAGE
-================================================== */
+
 * {
   margin: 0;
   padding: 0;
@@ -83,9 +81,9 @@ header .icons i:hover {
 }
 
 
-/* ==================================================
+/* 
    BANNER
-================================================== */
+ */
 
 .comparison-banner {
 
@@ -113,7 +111,7 @@ header .icons i:hover {
     inset: -15px;
 
     background-image:
-        url("../images/banar5.png");
+        url("../assite/Banar-images/banar5.png");
 
     background-size: cover;
 
@@ -218,9 +216,9 @@ header .icons i:hover {
 
 
 
-/* ==================================================
+/* 
    COMPARISON INTRO
-================================================== */
+ */
 
 .comparison-intro {
 
@@ -242,9 +240,9 @@ header .icons i:hover {
 }
 
 
-/* ==================================================
+/* 
    MORE PRODUCTS
-================================================== */
+ */
 
 .comparison-more {
 
@@ -319,9 +317,9 @@ header .icons i:hover {
 
 
 
-/* ==================================================
+/* 
    COMPARISON PRODUCT
-================================================== */
+ */
 
 .comparison-product {
 
@@ -442,9 +440,9 @@ header .icons i:hover {
 
 
 
-/* ==================================================
+/* 
    ADD PRODUCT
-================================================== */
+ */
 
 .comparison-add-product {
 
@@ -503,11 +501,9 @@ header .icons i:hover {
 
 
 
-/* ==================================================
-   TABLE SECTION
-/* ==================================================
+/*
    COMPARISON TABLE
-================================================== */
+ */
 
 .comparison-table-section {
 
@@ -531,9 +527,9 @@ header .icons i:hover {
 }
 
 
-/* ==================================================
+/*
    ROW
-================================================== */
+ */
 
 .comparison-row {
 
@@ -542,9 +538,9 @@ header .icons i:hover {
 }
 
 
-/* ==================================================
+/* 
    CELL
-================================================== */
+ */
 
 .comparison-cell {
 
@@ -573,16 +569,16 @@ header .icons i:hover {
 }
 
 
-/* ستون چهارم کاملاً خالی و بدون خط */
+/* Ston 4  */
 
 .comparison-cell:nth-child(4) {
 
     border-right: none;
 
 }
-/* ==================================================
+/* 
    HEADER
-================================================== */
+ */
 
 .comparison-header {
 
@@ -628,9 +624,9 @@ header .icons i:hover {
 
 
 
-/* ==================================================
+/* 
    SECTION TITLES
-================================================== */
+ */
 
 .comparison-section-title {
 
@@ -660,9 +656,9 @@ header .icons i:hover {
 
 
 
-/* ==================================================
+/* 
    LABEL
-================================================== */
+*/
 
 .comparison-label {
 
@@ -673,9 +669,9 @@ header .icons i:hover {
 }
 
 
-/* ==================================================
+/* 
    PRODUCT DATA
-================================================== */
+ */
 
 .comparison-row:not(.comparison-section-title)
 .comparison-cell:nth-child(2),
@@ -692,9 +688,9 @@ header .icons i:hover {
 }
 
 
-/* ==================================================
+/* 
    EMPTY COLUMN
-================================================== */
+ */
 
 .comparison-row .comparison-cell:nth-child(4) {
 
@@ -704,9 +700,9 @@ header .icons i:hover {
 
 
 
-/* ==================================================
+/* 
    CART ROW
-================================================== */
+ */
 
 .comparison-cart-row {
 
@@ -778,9 +774,9 @@ header .icons i:hover {
 
 
 
-/* ==================================================
+/* 
    FEATURES
-================================================== */
+ */
 
 .comparison-features {
 
@@ -861,170 +857,7 @@ header .icons i:hover {
 
 
 
-/* ==================================================
-   RESPONSIVE
-================================================== */
 
-@media (max-width: 1100px) {
-
-
-    .comparison-intro {
-
-        grid-template-columns:
-            1fr 1fr;
-
-        align-items: start;
-
-        row-gap: 45px;
-
-    }
-
-
-    .comparison-more {
-
-        padding-bottom: 0;
-
-    }
-
-
-    .comparison-add-product {
-
-        padding-bottom: 0;
-
-    }
-
-
-    .comparison-features {
-
-        grid-template-columns:
-            1fr 1fr;
-
-        row-gap: 35px;
-
-    }
-
-}
-
-
-
-@media (max-width: 800px) {
-
-
-    .comparison-banner {
-
-        height: 380px;
-
-    }
-
-
-    .comparison-banner-content h1 {
-
-        font-size: 34px;
-
-    }
-
-
-    .comparison-logo {
-
-        width: 55px;
-
-        height: 55px;
-
-    }
-
-
-    .comparison-intro {
-
-        width: 88%;
-
-        grid-template-columns:
-            1fr 1fr;
-
-    }
-
-
-    .comparison-product-image {
-
-        height: 130px;
-
-    }
-
-}
-
-
-
-@media (max-width: 600px) {
-
-
-    .comparison-banner {
-
-        height: 340px;
-
-    }
-
-
-    .comparison-banner-content h1 {
-
-        font-size: 28px;
-
-    }
-
-
-    .comparison-breadcrumb {
-
-        font-size: 12px;
-
-    }
-
-
-    .comparison-intro {
-
-        width: 88%;
-
-        grid-template-columns:
-            1fr;
-
-        margin-top: 55px;
-
-    }
-
-
-    .comparison-product {
-
-        max-width: 320px;
-
-    }
-
-
-    .comparison-add-product {
-
-        max-width: 320px;
-
-    }
-
-
-    .comparison-features {
-
-        grid-template-columns:
-            1fr;
-
-        padding:
-            45px 8%;
-
-    }
-
-}
-
-
-
-@media (max-width: 450px) {
-
-
-    .comparison-banner {
-
-        height: 320px;
-
-    }
 
 
     .comparison-banner-content h1 {

@@ -238,7 +238,7 @@ header .icons i:hover {
 
 
 
-/* ================= PRODUCTS ================= */
+/*  PRODUCTS  */
 
 .products {
     padding: 60px 0;
@@ -264,7 +264,7 @@ header .icons i:hover {
 }
 
 
-/* ================= PRODUCT CARD ================= */
+/*  PRODUCT CARD  */
 
 .product-card {
     background-color: white;
@@ -280,7 +280,7 @@ header .icons i:hover {
 }
 
 
-/* ================= PRODUCT IMAGE ================= */
+/*  PRODUCT IMAGE  */
 
 .product-image {
     position: relative;
@@ -296,7 +296,7 @@ header .icons i:hover {
 }
 
 
-/* ================= BADGE ================= */
+/*  BADGE  */
 
 .badge {
     position: absolute;
@@ -324,7 +324,7 @@ header .icons i:hover {
 
 
 
-/* ================= PRODUCT ACTIONS ================= */
+/* PRODUCT ACTIONS  */
 
 .product-actions {
     position: absolute;
@@ -347,7 +347,7 @@ header .icons i:hover {
 }
 
 
-/* ================= ADD TO CART ================= */
+/* ADD TO CART */
 
 .product-actions > button {
     width: 100%;
@@ -365,7 +365,7 @@ header .icons i:hover {
 }
 
 
-/* ================= SHARE / COMPARE / LIKE ================= */
+/*  SHARE / COMPARE / LIKE  */
 
 .product-buttons {
     display: flex;
@@ -388,7 +388,7 @@ header .icons i:hover {
 }
 
 
-/* ================= PRODUCT TEXT ================= */
+/* PRODUCT TEXT  */
 
 .product-card h3 {
     margin: 15px 0 8px;
@@ -415,7 +415,7 @@ header .icons i:hover {
 }
 
 
-/* ================= BUTTON HOVER ================= */
+/*  BUTTON HOVER  */
 
 .product-actions button:hover {
     background-color: #b88e2f;

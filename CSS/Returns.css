@@ -1,4 +1,4 @@
-/* ================= GENERAL ================= */
+
 
 * {
     margin: 0;
@@ -12,7 +12,7 @@ body {
 }
 
 
-/* ================= HEADER ================= */
+/* R HEADER  */
 
 header {
     width: 100%;
@@ -87,7 +87,7 @@ header .icons i:hover {
 }
 
 
-/* ================= PAGE BANNER ================= */
+/*  PAGE BANNER  */
 
 .page-banner {
     position: relative;
@@ -158,7 +158,7 @@ header .icons i:hover {
 }
 
 
-/* ================= RETURNS ================= */
+/*  RETURNS  */
 
 .returns-page {
     padding: 70px 5%;
@@ -185,7 +185,7 @@ header .icons i:hover {
 }
 
 
-/* ================= RETURN BOX ================= */
+/* RETURN BOX  */
 
 .return-box {
     display: flex;
@@ -226,7 +226,7 @@ header .icons i:hover {
 }
 
 
-/* ================= RETURN SECTIONS ================= */
+/*  RETURN SECTIONS  */
 
 .return-section {
     padding: 25px 0;
@@ -251,7 +251,7 @@ header .icons i:hover {
 }
 
 
-/* ================= RETURN PROCESS ================= */
+/*  RETURN PROCESS  */
 
 .return-process {
     margin-top: 55px;
@@ -295,7 +295,7 @@ header .icons i:hover {
 }
 
 
-/* ================= INFORMATION ================= */
+/*  INFORMATION  */
 
 .return-info {
     display: flex;
@@ -323,7 +323,7 @@ header .icons i:hover {
 }
 
 
-/* ================= CONTACT ================= */
+/*  CONTACT  */
 
 .contact-return {
     margin-top: 45px;
@@ -357,7 +357,7 @@ header .icons i:hover {
 }
 
 
-/* ================= FEATURES ================= */
+/*  FEATURES  */
 
 .features {
     display: flex;
@@ -389,7 +389,7 @@ header .icons i:hover {
 }
 
 
-/* ================= FOOTER ================= */
+/*  FOOTER  */
 
 footer {
     width: 100%;
@@ -484,7 +484,7 @@ footer {
     color: #333;
 }
 
-/* ================= HEADER HOVER ================= */
+/*  HEADER HOVER  */
 
 header nav ul li a {
     text-decoration: none;

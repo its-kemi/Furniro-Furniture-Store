@@ -1,4 +1,4 @@
-/* ================= GENERAL ================= */
+
 
 * {
     margin: 0;
@@ -13,7 +13,7 @@ body {
 }
 
 
-/* ================= HEADER ================= */
+/*  HEADER  */
 
 header {
     width: 100%;
@@ -66,7 +66,7 @@ nav ul li a {
 }
 
 
-/* ================= PAGE BANNER ================= */
+/*  PAGE BANNER  */
 
 .page-banner {
     position: relative;
@@ -140,7 +140,7 @@ header nav ul li a:hover {
 }
 
 
-/* ================= PAYMENT ================= */
+/*  PAYMENT */
 
 .payment-page {
     padding: 70px 5%;
@@ -167,7 +167,7 @@ header nav ul li a:hover {
 }
 
 
-/* ================= PAYMENT BOX ================= */
+/* PAYMENT BOX */
 
 .payment-box {
     display: flex;
@@ -218,7 +218,7 @@ header .icons i:hover {
 }
 
 
-/* ================= SECURITY ================= */
+/* SECURITY */
 
 .payment-security {
     display: flex;
@@ -246,7 +246,7 @@ header .icons i:hover {
 }
 
 
-/* ================= INFORMATION ================= */
+/*  INFORMATION  */
 
 .payment-info {
     margin-top: 40px;
@@ -280,7 +280,7 @@ header .icons i:hover {
 }
 
 
-/* ================= FEATURES ================= */
+/* FEATURES */
 
 .features {
     display: flex;
@@ -312,7 +312,7 @@ header .icons i:hover {
 }
 
 
-/* ================= FOOTER ================= */
+/*  FOOTER  */
 
 footer {
     width: 100%;
