@@ -11,19 +11,19 @@
     <title>Contact - Furniro</title>
 
 
-    
+    <!-- ================= FONT AWESOME ================= -->
 
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 
-    
+    <!-- ================= GENERAL CSS ================= -->
 
     <link rel="stylesheet"
         href="css/style.css">
 
 
-    
+    <!-- ================= CONTACT CSS ================= -->
 
     <link rel="stylesheet"
         href="css/Contact.css">
@@ -34,15 +34,18 @@
 <body>
 
 
-<!--
-     HEADER- Contact
- -->
+<!-- ==================================================
+     HEADER
+================================================== -->
 
 <header>
 
+    <!-- LOGO -->
+
     <div class="logo">
 
-        <img src="assite/Header-images/logo.png"
+        <img
+            src="assite/Header-images/logo.png"
             alt="Furniro Logo">
 
         <h3>
@@ -51,6 +54,8 @@
 
     </div>
 
+
+    <!-- NAVIGATION -->
 
     <nav>
 
@@ -86,23 +91,40 @@
     </nav>
 
 
-  
+    <!-- HEADER ICONS -->
+
     <div class="icons">
 
-        <a href="Account.html">
-            <i class="fas fa-user-alt"></i>
-        </a>
+      <a href="#"
+   class="account-icon"
+   id="accountOpen">
 
-        <a href="Wishlist.html">
+    <i class="fas fa-user-alt"></i>
+
+</a>
+
+
+        <a href="Wishlist.html"
+            title="Wishlist">
+
             <i class="far fa-heart"></i>
+
         </a>
 
-        <a href="Search.html">
+
+        <a href="Search.html"
+            title="Search">
+
             <i class="fa fa-search"></i>
+
         </a>
 
-        <a href="Cart.html">
+
+        <a href="Cart.html"
+            title="Cart">
+
             <i class="fa fa-shopping-cart"></i>
+
         </a>
 
     </div>
@@ -111,24 +133,24 @@
 
 
 
-<!-- 
+<!-- ==================================================
      CONTACT BANNER
- -->
+================================================== -->
 
 <section class="contact-banner">
 
 
-   
+    <!-- BACKGROUND IMAGE -->
 
     <div class="contact-banner-bg"></div>
 
 
-    
+    <!-- DARK OVERLAY -->
 
     <div class="contact-banner-overlay"></div>
 
 
-    
+    <!-- BANNER CONTENT -->
 
     <div class="contact-banner-content">
 
@@ -159,9 +181,12 @@
     </div>
 
 
-    <!-- Scroll -->
+    <!-- SCROLL BUTTON -->
 
-    <div class="banner-scroll">
+    <button
+        class="banner-scroll"
+        id="bannerScroll"
+        type="button">
 
         <i class="fa-solid fa-arrow-down"></i>
 
@@ -169,21 +194,22 @@
             SCROLL TO CONTACT
         </span>
 
-    </div>
-
+    </button>
 
 </section>
 
 
 
-<!-- 
+<!-- ==================================================
      CONTACT SECTION
- -->
+================================================== -->
 
-<section class="contact-section">
+<section
+    class="contact-section"
+    id="contact-section">
 
 
-    <!-- Heading -->
+    <!-- CONTACT HEADING -->
 
     <div class="contact-heading">
 
@@ -193,8 +219,13 @@
 
 
         <h2>
+
             We'd Love To
-            <strong>Hear From You</strong>
+
+            <strong>
+                Hear From You
+            </strong>
+
         </h2>
 
 
@@ -210,21 +241,23 @@
 
 
 
-    <!-- Contact Layout -->
+    <!-- CONTACT LAYOUT -->
 
     <div class="contact-layout">
 
 
-        <!-- 
+        <!-- ==========================================
              CONTACT INFORMATION
-         -->
+        =========================================== -->
 
         <div class="contact-info">
 
 
-            <!-- Address -->
+            <!-- ADDRESS -->
 
-            <div class="contact-info-card">
+            <div
+                class="contact-info-card"
+                data-contact="address">
 
                 <div class="contact-info-icon">
 
@@ -242,8 +275,11 @@
                     <p>
 
                         400 University Drive
+                        <br>
                         Suite 200
+                        <br>
                         Coral Gables,
+                        <br>
                         FL 33134 USA
 
                     </p>
@@ -254,9 +290,11 @@
 
 
 
-            <!-- Phone -->
+            <!-- PHONE -->
 
-            <div class="contact-info-card">
+            <div
+                class="contact-info-card"
+                data-contact="phone">
 
                 <div class="contact-info-icon">
 
@@ -281,9 +319,11 @@
 
 
 
-            <!-- Email -->
+            <!-- EMAIL -->
 
-            <div class="contact-info-card">
+            <div
+                class="contact-info-card"
+                data-contact="email">
 
                 <div class="contact-info-icon">
 
@@ -308,9 +348,11 @@
 
 
 
-            <!-- Working Time -->
+            <!-- WORKING TIME -->
 
-            <div class="contact-info-card">
+            <div
+                class="contact-info-card"
+                data-contact="working">
 
                 <div class="contact-info-icon">
 
@@ -337,22 +379,23 @@
 
             </div>
 
-
         </div>
 
 
 
-        <!-- 
+        <!-- ==========================================
              CONTACT FORM
-         -->
+        =========================================== -->
 
-        <div class="contact-form">
+        <div
+            class="contact-form"
+            id="contact-form">
 
 
-            <form>
+            <form id="contactForm">
 
 
-                <!-- Name -->
+                <!-- NAME -->
 
                 <div class="form-group">
 
@@ -366,13 +409,14 @@
                         id="name"
                         name="name"
                         placeholder="Enter your name"
+                        autocomplete="name"
                         required>
 
                 </div>
 
 
 
-                <!-- Email -->
+                <!-- EMAIL -->
 
                 <div class="form-group">
 
@@ -386,13 +430,14 @@
                         id="email"
                         name="email"
                         placeholder="Enter your email"
+                        autocomplete="email"
                         required>
 
                 </div>
 
 
 
-                <!-- Subject -->
+                <!-- SUBJECT -->
 
                 <div class="form-group">
 
@@ -411,7 +456,7 @@
 
 
 
-                <!-- Message -->
+                <!-- MESSAGE -->
 
                 <div class="form-group">
 
@@ -431,23 +476,32 @@
 
 
 
-                <!-- Submit -->
+                <!-- FORM MESSAGE -->
+
+                <p
+                    class="form-message"
+                    id="formMessage">
+                </p>
+
+
+
+                <!-- SUBMIT BUTTON -->
 
                 <button
-                    type="submit">
+                    type="submit"
+                    class="contact-submit">
 
-                    Send Message
+                    <span>
+                        Send Message
+                    </span>
 
                     <i class="fa-solid fa-arrow-right"></i>
 
                 </button>
 
-
             </form>
 
-
         </div>
-
 
     </div>
 
@@ -455,12 +509,14 @@
 
 
 
-<!-- 
+<!-- ==================================================
      SHOWROOM
--->
+================================================== -->
 
 <section class="contact-showroom">
 
+
+    <!-- IMAGE -->
 
     <div class="showroom-image">
 
@@ -470,6 +526,9 @@
 
     </div>
 
+
+
+    <!-- CONTENT -->
 
     <div class="showroom-content">
 
@@ -481,7 +540,10 @@
         <h2>
 
             Come And See
-            <strong>Our Collection</strong>
+
+            <strong>
+                Our Collection
+            </strong>
 
         </h2>
 
@@ -494,6 +556,9 @@
 
         </p>
 
+
+
+        <!-- SHOWROOM DETAILS -->
 
         <div class="showroom-details">
 
@@ -521,16 +586,22 @@
         </div>
 
 
-        <a href="#contact-form">
 
-            Get In Touch
+        <!-- GET IN TOUCH -->
+
+        <a
+            href="#contact-form"
+            id="showroomContactButton">
+
+            <span>
+                Get In Touch
+            </span>
 
             <i class="fa-solid fa-arrow-right"></i>
 
         </a>
 
     </div>
-
 
 </section>
 
@@ -542,6 +613,8 @@
 
 <section class="contact-faq">
 
+
+    <!-- FAQ HEADING -->
 
     <div class="faq-heading">
 
@@ -564,22 +637,30 @@
 
 
 
+    <!-- FAQ GRID -->
+
     <div class="faq-grid">
 
 
-        <!-- FAQ 1 -->
+        <!-- FAQ 01 -->
 
-        <div class="faq-item">
+        <div
+            class="faq-item"
+            tabindex="0">
 
             <div class="faq-number">
                 01
             </div>
 
 
-            <div>
+            <div class="faq-content">
 
                 <h3>
+
                     How can I contact Furniro?
+
+                    <i class="fa-solid fa-plus"></i>
+
                 </h3>
 
 
@@ -598,19 +679,25 @@
 
 
 
-        <!-- FAQ 2 -->
+        <!-- FAQ 02 -->
 
-        <div class="faq-item">
+        <div
+            class="faq-item"
+            tabindex="0">
 
             <div class="faq-number">
                 02
             </div>
 
 
-            <div>
+            <div class="faq-content">
 
                 <h3>
+
                     What are your working hours?
+
+                    <i class="fa-solid fa-plus"></i>
+
                 </h3>
 
 
@@ -627,19 +714,25 @@
 
 
 
-        <!-- FAQ 3 -->
+        <!-- FAQ 03 -->
 
-        <div class="faq-item">
+        <div
+            class="faq-item"
+            tabindex="0">
 
             <div class="faq-number">
                 03
             </div>
 
 
-            <div>
+            <div class="faq-content">
 
                 <h3>
+
                     Can I ask about a product?
+
+                    <i class="fa-solid fa-plus"></i>
+
                 </h3>
 
 
@@ -657,19 +750,25 @@
 
 
 
-        <!-- FAQ 4 -->
+        <!-- FAQ 04 -->
 
-        <div class="faq-item">
+        <div
+            class="faq-item"
+            tabindex="0">
 
             <div class="faq-number">
                 04
             </div>
 
 
-            <div>
+            <div class="faq-content">
 
                 <h3>
+
                     Do you have a showroom?
+
+                    <i class="fa-solid fa-plus"></i>
+
                 </h3>
 
 
@@ -684,82 +783,145 @@
 
         </div>
 
-
     </div>
 
 </section>
 
 
 
-
- <div class="footer-line"></div>
+<!-- ==================================================
+     FOOTER
+================================================== -->
 
 <footer>
 
 
-
     <div class="footer-top">
 
+
+        <!-- BRAND -->
+
         <div class="footer-brand">
-            <h2>Furniro.</h2>
+
+            <h2>
+                Furniro.
+            </h2>
 
             <p>
-                400 University Drive Suite 200 Coral Gables,
+
+                400 University Drive
+                Suite 200 Coral Gables,
                 FL 33134 USA
+
             </p>
+
         </div>
 
+
+
+        <!-- LINKS -->
 
         <div class="footer-links">
 
-            <h3>Links</h3>
+            <h3>
+                Links
+            </h3>
 
-            <a href="index.html">Home</a>
-            <a href="Shop.html">Shop</a>
-            <a href="About.html">About</a>
-            <a href="Contact.html">Contact</a>
-            <a href="Blog.html">Blog</a>
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="Shop.html">
+                Shop
+            </a>
+
+            <a href="About.html">
+                About
+            </a>
+
+            <a href="Contact.html">
+                Contact
+            </a>
+
+            <a href="Blog.html">
+                Blog
+            </a>
 
         </div>
 
+
+
+        <!-- HELP -->
 
         <div class="footer-help">
 
-            <h3>Help</h3>
+            <h3>
+                Help
+            </h3>
 
-           <a href="Payment-Options.html">Payment Options</a>
-            <a href="Returns.html">Returns</a>
-            <a href="Privacy-Policy.html">Privacy Policies</a>
-            
+            <a href="Payment-Options.html">
+                Payment Options
+            </a>
+
+            <a href="Returns.html">
+                Returns
+            </a>
+
+            <a href="Privacy-Policy.html">
+                Privacy Policies
+            </a>
 
         </div>
 
 
+
+        <!-- NEWSLETTER -->
+
         <div class="footer-newsletter">
 
-            <h3>Newsletter</h3>
+            <h3>
+                Newsletter
+            </h3>
 
-            <div>
-                <input 
-                    type="email" 
+
+            <form
+                class="newsletter-form"
+                id="newsletterForm">
+
+                <input
+                    type="email"
+                    id="newsletterEmail"
                     placeholder="Enter your email"
-                >
+                    required>
 
-                <button>SUBSCRIBE</button>
-            </div>
+
+                <button
+                    type="submit">
+
+                    SUBSCRIBE
+
+                </button>
+
+            </form>
 
         </div>
 
     </div>
 
 
+
+    <!-- FOOTER LINE -->
+
     <div class="footer-line"></div>
 
+
+
+    <!-- FOOTER BOTTOM -->
 
     <div class="footer-bottom">
 
         <p>
-            2023 Furniro. All rights reserved.
+            © 2023 Furniro. All rights reserved.
         </p>
 
     </div>
@@ -767,6 +929,14 @@
 </footer>
 
 
+
+<!-- ==================================================
+     CONTACT JAVASCRIPT
+================================================== -->
+
+<script src="JS/Contact.js"></script>
+
+<script src="JS/Account.js"></script>
 </body>
 
 </html>

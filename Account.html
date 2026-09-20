@@ -5,76 +5,150 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Account - Furniro</title>
 
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <link rel="stylesheet" href="CSS/Account.css">
+    <!-- ================= FONT AWESOME ================= -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- ================= ACCOUNT CSS ================= -->
+
+    <link
+        rel="stylesheet"
+        href="CSS/Account.css"
+    >
 
 </head>
+
 
 <body>
 
 
-<!-- HEADER Accountt -->
+<!-- ==================================================
+     HEADER
+================================================== -->
 
 <header>
 
+
+    <!-- LOGO -->
+
     <div class="logo">
 
-        <img src="assite/Header-images/logo.png" alt="Furniro Logo">
+        <img
+            src="assite/Header-images/logo.png"
+            alt="Furniro Logo"
+        >
 
-        <h3>Furniro</h3>
+        <h3>
+            Furniro
+        </h3>
 
     </div>
 
+
+
+    <!-- NAVIGATION -->
 
     <nav>
 
         <ul>
 
             <li>
-                <a href="index.html">Home</a>
+                <a href="index.html">
+                    Home
+                </a>
             </li>
 
             <li>
-                <a href="Shop.html">Shop</a>
+                <a href="Shop.html">
+                    Shop
+                </a>
             </li>
 
             <li>
-                <a href="About.html">About</a>
+                <a href="About.html">
+                    About
+                </a>
             </li>
 
             <li>
-                <a href="Contact.html">Contact</a>
+                <a href="Contact.html">
+                    Contact
+                </a>
             </li>
-
-            
 
         </ul>
 
     </nav>
 
 
+
+    <!-- HEADER ICONS -->
+
     <div class="icons">
 
-        <a href="Account.html">
+
+        <!-- ACCOUNT -->
+
+        <a
+            href="#"
+            class="account-icon"
+            id="accountOpen"
+            aria-label="Open Account"
+        >
+
             <i class="fas fa-user-alt"></i>
+
         </a>
 
-        <a href="Wishlist.html">
+
+
+        <!-- WISHLIST -->
+
+        <a
+            href="Wishlist.html"
+            aria-label="Wishlist"
+        >
+
             <i class="far fa-heart"></i>
+
         </a>
 
-        <a href="Search.html">
+
+
+        <!-- SEARCH -->
+
+        <a
+            href="Search.html"
+            aria-label="Search"
+        >
+
             <i class="fa fa-search"></i>
+
         </a>
 
-        <a href="Cart.html">
+
+
+        <!-- CART -->
+
+        <a
+            href="Cart.html"
+            aria-label="Cart"
+        >
+
             <i class="fa fa-shopping-cart"></i>
+
         </a>
 
     </div>
@@ -82,7 +156,10 @@
 </header>
 
 
-<!-- BANNER Acc -->
+
+<!-- ==================================================
+     PAGE BANNER
+================================================== -->
 
 <section class="page-banner">
 
@@ -92,15 +169,24 @@
 
     <div class="page-banner-content">
 
-        <img src="assite/Header-images/logo.png" alt="Furniro Logo">
+        <img
+            src="assite/Header-images/logo.png"
+            alt="Furniro Logo"
+        >
 
-        <h1>Account</h1>
+        <h1>
+            Account
+        </h1>
 
         <p>
 
-            <a href="index.html">Home</a>
+            <a href="index.html">
+                Home
+            </a>
 
-            <span>›</span>
+            <span>
+                ›
+            </span>
 
             Account
 
@@ -111,18 +197,23 @@
 </section>
 
 
-<!-- ACCOUNT  -->
+
+<!-- ==================================================
+     ACCOUNT CONTENT
+================================================== -->
 
 <section class="account-section">
 
     <div class="account-container">
 
 
-        <!-- LOGIN -->
+        <!-- ================= LOGIN ================= -->
 
         <div class="account-box">
 
-            <h2>Login</h2>
+            <h2>
+                Login
+            </h2>
 
             <p class="account-text">
                 Welcome back! Please enter your details.
@@ -130,6 +221,7 @@
 
 
             <form id="loginForm">
+
 
                 <label for="login-email">
                     Email Address
@@ -159,13 +251,20 @@
 
                     <label class="remember">
 
-                        <input type="checkbox">
+                        <input
+                            type="checkbox"
+                            id="rememberMe"
+                        >
 
                         Remember me
 
                     </label>
 
-                    <a href="#">
+
+                    <a
+                        href="#"
+                        id="forgotPassword"
+                    >
                         Forgot Password?
                     </a>
 
@@ -181,11 +280,14 @@
         </div>
 
 
-        <!-- REGISTER -->
+
+        <!-- ================= REGISTER ================= -->
 
         <div class="account-box">
 
-            <h2>Create Account</h2>
+            <h2>
+                Create Account
+            </h2>
 
             <p class="account-text">
                 Create an account to enjoy a better shopping experience.
@@ -193,6 +295,7 @@
 
 
             <form id="registerForm">
+
 
                 <label for="register-name">
                     Full Name
@@ -255,9 +358,225 @@
 </section>
 
 
-<!--  FEATURES  -->
+
+<!-- ==================================================
+     ACCOUNT MODAL
+================================================== -->
+
+<div
+    class="account-modal"
+    id="accountModal"
+    aria-hidden="true"
+>
+
+
+    <div class="account-modal-box">
+
+
+        <!-- CLOSE BUTTON -->
+
+        <button
+            class="account-modal-close"
+            id="accountClose"
+            type="button"
+            aria-label="Close Account"
+        >
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+
+
+        <!-- MODAL HEADER -->
+
+        <div class="account-modal-header">
+
+            <img
+                src="assite/Header-images/logo.png"
+                alt="Furniro Logo"
+            >
+
+            <h2>
+                Welcome to Furniro
+            </h2>
+
+            <p>
+                Login or create your account
+            </p>
+
+        </div>
+
+
+
+        <!-- MODAL FORMS -->
+
+        <div class="account-modal-forms">
+
+
+            <!-- ================= MODAL LOGIN ================= -->
+
+            <div class="account-box">
+
+                <h2>
+                    Login
+                </h2>
+
+                <p class="account-text">
+                    Welcome back! Please enter your details.
+                </p>
+
+
+                <form id="modalLoginForm">
+
+
+                    <label for="modal-login-email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="modal-login-email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+
+                    <label for="modal-login-password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="modal-login-password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+
+                    <div class="form-options">
+
+
+                        <label class="remember">
+
+                            <input
+                                type="checkbox"
+                                id="modalRememberMe"
+                            >
+
+                            Remember me
+
+                        </label>
+
+
+                        <a
+                            href="#"
+                            id="modalForgotPassword"
+                        >
+                            Forgot Password?
+                        </a>
+
+                    </div>
+
+
+                    <button type="submit">
+                        LOGIN
+                    </button>
+
+
+                </form>
+
+            </div>
+
+
+
+            <!-- ================= MODAL REGISTER ================= -->
+
+            <div class="account-box">
+
+                <h2>
+                    Create Account
+                </h2>
+
+                <p class="account-text">
+                    Create an account to enjoy a better shopping experience.
+                </p>
+
+
+                <form id="modalRegisterForm">
+
+
+                    <label for="modal-register-name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="modal-register-name"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+
+                    <label for="modal-register-email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="modal-register-email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+
+                    <label for="modal-register-password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="modal-register-password"
+                        placeholder="Create a password"
+                        required
+                    >
+
+
+                    <label for="modal-register-confirm">
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="modal-register-confirm"
+                        placeholder="Confirm your password"
+                        required
+                    >
+
+
+                    <button type="submit">
+                        REGISTER
+                    </button>
+
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ==================================================
+     FEATURES
+================================================== -->
 
 <section class="features">
+
 
     <div class="feature">
 
@@ -265,13 +584,18 @@
 
         <div>
 
-            <h3>High Quality</h3>
+            <h3>
+                High Quality
+            </h3>
 
-            <p>Crafted from top materials</p>
+            <p>
+                Crafted from top materials
+            </p>
 
         </div>
 
     </div>
+
 
 
     <div class="feature">
@@ -280,13 +604,18 @@
 
         <div>
 
-            <h3>Warranty Protection</h3>
+            <h3>
+                Warranty Protection
+            </h3>
 
-            <p>Over 2 years</p>
+            <p>
+                Over 2 years
+            </p>
 
         </div>
 
     </div>
+
 
 
     <div class="feature">
@@ -295,13 +624,18 @@
 
         <div>
 
-            <h3>Free Shipping</h3>
+            <h3>
+                Free Shipping
+            </h3>
 
-            <p>Order Over 150 dollars</p>
+            <p>
+                Order Over 150 dollars
+            </p>
 
         </div>
 
     </div>
+
 
 
     <div class="feature">
@@ -310,9 +644,13 @@
 
         <div>
 
-            <h3>24 / 7 Support</h3>
+            <h3>
+                24 / 7 Support
+            </h3>
 
-            <p>Dedicated Support</p>
+            <p>
+                Dedicated Support
+            </p>
 
         </div>
 
@@ -321,17 +659,24 @@
 </section>
 
 
-<!-- FOOTER-->
 
-<div class="footer-line"></div>
+<!-- ==================================================
+     FOOTER
+================================================== -->
 
 <footer>
 
+
     <div class="footer-top">
+
+
+        <!-- BRAND -->
 
         <div class="footer-brand">
 
-            <h2>Furniro.</h2>
+            <h2>
+                Furniro.
+            </h2>
 
             <p>
                 400 University Drive Suite 200 Coral Gables,
@@ -341,64 +686,104 @@
         </div>
 
 
+
+        <!-- LINKS -->
+
         <div class="footer-links">
 
-            <h3>Links</h3>
+            <h3>
+                Links
+            </h3>
 
-            <a href="index.html">Home</a>
+            <a href="index.html">
+                Home
+            </a>
 
-            <a href="Shop.html">Shop</a>
+            <a href="Shop.html">
+                Shop
+            </a>
 
-            <a href="About.html">About</a>
+            <a href="About.html">
+                About
+            </a>
 
-            <a href="Contact.html">Contact</a>
-             <a href="Blog.html">Blog</a>
+            <a href="Contact.html">
+                Contact
+            </a>
+
+            <a href="Blog.html">
+                Blog
+            </a>
 
         </div>
 
+
+
+        <!-- HELP -->
 
         <div class="footer-help">
 
-            <h3>Help</h3>
+            <h3>
+                Help
+            </h3>
 
-            <a href="Payment-Options.html">Payment Options</a>
+            <a href="Payment-Options.html">
+                Payment Options
+            </a>
 
-            <a href="Returns.html">Returns</a>
+            <a href="Returns.html">
+                Returns
+            </a>
 
-            <a href="Privacy-Policy.html">Privacy Policies</a>
-
-           
+            <a href="Privacy-Policy.html">
+                Privacy Policies
+            </a>
 
         </div>
 
 
+
+        <!-- NEWSLETTER -->
+
         <div class="footer-newsletter">
 
-            <h3>Newsletter</h3>
+            <h3>
+                Newsletter
+            </h3>
 
-            <div>
+
+            <form
+                class="newsletter-form"
+                id="newsletterForm"
+            >
 
                 <input
                     type="email"
+                    id="newsletterEmail"
                     placeholder="Enter your email"
+                    required
                 >
 
-                <button>SUBSCRIBE</button>
+                <button type="submit">
+                    SUBSCRIBE
+                </button>
 
-            </div>
+            </form>
 
         </div>
 
     </div>
 
 
+
     <div class="footer-line"></div>
+
 
 
     <div class="footer-bottom">
 
         <p>
-            2023 Furniro. All rights reserved.
+            © 2023 Furniro. All rights reserved.
         </p>
 
     </div>
@@ -406,7 +791,13 @@
 </footer>
 
 
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
 <script src="JS/Account.js"></script>
+
 
 </body>
 

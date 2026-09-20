@@ -1,65 +1,122 @@
-/*  LOGIN FORM  */
+document.addEventListener("DOMContentLoaded", function () {
 
-const loginForm = document.querySelector("#loginForm");
+    const accountOpen =
+        document.getElementById("accountOpen");
 
-loginForm.addEventListener("submit", function (event) {
+    const accountModal =
+        document.getElementById("accountModal");
 
-    event.preventDefault();
-
-    const email = document.querySelector("#login-email").value;
-    const password = document.querySelector("#login-password").value;
-
-    if (email === "" || password === "") {
-
-        alert("Please fill in all fields.");
-
-        return;
-    }
-
-    alert("Login successful!");
-
-    loginForm.reset();
-
-});
+    const accountClose =
+        document.getElementById("accountClose");
 
 
-/*  REGISTER FORM  */
-
-const registerForm = document.querySelector("#registerForm");
-
-registerForm.addEventListener("submit", function (event) {
-
-    event.preventDefault();
-
-    const name = document.querySelector("#register-name").value;
-    const email = document.querySelector("#register-email").value;
-    const password = document.querySelector("#register-password").value;
-    const confirmPassword = document.querySelector("#register-confirm").value;
+    console.log("Account Open:", accountOpen);
+    console.log("Account Modal:", accountModal);
+    console.log("Account Close:", accountClose);
 
 
-    if (
-        name === "" ||
-        email === "" ||
-        password === "" ||
-        confirmPassword === ""
-    ) {
+    // ================= OPEN ACCOUNT =================
 
-        alert("Please fill in all fields.");
+    if (accountOpen && accountModal) {
 
-        return;
+        accountOpen.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            console.log("ACCOUNT CLICKED");
+
+            accountModal.classList.add("active");
+
+            accountModal.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+            document.body.style.overflow = "hidden";
+
+        });
+
     }
 
 
-    if (password !== confirmPassword) {
+    // ================= CLOSE ACCOUNT =================
 
-        alert("Passwords do not match.");
+    if (accountClose && accountModal) {
 
-        return;
+        accountClose.addEventListener("click", function () {
+
+            console.log("ACCOUNT CLOSED");
+
+            accountModal.classList.remove("active");
+
+            accountModal.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+            document.body.style.overflow = "";
+
+        });
+
     }
 
 
-    alert("Account created successfully!");
+    // ================= CLOSE BY OUTSIDE CLICK =================
 
-    registerForm.reset();
+    if (accountModal) {
+
+        accountModal.addEventListener(
+            "click",
+            function (event) {
+
+                if (
+                    event.target === accountModal
+                ) {
+
+                    accountModal.classList.remove(
+                        "active"
+                    );
+
+                    accountModal.setAttribute(
+                        "aria-hidden",
+                        "true"
+                    );
+
+                    document.body.style.overflow = "";
+
+                }
+
+            }
+        );
+
+    }
+
+
+    // ================= ESCAPE =================
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Escape" &&
+                accountModal
+            ) {
+
+                accountModal.classList.remove(
+                    "active"
+                );
+
+                accountModal.setAttribute(
+                    "aria-hidden",
+                    "true"
+                );
+
+                document.body.style.overflow = "";
+
+            }
+
+        }
+    );
 
 });
