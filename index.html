@@ -11,6 +11,19 @@
     href="CSS/Share.css"
 >
     
+
+<link
+    rel="stylesheet"
+    href="CSS/Scroll-Animation.css"
+>
+
+
+<link
+    rel="stylesheet"
+    href="CSS/Account.css"
+>
+<link rel="stylesheet" href="CSS/WhatsApp-Chat.css">
+
      <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
@@ -51,29 +64,224 @@
 
     </nav>
 
+<!-- Mobile Menu Button -->
+<button
+    class="mobile-menu-button"
+    id="mobileMenuButton"
+    type="button"
+    aria-label="Open menu"
+>
+    <i class="fa-solid fa-bars"></i>
+</button>
 
-    <div class="icons">
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
 
-        <a href="#"
-   class="account-icon"
-   id="accountOpen">
+    <div class="mobile-menu-header">
+        <h3>Furniro</h3>
 
-    <i class="fas fa-user-alt"></i>
+        <button
+            class="mobile-menu-close"
+            id="mobileMenuClose"
+            type="button"
+            aria-label="Close menu"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
 
-</a>
-        <a href="Wishlist.html">
-            <i class="far fa-heart"></i>
-        </a>
+    <ul>
+        <li>
+            <a href="index.html">Home</a>
+        </li>
 
-        <a href="Search.html">
-            <i class="fa fa-search"></i>
-        </a>
+        <li>
+            <a href="Shop.html">Shop</a>
+        </li>
 
-        <a href="Cart.html">
-            <i class="fa fa-shopping-cart"></i>
-        </a>
+        <li>
+            <a href="About.html">About</a>
+        </li>
+
+        <li>
+            <a href="Contact.html">Contact</a>
+        </li>
+    </ul>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="icons">
+
+    <a href="#"
+       class="account-icon"
+       id="accountOpen"
+       aria-label="Account">
+        <i class="fas fa-user-alt"></i>
+    </a>
+
+    <a href="Wishlist.html"
+       aria-label="Wishlist">
+        <i class="far fa-heart"></i>
+    </a>
+
+    <a href="Search.html"
+       aria-label="Search">
+        <i class="fa fa-search"></i>
+    </a>
+
+    <a href="Cart.html"
+       aria-label="Cart">
+        <i class="fa fa-shopping-cart"></i>
+    </a>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<!-- LANGUAGE -->
+
+<div class="language-menu">
+
+    <button
+        type="button"
+        class="language-button"
+        id="languageButton"
+        aria-label="Change language"
+    >
+        <i class="fa-solid fa-globe"></i>
+    </button>
+
+    <div class="language-dropdown" id="languageDropdown">
+
+        <button
+            type="button"
+            class="language-option active"
+            data-language="en"
+        >
+            English
+        </button>
+
+        <button
+            type="button"
+            class="language-option"
+            data-language="fa"
+        >
+            دری
+        </button>
+
+        <button
+            type="button"
+            class="language-option"
+            data-language="ps"
+        >
+            پښتو
+        </button>
+
+        <button
+            type="button"
+            class="language-option"
+            data-language="uz"
+        >
+            Uzbek
+        </button>
+
+        <button
+            type="button"
+            class="language-option"
+            data-language="ar"
+        >
+            العربية
+        </button>
+
+        <button
+            type="button"
+            class="language-option"
+            data-language="fr"
+        >
+            Français
+        </button>
 
     </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- DARK MODE -->
+
+    <button
+        type="button"
+        class="theme-button"
+        id="themeButton"
+        aria-label="Toggle dark mode"
+    >
+        <i class="fa-solid fa-moon"></i>
+    </button>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </header>
 
@@ -2742,9 +2950,9 @@
 
 
 
-<!-- ==================================================
+<!--
      GALLERY LIGHTBOX
-================================================== -->
+ -->
 
 <div
     class="gallery-lightbox"
@@ -2752,9 +2960,9 @@
 >
 
 
-    <!-- ==================================================
+    <!-- 
          CLOSE BUTTON
-    ================================================== -->
+     -->
 
     <button
         class="gallery-lightbox-close"
@@ -2769,9 +2977,9 @@
 
 
 
-    <!-- ==================================================
+    <!-- 
          LARGE IMAGE
-    ================================================== -->
+    -->
 
     <div class="gallery-lightbox-content">
 
@@ -2857,9 +3065,9 @@
         </div>
 
 
-      <!-- ==================================================
+      <!-- 
      FOOTER NEWSLETTER
-================================================== -->
+ -->
 
 <div class="footer-newsletter">
 
@@ -2919,22 +3127,213 @@
 
 
 
-<script src="JS/main.js"></script>
 
 
-<script src="JS/Show-More.js"></script>
-<script src="JS/Gallery.js"></script>
 
+
+<!-- 
+     WHATSAPP CHAT
+-->
+
+<div class="whatsapp-chat-container">
+
+    <!-- WhatsApp Chat Box -->
+    <div
+        class="whatsapp-chat-box"
+        id="whatsappChatBox"
+    >
+
+        <!-- Chat Header -->
+        <div class="whatsapp-chat-header">
+
+            <div class="whatsapp-profile">
+
+                <div class="whatsapp-profile-icon">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+
+                <div class="whatsapp-profile-info">
+                    <h3>Furniro</h3>
+                    <span>Online</span>
+                </div>
+
+            </div>
+
+
+            <!-- Close Button -->
+            <button
+                type="button"
+                class="whatsapp-close"
+                id="closeWhatsappChat"
+                aria-label="Close chat"
+                title="Close"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+
+        <!-- 
+             CHAT MESSAGES
+        -->
+
+        <div
+            class="whatsapp-chat-messages"
+            id="whatsappChatMessages"
+        >
+
+            <!-- Date -->
+            <div class="whatsapp-date">
+                <span>Today</span>
+            </div>
+
+
+            <!-- Welcome Message -->
+            <div class="whatsapp-message welcome-message">
+
+                <p>Hello! 👋</p>
+
+                <p>Welcome to Furniro.</p>
+
+                <span class="message-time">
+                    Now
+                </span>
+
+            </div>
+
+
+            <!-- Help Message -->
+            <div class="whatsapp-message welcome-message">
+
+                <p>How can we help you?</p>
+
+                <span class="message-time">
+                    Now
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- 
+             MESSAGE INPUT
+         -->
+
+        <div class="whatsapp-input-area">
+
+            <!-- Message Input -->
+            <div class="whatsapp-input-box">
+
+                <!-- Emoji -->
+                <button
+                    type="button"
+                    class="whatsapp-emoji"
+                    aria-label="Emoji"
+                    title="Emoji"
+                >
+                    <i class="fa-regular fa-face-smile"></i>
+                </button>
+
+
+                <!-- Textarea -->
+                <textarea
+                    id="whatsappMessage"
+                    rows="1"
+                    placeholder="Type a message..."
+                    aria-label="Type your message"
+                ></textarea>
+
+            </div>
+
+
+            <!-- Call Button -->
+            <a
+                href="tel:+93700123456"
+                class="whatsapp-call"
+                aria-label="Call Furniro"
+                title="Call Furniro"
+            >
+                <i class="fa-solid fa-phone"></i>
+            </a>
+
+
+            <!-- Send Button -->
+            <button
+                type="button"
+                class="whatsapp-send"
+                id="sendWhatsappMessage"
+                aria-label="Send message"
+                title="Send message"
+            >
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- 
+         FLOATING WHATSAPP BUTTON
+     -->
+
+    <button
+        type="button"
+        class="whatsapp-chat-button"
+        id="openWhatsappChat"
+        aria-label="Open WhatsApp chat"
+        title="Chat with us"
+    >
+        <i class="fa-brands fa-whatsapp"></i>
+    </button>
+
+</div>
+
+
+
+
+
+
+
+
+
+<!--  JavaScript -->
+
+
+<script src="JS/index.js/main.js"></script>
+<script src="JS/index.js/Show-More.js"></script>
+<script src="JS/index.js/Gallery.js"></script>
+
+
+ <script src="JS/WhatsApp-Chat.js"></script>
 <script src="JS/Account.js"></script>
 
 <script src="JS/Newsletter.js"></script>
 <script src="JS/Cart.js"></script>
-
 <script src="JS/Wishlist.js"></script>
-
 <script src="JS/Comparison.js"></script>
 
+<script src="JS/Scroll-Animation.js"></script>
 <script src="JS/Share.js"></script>
+
+<script src="JS/Dark-Mode.js"></script>
+<script src="JS/Language.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
 
