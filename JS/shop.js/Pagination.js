@@ -31,7 +31,7 @@ document.addEventListener(
 
         /* 
            CHECK ELEMENTS
-         */
+        */
 
         if (
             !productGrid ||
@@ -43,7 +43,7 @@ document.addEventListener(
 
         /* 
            PRODUCTS
-         */
+        */
 
         const products =
             Array.from(
@@ -64,16 +64,20 @@ document.addEventListener(
            SETTINGS
         */
 
-        const productsPerPage = 6;
+        const productsPerPage = 16;
 
-        const totalPages = 3;
+        const totalPages =
+            Math.ceil(
+                products.length /
+                productsPerPage
+            );
 
         let currentPage = 1;
 
 
         /* 
            PAGE BUTTONS
-         */
+        */
 
         const pageButtons =
             pagination.querySelectorAll(
@@ -89,8 +93,8 @@ document.addEventListener(
 
 
             /*
-             * صفحه معتبر باشد
-             */
+               - صفحه معتبر باشد
+            */
 
             if (
                 page < 1 ||
@@ -105,7 +109,7 @@ document.addEventListener(
 
             /* 
                HIDE ALL PRODUCTS
-             */
+            */
 
             products.forEach(
                 function (product) {
@@ -190,7 +194,7 @@ document.addEventListener(
 
             /* 
                NEXT BUTTON
-             */
+            */
 
             if (paginationNext) {
 
@@ -202,10 +206,8 @@ document.addEventListener(
                     paginationNext.disabled =
                         true;
 
-
                     paginationNext.style.opacity =
                         "0.4";
-
 
                     paginationNext.style.cursor =
                         "not-allowed";
@@ -215,10 +217,8 @@ document.addEventListener(
                     paginationNext.disabled =
                         false;
 
-
                     paginationNext.style.opacity =
                         "1";
-
 
                     paginationNext.style.cursor =
                         "pointer";
@@ -230,7 +230,7 @@ document.addEventListener(
 
             /* 
                SCROLL TO PRODUCTS
-             */
+            */
 
             productGrid.scrollIntoView({
                 behavior: "smooth",

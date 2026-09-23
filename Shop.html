@@ -64,6 +64,18 @@
 
     </nav>
 
+
+
+
+
+
+
+
+
+
+
+
+    
 <!-- Mobile Menu Button -->
 <button
     class="mobile-menu-button"
@@ -321,45 +333,28 @@
 
 
 
-<!-- 
-     SHOP TOOLBAR
- -->
-
+<!-- - Shop Toolbar -->
 <section class="shop-toolbar">
 
-
-    <!--
-         TOOLBAR LEFT
-     -->
-
+    <!-- - Toolbar Left -->
     <div class="toolbar-left">
 
-
-        <!-- FILTER -->
-
+        <!-- - Filter -->
         <button
             class="filter-btn"
             id="filterButton"
             type="button"
             aria-label="Open filters"
+            title="Filter"
         >
-
             <i class="fa-solid fa-sliders"></i>
-
-            <span>
-                Filter
-            </span>
-
+            <span>Filter</span>
         </button>
 
-
-        <!-- DIVIDER -->
-
+        <!-- - Divider -->
         <span class="toolbar-divider"></span>
 
-
-        <!-- PREVIOUS -->
-
+        <!-- - Previous Page -->
         <button
             class="toolbar-icon-btn"
             id="prevPage"
@@ -367,14 +362,10 @@
             aria-label="Previous products"
             title="Previous"
         >
-
             <i class="fa-solid fa-arrow-left"></i>
-
         </button>
 
-
-        <!-- NEXT -->
-
+        <!-- - Next Page -->
         <button
             class="toolbar-icon-btn"
             id="nextPage"
@@ -382,48 +373,36 @@
             aria-label="Next products"
             title="Next"
         >
-
             <i class="fa-solid fa-arrow-right"></i>
-
         </button>
 
-
-        <!-- PAGE DOTS -->
-
+        <!-- - Page Dots -->
         <div
             class="toolbar-dots"
             id="toolbarDots"
             aria-hidden="true"
         >
-
             <span></span>
             <span></span>
             <span></span>
             <span></span>
-
         </div>
 
-
-        <!-- VIEW TOGGLE -->
-
+        <!-- - View Toggle -->
         <button
             class="view-icon"
             id="viewToggle"
             type="button"
-            aria-label="Switch product view"
+            aria-label="Change product view"
             title="Change view"
         >
-
             <i
                 class="fa-solid fa-grip"
                 id="viewToggleIcon"
             ></i>
-
         </button>
 
-
-        <!-- RESULTS -->
-
+        <!-- - Results -->
         <p
             class="results"
             id="resultsText"
@@ -434,61 +413,37 @@
     </div>
 
 
-
-    <!-- 
-         TOOLBAR RIGHT
-     -->
-
+    <!-- - Toolbar Right -->
     <div class="toolbar-right">
 
-
-        <!-- SHOW -->
-
+        <!-- - Show Products -->
         <div class="toolbar-select-group">
 
-            <label
-                for="showProducts"
-            >
+            <label for="showProducts">
                 Show
             </label>
 
+            <select id="showProducts">
 
-            <select
-                id="showProducts"
-            >
+                <option value="16">16</option>
 
-                <option value="16">
-                    16
-                </option>
+                <option value="32">32</option>
 
-                <option value="32">
-                    32
-                </option>
-
-                <option value="48">
-                    48
-                </option>
+                <option value="48">48</option>
 
             </select>
 
         </div>
 
 
-
-        <!-- SORT -->
-
+        <!-- - Sort Products -->
         <div class="toolbar-select-group">
 
-            <label
-                for="sortProducts"
-            >
+            <label for="sortProducts">
                 Sort by
             </label>
 
-
-            <select
-                id="sortProducts"
-            >
+            <select id="sortProducts">
 
                 <option value="default">
                     Default
@@ -528,7 +483,6 @@
 
 
 
-
 <!-- 
      SHOP VIDEO
  -->
@@ -543,6 +497,8 @@
             muted
             loop
             playsinline
+
+            controls
         >
 
             <source
@@ -633,7 +589,7 @@ id="shop-products"
             <a href="Single-Product.html?id=1">
 
                 <img
-                    src="assite/Shop-Products-images/product13.png"
+                    src="assite/Shop-Products-images/product30.png"
                     alt="Syltherine"
                 >
 
@@ -1011,7 +967,7 @@ id="shop-products"
             <a href="Single-Product.html?id=4">
 
                 <img
-                    src="assite/Shop-Products-images/product-10.jpg"
+                    src="assite/Shop-Products-images/product29.png"
                     alt="Respira"
                 >
 
@@ -2001,7 +1957,7 @@ id="shop-products"
             <a href="Single-Product.html?id=12">
 
                 <img
-                    src="assite/Shop-Products-images/product3.png"
+                    src="assite/Shop-Products-images/product30.png"
                     alt="Nova"
                 >
 
@@ -2595,6 +2551,1806 @@ id="shop-products"
     </article>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- - PRODUCT 17 - AURELIA -->
+
+<article
+    class="product-card"
+    data-id="17"
+    data-name="Aurelia"
+    data-price="3200000"
+    data-category="living"
+>
+
+    <div class="product-image">
+
+        <span class="badge">
+            New
+        </span>
+
+        <a href="Single-Product.html?id=17">
+
+            <img
+                src="assite/Shop-Products-images/product17.png"
+                alt="Aurelia"
+            >
+
+        </a>
+
+        <div class="product-actions">
+
+            <button
+                class="add-cart"
+                data-id="17"
+                type="button"
+            >
+                Add to Cart
+            </button>
+
+            <div class="product-buttons">
+
+                <!-- SHARE -->
+
+                <button
+                    class="share-product"
+                    data-id="17"
+                    data-name="Aurelia"
+                    title="Share"
+                    type="button"
+                >
+
+                    <i class="fa-solid fa-share-nodes"></i>
+
+                    <span>
+                        Share
+                    </span>
+
+                </button>
+
+
+                <!-- COMPARE -->
+
+                <button
+                    class="compare-product"
+                    data-id="17"
+                    data-name="Aurelia"
+                    title="Compare"
+                    type="button"
+                >
+
+                    <i class="fa-solid fa-code-compare"></i>
+
+                    <span>
+                        Compare
+                    </span>
+
+                </button>
+
+
+                <!-- LIKE -->
+
+                <button
+                    class="like-product"
+                    data-id="17"
+                    data-name="Aurelia"
+                    title="Add to Wishlist"
+                    type="button"
+                >
+
+                    <i class="fa-regular fa-heart"></i>
+
+                    <span>
+                        Like
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <h3>
+        Aurelia
+    </h3>
+
+    <p>
+        Modern living chair
+    </p>
+
+    <strong>
+        Rp 3.200.000
+    </strong>
+
+</article>
+
+
+<!-- - PRODUCT 18 - ELARA -->
+
+<article
+    class="product-card"
+    data-id="18"
+    data-name="Elara"
+    data-price="2800000"
+    data-category="dining"
+>
+
+    <div class="product-image">
+
+        <a href="Single-Product.html?id=18">
+
+            <img
+                src="assite/Shop-Products-images/product13.png"
+                alt="Elara"
+            >
+
+        </a>
+
+        <div class="product-actions">
+
+            <button
+                class="add-cart"
+                data-id="18"
+                type="button"
+            >
+                Add to Cart
+            </button>
+
+            <div class="product-buttons">
+
+                <!-- SHARE -->
+
+                <button
+                    class="share-product"
+                    data-id="18"
+                    data-name="Elara"
+                    title="Share"
+                    type="button"
+                >
+
+                    <i class="fa-solid fa-share-nodes"></i>
+
+                    <span>
+                        Share
+                    </span>
+
+                </button>
+
+
+                <!-- COMPARE -->
+
+                <button
+                    class="compare-product"
+                    data-id="18"
+                    data-name="Elara"
+                    title="Compare"
+                    type="button"
+                >
+
+                    <i class="fa-solid fa-code-compare"></i>
+
+                    <span>
+                        Compare
+                    </span>
+
+                </button>
+
+
+                <!-- LIKE -->
+
+                <button
+                    class="like-product"
+                    data-id="18"
+                    data-name="Elara"
+                    title="Add to Wishlist"
+                    type="button"
+                >
+
+                    <i class="fa-regular fa-heart"></i>
+
+                    <span>
+                        Like
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <h3>
+        Elara
+    </h3>
+
+    <p>
+        Elegant dining chair
+    </p>
+
+    <strong>
+        Rp 2.800.000
+    </strong>
+
+</article>
+
+
+<!-- - PRODUCT 19 - VELORA -->
+
+<article
+    class="product-card"
+    data-id="19"
+    data-name="Velora"
+    data-price="4500000"
+    data-category="bedroom"
+>
+
+    <div class="product-image">
+
+        <span class="badge">
+            20%
+        </span>
+
+        <a href="Single-Product.html?id=19">
+
+            <img
+                src="assite/Shop-Products-images/product19.png"
+                alt="Velora"
+            >
+
+        </a>
+
+        <div class="product-actions">
+
+            <button
+                class="add-cart"
+                data-id="19"
+                type="button"
+            >
+                Add to Cart
+            </button>
+
+            <div class="product-buttons">
+
+                <!-- SHARE -->
+
+                <button
+                    class="share-product"
+                    data-id="19"
+                    data-name="Velora"
+                    title="Share"
+                    type="button"
+                >
+
+                    <i class="fa-solid fa-share-nodes"></i>
+
+                    <span>
+                        Share
+                    </span>
+
+                </button>
+
+
+                <!-- COMPARE -->
+
+                <button
+                    class="compare-product"
+                    data-id="19"
+                    data-name="Velora"
+                    title="Compare"
+                    type="button"
+                >
+
+                    <i class="fa-solid fa-code-compare"></i>
+
+                    <span>
+                        Compare
+                    </span>
+
+                </button>
+
+
+                <!-- LIKE -->
+
+                <button
+                    class="like-product"
+                    data-id="19"
+                    data-name="Velora"
+                    title="Add to Wishlist"
+                    type="button"
+                >
+
+                    <i class="fa-regular fa-heart"></i>
+
+                    <span>
+                        Like
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <h3>
+        Velora
+    </h3>
+
+    <p>
+        Comfortable bedroom set
+    </p>
+
+    <strong>
+        Rp 4.500.000
+    </strong>
+
+    <del>
+        Rp 5.625.000
+    </del>
+
+</article>
+
+
+<!-- - PRODUCT 20 - NOVELLA -->
+
+<article
+    class="product-card"
+    data-id="20"
+    data-name="Novella"
+    data-price="1800000"
+    data-category="living"
+>
+
+    <div class="product-image">
+
+        <span class="badge">
+            New
+        </span>
+
+        <a href="Single-Product.html?id=20">
+
+            <img
+                src="assite/Shop-Products-images/product20.png"
+                alt="Novella"
+            >
+
+        </a>
+
+        <div class="product-actions">
+
+            <button
+                class="add-cart"
+                data-id="20"
+                type="button"
+            >
+                Add to Cart
+            </button>
+
+            <div class="product-buttons">
+
+                <!-- SHARE -->
+
+                <button
+                    class="share-product"
+                    data-id="20"
+                    data-name="Novella"
+                    title="Share"
+                    type="button"
+                >
+
+                    <i class="fa-solid fa-share-nodes"></i>
+
+                    <span>
+                        Share
+                    </span>
+
+                </button>
+
+
+                <!-- COMPARE -->
+
+                <button
+                    class="compare-product"
+                    data-id="20"
+                    data-name="Novella"
+                    title="Compare"
+                    type="button"
+                >
+
+                    <i class="fa-solid fa-code-compare"></i>
+
+                    <span>
+                        Compare
+                    </span>
+
+                </button>
+
+
+                <!-- LIKE -->
+
+                <button
+                    class="like-product"
+                    data-id="20"
+                    data-name="Novella"
+                    title="Add to Wishlist"
+                    type="button"
+                >
+
+                    <i class="fa-regular fa-heart"></i>
+
+                    <span>
+                        Like
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <h3>
+        Novella
+    </h3>
+
+    <p>
+        Stylish lounge table
+    </p>
+
+    <strong>
+        Rp 1.800.000
+    </strong>
+
+</article>
+
+
+
+
+
+
+
+<!-- - PRODUCT 21 - LAVINA -->
+
+<article
+    class="product-card"
+    data-id="21"
+    data-name="Lavina"
+    data-price="2600000"
+    data-category="dining"
+>
+
+    <div class="product-image">
+
+        <a href="Single-Product.html?id=21">
+
+            <img
+                src="assite/Shop-Products-images/product21.png"
+                alt="Lavina"
+            >
+
+        </a>
+
+        <div class="product-actions">
+
+            <button
+                class="add-cart"
+                data-id="21"
+                type="button"
+            >
+                Add to Cart
+            </button>
+
+            <div class="product-buttons">
+
+                <!-- SHARE -->
+
+                <button
+                    class="share-product"
+                    data-id="21"
+                    data-name="Lavina"
+                    title="Share"
+                    type="button"
+                >
+                    <i class="fa-solid fa-share-nodes"></i>
+
+                    <span>
+                        Share
+                    </span>
+                </button>
+
+
+                <!-- COMPARE -->
+
+                <button
+                    class="compare-product"
+                    data-id="21"
+                    data-name="Lavina"
+                    title="Compare"
+                    type="button"
+                >
+                    <i class="fa-solid fa-code-compare"></i>
+
+                    <span>
+                        Compare
+                    </span>
+                </button>
+
+
+                <!-- LIKE -->
+
+                <button
+                    class="like-product"
+                    data-id="21"
+                    data-name="Lavina"
+                    title="Add to Wishlist"
+                    type="button"
+                >
+                    <i class="fa-regular fa-heart"></i>
+
+                    <span>
+                        Like
+                    </span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <h3>
+        Lavina
+    </h3>
+
+    <p>
+        Elegant dining table
+    </p>
+
+    <strong>
+        Rp 2.600.000
+    </strong>
+
+</article>
+
+
+<!-- - PRODUCT 22 - ORION -->
+
+<article
+    class="product-card"
+    data-id="22"
+    data-name="Orion"
+    data-price="4200000"
+    data-category="living"
+>
+
+    <div class="product-image">
+
+        <span class="badge">
+            15%
+        </span>
+
+        <a href="Single-Product.html?id=22">
+
+            <img
+                src="assite/Shop-Products-images/product22.png"
+                alt="Orion"
+            >
+
+        </a>
+
+        <div class="product-actions">
+
+            <button
+                class="add-cart"
+                data-id="22"
+                type="button"
+            >
+                Add to Cart
+            </button>
+
+            <div class="product-buttons">
+
+                <!-- SHARE -->
+
+                <button
+                    class="share-product"
+                    data-id="22"
+                    data-name="Orion"
+                    title="Share"
+                    type="button"
+                >
+                    <i class="fa-solid fa-share-nodes"></i>
+
+                    <span>
+                        Share
+                    </span>
+                </button>
+
+
+                <!-- COMPARE -->
+
+                <button
+                    class="compare-product"
+                    data-id="22"
+                    data-name="Orion"
+                    title="Compare"
+                    type="button"
+                >
+                    <i class="fa-solid fa-code-compare"></i>
+
+                    <span>
+                        Compare
+                    </span>
+                </button>
+
+
+                <!-- LIKE -->
+
+                <button
+                    class="like-product"
+                    data-id="22"
+                    data-name="Orion"
+                    title="Add to Wishlist"
+                    type="button"
+                >
+                    <i class="fa-regular fa-heart"></i>
+
+                    <span>
+                        Like
+                    </span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <h3>
+        Orion
+    </h3>
+
+    <p>
+        Premium comfort sofa
+    </p>
+
+    <strong>
+        Rp 4.200.000
+    </strong>
+
+    <del>
+        Rp 4.950.000
+    </del>
+
+</article>
+
+
+<!-- - PRODUCT 23 - SELENE -->
+
+<article
+    class="product-card"
+    data-id="23"
+    data-name="Selene"
+    data-price="1200000"
+    data-category="bedroom"
+>
+
+    <div class="product-image">
+
+        <span class="badge">
+            New
+        </span>
+
+        <a href="Single-Product.html?id=23">
+
+            <img
+                src="assite/Shop-Products-images/product23.png"
+                alt="Selene"
+            >
+
+        </a>
+
+        <div class="product-actions">
+
+            <button
+                class="add-cart"
+                data-id="23"
+                type="button"
+            >
+                Add to Cart
+            </button>
+
+            <div class="product-buttons">
+
+                <!-- SHARE -->
+
+                <button
+                    class="share-product"
+                    data-id="23"
+                    data-name="Selene"
+                    title="Share"
+                    type="button"
+                >
+                    <i class="fa-solid fa-share-nodes"></i>
+
+                    <span>
+                        Share
+                    </span>
+                </button>
+
+
+                <!-- COMPARE -->
+
+                <button
+                    class="compare-product"
+                    data-id="23"
+                    data-name="Selene"
+                    title="Compare"
+                    type="button"
+                >
+                    <i class="fa-solid fa-code-compare"></i>
+
+                    <span>
+                        Compare
+                    </span>
+                </button>
+
+
+                <!-- LIKE -->
+
+                <button
+                    class="like-product"
+                    data-id="23"
+                    data-name="Selene"
+                    title="Add to Wishlist"
+                    type="button"
+                >
+                    <i class="fa-regular fa-heart"></i>
+
+                    <span>
+                        Like
+                    </span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <h3>
+        Selene
+    </h3>
+
+    <p>
+        Modern bedside lamp
+    </p>
+
+    <strong>
+        Rp 1.200.000
+    </strong>
+
+</article>
+
+
+<!-- - PRODUCT 24 - ARDEN -->
+
+<article
+    class="product-card"
+    data-id="24"
+    data-name="Arden"
+    data-price="3400000"
+    data-category="living"
+>
+
+    <div class="product-image">
+
+        <a href="Single-Product.html?id=24">
+
+            <img
+                src="assite/Shop-Products-images/product24.png"
+                alt="Arden"
+            >
+
+        </a>
+
+        <div class="product-actions">
+
+            <button
+                class="add-cart"
+                data-id="24"
+                type="button"
+            >
+                Add to Cart
+            </button>
+
+            <div class="product-buttons">
+
+                <!-- SHARE -->
+
+                <button
+                    class="share-product"
+                    data-id="24"
+                    data-name="Arden"
+                    title="Share"
+                    type="button"
+                >
+                    <i class="fa-solid fa-share-nodes"></i>
+
+                    <span>
+                        Share
+                    </span>
+                </button>
+
+
+                <!-- COMPARE -->
+
+                <button
+                    class="compare-product"
+                    data-id="24"
+                    data-name="Arden"
+                    title="Compare"
+                    type="button"
+                >
+                    <i class="fa-solid fa-code-compare"></i>
+
+                    <span>
+                        Compare
+                    </span>
+                </button>
+
+
+                <!-- LIKE -->
+
+                <button
+                    class="like-product"
+                    data-id="24"
+                    data-name="Arden"
+                    title="Add to Wishlist"
+                    type="button"
+                >
+                    <i class="fa-regular fa-heart"></i>
+
+                    <span>
+                        Like
+                    </span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <h3>
+        Arden
+    </h3>
+
+    <p>
+        Contemporary lounge sofa
+    </p>
+
+    <strong>
+        Rp 3.400.000
+    </strong>
+
+</article>
+
+
+<!-- - PRODUCT 25 - SERENA -->
+
+<article
+    class="product-card"
+    data-id="25"
+    data-name="Serena"
+    data-price="2100000"
+    data-category="dining"
+>
+
+    <div class="product-image">
+
+        <span class="badge">
+            10%
+        </span>
+
+        <a href="Single-Product.html?id=25">
+
+            <img
+                src="assite/Shop-Products-images/product25.png"
+                alt="Serena"
+            >
+
+        </a>
+
+        <div class="product-actions">
+
+            <button
+                class="add-cart"
+                data-id="25"
+                type="button"
+            >
+                Add to Cart
+            </button>
+
+            <div class="product-buttons">
+
+                <!-- SHARE -->
+
+                <button
+                    class="share-product"
+                    data-id="25"
+                    data-name="Serena"
+                    title="Share"
+                    type="button"
+                >
+                    <i class="fa-solid fa-share-nodes"></i>
+
+                    <span>
+                        Share
+                    </span>
+                </button>
+
+
+                <!-- COMPARE -->
+
+                <button
+                    class="compare-product"
+                    data-id="25"
+                    data-name="Serena"
+                    title="Compare"
+                    type="button"
+                >
+                    <i class="fa-solid fa-code-compare"></i>
+
+                    <span>
+                        Compare
+                    </span>
+                </button>
+
+
+                <!-- LIKE -->
+
+                <button
+                    class="like-product"
+                    data-id="25"
+                    data-name="Serena"
+                    title="Add to Wishlist"
+                    type="button"
+                >
+                    <i class="fa-regular fa-heart"></i>
+
+                    <span>
+                        Like
+                    </span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <h3>
+        Serena
+    </h3>
+
+    <p>
+        Classic wooden chair
+    </p>
+
+    <strong>
+        Rp 2.100.000
+    </strong>
+
+    <del>
+        Rp 2.333.000
+    </del>
+
+</article>
+
+
+<!-- - PRODUCT 26 - VERA -->
+
+<article
+    class="product-card"
+    data-id="26"
+    data-name="Vera"
+    data-price="650000"
+    data-category="bedroom"
+>
+
+    <div class="product-image">
+
+        <a href="Single-Product.html?id=26">
+
+            <img
+                src="assite/Shop-Products-images/product26.png"
+                alt="Vera"
+            >
+
+        </a>
+
+        <div class="product-actions">
+
+            <button
+                class="add-cart"
+                data-id="26"
+                type="button"
+            >
+                Add to Cart
+            </button>
+
+            <div class="product-buttons">
+
+                <!-- SHARE -->
+
+                <button
+                    class="share-product"
+                    data-id="26"
+                    data-name="Vera"
+                    title="Share"
+                    type="button"
+                >
+                    <i class="fa-solid fa-share-nodes"></i>
+
+                    <span>
+                        Share
+                    </span>
+                </button>
+
+
+                <!-- COMPARE -->
+
+                <button
+                    class="compare-product"
+                    data-id="26"
+                    data-name="Vera"
+                    title="Compare"
+                    type="button"
+                >
+                    <i class="fa-solid fa-code-compare"></i>
+
+                    <span>
+                        Compare
+                    </span>
+                </button>
+
+
+                <!-- LIKE -->
+
+                <button
+                    class="like-product"
+                    data-id="26"
+                    data-name="Vera"
+                    title="Add to Wishlist"
+                    type="button"
+                >
+                    <i class="fa-regular fa-heart"></i>
+
+                    <span>
+                        Like
+                    </span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <h3>
+        Vera
+    </h3>
+
+    <p>
+        Decorative flower pot
+    </p>
+
+    <strong>
+        Rp 650.000
+    </strong>
+
+</article>
+
+
+<!-- - PRODUCT 27 - CALISTA -->
+
+<article
+    class="product-card"
+    data-id="27"
+    data-name="Calista"
+    data-price="3900000"
+    data-category="living"
+>
+
+    <div class="product-image">
+
+        <span class="badge">
+            New
+        </span>
+
+        <a href="Single-Product.html?id=27">
+
+            <img
+                src="assite/Shop-Products-images/product12.png"
+                alt="Calista"
+            >
+
+        </a>
+
+        <div class="product-actions">
+
+            <button
+                class="add-cart"
+                data-id="27"
+                type="button"
+            >
+                Add to Cart
+            </button>
+
+            <div class="product-buttons">
+
+                <!-- SHARE -->
+
+                <button
+                    class="share-product"
+                    data-id="27"
+                    data-name="Calista"
+                    title="Share"
+                    type="button"
+                >
+                    <i class="fa-solid fa-share-nodes"></i>
+
+                    <span>
+                        Share
+                    </span>
+                </button>
+
+
+                <!-- COMPARE -->
+
+                <button
+                    class="compare-product"
+                    data-id="27"
+                    data-name="Calista"
+                    title="Compare"
+                    type="button"
+                >
+                    <i class="fa-solid fa-code-compare"></i>
+
+                    <span>
+                        Compare
+                    </span>
+                </button>
+
+
+                <!-- LIKE -->
+
+                <button
+                    class="like-product"
+                    data-id="27"
+                    data-name="Calista"
+                    title="Add to Wishlist"
+                    type="button"
+                >
+                    <i class="fa-regular fa-heart"></i>
+
+                    <span>
+                        Like
+                    </span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <h3>
+        Calista
+    </h3>
+
+    <p>
+        Soft modern sofa
+    </p>
+
+    <strong>
+        Rp 3.900.000
+    </strong>
+
+</article>
+
+
+<!-- - PRODUCT 28 - MARCELA -->
+
+<article
+    class="product-card"
+    data-id="28"
+    data-name="Marcela"
+    data-price="1750000"
+    data-category="dining"
+>
+
+    <div class="product-image">
+
+        <a href="Single-Product.html?id=28">
+
+            <img
+                src="assite/Shop-Products-images/product28.png"
+                alt="Marcela"
+            >
+
+        </a>
+
+        <div class="product-actions">
+
+            <button
+                class="add-cart"
+                data-id="28"
+                type="button"
+            >
+                Add to Cart
+            </button>
+
+            <div class="product-buttons">
+
+                <!-- SHARE -->
+
+                <button
+                    class="share-product"
+                    data-id="28"
+                    data-name="Marcela"
+                    title="Share"
+                    type="button"
+                >
+                    <i class="fa-solid fa-share-nodes"></i>
+
+                    <span>
+                        Share
+                    </span>
+                </button>
+
+
+                <!-- COMPARE -->
+
+                <button
+                    class="compare-product"
+                    data-id="28"
+                    data-name="Marcela"
+                    title="Compare"
+                    type="button"
+                >
+                    <i class="fa-solid fa-code-compare"></i>
+
+                    <span>
+                        Compare
+                    </span>
+                </button>
+
+
+                <!-- LIKE -->
+
+                <button
+                    class="like-product"
+                    data-id="28"
+                    data-name="Marcela"
+                    title="Add to Wishlist"
+                    type="button"
+                >
+                    <i class="fa-regular fa-heart"></i>
+
+                    <span>
+                        Like
+                    </span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <h3>
+        Marcela
+    </h3>
+
+    <p>
+        Elegant dining table
+    </p>
+
+    <strong>
+        Rp 1.750.000
+    </strong>
+
+</article>
+
+
+<!-- - PRODUCT 29 - ELIORA -->
+
+<article
+    class="product-card"
+    data-id="29"
+    data-name="Eliora"
+    data-price="4800000"
+    data-category="bedroom"
+>
+
+    <div class="product-image">
+
+        <span class="badge">
+            25%
+        </span>
+
+        <a href="Single-Product.html?id=29">
+
+            <img
+                src="assite/Shop-Products-images/product29.png"
+                alt="Eliora"
+            >
+
+        </a>
+
+        <div class="product-actions">
+
+            <button
+                class="add-cart"
+                data-id="29"
+                type="button"
+            >
+                Add to Cart
+            </button>
+
+            <div class="product-buttons">
+
+                <!-- SHARE -->
+
+                <button
+                    class="share-product"
+                    data-id="29"
+                    data-name="Eliora"
+                    title="Share"
+                    type="button"
+                >
+                    <i class="fa-solid fa-share-nodes"></i>
+
+                    <span>
+                        Share
+                    </span>
+                </button>
+
+
+                <!-- COMPARE -->
+
+                <button
+                    class="compare-product"
+                    data-id="29"
+                    data-name="Eliora"
+                    title="Compare"
+                    type="button"
+                >
+                    <i class="fa-solid fa-code-compare"></i>
+
+                    <span>
+                        Compare
+                    </span>
+                </button>
+
+
+                <!-- LIKE -->
+
+                <button
+                    class="like-product"
+                    data-id="29"
+                    data-name="Eliora"
+                    title="Add to Wishlist"
+                    type="button"
+                >
+                    <i class="fa-regular fa-heart"></i>
+
+                    <span>
+                        Like
+                    </span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <h3>
+        Eliora
+    </h3>
+
+    <p>
+        Elegant bedroom furniture
+    </p>
+
+    <strong>
+        Rp 4.800.000
+    </strong>
+
+    <del>
+        Rp 6.400.000
+    </del>
+
+</article>
+
+
+<!-- - PRODUCT 30 - AUREN -->
+
+<article
+    class="product-card"
+    data-id="30"
+    data-name="Auren"
+    data-price="950000"
+    data-category="living"
+>
+
+    <div class="product-image">
+
+        <span class="badge">
+            New
+        </span>
+
+        <a href="Single-Product.html?id=30">
+
+            <img
+                src="assite/Shop-Products-images/product30.png"
+                alt="Auren"
+            >
+
+        </a>
+
+        <div class="product-actions">
+
+            <button
+                class="add-cart"
+                data-id="30"
+                type="button"
+            >
+                Add to Cart
+            </button>
+
+            <div class="product-buttons">
+
+                <!-- SHARE -->
+
+                <button
+                    class="share-product"
+                    data-id="30"
+                    data-name="Auren"
+                    title="Share"
+                    type="button"
+                >
+                    <i class="fa-solid fa-share-nodes"></i>
+
+                    <span>
+                        Share
+                    </span>
+                </button>
+
+
+                <!-- COMPARE -->
+
+                <button
+                    class="compare-product"
+                    data-id="30"
+                    data-name="Auren"
+                    title="Compare"
+                    type="button"
+                >
+                    <i class="fa-solid fa-code-compare"></i>
+
+                    <span>
+                        Compare
+                    </span>
+                </button>
+
+
+                <!-- LIKE -->
+
+                <button
+                    class="like-product"
+                    data-id="30"
+                    data-name="Auren"
+                    title="Add to Wishlist"
+                    type="button"
+                >
+                    <i class="fa-regular fa-heart"></i>
+
+                    <span>
+                        Like
+                    </span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <h3>
+        Auren
+    </h3>
+
+    <p>
+        Compact outdoor table
+    </p>
+
+    <strong>
+        Rp 950.000
+    </strong>
+
+</article>
+
+
+<!-- - PRODUCT 31 - LORENA -->
+
+<article
+    class="product-card"
+    data-id="31"
+    data-name="Lorena"
+    data-price="2700000"
+    data-category="dining"
+>
+
+    <div class="product-image">
+
+        <a href="Single-Product.html?id=31">
+
+            <img
+                src="assite/Shop-Products-images/product31.png"
+                alt="Lorena"
+            >
+
+        </a>
+
+        <div class="product-actions">
+
+            <button
+                class="add-cart"
+                data-id="31"
+                type="button"
+            >
+                Add to Cart
+            </button>
+
+            <div class="product-buttons">
+
+                <!-- SHARE -->
+
+                <button
+                    class="share-product"
+                    data-id="31"
+                    data-name="Lorena"
+                    title="Share"
+                    type="button"
+                >
+                    <i class="fa-solid fa-share-nodes"></i>
+
+                    <span>
+                        Share
+                    </span>
+                </button>
+
+
+                <!-- COMPARE -->
+
+                <button
+                    class="compare-product"
+                    data-id="31"
+                    data-name="Lorena"
+                    title="Compare"
+                    type="button"
+                >
+                    <i class="fa-solid fa-code-compare"></i>
+
+                    <span>
+                        Compare
+                    </span>
+                </button>
+
+
+                <!-- LIKE -->
+
+                <button
+                    class="like-product"
+                    data-id="31"
+                    data-name="Lorena"
+                    title="Add to Wishlist"
+                    type="button"
+                >
+                    <i class="fa-regular fa-heart"></i>
+
+                    <span>
+                        Like
+                    </span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <h3>
+        Lorena
+    </h3>
+
+    <p>
+        Natural wood dining chair
+    </p>
+
+    <strong>
+        Rp 2.700.000
+    </strong>
+
+</article>
+
+
+<!-- - PRODUCT 32 - EVELYN -->
+
+<article
+    class="product-card"
+    data-id="32"
+    data-name="Evelyn"
+    data-price="3600000"
+    data-category="bedroom"
+>
+
+    <div class="product-image">
+
+        <span class="badge">
+            20%
+        </span>
+
+        <a href="Single-Product.html?id=32">
+
+            <img
+                src="assite/Shop-Products-images/product32.png"
+                alt="Evelyn"
+            >
+
+        </a>
+
+        <div class="product-actions">
+
+            <button
+                class="add-cart"
+                data-id="32"
+                type="button"
+            >
+                Add to Cart
+            </button>
+
+            <div class="product-buttons">
+
+                <!-- SHARE -->
+
+                <button
+                    class="share-product"
+                    data-id="32"
+                    data-name="Evelyn"
+                    title="Share"
+                    type="button"
+                >
+                    <i class="fa-solid fa-share-nodes"></i>
+
+                    <span>
+                        Share
+                    </span>
+                </button>
+
+
+                <!-- COMPARE -->
+
+                <button
+                    class="compare-product"
+                    data-id="32"
+                    data-name="Evelyn"
+                    title="Compare"
+                    type="button"
+                >
+                    <i class="fa-solid fa-code-compare"></i>
+
+                    <span>
+                        Compare
+                    </span>
+                </button>
+
+
+                <!-- LIKE -->
+
+                <button
+                    class="like-product"
+                    data-id="32"
+                    data-name="Evelyn"
+                    title="Add to Wishlist"
+                    type="button"
+                >
+                    <i class="fa-regular fa-heart"></i>
+
+                    <span>
+                        Like
+                    </span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <h3>
+        Evelyn
+    </h3>
+
+    <p>
+        Comfortable modern bed
+    </p>
+
+    <strong>
+        Rp 3.600.000
+    </strong>
+
+    <del>
+        Rp 4.500.000
+    </del>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
 
 
@@ -2667,9 +4423,7 @@ id="shop-products"
 
 
 
-<!-- 
-     PAGINATION
- -->
+<!-- - Pagination -->
 
 <section class="pagination" id="pagination">
 
@@ -2688,13 +4442,6 @@ id="shop-products"
     </button>
 
     <button
-        class="pagination-btn"
-        type="button"
-        data-page="3">
-        3
-    </button>
-
-    <button
         class="pagination-btn pagination-next"
         id="paginationNext"
         type="button">
@@ -2702,8 +4449,6 @@ id="shop-products"
     </button>
 
 </section>
-
-
 
 
 
@@ -3297,9 +5042,9 @@ id="shop-products"
 
 
 <script src="JS/main.js"></script>
-<script src="JS/Shop-Toolbar.js"></script>
+<script src="JS/shop.js/Shop-Toolbar.js"></script>
 
-<script src="JS/Pagination.js"></script>
+<script src="JS/shop.js/Pagination.js"></script>
 <script src="JS/Features.js"></script>
 
 <script src="JS/Category.js"></script>

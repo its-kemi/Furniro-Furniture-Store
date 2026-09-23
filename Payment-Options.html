@@ -13,6 +13,30 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="CSS/Payment-Options.css">
+
+
+
+
+
+
+
+<link
+    rel="stylesheet"
+    href="CSS/Scroll-Animation.css"
+>
+
+
+<link
+    rel="stylesheet"
+    href="CSS/Account.css"
+>
+<link rel="stylesheet" href="CSS/WhatsApp-Chat.css">
+
+
+
+
+
+
 </head>
 
 <body>
@@ -36,29 +60,224 @@
             </ul>
         </nav>
 
-        <div class="icons">
 
-            <a href="#"
-   class="account-icon"
-   id="accountOpen">
 
-    <i class="fas fa-user-alt"></i>
 
-</a>
 
-            <a href="Wishlist.html">
-                <i class="far fa-heart"></i>
-            </a>
 
-            <a href="Search.html">
-                <i class="fa fa-search"></i>
-            </a>
 
-            <a href="Cart.html">
-                <i class="fa fa-shopping-cart"></i>
-            </a>
 
-        </div>
+
+
+
+ 
+<!-- Mobile Menu Button -->
+<button
+    class="mobile-menu-button"
+    id="mobileMenuButton"
+    type="button"
+    aria-label="Open menu"
+>
+    <i class="fa-solid fa-bars"></i>
+</button>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+
+    <div class="mobile-menu-header">
+        <h3>Furniro</h3>
+
+        <button
+            class="mobile-menu-close"
+            id="mobileMenuClose"
+            type="button"
+            aria-label="Close menu"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+    <ul>
+        <li>
+            <a href="index.html">Home</a>
+        </li>
+
+        <li>
+            <a href="Shop.html">Shop</a>
+        </li>
+
+        <li>
+            <a href="About.html">About</a>
+        </li>
+
+        <li>
+            <a href="Contact.html">Contact</a>
+        </li>
+    </ul>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="icons">
+
+    <a href="#"
+       class="account-icon"
+       id="accountOpen"
+       aria-label="Account">
+        <i class="fas fa-user-alt"></i>
+    </a>
+
+    <a href="Wishlist.html"
+       aria-label="Wishlist">
+        <i class="far fa-heart"></i>
+    </a>
+
+    <a href="Search.html"
+       aria-label="Search">
+        <i class="fa fa-search"></i>
+    </a>
+
+    <a href="Cart.html"
+       aria-label="Cart">
+        <i class="fa fa-shopping-cart"></i>
+    </a>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<!-- LANGUAGE -->
+
+<div class="language-menu">
+
+    <button
+        type="button"
+        class="language-button"
+        id="languageButton"
+        aria-label="Change language"
+    >
+        <i class="fa-solid fa-globe"></i>
+    </button>
+
+    <div class="language-dropdown" id="languageDropdown">
+
+        <button
+            type="button"
+            class="language-option active"
+            data-language="en"
+        >
+            English
+        </button>
+
+        <button
+            type="button"
+            class="language-option"
+            data-language="fa"
+        >
+            دری
+        </button>
+
+        <button
+            type="button"
+            class="language-option"
+            data-language="ps"
+        >
+            پښتو
+        </button>
+
+        <button
+            type="button"
+            class="language-option"
+            data-language="uz"
+        >
+            Uzbek
+        </button>
+
+        <button
+            type="button"
+            class="language-option"
+            data-language="ar"
+        >
+            العربية
+        </button>
+
+        <button
+            type="button"
+            class="language-option"
+            data-language="fr"
+        >
+            Français
+        </button>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- DARK MODE -->
+
+    <button
+        type="button"
+        class="theme-button"
+        id="themeButton"
+        aria-label="Toggle dark mode"
+    >
+        <i class="fa-solid fa-moon"></i>
+    </button>
+
+</div>
+
+
+
+
+
+
+
+
+
+
 
     </header>
 
@@ -405,6 +624,382 @@
         </div>
 
     </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+     SHARE POPUP
+ -->
+
+<div class="share-overlay" id="shareOverlay">
+
+    <div class="share-popup" id="sharePopup">
+
+
+        <!-- CLOSE  -->
+
+        <button
+            class="share-close"
+            id="shareClose"
+            type="button"
+            title="Close"
+        >
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+
+        <!--  SHARE ICON  -->
+
+        <div class="share-popup-icon">
+
+            <i class="fa-solid fa-share-nodes"></i>
+
+        </div>
+
+
+        <!--  TITLE  -->
+
+        <h2>
+            Share Product
+        </h2>
+
+
+        <p class="share-popup-text">
+            Share this product with your friends
+        </p>
+
+
+        <!--  PRODUCT NAME  -->
+
+        <h3
+            id="shareProductName"
+            class="share-product-name"
+        >
+            Product
+        </h3>
+
+
+        <!--  SOCIAL ICONS  -->
+
+        <div class="share-social-icons">
+
+
+            <!-- WHATSAPP -->
+
+            <a
+                href="#"
+                id="shareWhatsApp"
+                class="share-social whatsapp"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="WhatsApp"
+            >
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+            </a>
+
+
+            <!-- TELEGRAM -->
+
+            <a
+                href="#"
+                id="shareTelegram"
+                class="share-social telegram"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Telegram"
+            >
+
+                <i class="fa-brands fa-telegram"></i>
+
+            </a>
+
+
+            <!-- FACEBOOK -->
+
+            <a
+                href="#"
+                id="shareFacebook"
+                class="share-social facebook"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Facebook"
+            >
+
+                <i class="fa-brands fa-facebook-f"></i>
+
+            </a>
+
+
+            <!-- X -->
+
+            <a
+                href="#"
+                id="shareX"
+                class="share-social x-social"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="X"
+            >
+
+                <i class="fa-brands fa-x-twitter"></i>
+
+            </a>
+
+
+            <!-- COPY LINK -->
+
+            <button
+                type="button"
+                id="shareCopy"
+                class="share-social copy-link"
+                title="Copy Link"
+            >
+
+                <i class="fa-solid fa-link"></i>
+
+            </button>
+
+        </div>
+
+
+        <!--  COPY MESSAGE  -->
+
+        <p
+            id="shareMessage"
+            class="share-message"
+        ></p>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+<!-- 
+     WHATSAPP CHAT
+-->
+
+<div class="whatsapp-chat-container">
+
+    <!-- WhatsApp Chat Box -->
+    <div
+        class="whatsapp-chat-box"
+        id="whatsappChatBox"
+    >
+
+        <!-- Chat Header -->
+        <div class="whatsapp-chat-header">
+
+            <div class="whatsapp-profile">
+
+                <div class="whatsapp-profile-icon">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+
+                <div class="whatsapp-profile-info">
+                    <h3>Furniro</h3>
+                    <span>Online</span>
+                </div>
+
+            </div>
+
+
+            <!-- Close Button -->
+            <button
+                type="button"
+                class="whatsapp-close"
+                id="closeWhatsappChat"
+                aria-label="Close chat"
+                title="Close"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+
+        <!-- 
+             CHAT MESSAGES
+        -->
+
+        <div
+            class="whatsapp-chat-messages"
+            id="whatsappChatMessages"
+        >
+
+            <!-- Date -->
+            <div class="whatsapp-date">
+                <span>Today</span>
+            </div>
+
+
+            <!-- Welcome Message -->
+            <div class="whatsapp-message welcome-message">
+
+                <p>Hello! 👋</p>
+
+                <p>Welcome to Furniro.</p>
+
+                <span class="message-time">
+                    Now
+                </span>
+
+            </div>
+
+
+            <!-- Help Message -->
+            <div class="whatsapp-message welcome-message">
+
+                <p>How can we help you?</p>
+
+                <span class="message-time">
+                    Now
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- 
+             MESSAGE INPUT
+         -->
+
+        <div class="whatsapp-input-area">
+
+            <!-- Message Input -->
+            <div class="whatsapp-input-box">
+
+                <!-- Emoji -->
+                <button
+                    type="button"
+                    class="whatsapp-emoji"
+                    aria-label="Emoji"
+                    title="Emoji"
+                >
+                    <i class="fa-regular fa-face-smile"></i>
+                </button>
+
+
+                <!-- Textarea -->
+                <textarea
+                    id="whatsappMessage"
+                    rows="1"
+                    placeholder="Type a message..."
+                    aria-label="Type your message"
+                ></textarea>
+
+            </div>
+
+
+            <!-- Call Button -->
+            <a
+                href="tel:+93700123456"
+                class="whatsapp-call"
+                aria-label="Call Furniro"
+                title="Call Furniro"
+            >
+                <i class="fa-solid fa-phone"></i>
+            </a>
+
+
+            <!-- Send Button -->
+            <button
+                type="button"
+                class="whatsapp-send"
+                id="sendWhatsappMessage"
+                aria-label="Send message"
+                title="Send message"
+            >
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- 
+         FLOATING WHATSAPP BUTTON
+     -->
+
+    <button
+        type="button"
+        class="whatsapp-chat-button"
+        id="openWhatsappChat"
+        aria-label="Open WhatsApp chat"
+        title="Chat with us"
+    >
+        <i class="fa-brands fa-whatsapp"></i>
+    </button>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="JS/Newsletter.js"></script>
+
+<script src="JS/Account.js"></script>
+
+<script src="JS/Language.js"></script>
+<script src="JS/Dark-Mode.js"></script>
+
+<script src="JS/WhatsApp-Chat.js"></script>
+
+
+
+
+
     <script src="JS/Account.js"></script>
 
 </body>
