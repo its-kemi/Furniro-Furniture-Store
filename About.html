@@ -57,7 +57,7 @@
      HEADER-Ab
  -->
 
-<header>
+<header class="about-header">
 
     <div class="logo">
 
@@ -960,6 +960,11 @@
 
 <!-- - Our Process -->
 
+
+
+
+<!-- - Our Process -->
+
 <section class="about-process">
 
     <div class="about-section-title">
@@ -980,34 +985,45 @@
     </div>
 
 
-    <div class="process-grid">
+    <!-- - Process Cards -->
+
+    <div class="process-accordion">
 
 
         <!-- - Inspiration -->
 
         <div
-            class="process-item"
+            class="process-card process-active"
             data-process="inspiration"
         >
 
-            <span class="process-number">
+            <div class="process-card-number">
                 01
-            </span>
-
-            <div class="process-icon">
-
-                <i class="fa-solid fa-lightbulb"></i>
-
             </div>
 
-            <h3>
-                Inspiration
-            </h3>
+            <img
+                src="assite/about.images/Inspiration-1.png"
+                alt="Inspiration"
+            >
 
-            <p>
-                We explore ideas, trends and everyday living
-                to create furniture with purpose.
-            </p>
+            <div class="process-card-overlay"></div>
+
+            <div class="process-card-content">
+
+                <span>
+                    01
+                </span>
+
+                <h3>
+                    Inspiration
+                </h3>
+
+                <p>
+                    We explore ideas, trends and everyday
+                    living to create furniture with purpose.
+                </p>
+
+            </div>
 
         </div>
 
@@ -1015,28 +1031,37 @@
         <!-- - Design -->
 
         <div
-            class="process-item"
+            class="process-card"
             data-process="design"
         >
 
-            <span class="process-number">
+            <div class="process-card-number">
                 02
-            </span>
-
-            <div class="process-icon">
-
-                <i class="fa-solid fa-pen-ruler"></i>
-
             </div>
 
-            <h3>
-                Design
-            </h3>
+            <img
+                src="assite/about.images/Design-1.png"
+                alt="Design"
+            >
 
-            <p>
-                Our designs combine modern aesthetics,
-                comfort and practical functionality.
-            </p>
+            <div class="process-card-overlay"></div>
+
+            <div class="process-card-content">
+
+                <span>
+                    02
+                </span>
+
+                <h3>
+                    Design
+                </h3>
+
+                <p>
+                    Our designs combine modern aesthetics,
+                    comfort and practical functionality.
+                </p>
+
+            </div>
 
         </div>
 
@@ -1044,28 +1069,37 @@
         <!-- - Craftsmanship -->
 
         <div
-            class="process-item"
+            class="process-card"
             data-process="craftsmanship"
         >
 
-            <span class="process-number">
+            <div class="process-card-number">
                 03
-            </span>
-
-            <div class="process-icon">
-
-                <i class="fa-solid fa-hammer"></i>
-
             </div>
 
-            <h3>
-                Craftsmanship
-            </h3>
+            <img
+                src="assite/about.images/Craftsmanship-1.png"
+                alt="Craftsmanship"
+            >
 
-            <p>
-                Each piece is carefully developed with
-                attention to materials and details.
-            </p>
+            <div class="process-card-overlay"></div>
+
+            <div class="process-card-content">
+
+                <span>
+                    03
+                </span>
+
+                <h3>
+                    Craftsmanship
+                </h3>
+
+                <p>
+                    Each piece is carefully developed with
+                    attention to materials and details.
+                </p>
+
+            </div>
 
         </div>
 
@@ -1073,149 +1107,43 @@
         <!-- - Your Home -->
 
         <div
-            class="process-item"
+            class="process-card"
             data-process="home"
         >
 
-            <span class="process-number">
+            <div class="process-card-number">
                 04
-            </span>
-
-            <div class="process-icon">
-
-                <i class="fa-solid fa-house"></i>
-
             </div>
 
-            <h3>
-                Your Home
-            </h3>
-
-            <p>
-                Beautiful furniture becomes part of the
-                spaces where your everyday moments happen.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <!-- - Process Gallery -->
-
-    <div
-        class="process-gallery-overlay"
-        id="processGalleryOverlay"
-    >
-
-        <div
-            class="process-gallery"
-            id="processGallery"
-        >
-
-            <!-- - Close Button -->
-
-            <button
-                class="process-gallery-close"
-                id="processGalleryClose"
-                type="button"
-                aria-label="Close gallery"
+            <img
+                src="assite/about.images/Home-1.png"
+                alt="Your Home"
             >
 
-                <i class="fa-solid fa-xmark"></i>
+            <div class="process-card-overlay"></div>
 
-            </button>
+            <div class="process-card-content">
 
-
-            <!-- - Gallery Heading -->
-
-            <div class="process-gallery-heading">
-
-                <span id="processGalleryLabel">
-                    STEP 01
+                <span>
+                    04
                 </span>
 
-                <h3 id="processGalleryTitle">
-                    Inspiration
+                <h3>
+                    Your Home
                 </h3>
 
-                <p id="processGalleryDescription">
-                    Discover how ideas become beautiful furniture.
+                <p>
+                    Beautiful furniture becomes part of the
+                    spaces where your everyday moments happen.
                 </p>
 
             </div>
 
-
-            <!-- - Gallery Images -->
-
-            <div
-                class="process-gallery-grid"
-                id="processGalleryGrid"
-            ></div>
-
         </div>
 
     </div>
 
-
-
-
-
-
-
-<!-- - Process Gallery -->
-
-<div
-    class="process-gallery-overlay"
-    id="processGalleryOverlay"
->
-
-    <div
-        class="process-gallery"
-        id="processGallery"
-    >
-
-        <!-- - Close -->
-
-        <button
-            class="process-gallery-close"
-            id="processGalleryClose"
-            type="button"
-            aria-label="Close"
-        >
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-
-        <!-- - Images -->
-
-        <div
-            class="process-gallery-grid"
-            id="processGalleryGrid"
-        ></div>
-
-    </div>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
 </section>
-
-
-
-
-
-
-
-
 
 
 

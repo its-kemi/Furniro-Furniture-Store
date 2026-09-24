@@ -12,18 +12,30 @@ body {
 
 
 
-header {
-  width: 100%;
-  min-height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 50px;
-  background-color: white;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  border-bottom: 2px solid #f2f3f2;
+/* - Sticky Header */
+
+.shop-header {
+    width: 100%;
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 15px 50px;
+
+    background-color: #fff;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+
+    border-bottom: 1px solid #e5e5e5;
+
+    box-shadow:
+        0 3px 12px
+        rgba(0, 0, 0, 0.06);
 }
 
 header .logo {
