@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>My Orders - Furniro</title>
+
+
+    <!-- - Font Awesome -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <!-- - Main CSS -->
+
+    <link
+        rel="stylesheet"
+        href="CSS/style.css">
+
+
+    <!-- - Orders CSS -->
+
+    <link
+        rel="stylesheet"
+        href="CSS/orders.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- - Orders Section -->
+
+    <main class="orders-page">
+
+        <div class="orders-container">
+
+
+            <!-- - Page Header -->
+
+            <div class="orders-header">
+
+                <h1>
+                    My Orders
+                </h1>
+
+                <p>
+                    View and manage your recent orders.
+                </p>
+
+            </div>
+
+
+            <!-- - Orders List -->
+
+            <div
+                class="orders-list"
+                id="ordersList">
+
+
+                <!-- - Order -->
+
+                <div class="order-card">
+
+
+                    <!-- - Order Header -->
+
+                    <div class="order-header">
+
+                        <div>
+
+                            <h2>
+                                Order #1001
+                            </h2>
+
+                            <p>
+                                September 26, 2026
+                            </p>
+
+                        </div>
+
+
+                        <span class="order-status">
+                            Delivered
+                        </span>
+
+                    </div>
+
+
+                    <!-- - Order Information -->
+
+                    <div class="order-info">
+
+                        <div>
+
+                            <span>
+                                Total
+                            </span>
+
+                            <strong>
+                                $249.00
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Items
+                            </span>
+
+                            <strong>
+                                2 Items
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Payment
+                            </span>
+
+                            <strong>
+                                Paid
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- - Order Footer -->
+
+                    <div class="order-footer">
+
+                        <button
+                            type="button"
+                            class="view-order-button">
+
+                            <i class="fa-solid fa-eye"></i>
+
+                            View Details
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- - Empty Orders -->
+
+            <div
+                class="empty-orders"
+                id="emptyOrders">
+
+                <i class="fa-solid fa-box-open"></i>
+
+                <h2>
+                    No Orders Yet
+                </h2>
+
+                <p>
+                    You haven't placed any orders yet.
+                </p>
+
+                <a href="Shop.html">
+                    Continue Shopping
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- - Account JavaScript -->
+
+    <script
+        src="JS/Accountjs/Account.js">
+
+        
+    </script>
+
+    <script src="JS/Orders.js"></script>
+
+</body>
+
+</html>

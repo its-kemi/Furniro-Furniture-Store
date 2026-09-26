@@ -1,0 +1,423 @@
+/* - Account Settings Page */
+
+.account-settings-page {
+    min-height: 100vh;
+
+    padding: 80px 20px;
+
+    background: #f8f8f8;
+}
+
+
+/* - Container */
+
+.account-settings-container {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+}
+
+
+/* - Page Header */
+
+.account-settings-header {
+    margin-bottom: 35px;
+
+    text-align: center;
+}
+
+
+.account-settings-header h1 {
+    margin: 0 0 10px;
+
+    color: #1b1b1b;
+
+    font-size: 32px;
+    font-weight: 600;
+}
+
+
+.account-settings-header p {
+    margin: 0;
+
+    color: #777777;
+
+    font-size: 15px;
+}
+
+
+/* - Settings Content */
+
+.settings-content {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+}
+
+
+/* - Settings Card */
+
+.settings-card {
+    padding: 30px;
+
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.07);
+}
+
+
+/* - Card Header */
+
+.settings-card-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+
+/* - Settings Icon */
+
+.settings-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 45px;
+    height: 45px;
+
+    flex-shrink: 0;
+
+    border-radius: 8px;
+
+    background: #f3e5f4;
+
+    color: #742277;
+
+    font-size: 18px;
+}
+
+
+/* - Header Text */
+
+.settings-card-header h2 {
+    margin: 0 0 5px;
+
+    color: #1b1b1b;
+
+    font-size: 19px;
+}
+
+
+.settings-card-header p {
+    margin: 0;
+
+    color: #888888;
+
+    font-size: 13px;
+}
+
+
+/* - Settings Form */
+
+.settings-card form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+/* - Settings Field */
+
+.settings-field {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    margin-bottom: 8px;
+}
+
+
+/* - Label */
+
+.settings-field label {
+    color: #333333;
+
+    font-size: 14px;
+
+    font-weight: 500;
+}
+
+
+/* - Input */
+
+.settings-field input {
+    width: 100%;
+
+    padding: 13px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 6px;
+
+    outline: none;
+
+    color: #333333;
+
+    background: #ffffff;
+
+    font-size: 14px;
+
+    transition:
+        border-color 0.3s ease;
+}
+
+
+.settings-field input:focus {
+    border-color: #742277;
+}
+
+
+/* - Save Button */
+
+.settings-save-button {
+    width: fit-content;
+
+    margin-top: 10px;
+
+    padding: 12px 24px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #742277;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.settings-save-button:hover {
+    background: #5e1b62;
+
+    transform: translateY(-2px);
+}
+
+
+/* - Settings Actions */
+
+.settings-actions {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+
+/* - Action */
+
+.settings-action {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    min-height: 50px;
+
+    padding: 0 18px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    color: #333333;
+
+    font-size: 14px;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+
+.settings-action i {
+    width: 20px;
+
+    color: #742277;
+
+    text-align: center;
+}
+
+
+.settings-action:hover {
+    border-color: #742277;
+
+    color: #742277;
+
+    background: #faf5fa;
+}
+
+
+/* - Logout */
+
+.settings-logout {
+    width: 100%;
+
+    font-family: inherit;
+
+    text-align: left;
+}
+
+
+.settings-logout i {
+    color: #b3261e;
+}
+
+
+.settings-logout:hover {
+    border-color: #b3261e;
+
+    color: #b3261e;
+
+    background: #fff7f7;
+}
+
+
+/* - Mobile */
+
+@media (max-width: 768px) {
+
+    .account-settings-page {
+        padding: 60px 20px;
+    }
+
+
+    .account-settings-header h1 {
+        font-size: 28px;
+    }
+
+
+    .settings-card {
+        padding: 25px 20px;
+    }
+
+
+    .settings-actions {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .account-settings-page {
+        padding: 45px 15px;
+    }
+
+
+    .account-settings-header h1 {
+        font-size: 25px;
+    }
+
+
+    .settings-card-header {
+        align-items: flex-start;
+    }
+
+
+    .settings-icon {
+        width: 40px;
+        height: 40px;
+
+        font-size: 16px;
+    }
+
+
+    .settings-card-header h2 {
+        font-size: 17px;
+    }
+
+
+    .settings-save-button {
+        width: 100%;
+    }
+
+}
+
+
+
+
+/* - Back Button */
+
+.settings-back-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 25px;
+
+    color: #742277;
+
+    font-size: 14px;
+
+    text-decoration: none;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.settings-back-button i {
+    font-size: 14px;
+}
+
+.settings-back-button:hover {
+
+    color: #5e1b62;
+
+    transform: translateX(-3px);
+}

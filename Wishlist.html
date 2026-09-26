@@ -5,39 +5,50 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>Wishlist - Furniro</title>
-
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <link rel="stylesheet"
-        href="CSS/Wishlist.css">
+    <title>
+        Wishlist - Furniro
+    </title>
 
 
+    <!-- Font Awesome -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
 
 
+    <!-- Wishlist CSS -->
 
-
-
-
-<link
-    rel="stylesheet"
-    href="CSS/Scroll-Animation.css"
->
-
-
-<link
-    rel="stylesheet"
-    href="CSS/Account.css"
->
-<link rel="stylesheet" href="CSS/WhatsApp-Chat.css">
+    <link
+        rel="stylesheet"
+        href="CSS/Wishlist.css"
+    >
 
 
 
 
+    <!-- Other CSS -->
+
+    <link
+        rel="stylesheet"
+        href="CSS/Scroll-Animation.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="CSS/Account.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="CSS/WhatsApp-Chat.css"
+    >
 
 </head>
 
@@ -45,11 +56,12 @@
 <body>
 
 
-<!--
-     HEADER WL
--->
+<!-- Header -->
 
-<header>
+<header class="Wishlist-header">
+
+
+    <!-- Logo -->
 
     <div class="logo">
 
@@ -64,6 +76,8 @@
 
     </div>
 
+
+    <!-- Navigation -->
 
     <nav>
 
@@ -98,232 +112,233 @@
     </nav>
 
 
-
-
-
-
-
-
-
- 
-<!-- Mobile Menu Button -->
-<button
-    class="mobile-menu-button"
-    id="mobileMenuButton"
-    type="button"
-    aria-label="Open menu"
->
-    <i class="fa-solid fa-bars"></i>
-</button>
-
-<!-- Mobile Menu -->
-<div class="mobile-menu" id="mobileMenu">
-
-    <div class="mobile-menu-header">
-        <h3>Furniro</h3>
-
-        <button
-            class="mobile-menu-close"
-            id="mobileMenuClose"
-            type="button"
-            aria-label="Close menu"
-        >
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-    </div>
-
-    <ul>
-        <li>
-            <a href="index.html">Home</a>
-        </li>
-
-        <li>
-            <a href="Shop.html">Shop</a>
-        </li>
-
-        <li>
-            <a href="About.html">About</a>
-        </li>
-
-        <li>
-            <a href="Contact.html">Contact</a>
-        </li>
-    </ul>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="icons">
-
-    <a href="#"
-       class="account-icon"
-       id="accountOpen"
-       aria-label="Account">
-        <i class="fas fa-user-alt"></i>
-    </a>
-
-    <a href="Wishlist.html"
-       aria-label="Wishlist">
-        <i class="far fa-heart"></i>
-    </a>
-
-    <a href="Search.html"
-       aria-label="Search">
-        <i class="fa fa-search"></i>
-    </a>
-
-    <a href="Cart.html"
-       aria-label="Cart">
-        <i class="fa fa-shopping-cart"></i>
-    </a>
-
-    
-
-
-
-
-
-
-
-
-
-
-
-<!-- LANGUAGE -->
-
-<div class="language-menu">
+    <!-- Mobile Button -->
 
     <button
+        class="mobile-menu-button"
+        id="mobileMenuButton"
         type="button"
-        class="language-button"
-        id="languageButton"
-        aria-label="Change language"
+        aria-label="Open menu"
     >
-        <i class="fa-solid fa-globe"></i>
+
+        <i class="fa-solid fa-bars"></i>
+
     </button>
 
-    <div class="language-dropdown" id="languageDropdown">
 
-        <button
-            type="button"
-            class="language-option active"
-            data-language="en"
-        >
-            English
-        </button>
+    <!-- Mobile Menu -->
 
-        <button
-            type="button"
-            class="language-option"
-            data-language="fa"
-        >
-            دری
-        </button>
+    <div
+        class="mobile-menu"
+        id="mobileMenu"
+    >
 
-        <button
-            type="button"
-            class="language-option"
-            data-language="ps"
-        >
-            پښتو
-        </button>
+        <div class="mobile-menu-header">
 
-        <button
-            type="button"
-            class="language-option"
-            data-language="uz"
-        >
-            Uzbek
-        </button>
+            <h3>
+                Furniro
+            </h3>
 
-        <button
-            type="button"
-            class="language-option"
-            data-language="ar"
-        >
-            العربية
-        </button>
+            <button
+                class="mobile-menu-close"
+                id="mobileMenuClose"
+                type="button"
+                aria-label="Close menu"
+            >
 
-        <button
-            type="button"
-            class="language-option"
-            data-language="fr"
-        >
-            Français
-        </button>
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="Shop.html">
+                    Shop
+                </a>
+            </li>
+
+            <li>
+                <a href="About.html">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="Contact.html">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
 
     </div>
 
-</div>
+
+    <!-- Header Icons -->
+
+    <div class="icons">
 
 
+        <!-- Account -->
+
+        <a
+            href="#"
+            class="account-icon"
+            id="accountOpen"
+            aria-label="Account"
+        >
+
+            <i class="fas fa-user-alt"></i>
+
+        </a>
 
 
+        <!-- Wishlist -->
+
+        <a
+            href="Wishlist.html"
+            aria-label="Wishlist"
+        >
+
+            <i class="far fa-heart"></i>
+
+        </a>
 
 
+        <!-- Search -->
+
+        <a
+            href="Search.html"
+            aria-label="Search"
+        >
+
+            <i class="fa fa-search"></i>
+
+        </a>
 
 
+        <!-- Cart -->
+
+        <a
+            href="Cart.html"
+            aria-label="Cart"
+        >
+
+            <i class="fa fa-shopping-cart"></i>
+
+        </a>
 
 
+        <!-- Language -->
+
+        <div class="language-menu">
+
+            <button
+                type="button"
+                class="language-button"
+                id="languageButton"
+                aria-label="Change language"
+            >
+
+                <i class="fa-solid fa-globe"></i>
+
+            </button>
 
 
+            <div
+                class="language-dropdown"
+                id="languageDropdown"
+            >
+
+                <button
+                    type="button"
+                    class="language-option active"
+                    data-language="en"
+                >
+                    English
+                </button>
+
+                <button
+                    type="button"
+                    class="language-option"
+                    data-language="fa"
+                >
+                    دری
+                </button>
+
+                <button
+                    type="button"
+                    class="language-option"
+                    data-language="ps"
+                >
+                    پښتو
+                </button>
+
+                <button
+                    type="button"
+                    class="language-option"
+                    data-language="uz"
+                >
+                    Uzbek
+                </button>
+
+                <button
+                    type="button"
+                    class="language-option"
+                    data-language="ar"
+                >
+                    العربية
+                </button>
+
+                <button
+                    type="button"
+                    class="language-option"
+                    data-language="fr"
+                >
+                    Français
+                </button>
+
+            </div>
+
+        </div>
 
 
+        <!-- Dark Mode -->
 
+        <button
+            type="button"
+            class="theme-button"
+            id="themeButton"
+            aria-label="Toggle dark mode"
+        >
 
+            <i class="fa-solid fa-moon"></i>
 
+        </button>
 
-
-    <!-- DARK MODE -->
-
-    <button
-        type="button"
-        class="theme-button"
-        id="themeButton"
-        aria-label="Toggle dark mode"
-    >
-        <i class="fa-solid fa-moon"></i>
-    </button>
-
-</div>
-
-
-
-
-
-
-
+    </div>
 
 </header>
 
 
-
-<!--
-     BANNER
--->
+<!-- Banner -->
 
 <section class="page-banner">
 
     <div class="page-banner-bg"></div>
 
     <div class="page-banner-overlay"></div>
+
 
     <div class="page-banner-content">
 
@@ -355,10 +370,7 @@
 </section>
 
 
-
-<!--
-     WISHLIST
--->
+<!-- Wishlist -->
 
 <section class="wishlist">
 
@@ -375,28 +387,19 @@
         </p>
 
 
-
-        <!--
-             WISHLIST PRODUCTS
-        -->
+        <!-- Wishlist Grid -->
 
         <div
             class="wishlist-grid"
             id="wishlistGrid"
         >
 
-            <!--
-                 Wishlist.js
-                 will add products here.
-            -->
+            <!-- Wishlist.js adds products here -->
 
         </div>
 
 
-
-        <!--
-             EMPTY MESSAGE
-        -->
+        <!-- Empty Wishlist -->
 
         <div
             class="empty-wishlist"
@@ -420,211 +423,120 @@
 
         </div>
 
-
     </div>
 
 </section>
 
 
 
-<!--
-     FEATURES
--->
-
-<section class="features">
-
-
-    <div class="feature">
-
-        <i class="fa-solid fa-trophy"></i>
-
-        <div>
-
-            <h3>
-                High Quality
-            </h3>
-
-            <p>
-                Crafted from top materials
-            </p>
-
-        </div>
-
-    </div>
 
 
 
-    <div class="feature">
-
-        <i class="fa-solid fa-shield-halved"></i>
-
-        <div>
-
-            <h3>
-                Warranty Protection
-            </h3>
-
-            <p>
-                Over 2 years
-            </p>
-
-        </div>
-
-    </div>
 
 
 
-    <div class="feature">
-
-        <i class="fa-solid fa-truck"></i>
-
-        <div>
-
-            <h3>
-                Free Shipping
-            </h3>
-
-            <p>
-                Order Over 150 dollars
-            </p>
-
-        </div>
-
-    </div>
 
 
 
-    <div class="feature">
-
-        <i class="fa-solid fa-headset"></i>
-
-        <div>
-
-            <h3>
-                24 / 7 Support
-            </h3>
-
-            <p>
-                Dedicated Support
-            </p>
-
-        </div>
-
-    </div>
-
-
-</section>
 
 
 
-<!--
-     FOOTER
--->
+
 
 <div class="footer-line"></div>
+
 
 
 <footer>
 
 
+
     <div class="footer-top">
 
-
         <div class="footer-brand">
-
-            <h2>
-                Furniro.
-            </h2>
+            <h2>Furniro.</h2>
 
             <p>
                 400 University Drive Suite 200 Coral Gables,
                 FL 33134 USA
             </p>
-
         </div>
-
 
 
         <div class="footer-links">
 
-            <h3>
-                Links
-            </h3>
+            <h3>Links</h3>
 
-            <a href="index.html">
-                Home
-            </a>
+            <a href="index.html">Home</a>
+            <a href="Shop.html">Shop</a>
+            <a href="About.html">About</a>
+            <a href="Contact.html">Contact</a>
+            <a href="Blog.html">Blog</a>
 
-            <a href="Shop.html">
-                Shop
-            </a>
-
-            <a href="About.html">
-                About
-            </a>
-
-            <a href="Contact.html">
-                Contact
-            </a>
-
-            <a href="Blog.html">
-                Blog
-            </a>
 
         </div>
-
 
 
         <div class="footer-help">
 
-            <h3>
-                Help
-            </h3>
+            <h3>Help</h3>
 
-            <a href="Payment-Options.html">
-                Payment Options
-            </a>
-
-            <a href="Returns.html">
-                Returns
-            </a>
-
-            <a href="Privacy-Policy.html">
-                Privacy Policies
-            </a>
+          <a href="Payment-Options.html">Payment Options</a>
+             <a href="Returns.html">Returns</a>
+               <a href="Privacy-Policy.html">Privacy Policies</a>
+           
 
         </div>
 
 
+      <!-- 
+     FOOTER NEWSLETTER
+ -->
 
-        <div class="footer-newsletter">
+<div class="footer-newsletter">
 
-            <h3>
-                Newsletter
-            </h3>
+    <h3>
+        Newsletter
+    </h3>
 
-            <div>
 
-                <input
-                    type="email"
-                    placeholder="Enter your email"
-                >
+    <form
+        class="newsletter-form"
+        id="newsletterForm"
+    >
 
-                <button>
-                    SUBSCRIBE
-                </button>
+        <input
+            type="email"
+            id="newsletterEmail"
+            placeholder="Enter your email"
+            required
+        >
 
-            </div>
 
-        </div>
+        <button
+            type="submit"
+        >
+            SUBSCRIBE
+        </button>
+
+    </form>
+
+</div>
+
+
+
+
+
+
+
+
+
 
 
     </div>
 
 
-
     <div class="footer-line"></div>
-
 
 
     <div class="footer-bottom">
@@ -635,8 +547,8 @@
 
     </div>
 
+</footer
 
-</footer>
 
 
 
@@ -646,225 +558,80 @@
 
 
 
-<!-- 
-     SHARE POPUP
- -->
 
-<div class="share-overlay" id="shareOverlay">
 
-    <div class="share-popup" id="sharePopup">
-
-
-        <!-- CLOSE  -->
-
-        <button
-            class="share-close"
-            id="shareClose"
-            type="button"
-            title="Close"
-        >
-
-            <i class="fa-solid fa-xmark"></i>
-
-        </button>
-
-
-        <!--  SHARE ICON  -->
-
-        <div class="share-popup-icon">
-
-            <i class="fa-solid fa-share-nodes"></i>
-
-        </div>
-
-
-        <!--  TITLE  -->
-
-        <h2>
-            Share Product
-        </h2>
-
-
-        <p class="share-popup-text">
-            Share this product with your friends
-        </p>
-
-
-        <!--  PRODUCT NAME  -->
-
-        <h3
-            id="shareProductName"
-            class="share-product-name"
-        >
-            Product
-        </h3>
-
-
-        <!--  SOCIAL ICONS  -->
-
-        <div class="share-social-icons">
-
-
-            <!-- WHATSAPP -->
-
-            <a
-                href="#"
-                id="shareWhatsApp"
-                class="share-social whatsapp"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="WhatsApp"
-            >
-
-                <i class="fa-brands fa-whatsapp"></i>
-
-            </a>
-
-
-            <!-- TELEGRAM -->
-
-            <a
-                href="#"
-                id="shareTelegram"
-                class="share-social telegram"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Telegram"
-            >
-
-                <i class="fa-brands fa-telegram"></i>
-
-            </a>
-
-
-            <!-- FACEBOOK -->
-
-            <a
-                href="#"
-                id="shareFacebook"
-                class="share-social facebook"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Facebook"
-            >
-
-                <i class="fa-brands fa-facebook-f"></i>
-
-            </a>
-
-
-            <!-- X -->
-
-            <a
-                href="#"
-                id="shareX"
-                class="share-social x-social"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="X"
-            >
-
-                <i class="fa-brands fa-x-twitter"></i>
-
-            </a>
-
-
-            <!-- COPY LINK -->
-
-            <button
-                type="button"
-                id="shareCopy"
-                class="share-social copy-link"
-                title="Copy Link"
-            >
-
-                <i class="fa-solid fa-link"></i>
-
-            </button>
-
-        </div>
-
-
-        <!--  COPY MESSAGE  -->
-
-        <p
-            id="shareMessage"
-            class="share-message"
-        ></p>
-
-
-    </div>
-
-</div>
-
-
-
-
-
-<!-- 
-     WHATSAPP CHAT
--->
+<!-- WhatsApp -->
 
 <div class="whatsapp-chat-container">
 
-    <!-- WhatsApp Chat Box -->
+
     <div
         class="whatsapp-chat-box"
         id="whatsappChatBox"
     >
 
-        <!-- Chat Header -->
         <div class="whatsapp-chat-header">
 
             <div class="whatsapp-profile">
 
                 <div class="whatsapp-profile-icon">
+
                     <i class="fa-brands fa-whatsapp"></i>
+
                 </div>
 
                 <div class="whatsapp-profile-info">
-                    <h3>Furniro</h3>
-                    <span>Online</span>
+
+                    <h3>
+                        Furniro
+                    </h3>
+
+                    <span>
+                        Online
+                    </span>
+
                 </div>
 
             </div>
 
 
-            <!-- Close Button -->
             <button
                 type="button"
                 class="whatsapp-close"
                 id="closeWhatsappChat"
                 aria-label="Close chat"
-                title="Close"
             >
+
                 <i class="fa-solid fa-xmark"></i>
+
             </button>
 
         </div>
 
-
-        <!-- 
-             CHAT MESSAGES
-        -->
 
         <div
             class="whatsapp-chat-messages"
             id="whatsappChatMessages"
         >
 
-            <!-- Date -->
             <div class="whatsapp-date">
-                <span>Today</span>
+
+                <span>
+                    Today
+                </span>
+
             </div>
 
 
-            <!-- Welcome Message -->
             <div class="whatsapp-message welcome-message">
 
-                <p>Hello! 👋</p>
+                <p>
+                    Hello! 👋
+                </p>
 
-                <p>Welcome to Furniro.</p>
+                <p>
+                    Welcome to Furniro.
+                </p>
 
                 <span class="message-time">
                     Now
@@ -873,10 +640,11 @@
             </div>
 
 
-            <!-- Help Message -->
             <div class="whatsapp-message welcome-message">
 
-                <p>How can we help you?</p>
+                <p>
+                    How can we help you?
+                </p>
 
                 <span class="message-time">
                     Now
@@ -887,57 +655,57 @@
         </div>
 
 
-        <!-- 
-             MESSAGE INPUT
-         -->
+        <!-- WhatsApp Input -->
 
         <div class="whatsapp-input-area">
 
-            <!-- Message Input -->
             <div class="whatsapp-input-box">
 
-                <!-- Emoji -->
                 <button
                     type="button"
                     class="whatsapp-emoji"
                     aria-label="Emoji"
-                    title="Emoji"
                 >
+
                     <i class="fa-regular fa-face-smile"></i>
+
                 </button>
 
 
-                <!-- Textarea -->
                 <textarea
                     id="whatsappMessage"
                     rows="1"
                     placeholder="Type a message..."
-                    aria-label="Type your message"
+                    aria-label="Type a message"
                 ></textarea>
 
             </div>
 
 
-            <!-- Call Button -->
+            <!-- Call -->
+
             <a
                 href="tel:+93700123456"
                 class="whatsapp-call"
                 aria-label="Call Furniro"
-                title="Call Furniro"
             >
+
                 <i class="fa-solid fa-phone"></i>
+
             </a>
 
 
-            <!-- Send Button -->
+            <!-- Send -->
+
             <button
                 type="button"
                 class="whatsapp-send"
                 id="sendWhatsappMessage"
                 aria-label="Send message"
-                title="Send message"
             >
+
                 <i class="fa-solid fa-paper-plane"></i>
+
             </button>
 
         </div>
@@ -945,69 +713,37 @@
     </div>
 
 
-    <!-- 
-         FLOATING WHATSAPP BUTTON
-     -->
+    <!-- WhatsApp Button -->
 
     <button
         type="button"
         class="whatsapp-chat-button"
         id="openWhatsappChat"
         aria-label="Open WhatsApp chat"
-        title="Chat with us"
     >
+
         <i class="fa-brands fa-whatsapp"></i>
+
     </button>
 
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- JavaScript -->
 
 <script src="JS/Newsletter.js"></script>
 
 <script src="JS/Account.js"></script>
 
 <script src="JS/Language.js"></script>
+
 <script src="JS/Dark-Mode.js"></script>
 
 <script src="JS/WhatsApp-Chat.js"></script>
 
-
-<!--
-     WISHLIST JAVASCRIPT
--->
-
 <script src="JS/Wishlist.js"></script>
+
+<script src="JS/Features.js"></script>
 
 
 </body>

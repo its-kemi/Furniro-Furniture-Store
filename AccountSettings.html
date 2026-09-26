@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Account Settings - Furniro</title>
+
+
+    <!-- - Font Awesome -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <!-- - Main CSS -->
+
+    <link
+        rel="stylesheet"
+        href="CSS/style.css">
+
+
+    <!-- - Account Settings CSS -->
+
+    <link
+        rel="stylesheet"
+        href="CSS/account-settings.css">
+
+</head>
+
+
+<body>
+
+
+
+
+    <!-- - Back Button -->
+
+<a
+    href="index.html"
+    class="settings-back-button">
+
+    <i class="fa-solid fa-arrow-left"></i>
+
+    <span>
+        Back to Home
+    </span>
+
+</a>
+
+
+    <!-- - Account Settings -->
+
+    <main class="account-settings-page">
+
+        <div class="account-settings-container">
+
+
+            <!-- - Page Header -->
+
+            <div class="account-settings-header">
+
+                <h1>
+                    Account Settings
+                </h1>
+
+                <p>
+                    Manage your account information and preferences.
+                </p>
+
+            </div>
+
+
+            <!-- - Settings Content -->
+
+            <div class="settings-content">
+
+
+                <!-- - Personal Information -->
+
+                <section class="settings-card">
+
+                    <div class="settings-card-header">
+
+                        <div class="settings-icon">
+
+                            <i class="fa-regular fa-user"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h2>
+                                Personal Information
+                            </h2>
+
+                            <p>
+                                Update your personal information.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <form id="settingsProfileForm">
+
+
+                        <!-- - Full Name -->
+
+                        <div class="settings-field">
+
+                            <label for="settings-name">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="settings-name"
+                                placeholder="Enter your full name"
+                                required>
+
+                        </div>
+
+
+                        <!-- - Email -->
+
+                        <div class="settings-field">
+
+                            <label for="settings-email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="settings-email"
+                                placeholder="Enter your email"
+                                required>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="settings-save-button">
+
+                            Save Changes
+
+                        </button>
+
+                    </form>
+
+                </section>
+
+
+                <!-- - Change Password -->
+
+                <section class="settings-card">
+
+                    <div class="settings-card-header">
+
+                        <div class="settings-icon">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h2>
+                                Change Password
+                            </h2>
+
+                            <p>
+                                Update your account password.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <form id="settingsPasswordForm">
+
+
+                        <!-- - Current Password -->
+
+                        <div class="settings-field">
+
+                            <label for="current-password">
+                                Current Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="current-password"
+                                placeholder="Enter current password"
+                                required>
+
+                        </div>
+
+
+                        <!-- - New Password -->
+
+                        <div class="settings-field">
+
+                            <label for="new-password">
+                                New Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="new-password"
+                                placeholder="Enter new password"
+                                required>
+
+                        </div>
+
+
+                        <!-- - Confirm Password -->
+
+                        <div class="settings-field">
+
+                            <label for="confirm-password">
+                                Confirm New Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="confirm-password"
+                                placeholder="Confirm new password"
+                                required>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="settings-save-button">
+
+                            Update Password
+
+                        </button>
+
+                    </form>
+
+                </section>
+
+
+                <!-- - Account Actions -->
+
+                <section class="settings-card">
+
+
+                    <div class="settings-card-header">
+
+                        <div class="settings-icon">
+
+                            <i class="fa-solid fa-gear"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h2>
+                                Account Actions
+                            </h2>
+
+                            <p>
+                                Manage your account.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="settings-actions">
+
+
+                        <!-- - My Profile -->
+
+                        <a
+                            href="#"
+                            class="settings-action">
+
+                            <i class="fa-regular fa-user"></i>
+
+                            <span>
+                                My Profile
+                            </span>
+
+                        </a>
+
+
+                        <!-- - Wishlist -->
+
+                        <a
+                            href="Wishlist.html"
+                            class="settings-action">
+
+                            <i class="fa-regular fa-heart"></i>
+
+                            <span>
+                                My Wishlist
+                            </span>
+
+                        </a>
+
+
+                        <!-- - Orders -->
+
+                        <a
+                            href="Orders.html"
+                            class="settings-action">
+
+                            <i class="fa-solid fa-box"></i>
+
+                            <span>
+                                My Orders
+                            </span>
+
+                        </a>
+
+
+                        <!-- - Logout -->
+
+                        <button
+                            type="button"
+                            id="settingsLogoutButton"
+                            class="settings-action settings-logout">
+
+                            <i class="fa-solid fa-right-from-bracket"></i>
+
+                            <span>
+                                Logout
+                            </span>
+
+                        </button>
+
+
+                    </div>
+
+                </section>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- - Account JavaScript -->
+
+    <script
+        src="JS/Accountjs/Account.js">
+    </script>
+
+
+    <!-- - Account Settings JavaScript -->
+
+    <script
+        src="JS/Accountjs/AccountSettings.js">
+    </script>
+
+</body>
+
+</html>

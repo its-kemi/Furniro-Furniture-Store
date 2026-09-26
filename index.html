@@ -20,6 +20,8 @@
 
 <link rel="stylesheet" href="CSS/Account.css">
 
+<link rel="stylesheet" href="CSS/Search.css">
+
 
 <link
     rel="stylesheet"
@@ -145,11 +147,6 @@
         <i class="far fa-heart"></i>
     </a>
 
-    <a href="Search.html"
-       aria-label="Search">
-        <i class="fa fa-search"></i>
-    </a>
-
     <a href="Cart.html"
        aria-label="Cart">
         <i class="fa fa-shopping-cart"></i>
@@ -157,6 +154,59 @@
 
     
 
+
+
+
+
+
+
+
+
+<!-- SEARCH -->
+
+<div class="header-search">
+
+    <button
+        type="button"
+        class="search-icon"
+        id="searchIcon"
+        aria-label="Search"
+    >
+        <i class="fa fa-search"></i>
+    </button>
+
+    <div
+        class="search-box"
+        id="searchBox"
+    >
+
+        <div class="search-input">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products..."
+                autocomplete="off"
+            >
+
+            <button
+                type="button"
+                id="searchButton"
+                aria-label="Search"
+            >
+                <i class="fa fa-search"></i>
+            </button>
+
+        </div>
+
+        <div
+            class="search-results"
+            id="searchResults"
+        ></div>
+
+    </div>
+
+</div>
 
 
 
@@ -3007,142 +3057,250 @@
 
 
 
+<!-- - User Menu -->
+
+<div class="user-menu" id="userMenu">
+
+    <div class="user-menu-header">
+
+        <div class="user-avatar">
+
+            <img
+                id="userMenuPhoto"
+                src="assite/Header-images/logo.png"
+                alt="User Photo">
+
+        </div>
+
+        <div class="user-menu-info">
+
+            <h3 id="userMenuName">
+                Guest
+            </h3>
+
+            <p id="userMenuEmail">
+                Please login
+            </p>
+
+        </div>
+
+    </div>
 
 
-<div class="account-modal" id="accountModal" aria-hidden="true">
+    <!-- - User Links -->
 
-    <div class="account-modal-box">
+    <div class="user-menu-links">
+
+        <a href="#" id="myProfile">
+            <i class="fa-regular fa-user"></i>
+            <span>My Profile</span>
+        </a>
+
+        <a href="Wishlist.html">
+            <i class="fa-regular fa-heart"></i>
+            <span>My Wishlist</span>
+        </a>
+
+        <a href="Cart.html">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>My Cart</span>
+        </a>
+
+        <a href="Orders.html">
+            <i class="fa-solid fa-box"></i>
+            <span>My Orders</span>
+        </a>
+
+        <a href="AccountSettings.html">
+            <i class="fa-solid fa-gear"></i>
+            <span>Account Settings</span>
+        </a>
+
+    </div>
+
+
+    <!-- - Logout -->
+
+    <button
+        type="button"
+        id="logoutButton"
+        class="logout-button">
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+        <span>Logout</span>
+
+    </button>
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- - Profile Modal -->
+
+<div class="profile-modal" id="profileModal">
+
+    <div class="profile-modal-box">
+
+        <!-- - Close -->
 
         <button
-            class="account-modal-close"
-            id="accountClose"
             type="button"
-            aria-label="Close Account">
+            class="profile-modal-close"
+            id="profileModalClose">
 
             <i class="fa-solid fa-xmark"></i>
 
         </button>
 
-        <div class="account-modal-header">
 
-            <img
-                src="assite/Header-images/logo.png"
-                alt="Furniro Logo">
+        <!-- - Profile View -->
 
-            <h2>Welcome to Furniro</h2>
+        <div id="profileModalView">
 
-            <p>Login or create your account</p>
+            <div class="profile-modal-photo">
+
+                <img
+                    id="modalProfilePhoto"
+                    src="assite/Header-images/logo.png"
+                    alt="Profile Photo">
+
+            </div>
+
+            <h2 id="modalProfileName">
+                Guest
+            </h2>
+
+            <p id="modalProfileEmail">
+                Please login
+            </p>
+
+            <button
+                type="button"
+                class="profile-modal-edit"
+                id="modalEditProfile">
+
+                <i class="fa-solid fa-pen"></i>
+
+                <span>Edit Profile</span>
+
+            </button>
 
         </div>
 
-        <div class="account-modal-forms">
 
-            <!-- Login -->
+        <!-- - Edit Profile -->
 
-            <div class="account-box">
+        <div
+            class="profile-modal-edit-form"
+            id="profileModalEdit">
 
-                <h2>Login</h2>
+            <!-- - Photo -->
 
-                <p class="account-text">
-                    Welcome back! Please enter your details.
-                </p>
+            <div class="profile-modal-photo">
 
-                <form id="modalLoginForm">
-
-                    <label for="modal-login-email">
-                        Email Address
-                    </label>
-
-                    <input
-                        type="email"
-                        id="modal-login-email"
-                        placeholder="Enter your email"
-                        required>
-
-                    <label for="modal-login-password">
-                        Password
-                    </label>
-
-                    <input
-                        type="password"
-                        id="modal-login-password"
-                        placeholder="Enter your password"
-                        required>
-
-                    <button type="submit">
-                        LOGIN
-                    </button>
-
-                </form>
+                <img
+                    id="modalEditPhotoPreview"
+                    src="assite/Header-images/logo.png"
+                    alt="Profile Photo">
 
             </div>
 
 
-            <!-- Register -->
+            <h2>
+                Edit Profile
+            </h2>
 
-            <div class="account-box">
 
-                <h2>Create Account</h2>
+            <form id="modalProfileForm">
 
-                <p class="account-text">
-                    Create an account to enjoy a better shopping experience.
-                </p>
+                <!-- - Name -->
 
-                <form id="modalRegisterForm">
+                <label for="modalEditName">
+                    Full Name
+                </label>
 
-                    <label for="modal-register-name">
-                        Full Name
-                    </label>
+                <input
+                    type="text"
+                    id="modalEditName"
+                    required>
 
-                    <input
-                        type="text"
-                        id="modal-register-name"
-                        placeholder="Enter your full name"
-                        required>
 
-                    <label for="modal-register-email">
-                        Email Address
-                    </label>
+                <!-- - Email -->
 
-                    <input
-                        type="email"
-                        id="modal-register-email"
-                        placeholder="Enter your email"
-                        required>
+                <label for="modalEditEmail">
+                    Email Address
+                </label>
 
-                    <label for="modal-register-password">
-                        Password
-                    </label>
+                <input
+                    type="email"
+                    id="modalEditEmail"
+                    required>
 
-                    <input
-                        type="password"
-                        id="modal-register-password"
-                        placeholder="Create a password"
-                        required>
 
-                    <label for="modal-register-confirm">
-                        Confirm Password
-                    </label>
+                <!-- - Photo -->
 
-                    <input
-                        type="password"
-                        id="modal-register-confirm"
-                        placeholder="Confirm your password"
-                        required>
+                <label for="modalEditPhoto">
+                    Profile Photo
+                </label>
 
-                    <button type="submit">
-                        REGISTER
+                <input
+                    type="file"
+                    id="modalEditPhoto"
+                    accept="image/*">
+
+
+                <!-- - Buttons -->
+
+                <div class="profile-modal-form-buttons">
+
+                    <button
+                        type="button"
+                        id="modalCancelEdit"
+                        class="profile-modal-cancel">
+
+                        Cancel
+
                     </button>
 
-                </form>
 
-            </div>
+                    <button
+                        type="submit"
+                        class="profile-modal-save">
+
+                        Save Changes
+
+                    </button>
+
+                </div>
+
+            </form>
 
         </div>
 
     </div>
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3444,7 +3602,8 @@
 
 
  <script src="JS/WhatsApp-Chat.js"></script>
-<script src="JS/Account.js"></script>
+<script src="JS/Accountjs/Account.js"></script>
+<script src="JS/Search.js"></script>
 
 <script src="JS/Newsletter.js"></script>
 <script src="JS/Cart.js"></script>

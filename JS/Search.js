@@ -1,78 +1,181 @@
+/* SEARCH */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const searchIcon =
+        document.getElementById("searchIcon");
+
+    const searchBox =
+        document.getElementById("searchBox");
+
+    const searchInput =
+        document.getElementById("searchInput");
+
+    const searchButton =
+        document.getElementById("searchButton");
+
+    const searchResults =
+        document.getElementById("searchResults");
+
+    const products =
+        document.querySelectorAll(".product-card");
 
 
-const searchInput = document.querySelector("#searchInput");
-
-const searchButton = document.querySelector("#searchButton");
-
-const products = document.querySelectorAll(".search-product");
-
-const searchResults = document.querySelector("#searchResults");
-
-const noResult = document.querySelector("#noResult");
+    if (
+        !searchIcon ||
+        !searchBox ||
+        !searchInput
+    ) {
+        return;
+    }
 
 
-function searchProducts() {
+    /* OPEN / CLOSE SEARCH */
 
-    const searchValue = searchInput.value.toLowerCase().trim();
+    searchIcon.addEventListener("click", function () {
 
-    let foundProducts = 0;
+        searchBox.classList.toggle("active");
 
+        if (searchBox.classList.contains("active")) {
 
-    products.forEach(function (product) {
-
-        const productName =
-            product.dataset.name.toLowerCase();
-
-
-        if (productName.includes(searchValue)) {
-
-            product.style.display = "flex";
-
-            foundProducts++;
+            searchInput.focus();
 
         } else {
 
-            product.style.display = "none";
+            searchInput.value = "";
+
+            searchResults.innerHTML = "";
+
+            products.forEach(function (product) {
+                product.style.display = "";
+            });
 
         }
 
     });
 
 
-    if (foundProducts === 0) {
+    /* SEARCH PRODUCTS */
 
-        searchResults.style.display = "none";
+    function searchProducts() {
 
-        noResult.style.display = "block";
+        const value =
+            searchInput.value
+                .toLowerCase()
+                .trim();
 
-    } else {
 
-        searchResults.style.display = "grid";
+        searchResults.innerHTML = "";
 
-        noResult.style.display = "none";
+
+        if (value === "") {
+
+            products.forEach(function (product) {
+                product.style.display = "";
+            });
+
+            return;
+        }
+
+
+        let foundProducts = 0;
+
+
+        products.forEach(function (product) {
+
+            const name =
+                product.dataset.name
+                ? product.dataset.name.toLowerCase()
+                : "";
+
+            const category =
+                product.dataset.category
+                ? product.dataset.category.toLowerCase()
+                : "";
+
+            const descriptionElement =
+                product.querySelector("p");
+
+            const description =
+                descriptionElement
+                ? descriptionElement.textContent.toLowerCase()
+                : "";
+
+
+            if (
+                name.includes(value) ||
+                category.includes(value) ||
+                description.includes(value)
+            ) {
+
+                product.style.display = "";
+
+                foundProducts++;
+
+
+            } else {
+
+                product.style.display = "none";
+
+            }
+
+        });
+
+
+        if (foundProducts === 0) {
+
+            const noResult =
+                document.createElement("div");
+
+            noResult.className =
+                "search-no-result";
+
+            noResult.textContent =
+                "No products found.";
+
+            searchResults.appendChild(noResult);
+
+        }
 
     }
 
-}
+
+    /* SEARCH BUTTON */
+
+    if (searchButton) {
+
+        searchButton.addEventListener(
+            "click",
+            searchProducts
+        );
+
+    }
 
 
-/*  BUTTON  */
+    /* ENTER */
 
-searchButton.addEventListener("click", function () {
+    searchInput.addEventListener(
+        "keydown",
+        function (event) {
 
-    searchProducts();
+            if (event.key === "Enter") {
+
+                searchProducts();
+
+            }
+
+        }
+    );
+
+
+    /* LIVE SEARCH */
+
+    searchInput.addEventListener(
+        "input",
+        searchProducts
+    );
 
 });
 
 
-/*  ENTER KEY  */
 
-searchInput.addEventListener("keyup", function (event) {
-
-    if (event.key === "Enter") {
-
-        searchProducts();
-
-    }
-
-});
