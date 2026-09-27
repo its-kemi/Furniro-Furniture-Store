@@ -2544,63 +2544,6 @@ const products = {
 
 
 
-        /* 
-           FOOTER NEWSLETTER
-        */
-
-        const footerNewsletterForm =
-            document.querySelector(
-                "#footerNewsletterForm"
-            );
-
-
-        const footerNewsletterEmail =
-            document.querySelector(
-                "#footerNewsletterEmail"
-            );
-
-
-        if (footerNewsletterForm) {
-
-            footerNewsletterForm.addEventListener(
-                "submit",
-                function (event) {
-
-                    event.preventDefault();
-
-
-                    const email =
-                        footerNewsletterEmail
-                            ?
-                            footerNewsletterEmail.value.trim()
-                            :
-                            "";
-
-
-                    if (email === "") {
-
-                        alert(
-                            "Please enter your email."
-                        );
-
-                        return;
-
-                    }
-
-
-                    alert(
-                        "Thank you for subscribing!"
-                    );
-
-
-                    footerNewsletterForm.reset();
-
-                }
-            );
-
-        }
-
-
 
         /*
            INITIAL CART
