@@ -14,46 +14,30 @@
         Single Product - Furniro
     </title>
 
-
-    
-
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     >
-
-
- 
-
-
-
-   
 
     <link
         rel="stylesheet"
         href="CSS/Single-Product.css"
     >
 
+    <link
+        rel="stylesheet"
+        href="CSS/Scroll-Animation.css"
+    >
 
+    <link
+        rel="stylesheet"
+        href="CSS/Account.css"
+    >
 
-
-
-<link
-    rel="stylesheet"
-    href="CSS/Scroll-Animation.css"
->
-
-
-<link
-    rel="stylesheet"
-    href="CSS/Account.css"
->
-<link rel="stylesheet" href="CSS/WhatsApp-Chat.css">
-
-
-
-
-
+    <link
+        rel="stylesheet"
+        href="CSS/WhatsApp-Chat.css"
+    >
 
 </head>
 
@@ -63,7 +47,7 @@
 
 <!--
      HEADER
- -->
+-->
 
 <header>
 
@@ -71,10 +55,14 @@
 
     <div class="logo">
 
-        <img
-            src="assite/Header-images/logo.png"
-            alt="Furniro Logo"
-        >
+        <a href="index.html">
+
+            <img
+                src="assite/Header-images/logo.png"
+                alt="Furniro Logo"
+            >
+
+        </a>
 
         <h3>
             Furniro
@@ -95,20 +83,17 @@
                 </a>
             </li>
 
-
             <li>
                 <a href="Shop.html">
                     Shop
                 </a>
             </li>
 
-
             <li>
                 <a href="About.html">
                     About
                 </a>
             </li>
-
 
             <li>
                 <a href="Contact.html">
@@ -121,244 +106,248 @@
     </nav>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-<!-- Mobile Menu Button -->
-<button
-    class="mobile-menu-button"
-    id="mobileMenuButton"
-    type="button"
-    aria-label="Open menu"
->
-    <i class="fa-solid fa-bars"></i>
-</button>
-
-<!-- Mobile Menu -->
-<div class="mobile-menu" id="mobileMenu">
-
-    <div class="mobile-menu-header">
-        <h3>Furniro</h3>
-
-        <button
-            class="mobile-menu-close"
-            id="mobileMenuClose"
-            type="button"
-            aria-label="Close menu"
-        >
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-    </div>
-
-    <ul>
-        <li>
-            <a href="index.html">Home</a>
-        </li>
-
-        <li>
-            <a href="Shop.html">Shop</a>
-        </li>
-
-        <li>
-            <a href="About.html">About</a>
-        </li>
-
-        <li>
-            <a href="Contact.html">Contact</a>
-        </li>
-    </ul>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="icons">
-
-    <a href="#"
-       class="account-icon"
-       id="accountOpen"
-       aria-label="Account">
-        <i class="fas fa-user-alt"></i>
-    </a>
-
-    <a href="Wishlist.html"
-       aria-label="Wishlist">
-        <i class="far fa-heart"></i>
-    </a>
-
-    <a href="Search.html"
-       aria-label="Search">
-        <i class="fa fa-search"></i>
-    </a>
-
-    <a href="Cart.html"
-       aria-label="Cart">
-        <i class="fa fa-shopping-cart"></i>
-    </a>
-
-    
-
-
-
-
-
-
-
-
-
-
-
-<!-- LANGUAGE -->
-
-<div class="language-menu">
+    <!-- MOBILE MENU BUTTON -->
 
     <button
+        class="mobile-menu-button"
+        id="mobileMenuButton"
         type="button"
-        class="language-button"
-        id="languageButton"
-        aria-label="Change language"
+        aria-label="Open menu"
     >
-        <i class="fa-solid fa-globe"></i>
+
+        <i class="fa-solid fa-bars"></i>
+
     </button>
 
-    <div class="language-dropdown" id="languageDropdown">
 
-        <button
-            type="button"
-            class="language-option active"
-            data-language="en"
-        >
-            English
-        </button>
+    <!-- MOBILE MENU -->
 
-        <button
-            type="button"
-            class="language-option"
-            data-language="fa"
-        >
-            دری
-        </button>
+    <div
+        class="mobile-menu"
+        id="mobileMenu"
+    >
 
-        <button
-            type="button"
-            class="language-option"
-            data-language="ps"
-        >
-            پښتو
-        </button>
+        <div class="mobile-menu-header">
 
-        <button
-            type="button"
-            class="language-option"
-            data-language="uz"
-        >
-            Uzbek
-        </button>
+            <h3>
+                Furniro
+            </h3>
 
-        <button
-            type="button"
-            class="language-option"
-            data-language="ar"
-        >
-            العربية
-        </button>
+            <button
+                class="mobile-menu-close"
+                id="mobileMenuClose"
+                type="button"
+                aria-label="Close menu"
+            >
 
-        <button
-            type="button"
-            class="language-option"
-            data-language="fr"
-        >
-            Français
-        </button>
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="Shop.html">
+                    Shop
+                </a>
+            </li>
+
+            <li>
+                <a href="About.html">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="Contact.html">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
 
     </div>
 
-</div>
+
+    <!-- HEADER ICONS -->
+
+    <div class="icons">
+
+        <!-- ACCOUNT -->
+
+        <a
+            href="#"
+            class="account-icon"
+            id="accountOpen"
+            aria-label="Account"
+        >
+
+            <i class="fas fa-user-alt"></i>
+
+        </a>
 
 
+        <!-- WISHLIST -->
+
+        <a
+            href="Wishlist.html"
+            aria-label="Wishlist"
+        >
+
+            <i class="far fa-heart"></i>
+
+        </a>
 
 
+        <!-- SEARCH -->
+
+        <a
+            href="#"
+            class="search-icon"
+            id="searchOpen"
+            aria-label="Search"
+        >
+
+            <i class="fa fa-search"></i>
+
+        </a>
 
 
+        <!-- CART -->
+
+        <a
+            href="Cart.html"
+            aria-label="Cart"
+        >
+
+            <i class="fa fa-shopping-cart"></i>
+
+        </a>
 
 
+        <!-- LANGUAGE -->
+
+        <div class="language-menu">
+
+            <button
+                type="button"
+                class="language-button"
+                id="languageButton"
+                aria-label="Change language"
+            >
+
+                <i class="fa-solid fa-globe"></i>
+
+            </button>
 
 
+            <div
+                class="language-dropdown"
+                id="languageDropdown"
+            >
+
+                <button
+                    type="button"
+                    class="language-option active"
+                    data-language="en"
+                >
+                    English
+                </button>
+
+                <button
+                    type="button"
+                    class="language-option"
+                    data-language="fa"
+                >
+                    دری
+                </button>
+
+                <button
+                    type="button"
+                    class="language-option"
+                    data-language="ps"
+                >
+                    پښتو
+                </button>
+
+                <button
+                    type="button"
+                    class="language-option"
+                    data-language="uz"
+                >
+                    Uzbek
+                </button>
+
+                <button
+                    type="button"
+                    class="language-option"
+                    data-language="ar"
+                >
+                    العربية
+                </button>
+
+                <button
+                    type="button"
+                    class="language-option"
+                    data-language="fr"
+                >
+                    Français
+                </button>
+
+            </div>
+
+        </div>
 
 
+        <!-- DARK MODE -->
 
+        <button
+            type="button"
+            class="theme-button"
+            id="themeButton"
+            aria-label="Toggle dark mode"
+        >
 
+            <i class="fa-solid fa-moon"></i>
 
+        </button>
 
-
-
-
-    <!-- DARK MODE -->
-
-    <button
-        type="button"
-        class="theme-button"
-        id="themeButton"
-        aria-label="Toggle dark mode"
-    >
-        <i class="fa-solid fa-moon"></i>
-    </button>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
+    </div>
 
 </header>
 
 
+<!--
+     SEARCH
+-->
+
+<div
+    class="header-search"
+    id="headerSearch"
+>
+
+    <input
+        type="search"
+        id="headerSearchInput"
+        placeholder="Search products..."
+        autocomplete="off"
+    >
+
+</div>
+
 
 <!--
      BREADCRUMB
- -->
+-->
 
 <section class="single-breadcrumb">
 
@@ -366,49 +355,40 @@
         Home
     </a>
 
-
     <span>
         ›
     </span>
-
 
     <a href="Shop.html">
         Shop
     </a>
 
-
     <span>
         ›
     </span>
 
-
-    <strong
-        id="breadcrumbProduct"
-    >
+    <strong id="breadcrumbProduct">
         Syltherine
     </strong>
 
 </section>
 
 
-
-<!-- 
+<!--
      MAIN
 -->
 
 <main>
 
 
-    <!-- 
+    <!--
          SINGLE PRODUCT
-     -->
+    -->
 
     <section class="single-product">
 
 
-        <!-- 
-             PRODUCT GALLERY
-         -->
+        <!-- PRODUCT GALLERY -->
 
         <div class="product-gallery">
 
@@ -416,7 +396,6 @@
             <!-- THUMBNAILS -->
 
             <div class="thumbnail-images">
-
 
                 <button
                     type="button"
@@ -469,9 +448,7 @@
 
                 </button>
 
-
             </div>
-
 
 
             <!-- MAIN IMAGE -->
@@ -489,13 +466,9 @@
         </div>
 
 
-
-        <!-- 
-             PRODUCT INFORMATION
-         -->
+        <!-- PRODUCT INFORMATION -->
 
         <div class="product-details">
-
 
             <h1 id="productTitle">
                 Syltherine
@@ -508,13 +481,11 @@
                     Rp 2.500.000
                 </h2>
 
-
                 <del id="productOldPrice">
                     Rp 3.500.000
                 </del>
 
             </div>
-
 
 
             <!-- REVIEW -->
@@ -525,18 +496,15 @@
                     ★★★★★
                 </span>
 
-
                 <b>
                     |
                 </b>
-
 
                 <p>
                     5 Customer Reviews
                 </p>
 
             </div>
-
 
 
             <!-- DESCRIPTION -->
@@ -551,17 +519,13 @@
             </p>
 
 
-
-            <!-- 
-                 SIZE
-             -->
+            <!-- SIZE -->
 
             <div class="product-size">
 
                 <p>
                     Size
                 </p>
-
 
                 <div class="size-options">
 
@@ -572,14 +536,12 @@
                         L
                     </button>
 
-
                     <button
                         type="button"
                         class="size-button"
                     >
                         XL
                     </button>
-
 
                     <button
                         type="button"
@@ -593,10 +555,7 @@
             </div>
 
 
-
-            <!-- 
-                 COLOR
-            -->
+            <!-- COLOR -->
 
             <div class="product-color">
 
@@ -604,9 +563,7 @@
                     Color
                 </p>
 
-
                 <div class="color-options">
-
 
                     <button
                         type="button"
@@ -615,14 +572,12 @@
                         aria-label="Purple"
                     ></button>
 
-
                     <button
                         type="button"
                         class="color-button color-two"
                         data-color="Black"
                         aria-label="Black"
                     ></button>
-
 
                     <button
                         type="button"
@@ -631,16 +586,12 @@
                         aria-label="Beige"
                     ></button>
 
-
                 </div>
 
             </div>
 
 
-
-            <!-- 
-                 PRODUCT ACTIONS
-            -->
+            <!-- PRODUCT ACTIONS -->
 
             <div class="product-buttons">
 
@@ -657,13 +608,9 @@
                         −
                     </button>
 
-
-                    <span
-                        id="quantityValue"
-                    >
+                    <span id="quantityValue">
                         1
                     </span>
-
 
                     <button
                         type="button"
@@ -674,7 +621,6 @@
                     </button>
 
                 </div>
-
 
 
                 <!-- ADD TO CART -->
@@ -688,7 +634,6 @@
                 </button>
 
 
-
                 <!-- COMPARE -->
 
                 <button
@@ -699,7 +644,6 @@
                     Compare
                 </button>
 
-
             </div>
 
         </div>
@@ -707,13 +651,11 @@
     </section>
 
 
-
-    <!-- 
+    <!--
          PRODUCT META
     -->
 
     <div class="product-meta">
-
 
         <p>
 
@@ -760,7 +702,9 @@
         </p>
 
 
-        <p>
+        <!-- SHARE -->
+
+        <p class="product-share">
 
             Share
 
@@ -773,7 +717,9 @@
                 href="#"
                 aria-label="Facebook"
             >
+
                 <i class="fa-brands fa-facebook"></i>
+
             </a>
 
 
@@ -781,7 +727,9 @@
                 href="#"
                 aria-label="LinkedIn"
             >
+
                 <i class="fa-brands fa-linkedin"></i>
+
             </a>
 
 
@@ -789,7 +737,9 @@
                 href="#"
                 aria-label="X"
             >
+
                 <i class="fa-brands fa-x-twitter"></i>
+
             </a>
 
         </p>
@@ -797,20 +747,16 @@
     </div>
 
 
-
-    <!-- 
+    <!--
          DESCRIPTION SECTION
     -->
 
     <section class="product-description-section">
 
 
-        <!-- 
-             TABS
-        -->
+        <!-- TABS -->
 
         <div class="description-tabs">
-
 
             <button
                 type="button"
@@ -841,16 +787,12 @@
         </div>
 
 
-
-        <!-- 
-             DESCRIPTION CONTENT
-         -->
+        <!-- DESCRIPTION CONTENT -->
 
         <div
             class="tab-content active"
             id="description"
         >
-
 
             <p id="longDescription">
 
@@ -876,57 +818,62 @@
 
             <!-- DESCRIPTION IMAGES -->
 
-           <div class="description-images">
+            <div class="description-images">
 
-    <div class="description-image-box">
+                <div class="description-image-box">
 
-        <img
-            src="assite/Single Product.images/Single Product6.png"
-            alt="Product Detail"
-            class="description-image"
-        >
+                    <img
+                        src="assite/Single Product.images/Single Product6.png"
+                        alt="Product Detail"
+                        class="description-image"
+                    >
 
-        <div class="description-image-overlay">
-            <i class="fa-solid fa-magnifying-glass-plus"></i>
-            <span>View Image</span>
+                    <div class="description-image-overlay">
+
+                        <i class="fa-solid fa-magnifying-glass-plus"></i>
+
+                        <span>
+                            View Image
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="description-image-box">
+
+                    <img
+                        src="assite/Single Product.images/Single Product12.png"
+                        alt="Product Detail"
+                        class="description-image"
+                    >
+
+                    <div class="description-image-overlay">
+
+                        <i class="fa-solid fa-magnifying-glass-plus"></i>
+
+                        <span>
+                            View Image
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
 
-    </div>
 
-
-    <div class="description-image-box">
-
-        <img
-            src="assite/Single Product.images/Single Product12.png"
-            alt="Product Detail"
-            class="description-image"
-        >
-
-        <div class="description-image-overlay">
-            <i class="fa-solid fa-magnifying-glass-plus"></i>
-            <span>View Image</span>
-        </div>
-
-    </div>
-
-</div>
-
-        </div>
-
-
-
-        <!-- 
-             ADDITIONAL INFORMATION
-         -->
+        <!-- ADDITIONAL INFORMATION -->
 
         <div
             class="tab-content"
             id="information"
         >
 
-
             <div class="information-table">
-
 
                 <div class="information-row">
 
@@ -997,19 +944,14 @@
         </div>
 
 
-
-        <!-- 
-             REVIEWS
-         -->
+        <!-- REVIEWS -->
 
         <div
             class="tab-content"
             id="reviews"
         >
 
-
             <div class="reviews-summary">
-
 
                 <div class="review-score">
 
@@ -1030,7 +972,6 @@
 
                 <div class="review-list">
 
-
                     <article class="review-item">
 
                         <div>
@@ -1044,7 +985,6 @@
                             </span>
 
                         </div>
-
 
                         <p>
                             Beautiful product and comfortable design.
@@ -1067,7 +1007,6 @@
 
                         </div>
 
-
                         <p>
                             Elegant appearance and good quality.
                         </p>
@@ -1083,13 +1022,11 @@
     </section>
 
 
-
-    <!-- 
+    <!--
          RELATED PRODUCTS
     -->
 
     <section class="related-products">
-
 
         <h2>
             Related Products
@@ -1101,7 +1038,416 @@
             id="relatedProductsGrid"
         >
 
-            <!-- Product cards are added by JavaScript -->
+
+            <!-- PRODUCT 1 -->
+
+            <article
+                class="product-card"
+                data-id="1"
+                data-name="Syltherine"
+                data-price="2500000"
+            >
+
+                <div class="product-image">
+
+                    <a href="Single-Product.html?id=1">
+
+                        <img
+                            src="assite/Product-images/34.png"
+                            alt="Syltherine"
+                        >
+
+                    </a>
+
+
+                    <span class="badge discount">
+                        -30%
+                    </span>
+
+
+                    <div class="product-actions">
+
+                        <button
+                            type="button"
+                            class="share-product"
+                            aria-label="Share Syltherine"
+                            title="Share"
+                        >
+
+                            <i class="fa-solid fa-share-nodes"></i>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="compare-product"
+                            aria-label="Compare Syltherine"
+                            title="Compare"
+                        >
+
+                            <i class="fa-solid fa-code-compare"></i>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="like-product"
+                            aria-label="Add Syltherine to wishlist"
+                            title="Wishlist"
+                        >
+
+                            <i class="far fa-heart"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <h3>
+                        Syltherine
+                    </h3>
+
+                    <p>
+                        Stylish cafe chair
+                    </p>
+
+                    <div class="product-price">
+
+                        <strong>
+                            Rp 2.500.000
+                        </strong>
+
+                        <del>
+                            Rp 3.500.000
+                        </del>
+
+                    </div>
+
+
+                    <div class="product-buttons">
+
+                        <button
+                            type="button"
+                            class="add-cart"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 2 -->
+
+            <article
+                class="product-card"
+                data-id="2"
+                data-name="Leviosa"
+                data-price="2500000"
+            >
+
+                <div class="product-image">
+
+                    <a href="Single-Product.html?id=2">
+
+                        <img
+                            src="assite/Product-images/22.png"
+                            alt="Leviosa"
+                        >
+
+                    </a>
+
+
+                    <div class="product-actions">
+
+                        <button
+                            type="button"
+                            class="share-product"
+                            aria-label="Share Leviosa"
+                            title="Share"
+                        >
+
+                            <i class="fa-solid fa-share-nodes"></i>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="compare-product"
+                            aria-label="Compare Leviosa"
+                            title="Compare"
+                        >
+
+                            <i class="fa-solid fa-code-compare"></i>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="like-product"
+                            aria-label="Add Leviosa to wishlist"
+                            title="Wishlist"
+                        >
+
+                            <i class="far fa-heart"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <h3>
+                        Leviosa
+                    </h3>
+
+                    <p>
+                        Stylish lounge chair
+                    </p>
+
+                    <div class="product-price">
+
+                        <strong>
+                            Rp 2.500.000
+                        </strong>
+
+                    </div>
+
+
+                    <div class="product-buttons">
+
+                        <button
+                            type="button"
+                            class="add-cart"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 3 -->
+
+            <article
+                class="product-card"
+                data-id="3"
+                data-name="Lolito"
+                data-price="7000000"
+            >
+
+                <div class="product-image">
+
+                    <a href="Single-Product.html?id=3">
+
+                        <img
+                            src="assite/Product-images/99.png"
+                            alt="Lolito"
+                        >
+
+                    </a>
+
+
+                    <span class="badge discount">
+                        -50%
+                    </span>
+
+
+                    <div class="product-actions">
+
+                        <button
+                            type="button"
+                            class="share-product"
+                            aria-label="Share Lolito"
+                            title="Share"
+                        >
+
+                            <i class="fa-solid fa-share-nodes"></i>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="compare-product"
+                            aria-label="Compare Lolito"
+                            title="Compare"
+                        >
+
+                            <i class="fa-solid fa-code-compare"></i>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="like-product"
+                            aria-label="Add Lolito to wishlist"
+                            title="Wishlist"
+                        >
+
+                            <i class="far fa-heart"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <h3>
+                        Lolito
+                    </h3>
+
+                    <p>
+                        Luxury big sofa
+                    </p>
+
+                    <div class="product-price">
+
+                        <strong>
+                            Rp 7.000.000
+                        </strong>
+
+                        <del>
+                            Rp 14.000.000
+                        </del>
+
+                    </div>
+
+
+                    <div class="product-buttons">
+
+                        <button
+                            type="button"
+                            class="add-cart"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCT 4 -->
+
+            <article
+                class="product-card"
+                data-id="4"
+                data-name="Respira"
+                data-price="500000"
+            >
+
+                <div class="product-image">
+
+                    <a href="Single-Product.html?id=4">
+
+                        <img
+                            src="assite/Product-images/88.png"
+                            alt="Respira"
+                        >
+
+                    </a>
+
+
+                    <div class="product-actions">
+
+                        <button
+                            type="button"
+                            class="share-product"
+                            aria-label="Share Respira"
+                            title="Share"
+                        >
+
+                            <i class="fa-solid fa-share-nodes"></i>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="compare-product"
+                            aria-label="Compare Respira"
+                            title="Compare"
+                        >
+
+                            <i class="fa-solid fa-code-compare"></i>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="like-product"
+                            aria-label="Add Respira to wishlist"
+                            title="Wishlist"
+                        >
+
+                            <i class="far fa-heart"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <h3>
+                        Respira
+                    </h3>
+
+                    <p>
+                        Outdoor bar table
+                    </p>
+
+                    <div class="product-price">
+
+                        <strong>
+                            Rp 500.000
+                        </strong>
+
+                    </div>
+
+
+                    <div class="product-buttons">
+
+                        <button
+                            type="button"
+                            class="add-cart"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
 
         </div>
 
@@ -1120,10 +1466,9 @@
 </main>
 
 
-
-<!-- 
+<!--
      SHOPPING CART OVERLAY
- -->
+-->
 
 <div
     class="cart-overlay"
@@ -1133,226 +1478,111 @@
 
 
 
-<!-- 
-     SHOPPING CART SIDEBAR
- -->
-
-<aside
-    class="cart-sidebar"
-    id="cartSidebar"
->
-
-
-    <!-- CART HEADER -->
-
-    <div class="cart-header">
-
-        <div>
-
-            <span class="cart-label">
-                YOUR SELECTION
-            </span>
-
-
-            <h2>
-                Shopping Cart
-            </h2>
-
-        </div>
-
-
-        <button
-            class="cart-close"
-            id="cartClose"
-            type="button"
-            aria-label="Close Shopping Cart"
-        >
-
-            <i class="fa-solid fa-xmark"></i>
-
-        </button>
-
-    </div>
 
 
 
-    <!-- CART ITEMS -->
-
-    <div
-        class="cart-items"
-        id="cartItems"
-    >
-
-    </div>
 
 
 
-    <!-- CART FOOTER -->
-
-    <div class="cart-footer">
 
 
-        <div class="cart-subtotal">
-
-            <span>
-                Subtotal
-            </span>
 
 
-            <strong id="cartSubtotal">
-                Rp 0
-            </strong>
+
+
+
+
+
+
+
+<footer>
+
+    <div class="footer-top">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+
+            <h2>Furniro</h2>
+
+            <p>
+                400 University Drive Suite 200
+                Coral Gables, FL 33134 USA
+            </p>
 
         </div>
 
 
-        <div class="cart-divider"></div>
+        <!-- Links -->
+        <div class="footer-links">
+
+            <h3>Links</h3>
+
+            <a href="index.html">Home</a>
+            <a href="Shop.html">Shop</a>
+            <a href="About.html">About</a>
+            <a href="Contact.html">Contact</a>
+            <a href="Blog.html">Blog</a>
+
+        </div>
 
 
-        <div class="cart-actions">
+        <!-- Help -->
+        <div class="footer-help">
 
+            <h3>Help</h3>
 
-            <a href="Cart.html">
-                Cart
+            <a href="Payment-Options.html">
+                Payment Options
             </a>
 
-
-            <a href="Checkout.html">
-                Checkout
+            <a href="Returns.html">
+                Returns
             </a>
 
-
-            <a href="Product-Comparison.html">
-                Comparison
+            <a href="Privacy-Policy.html">
+                Privacy Policies
             </a>
 
         </div>
 
-    </div>
 
-</aside>
+        <!-- Newsletter -->
+        <div class="footer-newsletter">
 
+            <h3>Newsletter</h3>
 
-
-<!-- 
-     FOOTER
- -->
-
-<footer class="single-footer">
-
-
-    <div class="footer-column">
-
-        <h2>
-            Furniro
-        </h2>
-
-
-        <p>
-
-            400 University Drive Suite 200
-            Coral Gables, FL 33134 USA
-
-        </p>
-
-    </div>
-
-
-
-    <div class="footer-column">
-
-        <h4>
-            Links
-        </h4>
-
-
-        <a href="index.html">
-            Home
-        </a>
-
-
-        <a href="Shop.html">
-            Shop
-        </a>
-
-
-        <a href="About.html">
-            About
-        </a>
-
-
-        <a href="Contact.html">
-            Contact
-        </a>
-
-
-        <a href="Blog.html">
-            Blog
-        </a>
-
-    </div>
-
-
-
-    <div class="footer-column">
-
-        <h4>
-            Help
-        </h4>
-
-
-        <a href="Payment-Options.html">
-            Payment Options
-        </a>
-
-
-        <a href="Returns.html">
-            Returns
-        </a>
-
-
-        <a href="Privacy-Policy.html">
-            Privacy Policies
-        </a>
-
-    </div>
-
-
-
-    <div class="footer-column">
-
-        <h4>
-            Newsletter
-        </h4>
-
-
-        <form
-            class="footer-newsletter"
-            id="footerNewsletterForm"
-        >
-
-            <input
-                type="email"
-                id="footerNewsletterEmail"
-                placeholder="Enter Your Email"
-                required
+            <form
+                class="newsletter-form"
+                id="newsletterForm"
             >
 
+                <div>
 
-            <button
-                type="submit"
-            >
-                SUBSCRIBE
-            </button>
+                    <input
+                        type="email"
+                        id="newsletterEmail"
+                        placeholder="Enter your email"
+                        required
+                    >
 
-        </form>
+                    <button type="submit">
+                        SUBSCRIBE
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
 
     </div>
 
 
+    <!-- Line -->
+    <div class="footer-line"></div>
 
-    <!-- FOOTER BOTTOM -->
 
+    <!-- Bottom -->
     <div class="footer-bottom">
 
         <p>
@@ -1374,22 +1604,30 @@
 
 
 
-<!-- 
+
+
+
+
+<!--
      SHARE POPUP
- -->
+-->
 
-<div class="share-overlay" id="shareOverlay">
+<div
+    class="share-overlay"
+    id="shareOverlay"
+>
 
-    <div class="share-popup" id="sharePopup">
-
-
-        <!-- CLOSE  -->
+    <div
+        class="share-popup"
+        id="sharePopup"
+    >
 
         <button
             class="share-close"
             id="shareClose"
             type="button"
             title="Close"
+            aria-label="Close share popup"
         >
 
             <i class="fa-solid fa-xmark"></i>
@@ -1397,16 +1635,12 @@
         </button>
 
 
-        <!--  SHARE ICON  -->
-
         <div class="share-popup-icon">
 
             <i class="fa-solid fa-share-nodes"></i>
 
         </div>
 
-
-        <!--  TITLE  -->
 
         <h2>
             Share Product
@@ -1418,8 +1652,6 @@
         </p>
 
 
-        <!--  PRODUCT NAME  -->
-
         <h3
             id="shareProductName"
             class="share-product-name"
@@ -1427,8 +1659,6 @@
             Product
         </h3>
 
-
-        <!--  SOCIAL ICONS  -->
 
         <div class="share-social-icons">
 
@@ -1513,52 +1743,57 @@
         </div>
 
 
-        <!--  COPY MESSAGE  -->
-
         <p
             id="shareMessage"
             class="share-message"
         ></p>
-
 
     </div>
 
 </div>
 
 
-
-
-
-<!-- 
+<!--
      WHATSAPP CHAT
 -->
 
 <div class="whatsapp-chat-container">
 
-    <!-- WhatsApp Chat Box -->
+
     <div
         class="whatsapp-chat-box"
         id="whatsappChatBox"
     >
 
-        <!-- Chat Header -->
+
+        <!-- CHAT HEADER -->
+
         <div class="whatsapp-chat-header">
 
             <div class="whatsapp-profile">
 
                 <div class="whatsapp-profile-icon">
+
                     <i class="fa-brands fa-whatsapp"></i>
+
                 </div>
 
+
                 <div class="whatsapp-profile-info">
-                    <h3>Furniro</h3>
-                    <span>Online</span>
+
+                    <h3>
+                        Furniro
+                    </h3>
+
+                    <span>
+                        Online
+                    </span>
+
                 </div>
 
             </div>
 
 
-            <!-- Close Button -->
             <button
                 type="button"
                 class="whatsapp-close"
@@ -1566,33 +1801,39 @@
                 aria-label="Close chat"
                 title="Close"
             >
+
                 <i class="fa-solid fa-xmark"></i>
+
             </button>
 
         </div>
 
 
-        <!-- 
-             CHAT MESSAGES
-        -->
+        <!-- CHAT MESSAGES -->
 
         <div
             class="whatsapp-chat-messages"
             id="whatsappChatMessages"
         >
 
-            <!-- Date -->
             <div class="whatsapp-date">
-                <span>Today</span>
+
+                <span>
+                    Today
+                </span>
+
             </div>
 
 
-            <!-- Welcome Message -->
             <div class="whatsapp-message welcome-message">
 
-                <p>Hello! 👋</p>
+                <p>
+                    Hello! 👋
+                </p>
 
-                <p>Welcome to Furniro.</p>
+                <p>
+                    Welcome to Furniro.
+                </p>
 
                 <span class="message-time">
                     Now
@@ -1601,10 +1842,11 @@
             </div>
 
 
-            <!-- Help Message -->
             <div class="whatsapp-message welcome-message">
 
-                <p>How can we help you?</p>
+                <p>
+                    How can we help you?
+                </p>
 
                 <span class="message-time">
                     Now
@@ -1615,27 +1857,25 @@
         </div>
 
 
-        <!-- 
-             MESSAGE INPUT
-         -->
+        <!-- MESSAGE INPUT -->
 
         <div class="whatsapp-input-area">
 
-            <!-- Message Input -->
+
             <div class="whatsapp-input-box">
 
-                <!-- Emoji -->
                 <button
                     type="button"
                     class="whatsapp-emoji"
                     aria-label="Emoji"
                     title="Emoji"
                 >
+
                     <i class="fa-regular fa-face-smile"></i>
+
                 </button>
 
 
-                <!-- Textarea -->
                 <textarea
                     id="whatsappMessage"
                     rows="1"
@@ -1646,18 +1886,22 @@
             </div>
 
 
-            <!-- Call Button -->
+            <!-- CALL -->
+
             <a
                 href="tel:+93700123456"
                 class="whatsapp-call"
                 aria-label="Call Furniro"
                 title="Call Furniro"
             >
+
                 <i class="fa-solid fa-phone"></i>
+
             </a>
 
 
-            <!-- Send Button -->
+            <!-- SEND -->
+
             <button
                 type="button"
                 class="whatsapp-send"
@@ -1665,7 +1909,9 @@
                 aria-label="Send message"
                 title="Send message"
             >
+
                 <i class="fa-solid fa-paper-plane"></i>
+
             </button>
 
         </div>
@@ -1673,9 +1919,7 @@
     </div>
 
 
-    <!-- 
-         FLOATING WHATSAPP BUTTON
-     -->
+    <!-- FLOATING BUTTON -->
 
     <button
         type="button"
@@ -1684,55 +1928,27 @@
         aria-label="Open WhatsApp chat"
         title="Chat with us"
     >
+
         <i class="fa-brands fa-whatsapp"></i>
+
     </button>
 
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!--
+     JAVASCRIPT
+-->
 
 <script src="JS/Newsletter.js"></script>
 
 <script src="JS/Account.js"></script>
 
 <script src="JS/Language.js"></script>
+
 <script src="JS/Dark-Mode.js"></script>
 
 <script src="JS/WhatsApp-Chat.js"></script>
-
-<!-- 
-     JAVASCRIPT
- -->
 
 <script src="JS/Single-Product.js"></script>
 

@@ -1,8 +1,34 @@
 
+
+
+
+
+
+
+
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
 
-    // - Account elements
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // - Account elements
     const accountOpen =
         document.getElementById("accountOpen");
 
@@ -14,7 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // - Login and Register
-
     const loginForm =
         document.getElementById("modalLoginForm");
 
@@ -23,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // - User menu
-
     const userMenu =
         document.getElementById("userMenu");
 
@@ -44,7 +68,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // - Profile Modal
-
     const profileModal =
         document.getElementById("profileModal");
 
@@ -65,7 +88,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // - Profile Modal Edit
-
     const profileModalView =
         document.getElementById("profileModalView");
 
@@ -92,7 +114,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // - Profile elements
-
     const profileSection =
         document.querySelector(".profile-section");
 
@@ -125,7 +146,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // - Register inputs
-
     const registerNameInput =
         document.getElementById("modal-register-name");
 
@@ -140,7 +160,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // - Login inputs
-
     const loginEmailInput =
         document.getElementById("modal-login-email");
 
@@ -149,7 +168,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // - Current user
-
     let currentUser =
         JSON.parse(
             localStorage.getItem("furniroCurrentUser")
@@ -157,7 +175,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // - Open account
-
     if (accountOpen) {
 
         accountOpen.addEventListener(
@@ -169,41 +186,29 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (currentUser) {
 
                     if (userMenu) {
-
-                        userMenu.classList.toggle(
-                            "active"
-                        );
-
+                        userMenu.classList.toggle("active");
                     }
 
                     return;
                 }
 
-
                 if (accountModal) {
 
-                    accountModal.classList.add(
-                        "active"
-                    );
+                    accountModal.classList.add("active");
 
                     accountModal.setAttribute(
                         "aria-hidden",
                         "false"
                     );
 
-                    document.body.style.overflow =
-                        "hidden";
-
+                    document.body.style.overflow = "hidden";
                 }
-
             }
         );
-
     }
 
 
     // - Close account modal
-
     if (accountClose) {
 
         accountClose.addEventListener(
@@ -212,28 +217,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (accountModal) {
 
-                    accountModal.classList.remove(
-                        "active"
-                    );
+                    accountModal.classList.remove("active");
 
                     accountModal.setAttribute(
                         "aria-hidden",
                         "true"
                     );
-
                 }
 
-                document.body.style.overflow =
-                    "";
-
+                document.body.style.overflow = "";
             }
         );
-
     }
 
 
     // - Register
-
     if (registerForm) {
 
         registerForm.addEventListener(
@@ -242,12 +240,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 event.preventDefault();
 
-
                 const name =
                     registerNameInput
                         ? registerNameInput.value.trim()
                         : "";
-
 
                 const email =
                     registerEmailInput
@@ -256,12 +252,10 @@ document.addEventListener("DOMContentLoaded", function () {
                             .toLowerCase()
                         : "";
 
-
                 const password =
                     registerPasswordInput
                         ? registerPasswordInput.value
                         : "";
-
 
                 const confirmPassword =
                     registerConfirmInput
@@ -270,7 +264,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 // - Name validation
-
                 if (name.length < 2) {
 
                     alert(
@@ -278,27 +271,21 @@ document.addEventListener("DOMContentLoaded", function () {
                     );
 
                     return;
-
                 }
 
 
                 // - Email validation
-
-                if (
-                    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-                ) {
-
-                    alert(
-                        "Please enter a valid email."
-                    );
-
-                    return;
-
-                }
+if (
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+) {
+    alert(
+        "Please enter a valid email."
+    );
+    return;
+}
 
 
                 // - Password validation
-
                 if (password.length < 6) {
 
                     alert(
@@ -306,12 +293,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     );
 
                     return;
-
                 }
 
 
                 // - Confirm password
-
                 if (password !== confirmPassword) {
 
                     alert(
@@ -319,12 +304,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     );
 
                     return;
-
                 }
 
 
                 // - Get users
-
                 let users =
                     JSON.parse(
                         localStorage.getItem(
@@ -334,7 +317,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 // - Check existing user
-
                 const existingUser =
                     users.find(
                         function (user) {
@@ -352,12 +334,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     );
 
                     return;
-
                 }
 
 
                 // - New user
-
                 const newUser = {
 
                     id: Date.now(),
@@ -370,12 +350,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     photo:
                         "assite/Header-images/logo.png"
-
                 };
 
 
                 // - Add user
-
                 users.push(newUser);
 
 
@@ -391,15 +369,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 registerForm.reset();
-
             }
         );
-
     }
 
 
     // - Login
-
     if (loginForm) {
 
         loginForm.addEventListener(
@@ -408,14 +383,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 event.preventDefault();
 
-
                 const email =
                     loginEmailInput
                         ? loginEmailInput.value
                             .trim()
                             .toLowerCase()
                         : "";
-
 
                 const password =
                     loginPasswordInput
@@ -424,7 +397,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 // - Get users
-
                 const users =
                     JSON.parse(
                         localStorage.getItem(
@@ -434,7 +406,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 // - Find user
-
                 const user =
                     users.find(
                         function (item) {
@@ -452,12 +423,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     );
 
                     return;
-
                 }
 
 
                 // - Check password
-
                 if (user.password !== password) {
 
                     alert(
@@ -465,12 +434,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     );
 
                     return;
-
                 }
 
 
                 // - Current user
-
                 currentUser = {
 
                     id: user.id,
@@ -482,12 +449,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     photo:
                         user.photo ||
                         "assite/Header-images/logo.png"
-
                 };
 
 
                 // - Save current user
-
                 localStorage.setItem(
                     "furniroCurrentUser",
                     JSON.stringify(currentUser)
@@ -495,7 +460,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 // - Update UI
-
                 updateUserMenu();
 
                 updateProfile();
@@ -512,148 +476,104 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 // - Close account modal
-
                 if (accountModal) {
 
-                    accountModal.classList.remove(
-                        "active"
-                    );
+                    accountModal.classList.remove("active");
 
                     accountModal.setAttribute(
                         "aria-hidden",
                         "true"
                     );
-
                 }
 
-                document.body.style.overflow =
-                    "";
-
+                document.body.style.overflow = "";
             }
         );
-
     }
 
 
     // - Update user menu
-
     function updateUserMenu() {
 
         if (!currentUser) {
             return;
         }
 
-
         if (userMenuName) {
-
             userMenuName.textContent =
                 currentUser.name;
-
         }
-
 
         if (userMenuEmail) {
-
             userMenuEmail.textContent =
                 currentUser.email;
-
         }
 
-
         if (userMenuPhoto) {
-
             userMenuPhoto.src =
                 currentUser.photo ||
                 "assite/Header-images/logo.png";
-
         }
-
     }
 
 
     // - Update profile
-
     function updateProfile() {
 
         if (!currentUser) {
             return;
         }
 
-
         if (profileName) {
-
             profileName.textContent =
                 currentUser.name;
-
         }
-
 
         if (profileEmail) {
-
             profileEmail.textContent =
                 currentUser.email;
-
         }
 
-
         if (profilePhoto) {
-
             profilePhoto.src =
                 currentUser.photo ||
                 "assite/Header-images/logo.png";
-
         }
-
     }
 
 
     // - Update profile modal
-
     function updateProfileModal() {
 
         if (!currentUser) {
             return;
         }
 
-
         if (modalProfileName) {
-
             modalProfileName.textContent =
                 currentUser.name;
-
         }
-
 
         if (modalProfileEmail) {
-
             modalProfileEmail.textContent =
                 currentUser.email;
-
         }
 
-
         if (modalProfilePhoto) {
-
             modalProfilePhoto.src =
                 currentUser.photo ||
                 "assite/Header-images/logo.png";
-
         }
 
-
         if (modalEditPhotoPreview) {
-
             modalEditPhotoPreview.src =
                 currentUser.photo ||
                 "assite/Header-images/logo.png";
-
         }
-
     }
 
 
     // - My Profile
-
     if (myProfile) {
 
         myProfile.addEventListener(
@@ -662,67 +582,54 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 event.preventDefault();
 
-
                 if (!currentUser) {
                     return;
                 }
 
 
                 // - Close User Menu
-
                 if (userMenu) {
 
                     userMenu.classList.remove(
                         "active"
                     );
-
                 }
 
 
                 // - Show Profile View
-
                 if (profileModalView) {
 
                     profileModalView.style.display =
                         "block";
-
                 }
 
 
                 // - Hide Edit Form
-
                 if (profileModalEdit) {
 
                     profileModalEdit.classList.remove(
                         "active"
                     );
-
                 }
 
 
                 // - Update Profile Modal
-
                 updateProfileModal();
 
 
                 // - Open Profile Modal
-
                 if (profileModal) {
 
                     profileModal.classList.add(
                         "active"
                     );
-
                 }
-
             }
         );
-
     }
 
 
     // - Close Profile Modal
-
     if (profileModalClose) {
 
         profileModalClose.addEventListener(
@@ -734,17 +641,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     profileModal.classList.remove(
                         "active"
                     );
-
                 }
 
 
                 // - Return to Profile View
-
                 if (profileModalView) {
 
                     profileModalView.style.display =
                         "block";
-
                 }
 
 
@@ -753,17 +657,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     profileModalEdit.classList.remove(
                         "active"
                     );
-
                 }
-
             }
         );
-
     }
 
 
     // - Edit Profile from Modal
-
     if (modalEditProfile) {
 
         modalEditProfile.addEventListener(
@@ -776,64 +676,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 // - Fill Name
-
                 if (modalEditName) {
 
                     modalEditName.value =
                         currentUser.name;
-
                 }
 
 
                 // - Fill Email
-
                 if (modalEditEmail) {
 
                     modalEditEmail.value =
                         currentUser.email;
-
                 }
 
 
                 // - Show Current Photo
-
                 if (modalEditPhotoPreview) {
 
                     modalEditPhotoPreview.src =
                         currentUser.photo ||
                         "assite/Header-images/logo.png";
-
                 }
 
 
                 // - Hide Profile View
-
                 if (profileModalView) {
 
                     profileModalView.style.display =
                         "none";
-
                 }
 
 
                 // - Show Edit Form
-
                 if (profileModalEdit) {
 
                     profileModalEdit.classList.add(
                         "active"
                     );
-
                 }
-
             }
         );
-
     }
 
 
     // - Preview New Profile Photo
-
     if (modalEditPhoto) {
 
         modalEditPhoto.addEventListener(
@@ -843,11 +730,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 const file =
                     modalEditPhoto.files[0];
 
-
                 if (!file) {
                     return;
                 }
-
 
                 const reader =
                     new FileReader();
@@ -860,76 +745,61 @@ document.addEventListener("DOMContentLoaded", function () {
 
                             modalEditPhotoPreview.src =
                                 reader.result;
-
                         }
-
                     };
 
 
                 reader.readAsDataURL(file);
-
             }
         );
-
     }
 
 
     // - Cancel Modal Edit
-
     if (modalCancelEdit) {
 
         modalCancelEdit.addEventListener(
             "click",
             function () {
 
-                // - Show Profile View
 
+                // - Show Profile View
                 if (profileModalView) {
 
                     profileModalView.style.display =
                         "block";
-
                 }
 
 
                 // - Hide Edit Form
-
                 if (profileModalEdit) {
 
                     profileModalEdit.classList.remove(
                         "active"
                     );
-
                 }
 
 
                 // - Reset Edit Form
-
                 if (modalProfileForm) {
 
                     modalProfileForm.reset();
-
                 }
 
 
                 // - Restore Current Photo
-
                 if (modalEditPhotoPreview) {
 
                     modalEditPhotoPreview.src =
                         currentUser?.photo ||
                         "assite/Header-images/logo.png";
-
                 }
-
             }
         );
-
     }
 
 
     // - Save Profile from Modal
-
     if (modalProfileForm) {
 
         modalProfileForm.addEventListener(
@@ -938,14 +808,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 event.preventDefault();
 
-
                 if (!currentUser) {
                     return;
                 }
 
 
                 // - New Name
-
                 const newName =
                     modalEditName
                         ? modalEditName.value.trim()
@@ -953,7 +821,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 // - New Email
-
                 const newEmail =
                     modalEditEmail
                         ? modalEditEmail.value
@@ -963,7 +830,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 // - Name validation
-
                 if (newName.length < 2) {
 
                     alert(
@@ -971,12 +837,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     );
 
                     return;
-
                 }
 
 
                 // - Email validation
-
                 if (
                     !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newEmail)
                 ) {
@@ -986,12 +850,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     );
 
                     return;
-
                 }
 
 
                 // - Get users
-
                 const users =
                     JSON.parse(
                         localStorage.getItem(
@@ -1001,7 +863,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 // - Check duplicate email
-
                 const emailExists =
                     users.find(
                         function (user) {
@@ -1022,12 +883,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     );
 
                     return;
-
                 }
 
 
                 // - Update name and email
-
                 currentUser.name =
                     newName;
 
@@ -1036,7 +895,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 // - Profile photo
-
                 const file =
                     modalEditPhoto
                         ? modalEditPhoto.files[0]
@@ -1056,31 +914,24 @@ document.addEventListener("DOMContentLoaded", function () {
                                 reader.result;
 
                             saveModalProfile();
-
                         };
 
 
                     reader.readAsDataURL(file);
 
-                }
-                else {
+                } else {
 
                     saveModalProfile();
-
                 }
-
             }
         );
-
     }
 
 
     // - Save Modal Profile Data
-
     function saveModalProfile() {
 
         // - Save current user
-
         localStorage.setItem(
             "furniroCurrentUser",
             JSON.stringify(currentUser)
@@ -1088,7 +939,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         // - Get users
-
         const users =
             JSON.parse(
                 localStorage.getItem(
@@ -1098,7 +948,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         // - Find current user
-
         const userIndex =
             users.findIndex(
                 function (user) {
@@ -1110,7 +959,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         // - Update user
-
         if (userIndex !== -1) {
 
             users[userIndex].name =
@@ -1121,12 +969,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
             users[userIndex].photo =
                 currentUser.photo;
-
         }
 
 
         // - Save users
-
         localStorage.setItem(
             "furniroUsers",
             JSON.stringify(users)
@@ -1134,7 +980,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         // - Update UI
-
         updateUserMenu();
 
         updateProfile();
@@ -1143,44 +988,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         // - Return to Profile View
-
         if (profileModalView) {
 
             profileModalView.style.display =
                 "block";
-
         }
 
 
         // - Hide Edit Form
-
         if (profileModalEdit) {
 
             profileModalEdit.classList.remove(
                 "active"
             );
-
         }
 
 
         // - Reset form
-
         if (modalProfileForm) {
 
             modalProfileForm.reset();
-
         }
 
 
         alert(
             "Profile updated successfully!"
         );
-
     }
 
 
     // - Edit Profile in Account.html
-
     if (editProfileButton) {
 
         editProfileButton.addEventListener(
@@ -1196,7 +1033,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     profileNameInput.value =
                         currentUser.name;
-
                 }
 
 
@@ -1204,7 +1040,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     profileEmailInput.value =
                         currentUser.email;
-
                 }
 
 
@@ -1213,17 +1048,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     profileEdit.classList.add(
                         "active"
                     );
-
                 }
-
             }
         );
-
     }
 
 
     // - Save Profile in Account.html
-
     if (profileForm) {
 
         profileForm.addEventListener(
@@ -1231,7 +1062,6 @@ document.addEventListener("DOMContentLoaded", function () {
             function (event) {
 
                 event.preventDefault();
-
 
                 if (!currentUser) {
                     return;
@@ -1253,7 +1083,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 // - Name validation
-
                 if (newName.length < 2) {
 
                     alert(
@@ -1261,12 +1090,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     );
 
                     return;
-
                 }
 
 
                 // - Email validation
-
                 if (
                     !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newEmail)
                 ) {
@@ -1276,12 +1103,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     );
 
                     return;
-
                 }
 
 
                 // - Update current user
-
                 currentUser.name =
                     newName;
 
@@ -1290,7 +1115,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 // - Profile photo
-
                 const file =
                     profilePhotoInput
                         ? profilePhotoInput.files[0]
@@ -1310,31 +1134,24 @@ document.addEventListener("DOMContentLoaded", function () {
                                 reader.result;
 
                             saveProfile();
-
                         };
 
 
                     reader.readAsDataURL(file);
 
-                }
-                else {
+                } else {
 
                     saveProfile();
-
                 }
-
             }
         );
-
     }
 
 
     // - Save Profile Data in Account.html
-
     function saveProfile() {
 
         // - Save current user
-
         localStorage.setItem(
             "furniroCurrentUser",
             JSON.stringify(currentUser)
@@ -1342,7 +1159,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         // - Get users
-
         const users =
             JSON.parse(
                 localStorage.getItem(
@@ -1352,7 +1168,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         // - Find current user
-
         const userIndex =
             users.findIndex(
                 function (user) {
@@ -1364,7 +1179,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         // - Update user
-
         if (userIndex !== -1) {
 
             users[userIndex].name =
@@ -1375,12 +1189,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
             users[userIndex].photo =
                 currentUser.photo;
-
         }
 
 
         // - Save users
-
         localStorage.setItem(
             "furniroUsers",
             JSON.stringify(users)
@@ -1388,7 +1200,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         // - Update UI
-
         updateUserMenu();
 
         updateProfile();
@@ -1397,42 +1208,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         // - Close edit form
-
         if (profileEdit) {
 
             profileEdit.classList.remove(
                 "active"
             );
-
         }
 
 
         // - Reset form
-
         if (profileForm) {
 
             profileForm.reset();
-
         }
 
 
         alert(
             "Profile updated successfully!"
         );
-
     }
 
 
     // - Logout
-
     if (logoutButton) {
 
         logoutButton.addEventListener(
             "click",
             function () {
 
-                // - Remove current user
 
+                // - Remove current user
                 localStorage.removeItem(
                     "furniroCurrentUser"
                 );
@@ -1442,71 +1247,58 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 // - Close user menu
-
                 if (userMenu) {
 
                     userMenu.classList.remove(
                         "active"
                     );
-
                 }
 
 
                 // - Close profile modal
-
                 if (profileModal) {
 
                     profileModal.classList.remove(
                         "active"
                     );
-
                 }
 
 
                 // - Return Profile View
-
                 if (profileModalView) {
 
                     profileModalView.style.display =
                         "block";
-
                 }
 
 
                 // - Hide Modal Edit
-
                 if (profileModalEdit) {
 
                     profileModalEdit.classList.remove(
                         "active"
                     );
-
                 }
 
 
                 // - Close Account.html edit
-
                 if (profileEdit) {
 
                     profileEdit.classList.remove(
                         "active"
                     );
-
                 }
 
 
                 alert(
                     "You have been logged out."
                 );
-
             }
         );
-
     }
 
 
     // - Load current user
-
     if (currentUser) {
 
         updateUserMenu();
@@ -1514,7 +1306,6 @@ document.addEventListener("DOMContentLoaded", function () {
         updateProfile();
 
         updateProfileModal();
-
     }
 
 });

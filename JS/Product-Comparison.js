@@ -1,18 +1,17 @@
-
-
-
-/* 
-   GET COMPARISON PRODUCTS
+/*  
+   GET COMPARISON PRODUCTS 
  */
 
-const comparisonProducts =
+let comparisonProducts =
     JSON.parse(
         localStorage.getItem("comparison")
     ) || [];
 
 
-/* 
-   PRODUCT ELEMENTS */
+
+/*  
+   PRODUCT ELEMENTS 
+ */
 
 const comparisonProductTitles =
     document.querySelectorAll(
@@ -44,12 +43,22 @@ const comparisonProductPrices =
     );
 
 
-/* 
+/*  
+   PRODUCT SELECT
+ */
+
+const comparisonSelect =
+    document.querySelector(
+        ".comparison-select"
+    );
+
+
+
+/*  
    TABLE PRODUCT TITLES
  */
 
 function updateTableTitles() {
-
 
     comparisonProductTitles.forEach(
         function (title, index) {
@@ -72,27 +81,25 @@ function updateTableTitles() {
 }
 
 
-/* 
+
+/*  
    UPDATE PRODUCT INTRO
  */
 
 function updateProductIntro() {
 
-
     comparisonProductsIntro.forEach(
         function (productElement, index) {
-
 
             const product =
                 comparisonProducts[index];
 
 
-            /* 
+            /*  
                PRODUCT EXISTS
              */
 
             if (product) {
-
 
                 const image =
                     productElement.querySelector(
@@ -143,12 +150,11 @@ function updateProductIntro() {
             }
 
 
-            /* 
+            /*  
                PRODUCT DOES NOT EXIST
              */
 
             else {
-
 
                 const image =
                     productElement.querySelector(
@@ -203,7 +209,8 @@ function updateProductIntro() {
 }
 
 
-/* 
+
+/*  
    FORMAT PRICE
  */
 
@@ -219,11 +226,12 @@ function formatPrice(price) {
 }
 
 
-/* 
-   EMPTY PRODUCT CELLS */
+
+/*  
+   EMPTY PRODUCT CELLS
+ */
 
 function updateEmptyColumns() {
-
 
     const emptyCells =
         document.querySelectorAll(
@@ -243,7 +251,196 @@ function updateEmptyColumns() {
 }
 
 
-/* 
+
+/*  
+   ADD PRODUCT TO COMPARISON
+ */
+
+function addProductToComparison(
+    productName
+) {
+
+    if (
+        !productName ||
+        productName === "Choose a Product"
+    ) {
+
+        return;
+
+    }
+
+
+    const products =
+        JSON.parse(
+            localStorage.getItem("products")
+        ) || [];
+
+
+    const selectedProduct =
+        products.find(
+            function (product) {
+
+                return (
+                    product.name ===
+                    productName
+                );
+
+            }
+        );
+
+
+    if (!selectedProduct) {
+
+        console.log(
+            "Product not found:",
+            productName
+        );
+
+        return;
+
+    }
+
+
+    if (comparisonProducts.length >= 2) {
+
+        comparisonProducts[1] =
+            selectedProduct;
+
+    } else {
+
+        comparisonProducts.push(
+            selectedProduct
+        );
+
+    }
+
+
+    localStorage.setItem(
+        "comparison",
+        JSON.stringify(
+            comparisonProducts
+        )
+    );
+
+
+    updateTableTitles();
+
+    updateProductIntro();
+
+}
+
+
+
+/*  
+   SELECT PRODUCT
+ */
+
+if (comparisonSelect) {
+
+    comparisonSelect.addEventListener(
+        "change",
+        function () {
+
+            const selectedProduct =
+                this.value;
+
+
+            addProductToComparison(
+                selectedProduct
+            );
+
+        }
+    );
+
+}
+
+
+
+/*  
+   ADD TO CART
+ */
+
+const comparisonCartButtons =
+    document.querySelectorAll(
+        ".comparison-cart-button"
+    );
+
+
+comparisonCartButtons.forEach(
+    function (button, index) {
+
+        button.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const product =
+                    comparisonProducts[index];
+
+
+                if (!product) {
+
+                    return;
+
+                }
+
+
+                let cart =
+                    JSON.parse(
+                        localStorage.getItem("cart")
+                    ) || [];
+
+
+                const existingProduct =
+                    cart.find(
+                        function (item) {
+
+                            return (
+                                item.id ===
+                                product.id
+                            );
+
+                        }
+                    );
+
+
+                if (existingProduct) {
+
+                    existingProduct.quantity += 1;
+
+                } else {
+
+                    cart.push({
+
+                        ...product,
+
+                        quantity: 1
+
+                    });
+
+                }
+
+
+                localStorage.setItem(
+                    "cart",
+                    JSON.stringify(cart)
+                );
+
+
+                window.location.href =
+                    "Cart.html";
+
+            }
+        );
+
+    }
+);
+
+
+
+/*  
    RUN
  */
 
