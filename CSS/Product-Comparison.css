@@ -1,3 +1,7 @@
+/* =========================
+   RESET
+========================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -10,21 +14,26 @@ body {
 }
 
 
-/*  
-   HEADER 
- */
+/* =========================
+   HEADER
+========================= */
 
 header {
     width: 100%;
     min-height: 80px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     padding: 15px 50px;
+
     background-color: white;
+
     position: sticky;
     top: 0;
     z-index: 1000;
+
     border-bottom: 2px solid #f2f3f2;
 }
 
@@ -49,7 +58,9 @@ header nav ul {
     display: flex;
     align-items: center;
     gap: 50px;
+
     list-style: none;
+
     margin: 0;
     padding: 0;
 }
@@ -58,6 +69,7 @@ header nav ul li a {
     text-decoration: none;
     color: black;
     font-size: 16px;
+
     transition: 0.3s;
 }
 
@@ -74,7 +86,9 @@ header .icons {
 header .icons i {
     font-size: 20px;
     color: black;
+
     cursor: pointer;
+
     transition: 0.3s;
 }
 
@@ -83,14 +97,16 @@ header .icons i:hover {
 }
 
 
-/*  
-   MOBILE MENU 
- */
+/* =========================
+   MOBILE MENU
+========================= */
 
 .mobile-menu-button {
     display: none;
+
     border: none;
     background: none;
+
     cursor: pointer;
 }
 
@@ -111,19 +127,22 @@ header .icons i:hover {
 .mobile-menu-close {
     border: none;
     background: none;
+
     cursor: pointer;
 }
 
 
-/*  
-   COMPARISON BANNER 
- */
+/* =========================
+   COMPARISON BANNER
+========================= */
 
 .comparison-banner {
     width: 100%;
     height: 430px;
+
     position: relative;
     overflow: hidden;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -132,36 +151,44 @@ header .icons i:hover {
 .comparison-banner-bg {
     position: absolute;
     inset: -15px;
+
     background-image: url("../assite/Banar-images/banar5.png");
     background-size: cover;
     background-position: center;
+
     filter: blur(5px);
+
     transform: scale(1.04);
 }
 
 .comparison-banner-overlay {
     position: absolute;
     inset: 0;
+
     background: rgba(255, 255, 255, 0.58);
 }
 
 .comparison-banner-content {
     position: relative;
     z-index: 2;
+
     text-align: center;
 }
 
 .comparison-logo {
     width: 65px;
     height: 65px;
+
     object-fit: contain;
+
     margin-bottom: 15px;
 }
 
 .comparison-banner-content h1 {
+    margin-bottom: 15px;
+
     font-size: 42px;
     color: #222;
-    margin-bottom: 15px;
 }
 
 .comparison-breadcrumb {
@@ -179,17 +206,26 @@ header .icons i:hover {
 }
 
 
-/*  
-   COMPARISON INTRO 
- */
+/* =========================
+   COMPARISON INTRO
+========================= */
 
 .comparison-intro {
     width: 90%;
     max-width: 1200px;
+
     margin: 80px auto 55px;
+
     display: grid;
-    grid-template-columns: 1.25fr 1fr 1fr 0.75fr;
+
+    grid-template-columns:
+        1.25fr
+        1fr
+        1fr
+        0.75fr;
+
     gap: 25px;
+
     align-items: end;
 }
 
@@ -207,33 +243,42 @@ header .icons i:hover {
 .comparison-product-image {
     width: 100%;
     height: 145px;
+
     overflow: hidden;
+
     background: #f8f8f8;
+
     margin-bottom: 15px;
 }
 
 .comparison-product-image img {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+
     transition: 0.3s ease;
 }
 
-.comparison-product:hover .comparison-product-image img {
+.comparison-product:hover
+.comparison-product-image img {
     transform: scale(1.04);
 }
 
 .comparison-product h3 {
+    margin-bottom: 8px;
+
     font-size: 17px;
     color: #222;
-    margin-bottom: 8px;
 }
 
 .comparison-rating {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+
     gap: 8px;
+
     margin-bottom: 5px;
 }
 
@@ -261,10 +306,14 @@ header .icons i:hover {
 .comparison-select {
     width: 100%;
     height: 45px;
+
     padding: 0 12px;
+
     border: 1px solid #ddd;
+
     background: #222;
     color: white;
+
     cursor: pointer;
     outline: none;
 }
@@ -274,19 +323,27 @@ header .icons i:hover {
 }
 
 
-/*  
-   COMPARISON TABLE 
- */
+/* =========================
+   COMPARISON TABLE
+========================= */
 
 .comparison-table-section {
     width: 100%;
+
     margin: 0 auto 110px;
+
     overflow-x: auto;
 }
 
 .comparison-table {
     display: grid;
-    grid-template-columns: 1.25fr 1fr 1fr 0.75fr;
+
+    grid-template-columns:
+        1.25fr
+        1fr
+        1fr
+        0.75fr;
+
     min-width: 900px;
 }
 
@@ -296,12 +353,17 @@ header .icons i:hover {
 
 .comparison-cell {
     min-height: 62px;
+
     padding: 18px 25px;
+
     display: flex;
     align-items: center;
+
     border: none;
     border-right: 1px solid #dddddd;
+
     color: #666666;
+
     font-size: 14px;
     line-height: 1.6;
 }
@@ -311,14 +373,16 @@ header .icons i:hover {
 }
 
 
-/*  
+/* =========================
    TABLE HEADER
- */
+========================= */
 
 .comparison-header .comparison-cell {
     min-height: 70px;
+
     color: #222;
     font-weight: 600;
+
     border-bottom: 1px solid #dddddd;
 }
 
@@ -328,15 +392,17 @@ header .icons i:hover {
 
 .comparison-product-title {
     color: #222;
+
     font-size: 16px;
     font-weight: 600;
+
     text-align: center;
 }
 
 
-/*  
-   TABLE LABELS 
- */
+/* =========================
+   TABLE LABELS
+========================= */
 
 .comparison-label {
     color: #222;
@@ -345,9 +411,12 @@ header .icons i:hover {
 
 .comparison-section-title .comparison-cell {
     min-height: 65px;
+
     color: #222;
+
     font-size: 18px;
     font-weight: 600;
+
     border-top: 1px solid #dddddd;
 }
 
@@ -356,12 +425,13 @@ header .icons i:hover {
 }
 
 
-/*  
+/* =========================
    ADD TO CART
- */
+========================= */
 
 .comparison-cart-row .comparison-cell {
     min-height: 90px;
+
     border-top: 1px solid #dddddd;
 }
 
@@ -370,19 +440,27 @@ header .icons i:hover {
 }
 
 .comparison-cart-button {
+    min-width: 150px;
+    height: 45px;
+
+    padding: 0 20px;
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 150px;
-    height: 45px;
-    padding: 0 20px;
+
     border: none;
+
     background-color: #b88e2f;
     color: white;
+
     font-size: 14px;
     font-weight: 600;
+
     text-decoration: none;
+
     cursor: pointer;
+
     transition: 0.3s ease;
 }
 
@@ -391,32 +469,38 @@ header .icons i:hover {
     color: white;
 }
 
-/* ==================================================
+
+/* =========================
    FOOTER LINE
-================================================== */
+========================= */
 
 .footer-line {
     width: 100%;
     height: 1px;
+
     background-color: #ddd;
+
     margin-top: 50px;
     margin-bottom: 25px;
 }
 
 
-/* ==================================================
+/* =========================
    FOOTER
-================================================== */
+========================= */
 
 footer {
     width: 100%;
+
     padding: 50px 5% 30px;
+
     background-color: white;
 }
 
 .footer-top {
     display: flex;
     justify-content: space-between;
+
     gap: 40px;
 }
 
@@ -426,11 +510,13 @@ footer {
 
 .footer-brand h2 {
     font-size: 24px;
+
     margin-bottom: 40px;
 }
 
 .footer-brand p {
     color: #777;
+
     line-height: 1.6;
     font-size: 14px;
 }
@@ -439,6 +525,7 @@ footer {
 .footer-help {
     display: flex;
     flex-direction: column;
+
     gap: 20px;
 }
 
@@ -446,14 +533,18 @@ footer {
 .footer-help h3,
 .footer-newsletter h3 {
     color: #999;
+
     font-size: 16px;
+
     margin-bottom: 15px;
 }
 
 .footer-links a,
 .footer-help a {
     text-decoration: none;
+
     color: #333;
+
     font-size: 15px;
 }
 
@@ -469,23 +560,31 @@ footer {
 .footer-newsletter div {
     display: flex;
     align-items: center;
+
     gap: 10px;
 }
 
 .footer-newsletter input {
     width: 180px;
+
     border: none;
     border-bottom: 1px solid #333;
+
     padding: 8px 0;
+
     outline: none;
 }
 
 .footer-newsletter button {
     border: none;
     background-color: white;
+
     border-bottom: 1px solid #333;
+
     padding: 8px 0;
+
     font-weight: bold;
+
     cursor: pointer;
 }
 
@@ -498,9 +597,10 @@ footer {
     color: #333;
 }
 
-/*  
-   LANGUAGE MENU 
- */
+
+/* =========================
+   LANGUAGE MENU
+========================= */
 
 .language-menu {
     position: relative;
@@ -508,20 +608,31 @@ footer {
 
 .language-button {
     border: none;
+
     background: transparent;
+
     cursor: pointer;
+
     font-size: 15px;
 }
 
 .language-dropdown {
     position: absolute;
+
     top: 35px;
     right: 0;
+
     min-width: 130px;
+
     background: white;
+
     border: 1px solid #ddd;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.08);
+
     display: none;
+
     z-index: 1100;
 }
 
@@ -531,12 +642,18 @@ footer {
 
 .language-option {
     display: block;
+
     width: 100%;
+
     padding: 10px 15px;
+
     border: none;
+
     background: white;
     color: #333;
+
     text-align: left;
+
     cursor: pointer;
 }
 
@@ -547,25 +664,34 @@ footer {
 }
 
 
-/*  
-   WHATSAPP CHAT 
- */
+/* =========================
+   WHATSAPP CHAT
+========================= */
 
 .whatsapp-chat-container {
     position: fixed;
+
     right: 25px;
     bottom: 25px;
+
     z-index: 2500;
 }
 
 .whatsapp-chat-box {
     width: 350px;
     height: 480px;
+
     background: white;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.2);
+
     display: none;
+
     overflow: hidden;
+
     border-radius: 10px;
+
     margin-bottom: 15px;
 }
 
@@ -576,9 +702,12 @@ footer {
 
 .whatsapp-chat-header {
     min-height: 65px;
+
     padding: 10px 15px;
+
     background: #075e54;
     color: white;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -587,15 +716,19 @@ footer {
 .whatsapp-profile {
     display: flex;
     align-items: center;
+
     gap: 10px;
 }
 
 .whatsapp-profile-icon {
     width: 40px;
     height: 40px;
+
     border-radius: 50%;
+
     background: white;
     color: #075e54;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -603,6 +736,7 @@ footer {
 
 .whatsapp-profile h3 {
     font-size: 14px;
+
     margin-bottom: 3px;
 }
 
@@ -614,74 +748,106 @@ footer {
 .whatsapp-close {
     border: none;
     background: none;
+
     color: white;
+
     font-size: 20px;
+
     cursor: pointer;
 }
 
 .whatsapp-chat-messages {
     flex: 1;
+
     padding: 15px;
+
     background: #efeae2;
+
     overflow-y: auto;
 }
 
 .whatsapp-date {
     width: fit-content;
+
     margin: 0 auto 15px;
+
     padding: 5px 10px;
+
     border-radius: 5px;
+
     background: #fff;
     color: #777;
+
     font-size: 11px;
 }
 
 .whatsapp-message {
     max-width: 80%;
+
     margin-bottom: 10px;
+
     padding: 9px 12px;
+
     background: white;
+
     border-radius: 8px;
+
     color: #333;
+
     font-size: 13px;
 }
 
 .message-time {
     margin-left: 8px;
+
     color: #999;
+
     font-size: 10px;
 }
 
 .whatsapp-input-area {
     display: flex;
     align-items: center;
+
     gap: 8px;
+
     padding: 8px;
+
     background: #f0f0f0;
 }
 
 .whatsapp-input-box {
     flex: 1;
+
     display: flex;
     align-items: center;
+
     gap: 5px;
+
     background: white;
+
     border-radius: 20px;
+
     padding: 0 10px;
 }
 
 .whatsapp-emoji {
     border: none;
     background: none;
+
     cursor: pointer;
 }
 
 .whatsapp-input-box textarea {
     flex: 1;
+
     resize: none;
+
     border: none;
     outline: none;
+
     padding: 10px 0;
+
     font-family: inherit;
 }
 
@@ -689,11 +855,14 @@ footer {
 .whatsapp-call {
     width: 40px;
     height: 40px;
+
     border: none;
     border-radius: 50%;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     cursor: pointer;
 }
 
@@ -710,22 +879,28 @@ footer {
 .whatsapp-chat-button {
     width: 58px;
     height: 58px;
+
     margin-left: auto;
+
     border: none;
     border-radius: 50%;
+
     background: #25d366;
     color: white;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     cursor: pointer;
+
     font-size: 25px;
 }
 
 
-/*  
-   DARK MODE 
- */
+/* =========================
+   DARK MODE
+========================= */
 
 body.dark-mode {
     background-color: #121212;
@@ -748,6 +923,9 @@ body.dark-mode header .icons i:hover {
     color: #b88e2f;
 }
 
+
+/* Comparison Banner */
+
 body.dark-mode .comparison-banner-overlay {
     background: rgba(0, 0, 0, 0.55);
 }
@@ -757,6 +935,9 @@ body.dark-mode .comparison-breadcrumb,
 body.dark-mode .comparison-breadcrumb a {
     color: white;
 }
+
+
+/* Comparison */
 
 body.dark-mode .comparison-more h2,
 body.dark-mode .comparison-product h3,
@@ -773,6 +954,7 @@ body.dark-mode .comparison-product-image {
 
 body.dark-mode .comparison-cell {
     color: #bbb;
+
     border-right-color: #444;
 }
 
@@ -784,9 +966,14 @@ body.dark-mode .comparison-section-title .comparison-cell {
 
 body.dark-mode .comparison-select {
     background: #222;
+
     border-color: #555;
+
     color: white;
 }
+
+
+/* Footer */
 
 body.dark-mode footer {
     background-color: #181818;
@@ -807,19 +994,26 @@ body.dark-mode .footer-newsletter h3 {
 
 body.dark-mode .footer-newsletter input {
     background: transparent;
+
     color: white;
+
     border-bottom-color: #777;
 }
 
 body.dark-mode .footer-newsletter button {
     background: transparent;
+
     color: white;
+
     border-bottom-color: #777;
 }
 
 body.dark-mode .footer-line {
     background-color: #444;
 }
+
+
+/* Language */
 
 body.dark-mode .language-dropdown {
     background-color: #222;
@@ -838,9 +1032,24 @@ body.dark-mode .language-option.active {
 }
 
 
-/*  
-   RESPONSIVE 
- */
+/* Mobile Menu */
+
+body.dark-mode .mobile-menu {
+    background-color: #181818;
+
+    border-top-color: #333;
+}
+
+body.dark-mode .mobile-menu a,
+body.dark-mode .mobile-menu i,
+body.dark-mode .mobile-menu h3 {
+    color: #eee;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media (max-width: 1024px) {
 
@@ -887,21 +1096,35 @@ body.dark-mode .language-option.active {
         gap: 12px;
     }
 
+
+    /* Mobile Menu */
+
     .mobile-menu {
         position: absolute;
+
         top: 80px;
         left: 0;
+
         width: 100%;
+
         padding: 20px;
+
         background: white;
+
         border-top: 1px solid #eee;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+        box-shadow:
+            0 8px 20px rgba(0, 0, 0, 0.08);
+
         z-index: 1200;
     }
 
     .mobile-menu.active {
         display: block;
     }
+
+
+    /* Banner */
 
     .comparison-banner {
         height: 350px;
@@ -916,8 +1139,12 @@ body.dark-mode .language-option.active {
         height: 55px;
     }
 
+
+    /* Comparison Intro */
+
     .comparison-intro {
         grid-template-columns: 1fr 1fr;
+
         margin-top: 55px;
     }
 
@@ -929,6 +1156,9 @@ body.dark-mode .language-option.active {
         grid-column: 1 / -1;
     }
 
+
+    /* Footer */
+
     .footer-top {
         flex-wrap: wrap;
     }
@@ -938,6 +1168,9 @@ body.dark-mode .language-option.active {
         width: 100%;
     }
 
+
+    /* WhatsApp */
+
     .whatsapp-chat-container {
         right: 15px;
         bottom: 15px;
@@ -946,6 +1179,8 @@ body.dark-mode .language-option.active {
 
 
 @media (max-width: 500px) {
+
+    /* Banner */
 
     .comparison-banner {
         height: 300px;
@@ -964,9 +1199,14 @@ body.dark-mode .language-option.active {
         font-size: 13px;
     }
 
+
+    /* Comparison Intro */
+
     .comparison-intro {
         width: 92%;
+
         grid-template-columns: 1fr;
+
         margin: 45px auto;
     }
 
@@ -986,6 +1226,9 @@ body.dark-mode .language-option.active {
         font-size: 20px;
     }
 
+
+    /* Comparison Table */
+
     .comparison-table {
         min-width: 850px;
     }
@@ -1000,8 +1243,12 @@ body.dark-mode .language-option.active {
         padding: 0 15px;
     }
 
+
+    /* Footer */
+
     .footer-top {
         flex-direction: column;
+
         gap: 35px;
     }
 
@@ -1017,6 +1264,9 @@ body.dark-mode .language-option.active {
         width: 150px;
     }
 
+
+    /* WhatsApp */
+
     .whatsapp-chat-box {
         width: calc(100vw - 30px);
         height: 450px;
@@ -1024,12 +1274,13 @@ body.dark-mode .language-option.active {
 }
 
 
-/*  
-   DARK MODE - MOBILE MENU 
- */
+/* =========================
+   DARK MODE - MOBILE MENU
+========================= */
 
 body.dark-mode .mobile-menu {
     background-color: #181818;
+
     border-top-color: #333;
 }
 
@@ -1037,4 +1288,41 @@ body.dark-mode .mobile-menu a,
 body.dark-mode .mobile-menu i,
 body.dark-mode .mobile-menu h3 {
     color: #eee;
+}
+
+
+
+
+/* =========================
+   REMOVE COMPARISON PRODUCT
+========================= */
+
+.comparison-remove-button {
+    margin-top: 10px;
+
+    min-width: 100px;
+    height: 38px;
+
+    padding: 0 15px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #b88e2f;
+
+    background-color: transparent;
+    color: #b88e2f;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.comparison-remove-button:hover {
+    background-color: #b88e2f;
+    color: white;
 }
