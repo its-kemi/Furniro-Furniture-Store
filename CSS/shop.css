@@ -131,8 +131,6 @@ header .icons i:hover {
 }
 
 
-
-
 /* 
    SHOP TOOLBAR
 */
@@ -170,53 +168,6 @@ header .icons i:hover {
     gap: 14px;
 
     min-width: 0;
-}
-
-
-/* 
-   FILTER BUTTON
-*/
-
-.filter-btn {
-    display: flex;
-
-    align-items: center;
-
-    gap: 9px;
-
-    padding: 8px 0;
-
-    border: none;
-
-    background: transparent;
-
-    color: #333;
-
-    font-size: 16px;
-
-    font-weight: 500;
-
-    cursor: pointer;
-
-    white-space: nowrap;
-
-    transition:
-        color 0.3s ease,
-        transform 0.2s ease;
-}
-
-
-.filter-btn i {
-    font-size: 21px;
-}
-
-
-.filter-btn:hover {
-    color:
-        #b88e2f;
-
-    transform:
-        translateY(-1px);
 }
 
 
@@ -295,8 +246,6 @@ header .icons i:hover {
     cursor:
         not-allowed;
 }
-
-
 
 /* 
    DOTS

@@ -1,11 +1,8 @@
 
-
-document.addEventListener(
+ document.addEventListener(
     "DOMContentLoaded",
     function () {
 
-
-        
 
         const productGrid =
             document.querySelector(
@@ -58,12 +55,6 @@ document.addEventListener(
         const viewToggleIcon =
             document.querySelector(
                 "#viewToggleIcon"
-            );
-
-
-        const filterButton =
-            document.querySelector(
-                "#filterButton"
             );
 
 
@@ -232,7 +223,7 @@ document.addEventListener(
 
         /* 
            RENDER PRODUCTS
-     */
+         */
 
         function renderProducts() {
 
@@ -336,7 +327,7 @@ document.addEventListener(
 
 
 
-        /* 
+        /*  
            SHOW PRODUCTS
         */
 
@@ -365,7 +356,7 @@ document.addEventListener(
 
 
 
-        /* 
+        /*  
            PREVIOUS PAGE
          */
 
@@ -393,7 +384,7 @@ document.addEventListener(
 
 
 
-        /* 
+        /*  
            NEXT PAGE
         */
 
@@ -433,7 +424,7 @@ document.addEventListener(
 
 
 
-        /* 
+        /*  
            SORT PRODUCTS
          */
 
@@ -587,7 +578,7 @@ document.addEventListener(
 
 
 
-        /* 
+        /*  
            GRID / LIST VIEW
          */
 
@@ -655,40 +646,7 @@ document.addEventListener(
 
 
 
-        /* 
-           FILTER BUTTON
-        */
-
-        if (filterButton) {
-
-            filterButton.addEventListener(
-                "click",
-                function () {
-
-                    const filterSection =
-                        document.querySelector(
-                            ".shop-filter-panel"
-                        );
-
-
-                    if (filterSection) {
-
-                        filterSection.classList.toggle(
-                            "active"
-                        );
-
-                    }
-
-                }
-            );
-
-        }
-
-
-
-        
-
         renderProducts();
 
     }
-);
+);        
