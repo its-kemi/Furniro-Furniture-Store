@@ -152,7 +152,7 @@ header nav ul li a:hover {
     inset: 0;
 
     background-image:
-        url("../assite/account.img/account-atelier-bg1.png");
+        url("../assite/account.images/account-atelier-bg1.png");
 
     background-size: cover;
 
@@ -543,7 +543,7 @@ header nav ul li a:hover {
             rgba(30, 25, 20, 0.02),
             rgba(30, 25, 20, 0.82)
         ),
-        url("../assite/account.img/account-atelier-bg1.png");
+        url("../assite/account.images/account-atelier-bg.png");
 
     background-size: cover;
 
@@ -2530,4 +2530,114 @@ body.dark-mode .footer-line {
             15px 0;
     }
 
+}
+
+
+
+
+
+.account-success-message {
+    display: none;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 16px 20px;
+    margin: 20px 0;
+    background: #ffffff;
+    border: 1px solid #e7e1d5;
+    border-left: 4px solid #b88e2f;
+    border-radius: 6px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.account-success-message.show {
+    display: flex;
+}
+
+.account-success-message i {
+    color: #b88e2f;
+    font-size: 22px;
+}
+
+.account-success-message strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #2b2926;
+}
+
+.account-success-message p {
+    margin: 0;
+    color: #777;
+    font-size: 14px;
+}
+
+
+.account-success-message.error {
+    display: flex;
+    border-left-color: #c85c5c;
+}
+
+.account-success-message.error i {
+    color: #c85c5c;
+}
+
+.account-success-message.error strong {
+    color: #a94442;
+}
+
+
+/* ================================
+   ACCOUNT FORM MESSAGES
+================================ */
+
+.account-form-message {
+    display: block;
+    min-height: 18px;
+    margin-top: 6px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.account-form-message.error {
+    color: #c55a5a;
+}
+
+.account-form-message.success {
+    color: #5d8a62;
+}
+
+
+/* ================================
+   LOGIN SUCCESS
+================================ */
+
+.account-login-success,
+.account-register-success {
+    display: none;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    margin: 14px 0;
+    background: #ffffff;
+    border: 1px solid #e5dfd3;
+    border-left: 3px solid #b88e2f;
+    border-radius: 5px;
+    color: #5d8a62;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.account-login-success.show,
+.account-register-success.show {
+    display: flex;
+}
+
+.account-login-success i,
+.account-register-success i {
+    color: #b88e2f;
+    font-size: 18px;
+    flex-shrink: 0;
 }
