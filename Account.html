@@ -28,7 +28,9 @@
 <body>
 
 
+<!-- ================================================= -->
 <!-- - Header -->
+<!-- ================================================= -->
 
 <header>
 
@@ -45,8 +47,6 @@
 
     </div>
 
-
-    <!-- - Navigation -->
 
     <nav>
 
@@ -80,8 +80,6 @@
 
     </nav>
 
-
-    <!-- - Icons -->
 
     <div class="icons">
 
@@ -124,7 +122,9 @@
 
 
 
+<!-- ================================================= -->
 <!-- - Page Banner -->
+<!-- ================================================= -->
 
 <section class="page-banner">
 
@@ -164,7 +164,9 @@
 
 
 
+<!-- ================================================= -->
 <!-- - Account Section -->
+<!-- ================================================= -->
 
 <section class="account-section">
 
@@ -321,7 +323,9 @@
 
 
 
+<!-- ================================================= -->
 <!-- - Account Modal -->
+<!-- ================================================= -->
 
 <div
     class="account-modal"
@@ -332,186 +336,235 @@
     <div class="account-modal-box">
 
 
-        <!-- - Close -->
+        <!-- - Furniture Image -->
 
-        <button
-            class="account-modal-close"
-            id="accountClose"
-            type="button"
-            aria-label="Close Account"
-        >
-            <i class="fa-solid fa-xmark"></i>
-        </button>
+        <div class="account-modal-image">
 
+            <div class="account-modal-image-content">
 
+                <span>
+                    FURNIRO
+                </span>
 
-        <!-- - Modal Header -->
+                <h2>
+                    Make your space
+                    <br>
+                    feel like home.
+                </h2>
 
-        <div class="account-modal-header">
+                <p>
+                    Thoughtful furniture for beautiful living.
+                </p>
 
-            <img
-                src="assite/Header-images/logo.png"
-                alt="Furniro Logo"
-            >
-
-            <h2>
-                Welcome to Furniro
-            </h2>
-
-            <p>
-                Login or create your account
-            </p>
+            </div>
 
         </div>
 
 
 
-        <!-- - Modal Forms -->
+        <!-- - Modal Content -->
 
-        <div class="account-modal-forms">
+        <div class="account-modal-content">
 
 
-            <!-- - Modal Login -->
+            <!-- - Close -->
 
-            <div class="account-box">
+            <button
+                class="account-modal-close"
+                id="accountClose"
+                type="button"
+                aria-label="Close Account"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+
+
+            <!-- - Modal Header -->
+
+            <div class="account-modal-header">
+
+                <img
+                    src="assite/Header-images/logo.png"
+                    alt="Furniro Logo"
+                >
 
                 <h2>
-                    Login
+                    Welcome to Furniro
                 </h2>
 
-                <p class="account-text">
-                    Welcome back! Please enter your details.
+                <p>
+                    Login or create your account
                 </p>
-
-
-                <form id="modalLoginForm">
-
-                    <label for="modal-login-email">
-                        Email Address
-                    </label>
-
-                    <input
-                        type="email"
-                        id="modal-login-email"
-                        placeholder="Enter your email"
-                        required
-                    >
-
-
-                    <label for="modal-login-password">
-                        Password
-                    </label>
-
-                    <input
-                        type="password"
-                        id="modal-login-password"
-                        placeholder="Enter your password"
-                        required
-                    >
-
-
-                    <div class="form-options">
-
-                        <label class="remember">
-
-                            <input
-                                type="checkbox"
-                                id="modalRememberMe"
-                            >
-
-                            Remember me
-
-                        </label>
-
-
-                        <a
-                            href="#"
-                            id="modalForgotPassword"
-                        >
-                            Forgot Password?
-                        </a>
-
-                    </div>
-
-
-                    <button type="submit">
-                        LOGIN
-                    </button>
-
-                </form>
 
             </div>
 
 
 
-            <!-- - Modal Register -->
+            <!-- - Modal Forms -->
 
-            <div class="account-box">
-
-                <h2>
-                    Create Account
-                </h2>
-
-                <p class="account-text">
-                    Create an account to enjoy a better shopping experience.
-                </p>
+            <div class="account-modal-forms">
 
 
-                <form id="modalRegisterForm">
+                <!-- - Login -->
 
-                    <label for="modal-register-name">
-                        Full Name
-                    </label>
+                <div class="account-box">
 
-                    <input
-                        type="text"
-                        id="modal-register-name"
-                        placeholder="Enter your full name"
-                        required
-                    >
+                    <h2>
+                        Login
+                    </h2>
 
-
-                    <label for="modal-register-email">
-                        Email Address
-                    </label>
-
-                    <input
-                        type="email"
-                        id="modal-register-email"
-                        placeholder="Enter your email"
-                        required
-                    >
+                    <p class="account-text">
+                        Sign in to continue your Furniro experience.
+                    </p>
 
 
-                    <label for="modal-register-password">
-                        Password
-                    </label>
+                    <form id="modalLoginForm">
 
-                    <input
-                        type="password"
-                        id="modal-register-password"
-                        placeholder="Create a password"
-                        required
-                    >
+                        <label for="modal-login-email">
+                            Email Address
+                        </label>
 
-
-                    <label for="modal-register-confirm">
-                        Confirm Password
-                    </label>
-
-                    <input
-                        type="password"
-                        id="modal-register-confirm"
-                        placeholder="Confirm your password"
-                        required
-                    >
+                        <input
+                            type="email"
+                            id="modal-login-email"
+                            placeholder="your@email.com"
+                            required
+                        >
 
 
-                    <button type="submit">
-                        REGISTER
-                    </button>
+                        <label for="modal-login-password">
+                            Password
+                        </label>
 
-                </form>
+                        <input
+                            type="password"
+                            id="modal-login-password"
+                            placeholder="Enter your password"
+                            required
+                        >
+
+
+                        <div class="form-options">
+
+                            <label class="remember">
+
+                                <input
+                                    type="checkbox"
+                                    id="modalRememberMe"
+                                >
+
+                                Remember me
+
+                            </label>
+
+
+                            <a
+                                href="#"
+                                id="modalForgotPassword"
+                            >
+                                Forgot password?
+                            </a>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="modal-submit-button"
+                        >
+
+                            LOGIN
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+
+
+                <!-- - Register -->
+
+                <div class="account-box">
+
+                    <h2>
+                        Create Account
+                    </h2>
+
+                    <p class="account-text">
+                        Create your account and start your journey.
+                    </p>
+
+
+                    <form id="modalRegisterForm">
+
+                        <label for="modal-register-name">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="modal-register-name"
+                            placeholder="Your full name"
+                            required
+                        >
+
+
+                        <label for="modal-register-email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="modal-register-email"
+                            placeholder="your@email.com"
+                            required
+                        >
+
+
+                        <label for="modal-register-password">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="modal-register-password"
+                            placeholder="Create a password"
+                            required
+                        >
+
+
+                        <label for="modal-register-confirm">
+                            Confirm Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="modal-register-confirm"
+                            placeholder="Confirm your password"
+                            required
+                        >
+
+
+                        <button
+                            type="submit"
+                            class="modal-submit-button"
+                        >
+
+                            CREATE ACCOUNT
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </button>
+
+                    </form>
+
+                </div>
 
             </div>
 
@@ -523,117 +576,14 @@
 
 
 
-<!-- - Features -->
-
-<section class="features">
-
-
-    <div class="feature">
-
-        <i class="fa-solid fa-trophy"></i>
-
-        <div>
-
-            <h3>
-                High Quality
-            </h3>
-
-            <p>
-                Crafted from top materials
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="feature">
-
-        <i class="fa-solid fa-shield-halved"></i>
-
-        <div>
-
-            <h3>
-                Warranty Protection
-            </h3>
-
-            <p>
-                Over 2 years
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="feature">
-
-        <i class="fa-solid fa-truck"></i>
-
-        <div>
-
-            <h3>
-                Free Shipping
-            </h3>
-
-            <p>
-                Order Over 150 dollars
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="feature">
-
-        <i class="fa-solid fa-headset"></i>
-
-        <div>
-
-            <h3>
-                24 / 7 Support
-            </h3>
-
-            <p>
-                Dedicated Support
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- ================================================= -->
 <!-- - User Menu -->
+<!-- ================================================= -->
 
-<div class="user-menu" id="userMenu">
+<div
+    class="user-menu"
+    id="userMenu"
+>
 
     <div class="user-menu-header">
 
@@ -641,8 +591,9 @@
 
             <img
                 id="userMenuPhoto"
-                src="assite/Header-images/logo.png"
-                alt="User Photo">
+                src=""
+                alt="User Photo"
+            >
 
         </div>
 
@@ -661,48 +612,76 @@
     </div>
 
 
-    <!-- - User Links -->
-
     <div class="user-menu-links">
 
         <a href="#" id="myProfile">
+
             <i class="fa-regular fa-user"></i>
-            <span>My Profile</span>
+
+            <span>
+                My Profile
+            </span>
+
         </a>
+
 
         <a href="Wishlist.html">
+
             <i class="fa-regular fa-heart"></i>
-            <span>My Wishlist</span>
+
+            <span>
+                My Wishlist
+            </span>
+
         </a>
+
 
         <a href="Cart.html">
+
             <i class="fa-solid fa-cart-shopping"></i>
-            <span>My Cart</span>
+
+            <span>
+                My Cart
+            </span>
+
         </a>
+
 
         <a href="Orders.html">
+
             <i class="fa-solid fa-box"></i>
-            <span>My Orders</span>
+
+            <span>
+                My Orders
+            </span>
+
         </a>
 
+
         <a href="AccountSettings.html">
+
             <i class="fa-solid fa-gear"></i>
-            <span>Account Settings</span>
+
+            <span>
+                Account Settings
+            </span>
+
         </a>
 
     </div>
 
 
-    <!-- - Logout -->
-
     <button
         type="button"
         id="logoutButton"
-        class="logout-button">
+        class="logout-button"
+    >
 
         <i class="fa-solid fa-right-from-bracket"></i>
 
-        <span>Logout</span>
+        <span>
+            Logout
+        </span>
 
     </button>
 
@@ -710,13 +689,9 @@
 
 
 
-
-
-
-
-
-
+<!-- ================================================= -->
 <!-- - Footer -->
+<!-- ================================================= -->
 
 <footer>
 
@@ -835,22 +810,26 @@
 
 
 
+<!-- ================================================= -->
 <!-- - JavaScript -->
+<!-- ================================================= -->
 
 <script src="JS/Accountjs/Account-Register.js"></script>
+
 <script src="JS/Accountjs/Account-Login.js"></script>
+
 <script src="JS/Accountjs/Account-User-Menu.js"></script>
+
 <script src="JS/Accountjs/Account-Profile.js"></script>
+
 <script src="JS/Accountjs/Account-Profile-Edit.js"></script>
+
 <script src="JS/Accountjs/Account-Logout.js"></script>
 
-
-
-
-
-
 <script src="JS/Accountjs/Account-Settings-Profile.js"></script>
+
 <script src="JS/Accountjs/Account-Settings-Password.js"></script>
+
 <script src="JS/Accountjs/Account-Settings-Logout.js"></script>
 
 </body>

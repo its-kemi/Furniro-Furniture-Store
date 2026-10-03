@@ -1,5 +1,3 @@
-
-
 * {
     margin: 0;
     padding: 0;
@@ -12,23 +10,37 @@ html {
 
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     background-color: #ffffff;
+
     color: #222222;
 }
 
 
+/* ========================================================= */
 /* - Header */
+/* ========================================================= */
 
 header {
     width: 100%;
     height: 80px;
+
     display: flex;
+
     align-items: center;
     justify-content: space-between;
+
     padding: 15px 5%;
+
     background-color: #ffffff;
+
     position: relative;
+
     z-index: 1000;
 }
 
@@ -37,18 +49,22 @@ header {
 
 .logo {
     display: flex;
+
     align-items: center;
+
     gap: 10px;
 }
 
 .logo img {
     width: 42px;
     height: 42px;
+
     object-fit: contain;
 }
 
 .logo h3 {
     font-size: 22px;
+
     color: #000000;
 }
 
@@ -57,16 +73,23 @@ header {
 
 header nav ul {
     display: flex;
+
     align-items: center;
+
     gap: 45px;
+
     list-style: none;
 }
 
 header nav ul li a {
     text-decoration: none;
+
     color: #000000;
+
     font-size: 15px;
+
     font-weight: 500;
+
     transition: color 0.3s ease;
 }
 
@@ -79,14 +102,19 @@ header nav ul li a:hover {
 
 .icons {
     display: flex;
+
     align-items: center;
+
     gap: 22px;
 }
 
 .icons a {
     color: #000000;
+
     text-decoration: none;
+
     font-size: 18px;
+
     transition:
         color 0.3s ease,
         transform 0.3s ease;
@@ -94,70 +122,98 @@ header nav ul li a:hover {
 
 .icons a:hover {
     color: #b88e2f;
+
     transform: translateY(-2px);
 }
 
 
+/* ========================================================= */
 /* - Page Banner */
+/* ========================================================= */
 
 .page-banner {
     position: relative;
+
     width: 100%;
+
     min-height: 300px;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
+
     overflow: hidden;
 }
 
 .page-banner-bg {
     position: absolute;
+
     inset: 0;
+
     background-image:
-        url("../assite/Banar-images/banar5.png");
+        url("../assite/account.img/account-atelier-bg1.png");
+
     background-size: cover;
+
     background-position: center;
+
     z-index: 0;
 }
 
 .page-banner-overlay {
     position: absolute;
+
     inset: 0;
+
     background: rgba(255, 255, 255, 0.45);
+
     z-index: 1;
 }
 
 .page-banner-content {
     position: relative;
+
     z-index: 2;
+
     text-align: center;
 }
 
 .page-banner-content img {
     width: 55px;
     height: 55px;
+
     object-fit: contain;
+
     margin-bottom: 10px;
 }
 
 .page-banner-content h1 {
     margin-bottom: 12px;
+
     font-size: 42px;
+
     color: #222222;
 }
 
 .page-banner-content p {
     display: flex;
+
     align-items: center;
     justify-content: center;
+
     gap: 8px;
+
     font-size: 14px;
+
     color: #555555;
 }
 
 .page-banner-content p a {
     color: #222222;
+
     text-decoration: none;
+
     font-weight: 600;
 }
 
@@ -166,28 +222,42 @@ header nav ul li a:hover {
 }
 
 
+/* ========================================================= */
 /* - Account Section */
+/* ========================================================= */
 
 .account-section {
     width: 100%;
+
     padding: 80px 5%;
+
     background-color: #ffffff;
 }
 
 .account-container {
     width: 90%;
+
     max-width: 1100px;
+
     margin: 0 auto;
+
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
     gap: 35px;
 }
 
 .account-section .account-box {
     padding: 35px;
+
     background-color: #ffffff;
+
     border: 1px solid #eeeeee;
+
     border-radius: 8px;
+
     box-shadow:
         0 10px 30px
         rgba(0, 0, 0, 0.06);
@@ -195,14 +265,19 @@ header nav ul li a:hover {
 
 .account-section .account-box h2 {
     margin-bottom: 10px;
+
     font-size: 26px;
+
     color: #222222;
 }
 
 .account-text {
     margin-bottom: 25px;
+
     color: #777777;
+
     font-size: 14px;
+
     line-height: 1.6;
 }
 
@@ -211,14 +286,19 @@ header nav ul li a:hover {
 
 .account-box form {
     display: flex;
+
     flex-direction: column;
+
     gap: 10px;
 }
 
 .account-box form label {
     margin-top: 6px;
+
     color: #333333;
+
     font-size: 14px;
+
     font-weight: 600;
 }
 
@@ -226,15 +306,25 @@ header nav ul li a:hover {
 .account-box form input[type="email"],
 .account-box form input[type="password"] {
     width: 100%;
+
     min-height: 48px;
+
     padding: 12px 14px;
+
     border: 1px solid #dddddd;
+
     border-radius: 5px;
+
     outline: none;
+
     background-color: #ffffff;
+
     color: #333333;
+
     font-size: 14px;
+
     font-family: inherit;
+
     transition:
         border-color 0.3s ease,
         box-shadow 0.3s ease;
@@ -242,6 +332,7 @@ header nav ul li a:hover {
 
 .account-box form input:focus {
     border-color: #b88e2f;
+
     box-shadow:
         0 0 0 3px
         rgba(184, 142, 47, 0.10);
@@ -252,31 +343,45 @@ header nav ul li a:hover {
 
 .form-options {
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
+
     gap: 15px;
+
     margin: 8px 0 15px;
 }
 
 .remember {
     display: flex !important;
+
     align-items: center;
+
     gap: 7px;
+
     margin: 0 !important;
+
     color: #666666 !important;
+
     font-size: 13px !important;
+
     font-weight: 400 !important;
 }
 
 .remember input {
     width: 15px;
+
     height: 15px;
+
     accent-color: #b88e2f;
 }
 
 .form-options a {
     color: #b88e2f;
+
     font-size: 13px;
+
     text-decoration: none;
 }
 
@@ -289,39 +394,61 @@ header nav ul li a:hover {
 
 .account-section .account-box button {
     width: 100%;
+
     min-height: 48px;
+
     margin-top: 10px;
+
     border: none;
+
     border-radius: 5px;
+
     background-color: #b88e2f;
+
     color: #ffffff;
+
     font-size: 14px;
+
     font-weight: 700;
+
     cursor: pointer;
+
     transition:
         background-color 0.3s ease,
         transform 0.3s ease;
 }
 
 .account-section .account-box button:hover {
-    background-color: #a27b27;
+    background-color: #967323;
+
     transform: translateY(-2px);
 }
 
 
+/* ========================================================= */
 /* - Account Modal */
+/* ========================================================= */
 
 .account-modal {
     position: fixed;
+
     inset: 0;
+
     width: 100%;
     height: 100vh;
+
     display: none;
+
     align-items: center;
     justify-content: center;
+
     padding: 20px;
-    background: rgba(0, 0, 0, 0.70);
-    backdrop-filter: blur(5px);
+
+    background:
+        rgba(18, 16, 13, 0.78);
+
+    backdrop-filter: blur(9px);
+
     z-index: 99999;
 }
 
@@ -330,37 +457,57 @@ header nav ul li a:hover {
 }
 
 
+/* ========================================================= */
 /* - Modal Box */
+/* ========================================================= */
 
 .account-modal-box {
     position: relative;
-    width: 95%;
-    max-width: 1050px;
-    max-height: 90vh;
-    overflow-y: auto;
-    padding: 40px;
+
+    width: min(1120px, 100%);
+
+    height: min(760px, 92vh);
+
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        40% 60%;
+
+    overflow: hidden;
+
     background-color: #ffffff;
-    border-radius: 12px;
+
+    border:
+        1px solid
+        rgba(184, 142, 47, 0.28);
+
+    border-radius: 10px;
+
     box-shadow:
-        0 25px 70px
-        rgba(0, 0, 0, 0.30);
+        0 35px 100px
+        rgba(0, 0, 0, 0.34);
 
     animation:
         accountModalAnimation
-        0.35s ease;
+        0.4s ease;
 }
+
 
 @keyframes accountModalAnimation {
 
     from {
         opacity: 0;
+
         transform:
-            translateY(40px)
+            translateY(30px)
             scale(0.96);
     }
 
     to {
         opacity: 1;
+
         transform:
             translateY(0)
             scale(1);
@@ -369,247 +516,673 @@ header nav ul li a:hover {
 }
 
 
+/* ========================================================= */
+/* - Modal Image */
+/* ========================================================= */
 
+.account-modal-image {
+    position: relative;
 
+    width: 100%;
+    height: 100%;
 
+    min-width: 0;
+    min-height: 0;
 
-/* - Account Message */
+    display: flex;
 
-.account-message {
-    margin: 0 0 15px;
-    padding: 10px 12px;
-    border-radius: 6px;
-    font-size: 14px;
+    align-items: flex-end;
+
+    padding: 50px;
+
+    overflow: hidden;
+
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(30, 25, 20, 0.02),
+            rgba(30, 25, 20, 0.82)
+        ),
+        url("../assite/account.img/account-atelier-bg1.png");
+
+    background-size: cover;
+
+    background-position: center;
 }
 
-.account-message.error {
-    background: #ffe5e5;
-    color: #b42318;
+
+/* - Image Decoration */
+
+.account-modal-image::before {
+    content: "";
+
+    position: absolute;
+
+    top: 50px;
+    left: 50px;
+
+    width: 42px;
+    height: 2px;
+
+    background-color: #d4b56c;
+
+    z-index: 3;
 }
 
-.account-message.success {
-    background: #e6f7ed;
-    color: #18794e;
+
+.account-modal-image::after {
+    content: "";
+
+    position: absolute;
+
+    width: 340px;
+    height: 340px;
+
+    right: -150px;
+    top: -150px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.20);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 35px
+        rgba(255, 255, 255, 0.04),
+
+        0 0 0 70px
+        rgba(255, 255, 255, 0.025);
 }
 
 
+/* ========================================================= */
+/* - Image Content */
+/* ========================================================= */
+
+.account-modal-image-content {
+    position: relative;
+
+    z-index: 4;
+
+    max-width: 320px;
+
+    color: #ffffff;
+}
+
+.account-modal-image-content span {
+    display: block;
+
+    margin-bottom: 17px;
+
+    color: #d8bb76;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+}
+
+.account-modal-image-content h2 {
+    margin-bottom: 18px;
+
+    color: #ffffff;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 42px;
+
+    font-weight: 400;
+
+    line-height: 1.08;
+}
+
+.account-modal-image-content p {
+    max-width: 300px;
+
+    color:
+        rgba(255, 255, 255, 0.78);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
 
 
+/* ========================================================= */
+/* - Modal Content */
+/* ========================================================= */
+
+.account-modal-content {
+    position: relative;
+
+    min-width: 0;
+    min-height: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    background-color: #ffffff;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        #b88e2f
+        #f4f1ec;
+}
 
 
+.account-modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.account-modal-content::-webkit-scrollbar-track {
+    background: #f4f1ec;
+}
+
+.account-modal-content::-webkit-scrollbar-thumb {
+    background-color: #b88e2f;
+
+    border-radius: 10px;
+}
+
+.account-modal-content::-webkit-scrollbar-thumb:hover {
+    background-color: #967323;
+}
 
 
-
-
-
-
-
-
+/* ========================================================= */
 /* - Close Button */
+/* ========================================================= */
 
 .account-modal-close {
     position: absolute;
-    top: 15px;
-    right: 15px;
-    width: 42px;
-    height: 42px;
+
+    top: 18px;
+    right: 18px;
+
+    width: 40px;
+    height: 40px;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
-    border: none;
+
+    border:
+        1px solid
+        #e6e0d8;
+
     border-radius: 50%;
-    background-color: #f5f5f5;
-    color: #222222;
-    font-size: 18px;
+
+    background:
+        rgba(255, 255, 255, 0.96);
+
+    color: #333333;
+
+    font-size: 15px;
+
     cursor: pointer;
-    z-index: 10;
+
+    z-index: 100;
+
     transition:
         background-color 0.3s ease,
         color 0.3s ease,
-        transform 0.3s ease;
+        transform 0.3s ease,
+        border-color 0.3s ease;
 }
 
 .account-modal-close:hover {
     background-color: #b88e2f;
+
+    border-color: #b88e2f;
+
     color: #ffffff;
+
     transform: rotate(90deg);
 }
 
 
+/* ========================================================= */
 /* - Modal Header */
+/* ========================================================= */
 
 .account-modal-header {
-    text-align: center;
-    margin-bottom: 35px;
+    margin: 0;
+
+    padding:
+        60px
+        58px
+        20px;
+
+    text-align: left;
 }
+
 
 .account-modal-header img {
-    width: 55px;
-    height: 55px;
+    width: 34px;
+    height: 34px;
+
     object-fit: contain;
-    margin-bottom: 10px;
+
+    margin-bottom: 16px;
 }
+
 
 .account-modal-header h2 {
-    margin-bottom: 8px;
+    margin-bottom: 9px;
+
     color: #222222;
-    font-size: 28px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 31px;
+
+    font-weight: 400;
+
+    line-height: 1.2;
 }
+
+
+.account-modal-header h2::before {
+    content: "FURNIRO";
+
+    display: block;
+
+    margin-bottom: 13px;
+
+    color: #b88e2f;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 3.5px;
+}
+
 
 .account-modal-header p {
-    color: #777777;
-    font-size: 14px;
-}
+    color: #888888;
 
+    font-size: 12px;
 
-/* - Modal Forms */
-
-.account-modal-forms {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-}
-
-
-/* - Modal Account Box */
-
-.account-modal .account-box {
-    padding: 30px;
-    background-color: #faf7f2;
-    border: 1px solid #eeeeee;
-    border-radius: 8px;
-}
-
-.account-modal .account-box h2 {
-    margin-bottom: 10px;
-    color: #222222;
-    font-size: 24px;
-}
-
-.account-modal .account-text {
-    margin-bottom: 25px;
-    color: #777777;
-    font-size: 14px;
     line-height: 1.6;
 }
 
 
+/* ========================================================= */
+/* - Modal Forms */
+/* ========================================================= */
+
+.account-modal-forms {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    min-height: 0;
+
+    padding:
+        8px
+        58px
+        58px;
+}
+
+
+/* ========================================================= */
+/* - Modal Account Box */
+/* ========================================================= */
+
+.account-modal .account-box {
+    min-width: 0;
+
+    padding:
+        25px
+        30px
+        30px;
+
+    background-color: #ffffff;
+
+    border: none;
+
+    border-radius: 0;
+
+    box-shadow: none;
+}
+
+
+.account-modal .account-box:first-child {
+    padding-right: 40px;
+
+    border-right:
+        1px solid
+        #eeeeee;
+}
+
+
+.account-modal .account-box:last-child {
+    padding-left: 40px;
+
+    background-color: #fcfbf8;
+}
+
+
+/* ========================================================= */
+/* - Modal Form Heading */
+/* ========================================================= */
+
+.account-modal .account-box h2 {
+    margin-bottom: 9px;
+
+    color: #222222;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 27px;
+
+    font-weight: 400;
+
+    line-height: 1.2;
+}
+
+.account-modal .account-text {
+    margin-bottom: 27px;
+
+    color: #888888;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+/* ========================================================= */
+/* - Modal Form */
+/* ========================================================= */
+
+.account-modal .account-box form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.account-modal .account-box form label {
+    margin-top: 8px;
+
+    color: #444444;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.6px;
+}
+
+
+/* ========================================================= */
 /* - Modal Inputs */
+/* ========================================================= */
 
 .account-modal .account-box input[type="text"],
 .account-modal .account-box input[type="email"],
 .account-modal .account-box input[type="password"] {
+
     width: 100%;
-    min-height: 48px;
-    padding: 12px 14px;
-    box-sizing: border-box;
-    border: 1px solid #dddddd;
-    border-radius: 5px;
-    background-color: #ffffff;
+
+    height: 47px;
+
+    padding:
+        10px
+        2px;
+
+    border: none;
+
+    border-bottom:
+        1px solid
+        #d7d2ca;
+
+    border-radius: 0;
+
+    background-color: transparent;
+
+    color: #222222;
+
     outline: none;
+
     font-family: inherit;
-    font-size: 14px;
+
+    font-size: 13px;
+
+    transition:
+        border-color 0.3s ease,
+        padding 0.3s ease;
 }
+
+
+.account-modal .account-box input::placeholder {
+    color: #b0aba4;
+
+    font-size: 12px;
+}
+
+
+.account-modal .account-box input:hover {
+    border-bottom-color: #b8a98f;
+}
+
 
 .account-modal .account-box input:focus {
-    border-color: #b88e2f;
-    box-shadow:
-        0 0 0 3px
-        rgba(184, 142, 47, 0.10);
+    border-bottom-color: #b88e2f;
+
+    padding-left: 6px;
+
+    box-shadow: none;
 }
 
 
+/* ========================================================= */
+/* - Modal Form Options */
+/* ========================================================= */
+
+.account-modal .form-options {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin:
+        13px 0
+        18px;
+}
+
+
+.account-modal .remember {
+    display: flex !important;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin: 0 !important;
+
+    color: #777777 !important;
+
+    font-size: 10px !important;
+
+    font-weight: 400 !important;
+
+    letter-spacing: 0 !important;
+}
+
+
+.account-modal .remember input {
+    width: 13px;
+
+    height: 13px;
+
+    accent-color: #b88e2f;
+}
+
+
+.account-modal .form-options a {
+    color: #777777;
+
+    font-size: 10px;
+
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease;
+}
+
+
+.account-modal .form-options a:hover {
+    color: #b88e2f;
+}
+
+
+/* ========================================================= */
 /* - Modal Button */
+/* ========================================================= */
 
 .account-modal .account-box button {
     width: 100%;
-    min-height: 48px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 5px;
+
+    min-height: 50px;
+
+    margin-top: 13px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    border:
+        1px solid
+        #b88e2f;
+
+    border-radius: 0;
+
     background-color: #b88e2f;
+
     color: #ffffff;
-    font-size: 14px;
+
+    font-size: 10px;
+
     font-weight: 700;
+
+    letter-spacing: 1.7px;
+
     cursor: pointer;
+
     transition:
         background-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.account-modal .account-box button i {
+    font-size: 10px;
+
+    transition:
         transform 0.3s ease;
 }
 
+
 .account-modal .account-box button:hover {
-    background-color: #a27b27;
+    background-color: #967323;
+
     transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(184, 142, 47, 0.20);
 }
 
 
-/* - Messages */
+.account-modal .account-box button:hover i {
+    transform: translateX(5px);
+}
+
+
+/* ========================================================= */
+/* - Account Message */
+/* ========================================================= */
 
 .account-message {
-    padding: 12px 15px;
-    margin-bottom: 20px;
-    font-size: 13px;
+    padding:
+        10px
+        12px;
+
+    margin-bottom: 15px;
+
+    font-size: 12px;
+
     line-height: 1.5;
+
     border-radius: 5px;
 }
 
 .account-message.error {
     background-color: #fff0f0;
+
     color: #b42318;
 }
 
 .account-message.success {
     background-color: #effaf3;
+
     color: #18794e;
 }
 
 
-/* - Features */
-
-.features {
-    width: 100%;
-    padding: 35px 5%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    background-color: #faf3ea;
-}
-
-.feature {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-}
-
-.feature > i {
-    color: #b88e2f;
-    font-size: 32px;
-}
-
-.feature h3 {
-    margin-bottom: 6px;
-    color: #222222;
-    font-size: 17px;
-}
-
-.feature p {
-    color: #777777;
-    font-size: 13px;
-    line-height: 1.5;
-}
-
-
+/* ========================================================= */
 /* - Footer */
+/* ========================================================= */
 
 footer {
     width: 100%;
-    padding: 50px 5% 30px;
+
+    padding:
+        50px 5%
+        30px;
+
     background-color: #ffffff;
 }
 
 .footer-top {
     display: flex;
+
     justify-content: space-between;
+
     gap: 40px;
 }
 
@@ -619,19 +1192,24 @@ footer {
 
 .footer-brand h2 {
     margin-bottom: 40px;
+
     font-size: 24px;
 }
 
 .footer-brand p {
     color: #777777;
+
     line-height: 1.6;
+
     font-size: 14px;
 }
 
 .footer-links,
 .footer-help {
     display: flex;
+
     flex-direction: column;
+
     gap: 20px;
 }
 
@@ -639,15 +1217,20 @@ footer {
 .footer-help h3,
 .footer-newsletter h3 {
     margin-bottom: 15px;
+
     color: #999999;
+
     font-size: 16px;
 }
 
 .footer-links a,
 .footer-help a {
     color: #333333;
+
     font-size: 15px;
+
     text-decoration: none;
+
     transition: color 0.3s ease;
 }
 
@@ -662,33 +1245,53 @@ footer {
 
 .newsletter-form {
     display: flex;
+
     align-items: center;
+
     gap: 10px;
 }
 
 .footer-newsletter input {
     width: 180px;
+
     padding: 8px 0;
+
     border: none;
-    border-bottom: 1px solid #333333;
+
+    border-bottom:
+        1px solid #333333;
+
     outline: none;
+
     font-family: inherit;
 }
 
 .footer-newsletter button {
     padding: 8px 0;
+
     border: none;
-    border-bottom: 1px solid #333333;
+
+    border-bottom:
+        1px solid #333333;
+
     background-color: #ffffff;
+
     color: #222222;
+
     font-weight: bold;
+
     cursor: pointer;
 }
 
 .footer-line {
     width: 100%;
+
     height: 1px;
-    margin: 50px 0 25px;
+
+    margin:
+        50px 0
+        25px;
+
     background-color: #dddddd;
 }
 
@@ -698,20 +1301,26 @@ footer {
 
 .footer-bottom p {
     color: #333333;
+
     font-size: 14px;
 }
 
 
+/* ========================================================= */
 /* - Dark Mode */
+/* ========================================================= */
 
 body.dark-mode {
     background-color: #111111;
+
     color: #ffffff;
 }
 
 body.dark-mode header {
     background-color: #111111;
-    border-bottom: 1px solid #333333;
+
+    border-bottom:
+        1px solid #333333;
 }
 
 body.dark-mode .logo h3,
@@ -731,6 +1340,7 @@ body.dark-mode .account-section {
 
 body.dark-mode .account-section .account-box {
     background-color: #1c1c1c;
+
     border-color: #333333;
 }
 
@@ -745,32 +1355,64 @@ body.dark-mode .account-box form label {
 
 body.dark-mode .account-box form input {
     background-color: #242424;
+
     color: #ffffff;
+
     border-color: #444444;
 }
 
-body.dark-mode .account-modal-box {
+
+/* - Dark Modal */
+
+body.dark-mode .account-modal-box,
+body.dark-mode .account-modal-content {
     background-color: #181818;
 }
 
-body.dark-mode .account-modal-header h2 {
-    color: #ffffff;
-}
-
-body.dark-mode .account-modal .account-box {
-    background-color: #242424;
-    border-color: #444444;
-}
-
+body.dark-mode .account-modal-header h2,
 body.dark-mode .account-modal .account-box h2 {
     color: #ffffff;
 }
 
+body.dark-mode .account-modal-header p,
+body.dark-mode .account-modal .account-text {
+    color: #aaaaaa;
+}
+
+body.dark-mode .account-modal .account-box {
+    background-color: #181818;
+}
+
+body.dark-mode .account-modal .account-box:last-child {
+    background-color: #202020;
+}
+
+body.dark-mode .account-modal .account-box:first-child {
+    border-right-color: #333333;
+}
+
+body.dark-mode .account-modal .account-box form label {
+    color: #dddddd;
+}
+
 body.dark-mode .account-modal .account-box input {
-    background-color: #1c1c1c;
+    background-color: transparent;
+
     color: #ffffff;
+
+    border-bottom-color: #444444;
+}
+
+body.dark-mode .account-modal-close {
+    background-color: #242424;
+
+    color: #ffffff;
+
     border-color: #444444;
 }
+
+
+/* - Dark Features */
 
 body.dark-mode .features {
     background-color: #1c1c1c;
@@ -783,6 +1425,9 @@ body.dark-mode .feature h3 {
 body.dark-mode .feature p {
     color: #aaaaaa;
 }
+
+
+/* - Dark Footer */
 
 body.dark-mode footer {
     background-color: #111111;
@@ -810,13 +1455,17 @@ body.dark-mode .footer-help a {
 
 body.dark-mode .footer-newsletter input {
     background-color: transparent;
+
     color: #ffffff;
+
     border-bottom-color: #aaaaaa;
 }
 
 body.dark-mode .footer-newsletter button {
     background-color: transparent;
+
     color: #ffffff;
+
     border-bottom-color: #aaaaaa;
 }
 
@@ -825,125 +1474,33 @@ body.dark-mode .footer-line {
 }
 
 
-/* - Responsive */
-
-@media (max-width: 800px) {
-
-    header nav {
-        display: none;
-    }
-
-    .account-container {
-        grid-template-columns: 1fr;
-    }
-
-    .account-modal {
-        padding: 15px;
-    }
-
-    .account-modal-box {
-        width: 100%;
-        max-height: 94vh;
-        padding: 25px 20px;
-    }
-
-    .account-modal-forms {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .account-modal .account-box {
-        padding: 25px 20px;
-    }
-
-    .features {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .footer-top {
-        flex-wrap: wrap;
-    }
-
-    .footer-brand,
-    .footer-newsletter {
-        width: 45%;
-    }
-
-}
-
-@media (max-width: 500px) {
-
-    header {
-        height: 70px;
-        padding: 12px 5%;
-    }
-
-    .icons {
-        gap: 13px;
-    }
-
-    .account-section {
-        padding: 60px 5%;
-    }
-
-    .account-container {
-        width: 100%;
-    }
-
-    .account-section .account-box {
-        padding: 25px;
-    }
-
-    .account-modal-header h2 {
-        font-size: 23px;
-    }
-
-    .account-modal-header p {
-        font-size: 13px;
-    }
-
-    .account-modal .account-box h2 {
-        font-size: 22px;
-    }
-
-    .account-modal .form-options {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .features {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-brand,
-    .footer-newsletter {
-        width: 100%;
-    }
-
-}
-
-
-
-
-
-
-
-
-
-
+/* ========================================================= */
 /* - User Menu */
+/* ========================================================= */
 
 .user-menu {
     position: absolute;
+
     top: 75px;
+
     right: 30px;
+
     width: 300px;
+
     padding: 20px;
+
     background: #ffffff;
+
     border: 1px solid #eeeeee;
+
     border-radius: 12px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0, 0, 0, 0.12);
+
     display: none;
+
     z-index: 9999;
 }
 
@@ -952,28 +1509,36 @@ body.dark-mode .footer-line {
 }
 
 
-/* - User Header */
-
 .user-menu-header {
     display: flex;
+
     align-items: center;
+
     gap: 14px;
+
     padding-bottom: 18px;
-    border-bottom: 1px solid #eeeeee;
+
+    border-bottom:
+        1px solid #eeeeee;
 }
 
 .user-avatar {
     width: 55px;
     height: 55px;
+
     flex-shrink: 0;
+
     overflow: hidden;
+
     border-radius: 50%;
+
     background: #f3f3f3;
 }
 
 .user-avatar img {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
 }
 
@@ -982,33 +1547,46 @@ body.dark-mode .footer-line {
 }
 
 .user-menu-info h3 {
-    margin: 0 0 5px;
+    margin:
+        0 0 5px;
+
     font-size: 16px;
+
     color: #1b1b1b;
 }
 
 .user-menu-info p {
     margin: 0;
+
     font-size: 13px;
+
     color: #777777;
+
     word-break: break-word;
 }
 
 
-/* - User Links */
-
 .user-menu-links {
-    padding: 12px 0;
+    padding:
+        12px 0;
 }
 
 .user-menu-links a {
     display: flex;
+
     align-items: center;
+
     gap: 12px;
-    padding: 11px 8px;
+
+    padding:
+        11px 8px;
+
     color: #333333;
+
     text-decoration: none;
+
     border-radius: 6px;
+
     transition: 0.2s ease;
 }
 
@@ -1018,227 +1596,156 @@ body.dark-mode .footer-line {
 
 .user-menu-links i {
     width: 20px;
+
     text-align: center;
 }
 
 
-/* - Logout */
-
 .logout-button {
     width: 100%;
+
     display: flex;
+
     align-items: center;
+
     gap: 12px;
-    padding: 12px 8px;
+
+    padding:
+        12px 8px;
+
     border: none;
-    border-top: 1px solid #eeeeee;
+
+    border-top:
+        1px solid #eeeeee;
+
     background: transparent;
+
     color: #b42318;
+
     cursor: pointer;
+
     font-size: 14px;
+
     text-align: left;
 }
 
 
-
-
-
-
-
-
-/* - User Menu */
-
-.user-menu {
-    position: absolute;
-    top: 75px;
-    right: 30px;
-    width: 300px;
-    padding: 20px;
-    background: #ffffff;
-    border: 1px solid #eeeeee;
-    border-radius: 12px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-    display: none;
-    z-index: 9999;
-}
-
-.user-menu.active {
-    display: block;
-}
-
-
-/* - User Header */
-
-.user-menu-header {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding-bottom: 18px;
-    border-bottom: 1px solid #eeeeee;
-}
-
-.user-avatar {
-    width: 55px;
-    height: 55px;
-    flex-shrink: 0;
-    overflow: hidden;
-    border-radius: 50%;
-    background: #f3f3f3;
-}
-
-.user-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.user-menu-info {
-    min-width: 0;
-}
-
-.user-menu-info h3 {
-    margin: 0 0 5px;
-    font-size: 16px;
-    color: #1b1b1b;
-}
-
-.user-menu-info p {
-    margin: 0;
-    font-size: 13px;
-    color: #777777;
-    word-break: break-word;
-}
-
-
-/* - User Links */
-
-.user-menu-links {
-    padding: 12px 0;
-}
-
-.user-menu-links a {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 11px 8px;
-    color: #333333;
-    text-decoration: none;
-    border-radius: 6px;
-    transition: 0.2s ease;
-}
-
-.user-menu-links a:hover {
-    background: #f7f7f7;
-}
-
-.user-menu-links i {
-    width: 20px;
-    text-align: center;
-}
-
-
-/* - Logout */
-
-.logout-button {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 8px;
-    border: none;
-    border-top: 1px solid #eeeeee;
-    background: transparent;
-    color: #b42318;
-    cursor: pointer;
-    font-size: 14px;
-    text-align: left;
-}
-
-
-
-
-
-
-
-
+/* ========================================================= */
 /* - Profile Section */
+/* ========================================================= */
 
 .profile-section {
     display: block;
+
     width: 100%;
-    padding: 80px 20px;
+
+    padding:
+        80px 20px;
+
     box-sizing: border-box;
+
     background: #f8f8f8;
 }
 
 .profile-container {
     max-width: 1000px;
+
     margin: 0 auto;
+
     display: grid;
-    grid-template-columns: 320px 1fr;
+
+    grid-template-columns:
+        320px 1fr;
+
     gap: 30px;
 }
 
 
-/* - Profile Card */
-
 .profile-card {
-    padding: 35px 25px;
+    padding:
+        35px 25px;
+
     background: #ffffff;
+
     border-radius: 12px;
+
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.08);
 }
 
 .profile-photo {
     width: 110px;
     height: 110px;
-    margin: 0 auto 20px;
+
+    margin:
+        0 auto 20px;
+
     overflow: hidden;
+
     border-radius: 50%;
+
     background: #f1f1f1;
 }
 
 .profile-photo img {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
 }
 
 .profile-card h2 {
-    margin: 0 0 8px;
+    margin:
+        0 0 8px;
+
     font-size: 22px;
+
     color: #1b1b1b;
 }
 
 .profile-card p {
-    margin: 0 0 25px;
+    margin:
+        0 0 25px;
+
     color: #777777;
+
     font-size: 14px;
 }
 
-
-/* - Edit Button */
 
 .edit-profile-button {
-    padding: 12px 25px;
+    padding:
+        12px 25px;
+
     border: none;
+
     border-radius: 6px;
+
     background: #742277;
+
     color: #ffffff;
+
     cursor: pointer;
+
     font-size: 14px;
 }
 
-
-/* - Profile Edit */
 
 .profile-edit {
     display: none;
+
     padding: 35px;
+
     background: #ffffff;
+
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.08);
 }
 
 .profile-edit.active {
@@ -1246,31 +1753,41 @@ body.dark-mode .footer-line {
 }
 
 .profile-edit h2 {
-    margin: 0 0 25px;
+    margin:
+        0 0 25px;
+
     color: #1b1b1b;
 }
 
 
-/* - Profile Form */
-
 #profileForm {
     display: flex;
+
     flex-direction: column;
+
     gap: 10px;
 }
 
 #profileForm label {
     margin-top: 8px;
+
     font-size: 14px;
+
     color: #333333;
 }
 
 #profileForm input {
     width: 100%;
+
     padding: 13px;
-    border: 1px solid #dddddd;
+
+    border:
+        1px solid #dddddd;
+
     border-radius: 6px;
+
     box-sizing: border-box;
+
     outline: none;
 }
 
@@ -1279,69 +1796,62 @@ body.dark-mode .footer-line {
 }
 
 
-/* - Save Button */
-
 .save-profile-button {
     margin-top: 20px;
+
     padding: 13px;
+
     border: none;
+
     border-radius: 6px;
+
     background: #742277;
+
     color: #ffffff;
+
     cursor: pointer;
+
     font-size: 14px;
 }
 
 
-/* - Mobile */
-
-@media (max-width: 768px) {
-
-    .profile-container {
-        grid-template-columns: 1fr;
-    }
-
-    .profile-section {
-        padding: 60px 20px;
-    }
-
-}
-
-
+/* ========================================================= */
 /* - Profile Modal */
+/* ========================================================= */
 
 .profile-modal {
     position: fixed;
+
     inset: 0;
+
     z-index: 3000;
 
     display: none;
 
     align-items: center;
+
     justify-content: center;
 
     padding: 20px;
 
-    background: rgba(0, 0, 0, 0.45);
+    background:
+        rgba(0, 0, 0, 0.45);
 }
-
-
-/* - Active */
 
 .profile-modal.active {
     display: flex;
 }
 
 
-/* - Profile Modal Box */
-
 .profile-modal-box {
     position: relative;
 
     width: 100%;
+
     max-width: 380px;
 
-    padding: 35px 30px;
+    padding:
+        35px 30px;
 
     background: #ffffff;
 
@@ -1350,19 +1860,20 @@ body.dark-mode .footer-line {
     text-align: center;
 
     box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.18);
+        0 20px 60px
+        rgba(0, 0, 0, 0.18);
 }
 
-
-/* - Close Button */
 
 .profile-modal-close {
     position: absolute;
 
     top: 15px;
+
     right: 15px;
 
     width: 35px;
+
     height: 35px;
 
     border: none;
@@ -1376,19 +1887,18 @@ body.dark-mode .footer-line {
     cursor: pointer;
 }
 
-
 .profile-modal-close:hover {
     color: #742277;
 }
 
 
-/* - Profile Photo */
-
 .profile-modal-photo {
     width: 100px;
+
     height: 100px;
 
-    margin: 0 auto 20px;
+    margin:
+        0 auto 20px;
 
     overflow: hidden;
 
@@ -1397,19 +1907,18 @@ body.dark-mode .footer-line {
     background: #f1f1f1;
 }
 
-
 .profile-modal-photo img {
     width: 100%;
+
     height: 100%;
 
     object-fit: cover;
 }
 
 
-/* - Name */
-
 .profile-modal-box h2 {
-    margin: 0 0 8px;
+    margin:
+        0 0 8px;
 
     color: #1b1b1b;
 
@@ -1417,10 +1926,9 @@ body.dark-mode .footer-line {
 }
 
 
-/* - Email */
-
 .profile-modal-box p {
-    margin: 0 0 25px;
+    margin:
+        0 0 25px;
 
     color: #777777;
 
@@ -1428,17 +1936,17 @@ body.dark-mode .footer-line {
 }
 
 
-/* - Edit Button */
-
 .profile-modal-edit {
     display: inline-flex;
 
     align-items: center;
+
     justify-content: center;
 
     gap: 8px;
 
-    padding: 12px 24px;
+    padding:
+        12px 24px;
 
     border: none;
 
@@ -1453,27 +1961,10 @@ body.dark-mode .footer-line {
     cursor: pointer;
 }
 
-
 .profile-modal-edit:hover {
     background: #5e1b62;
 }
 
-
-/* - Mobile */
-
-@media (max-width: 500px) {
-
-    .profile-modal-box {
-        max-width: 320px;
-
-        padding: 30px 20px;
-    }
-
-}
-
-
-
-/* - Edit Profile */
 
 .profile-modal-edit-form {
     display: none;
@@ -1484,15 +1975,14 @@ body.dark-mode .footer-line {
 }
 
 .profile-modal-edit-form h2 {
-    margin: 0 0 20px;
+    margin:
+        0 0 20px;
 
     color: #1b1b1b;
 
     font-size: 22px;
 }
 
-
-/* - Edit Form */
 
 #modalProfileForm {
     display: flex;
@@ -1517,7 +2007,8 @@ body.dark-mode .footer-line {
 
     padding: 12px;
 
-    border: 1px solid #dddddd;
+    border:
+        1px solid #dddddd;
 
     border-radius: 6px;
 
@@ -1530,8 +2021,6 @@ body.dark-mode .footer-line {
     border-color: #742277;
 }
 
-
-/* - Buttons */
 
 .profile-modal-form-buttons {
     display: flex;
@@ -1569,7 +2058,476 @@ body.dark-mode .footer-line {
 }
 
 
+/* ========================================================= */
+/* - Responsive */
+/* ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .account-modal-box {
+        width: 100%;
+
+        height: 94vh;
+
+        max-height: 94vh;
+    }
+
+    .account-modal-image {
+        padding: 40px;
+    }
+
+    .account-modal-image-content h2 {
+        font-size: 34px;
+    }
+
+    .account-modal-header {
+        padding:
+            55px 40px
+            20px;
+    }
+
+    .account-modal-forms {
+        padding:
+            8px 40px
+            45px;
+    }
+
+}
 
 
+@media (max-width: 900px) {
+
+    .account-modal-box {
+        max-width: 760px;
+
+        height: 94vh;
+
+        grid-template-columns: 1fr;
+    }
+
+    .account-modal-image {
+        height: 220px;
+
+        min-height: 220px;
+
+        padding:
+            35px 40px;
+    }
+
+    .account-modal-image::before {
+        top: 30px;
+
+        left: 40px;
+    }
+
+    .account-modal-image-content h2 {
+        font-size: 30px;
+    }
+
+    .account-modal-image-content p {
+        display: none;
+    }
+
+    .account-modal-content {
+        height:
+            calc(94vh - 220px);
+
+        overflow-y: auto;
+    }
+
+    .account-modal-header {
+        padding:
+            40px 40px
+            15px;
+    }
+
+    .account-modal-forms {
+        padding:
+            5px 40px
+            40px;
+    }
+
+}
 
 
+@media (max-width: 800px) {
+
+    header nav {
+        display: none;
+    }
+
+    .account-container {
+        grid-template-columns: 1fr;
+    }
+
+    .account-modal {
+        padding: 10px;
+    }
+
+    .account-modal-box {
+        width: 100%;
+
+        height: 96vh;
+
+        max-height: 96vh;
+
+        grid-template-columns: 1fr;
+
+        overflow: hidden;
+    }
+
+    .account-modal-image {
+        height: 180px;
+
+        min-height: 180px;
+
+        padding: 25px;
+    }
+
+    .account-modal-image-content h2 {
+        font-size: 26px;
+    }
+
+    .account-modal-content {
+        height:
+            calc(96vh - 180px);
+
+        overflow-y: auto;
+    }
+
+    .account-modal-forms {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .account-modal .account-box {
+        padding:
+            22px 0;
+    }
+
+    .account-modal .account-box:first-child {
+        padding-right: 0;
+
+        padding-bottom: 30px;
+
+        border-right: none;
+
+        border-bottom:
+            1px solid #eeeeee;
+    }
+
+    .account-modal .account-box:last-child {
+        padding-left: 0;
+    }
+
+    .features {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .footer-top {
+        flex-wrap: wrap;
+    }
+
+    .footer-brand,
+    .footer-newsletter {
+        width: 45%;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .account-modal {
+        padding: 6px;
+    }
+
+    .account-modal-box {
+        height: 97vh;
+
+        max-height: 97vh;
+    }
+
+    .account-modal-image {
+        height: 155px;
+
+        min-height: 155px;
+
+        padding: 22px;
+    }
+
+    .account-modal-image::before {
+        top: 25px;
+
+        left: 25px;
+
+        width: 30px;
+    }
+
+    .account-modal-image-content span {
+        margin-bottom: 9px;
+
+        font-size: 9px;
+
+        letter-spacing: 3px;
+    }
+
+    .account-modal-image-content h2 {
+        font-size: 22px;
+    }
+
+    .account-modal-content {
+        height:
+            calc(97vh - 155px);
+
+        overflow-y: auto;
+    }
+
+    .account-modal-header {
+        padding:
+            28px 20px
+            8px;
+    }
+
+    .account-modal-header h2 {
+        font-size: 24px;
+    }
+
+    .account-modal-header p {
+        font-size: 11px;
+    }
+
+    .account-modal-forms {
+        padding:
+            5px 20px
+            25px;
+
+        gap: 15px;
+    }
+
+    .account-modal .account-box {
+        padding:
+            18px 0;
+    }
+
+    .account-modal .account-box h2 {
+        font-size: 23px;
+    }
+
+    .account-modal .account-text {
+        font-size: 11px;
+
+        margin-bottom: 20px;
+    }
+
+    .account-modal .form-options {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-brand,
+    .footer-newsletter {
+        width: 100%;
+    }
+
+    .footer-top {
+        flex-direction: column;
+    }
+
+    .newsletter-form {
+        width: 100%;
+    }
+
+    .footer-newsletter input {
+        width: 100%;
+    }
+
+    .user-menu {
+        right: 15px;
+
+        width:
+            calc(100% - 30px);
+
+        max-width: 300px;
+    }
+
+    .profile-modal-box {
+        max-width: 320px;
+
+        padding:
+            30px 20px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    header {
+        height: 70px;
+
+        padding:
+            12px 5%;
+    }
+
+    .icons {
+        gap: 13px;
+    }
+
+    .account-section {
+        padding:
+            60px 5%;
+    }
+
+    .account-container {
+        width: 100%;
+    }
+
+    .account-section .account-box {
+        padding: 25px;
+    }
+
+    .account-modal {
+        padding: 5px;
+    }
+
+    .account-modal-box {
+        height: 97vh;
+
+        max-height: 97vh;
+
+        border-radius: 4px;
+    }
+
+    .account-modal-image {
+        height: 155px;
+
+        min-height: 155px;
+
+        padding: 22px;
+    }
+
+    .account-modal-image-content h2 {
+        font-size: 22px;
+    }
+
+    .account-modal-image-content p {
+        display: none;
+    }
+
+    .account-modal-header {
+        padding:
+            28px 20px
+            8px;
+    }
+
+    .account-modal-header h2 {
+        font-size: 24px;
+    }
+
+    .account-modal-header p {
+        font-size: 11px;
+    }
+
+    .account-modal-forms {
+        padding:
+            5px 20px
+            25px;
+
+        gap: 15px;
+    }
+
+    .account-modal .account-box {
+        padding:
+            18px 0;
+    }
+
+    .account-modal .account-box h2 {
+        font-size: 23px;
+    }
+
+    .account-modal .account-text {
+        font-size: 11px;
+
+        margin-bottom: 20px;
+    }
+
+    .account-modal .form-options {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-brand,
+    .footer-newsletter {
+        width: 100%;
+    }
+
+    .footer-top {
+        flex-direction: column;
+    }
+
+    .newsletter-form {
+        width: 100%;
+    }
+
+    .footer-newsletter input {
+        width: 100%;
+    }
+
+    .user-menu {
+        right: 15px;
+
+        width:
+            calc(100% - 30px);
+
+        max-width: 300px;
+    }
+
+    .profile-modal-box {
+        max-width: 320px;
+
+        padding:
+            30px 20px;
+    }
+
+}
+
+
+@media (max-width: 380px) {
+
+    .account-modal-image {
+        height: 135px;
+
+        min-height: 135px;
+    }
+
+    .account-modal-image-content h2 {
+        font-size: 20px;
+    }
+
+    .account-modal-header h2 {
+        font-size: 22px;
+    }
+
+    .account-modal .account-box {
+        padding:
+            15px 0;
+    }
+
+}
