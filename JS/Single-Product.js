@@ -1,385 +1,376 @@
-/* 
+/*
    SINGLE PRODUCT PAGE
- */
+*/
 
 document.addEventListener(
     "DOMContentLoaded",
     function () {
 
 
+        /*
+           PRODUCT DATABASE
+        */
 
+        const products = {
 
+            1: {
+                id: "1",
+                name: "Syltherine",
+                price: 2500000,
+                oldPrice: 3500000,
+                category: "Dining",
 
-/* 
-   PRODUCT DATABASE
- */
+                description:
+                    "Stylish cafe chair made from high quality materials. Perfect for modern and comfortable spaces.",
 
-const products = {
+                image:
+                    "assite/Shop-Products-images/product13.png",
 
-    1: {
-        id: "1",
-        name: "Syltherine",
-        price: 2500000,
-        oldPrice: 3500000,
-        category: "Dining",
+                mainImage:
+                    "assite/Single Product.images/Single Product5.png",
 
-        description:
-            "Stylish cafe chair made from high quality materials. Perfect for modern and comfortable spaces.",
+                gallery: [
+                    "assite/Single Product.images/Single Product1.png",
+                    "assite/Single Product.images/Single Product2.png",
+                    "assite/Single Product.images/Single Product3.png"
+                ]
+            },
 
-        image:
-            "assite/Shop-Products-images/product13.png",
 
-        mainImage:
-            "assite/Single Product.images/Single Product5.png",
+            2: {
+                id: "2",
+                name: "Leviosa",
+                price: 2500000,
+                oldPrice: null,
+                category: "Dining",
 
-        gallery: [
-            "assite/Single Product.images/Single Product1.png",
-            "assite/Single Product.images/Single Product2.png",
-            "assite/Single Product.images/Single Product3.png",
-            "assite/Single Product.images/Single Product4.png"
-        ]
-    },
+                description:
+                    "Stylish cafe chair with a clean and comfortable design for modern spaces.",
 
+                image:
+                    "assite/Shop-Products-images/product14.png",
 
-    2: {
-        id: "2",
-        name: "Leviosa",
-        price: 2500000,
-        oldPrice: null,
-        category: "Dining",
+                mainImage:
+                    "assite/Shop-Products-images/product14.png",
 
-        description:
-            "Stylish cafe chair with a clean and comfortable design for modern spaces.",
+                gallery: [
+                    "assite/Shop-Products-images/product14.png"
+                ]
+            },
 
-        image:
-            "assite/Shop-Products-images/product14.png",
 
-        mainImage:
-            "assite/Shop-Products-images/product14.png",
+            3: {
+                id: "3",
+                name: "Lolito",
+                price: 7000000,
+                oldPrice: 14000000,
+                category: "Living",
 
-        gallery: [
-            "assite/Shop-Products-images/product14.png"
-        ]
-    },
+                description:
+                    "Luxury big sofa designed for elegant and comfortable living spaces.",
 
+                image:
+                    "assite/Shop-Products-images/produc7.png",
 
-    3: {
-        id: "3",
-        name: "Lolito",
-        price: 7000000,
-        oldPrice: 14000000,
-        category: "Living",
+                mainImage:
+                    "assite/Shop-Products-images/produc7.png",
 
-        description:
-            "Luxury big sofa designed for elegant and comfortable living spaces.",
+                gallery: [
+                    "assite/Shop-Products-images/produc7.png"
+                ]
+            },
 
-        image:
-            "assite/Shop-Products-images/produc7.png",
 
-        mainImage:
-            "assite/Shop-Products-images/produc7.png",
+            4: {
+                id: "4",
+                name: "Respira",
+                price: 500000,
+                oldPrice: null,
+                category: "Living",
 
-        gallery: [
-            "assite/Shop-Products-images/produc7.png"
-        ]
-    },
+                description:
+                    "Outdoor bar table with a simple and practical design.",
 
+                image:
+                    "assite/Shop-Products-images/product-10.jpg",
 
-    4: {
-        id: "4",
-        name: "Respira",
-        price: 500000,
-        oldPrice: null,
-        category: "Living",
+                mainImage:
+                    "assite/Shop-Products-images/product-10.jpg",
 
-        description:
-            "Outdoor bar table with a simple and practical design.",
+                gallery: [
+                    "assite/Shop-Products-images/product-10.jpg"
+                ]
+            },
 
-        image:
-            "assite/Shop-Products-images/product-10.jpg",
 
-        mainImage:
-            "assite/Shop-Products-images/product-10.jpg",
+            5: {
+                id: "5",
+                name: "Grifo",
+                price: 1500000,
+                oldPrice: null,
+                category: "Bedroom",
 
-        gallery: [
-            "assite/Shop-Products-images/product-10.jpg"
-        ]
-    },
+                description:
+                    "Elegant night lamp with a modern design.",
 
+                image:
+                    "assite/Shop-Products-images/product15.png",
 
-    5: {
-        id: "5",
-        name: "Grifo",
-        price: 1500000,
-        oldPrice: null,
-        category: "Bedroom",
+                mainImage:
+                    "assite/Shop-Products-images/product15.png",
 
-        description:
-            "Elegant night lamp with a modern design.",
+                gallery: [
+                    "assite/Shop-Products-images/product15.png"
+                ]
+            },
 
-        image:
-            "assite/Shop-Products-images/product15.png",
 
-        mainImage:
-            "assite/Shop-Products-images/product15.png",
+            6: {
+                id: "6",
+                name: "Muggo",
+                price: 150000,
+                oldPrice: null,
+                category: "Dining",
 
-        gallery: [
-            "assite/Shop-Products-images/product15.png"
-        ]
-    },
+                description:
+                    "Small mug with a simple and minimal style.",
 
+                image:
+                    "assite/Shop-Products-images/product.5.png",
 
-    6: {
-        id: "6",
-        name: "Muggo",
-        price: 150000,
-        oldPrice: null,
-        category: "Dining",
+                mainImage:
+                    "assite/Shop-Products-images/product.5.png",
 
-        description:
-            "Small mug with a simple and minimal style.",
+                gallery: [
+                    "assite/Shop-Products-images/product.5.png"
+                ]
+            },
 
-        image:
-            "assite/Shop-Products-images/product.5.png",
 
-        mainImage:
-            "assite/Shop-Products-images/product.5.png",
+            7: {
+                id: "7",
+                name: "Pingky",
+                price: 7000000,
+                oldPrice: 14000000,
+                category: "Bedroom",
 
-        gallery: [
-            "assite/Shop-Products-images/product.5.png"
-        ]
-    },
+                description:
+                    "Cute and comfortable bed set for a modern bedroom.",
 
+                image:
+                    "assite/Shop-Products-images/product4.png",
 
-    7: {
-        id: "7",
-        name: "Pingky",
-        price: 7000000,
-        oldPrice: 14000000,
-        category: "Bedroom",
+                mainImage:
+                    "assite/Shop-Products-images/product4.png",
 
-        description:
-            "Cute and comfortable bed set for a modern bedroom.",
+                gallery: [
+                    "assite/Shop-Products-images/product4.png"
+                ]
+            },
 
-        image:
-            "assite/Shop-Products-images/product4.png",
 
-        mainImage:
-            "assite/Shop-Products-images/product4.png",
+            8: {
+                id: "8",
+                name: "Potty",
+                price: 500000,
+                oldPrice: null,
+                category: "Living",
 
-        gallery: [
-            "assite/Shop-Products-images/product4.png"
-        ]
-    },
+                description:
+                    "Minimalist flower pot for stylish interior spaces.",
 
+                image:
+                    "assite/Shop-Products-images/product6.png",
 
-    8: {
-        id: "8",
-        name: "Potty",
-        price: 500000,
-        oldPrice: null,
-        category: "Living",
+                mainImage:
+                    "assite/Shop-Products-images/product6.png",
 
-        description:
-            "Minimalist flower pot for stylish interior spaces.",
+                gallery: [
+                    "assite/Shop-Products-images/product6.png"
+                ]
+            },
 
-        image:
-            "assite/Shop-Products-images/product6.png",
 
-        mainImage:
-            "assite/Shop-Products-images/product6.png",
+            9: {
+                id: "9",
+                name: "Maya",
+                price: 3500000,
+                oldPrice: null,
+                category: "Living",
 
-        gallery: [
-            "assite/Shop-Products-images/product6.png"
-        ]
-    },
+                description:
+                    "Modern sofa designed to add comfort and style to your living room.",
 
+                image:
+                    "assite/Shop-Products-images/product2.png",
 
-    9: {
-        id: "9",
-        name: "Maya",
-        price: 3500000,
-        oldPrice: null,
-        category: "Living",
+                mainImage:
+                    "assite/Shop-Products-images/product2.png",
 
-        description:
-            "Modern sofa designed to add comfort and style to your living room.",
+                gallery: [
+                    "assite/Shop-Products-images/product2.png"
+                ]
+            },
 
-        image:
-            "assite/Shop-Products-images/product2.png",
 
-        mainImage:
-            "assite/Shop-Products-images/product2.png",
+            10: {
+                id: "10",
+                name: "Arlo",
+                price: 2000000,
+                oldPrice: null,
+                category: "Living",
 
-        gallery: [
-            "assite/Shop-Products-images/product2.png"
-        ]
-    },
+                description:
+                    "Comfortable chair with a modern and elegant appearance.",
 
+                image:
+                    "assite/Shop-Products-images/product.5.png",
 
-    10: {
-        id: "10",
-        name: "Arlo",
-        price: 2000000,
-        oldPrice: null,
-        category: "Living",
+                mainImage:
+                    "assite/Shop-Products-images/product.5.png",
 
-        description:
-            "Comfortable chair with a modern and elegant appearance.",
+                gallery: [
+                    "assite/Shop-Products-images/product.5.png"
+                ]
+            },
 
-        image:
-            "assite/Shop-Products-images/product.5.png",
 
-        mainImage:
-            "assite/Shop-Products-images/product.5.png",
+            11: {
+                id: "11",
+                name: "Luna",
+                price: 4000000,
+                oldPrice: 5000000,
+                category: "Dining",
 
-        gallery: [
-            "assite/Shop-Products-images/product.5.png"
-        ]
-    },
+                description:
+                    "Elegant dining table designed for comfortable family meals.",
 
+                image:
+                    "assite/Shop-Products-images/product17.png",
 
-    11: {
-        id: "11",
-        name: "Luna",
-        price: 4000000,
-        oldPrice: 5000000,
-        category: "Dining",
+                mainImage:
+                    "assite/Shop-Products-images/product17.png",
 
-        description:
-            "Elegant dining table designed for comfortable family meals.",
+                gallery: [
+                    "assite/Shop-Products-images/product17.png"
+                ]
+            },
 
-        image:
-            "assite/Shop-Products-images/product17.png",
 
-        mainImage:
-            "assite/Shop-Products-images/product17.png",
+            12: {
+                id: "12",
+                name: "Nova",
+                price: 900000,
+                oldPrice: null,
+                category: "Bedroom",
 
-        gallery: [
-            "assite/Shop-Products-images/product17.png"
-        ]
-    },
+                description:
+                    "Luxury lamp with a clean and modern design.",
 
+                image:
+                    "assite/Shop-Products-images/product3.png",
 
-    12: {
-        id: "12",
-        name: "Nova",
-        price: 900000,
-        oldPrice: null,
-        category: "Bedroom",
+                mainImage:
+                    "assite/Shop-Products-images/product3.png",
 
-        description:
-            "Luxury lamp with a clean and modern design.",
+                gallery: [
+                    "assite/Shop-Products-images/product3.png"
+                ]
+            },
 
-        image:
-            "assite/Shop-Products-images/product3.png",
 
-        mainImage:
-            "assite/Shop-Products-images/product3.png",
+            13: {
+                id: "13",
+                name: "Oslo",
+                price: 2800000,
+                oldPrice: null,
+                category: "Dining",
 
-        gallery: [
-            "assite/Shop-Products-images/product3.png"
-        ]
-    },
+                description:
+                    "Modern table designed for elegant dining spaces.",
 
+                image:
+                    "assite/Shop-Products-images/product15.png",
 
-    13: {
-        id: "13",
-        name: "Oslo",
-        price: 2800000,
-        oldPrice: null,
-        category: "Dining",
+                mainImage:
+                    "assite/Shop-Products-images/product15.png",
 
-        description:
-            "Modern table designed for elegant dining spaces.",
+                gallery: [
+                    "assite/Shop-Products-images/product15.png"
+                ]
+            },
 
-        image:
-            "assite/Shop-Products-images/product15.png",
 
-        mainImage:
-            "assite/Shop-Products-images/product15.png",
+            14: {
+                id: "14",
+                name: "Riva",
+                price: 3000000,
+                oldPrice: 4000000,
+                category: "Living",
 
-        gallery: [
-            "assite/Shop-Products-images/product15.png"
-        ]
-    },
+                description:
+                    "Comfortable sofa with a modern and elegant appearance.",
 
+                image:
+                    "assite/Shop-Products-images/product4.png",
 
-    14: {
-        id: "14",
-        name: "Riva",
-        price: 3000000,
-        oldPrice: 4000000,
-        category: "Living",
+                mainImage:
+                    "assite/Shop-Products-images/product4.png",
 
-        description:
-            "Comfortable sofa with a modern and elegant appearance.",
+                gallery: [
+                    "assite/Shop-Products-images/product4.png"
+                ]
+            },
 
-        image:
-            "assite/Shop-Products-images/product4.png",
 
-        mainImage:
-            "assite/Shop-Products-images/product4.png",
+            15: {
+                id: "15",
+                name: "Elio",
+                price: 1800000,
+                oldPrice: null,
+                category: "Dining",
 
-        gallery: [
-            "assite/Shop-Products-images/product4.png"
-        ]
-    },
+                description:
+                    "Wooden chair with a simple and elegant design.",
 
+                image:
+                    "assite/Shop-Products-images/product8.png",
 
-    15: {
-        id: "15",
-        name: "Elio",
-        price: 1800000,
-        oldPrice: null,
-        category: "Dining",
+                mainImage:
+                    "assite/Shop-Products-images/product8.png",
 
-        description:
-            "Wooden chair with a simple and elegant design.",
+                gallery: [
+                    "assite/Shop-Products-images/product8.png"
+                ]
+            },
 
-        image:
-            "assite/Shop-Products-images/product8.png",
 
-        mainImage:
-            "assite/Shop-Products-images/product8.png",
+            16: {
+                id: "16",
+                name: "Siena",
+                price: 5000000,
+                oldPrice: null,
+                category: "Bedroom",
 
-        gallery: [
-            "assite/Shop-Products-images/product8.png"
-        ]
-    },
+                description:
+                    "Elegant bed designed for a comfortable and stylish bedroom.",
 
+                image:
+                    "assite/Shop-Products-images/product12.png",
 
-    16: {
-        id: "16",
-        name: "Siena",
-        price: 5000000,
-        oldPrice: null,
-        category: "Bedroom",
+                mainImage:
+                    "assite/Shop-Products-images/product12.png",
 
-        description:
-            "Elegant bed designed for a comfortable and stylish bedroom.",
+                gallery: [
+                    "assite/Shop-Products-images/product12.png"
+                ]
+            }
 
-        image:
-            "assite/Shop-Products-images/product12.png",
+        };
 
-        mainImage:
-            "assite/Shop-Products-images/product12.png",
 
-        gallery: [
-            "assite/Shop-Products-images/product12.png"
-        ]
-    }
 
-};
-
-
-
-
-
-
-
-
-        /* 
+        /*
            GET PRODUCT ID FROM URL
         */
 
@@ -388,16 +379,19 @@ const products = {
                 window.location.search
             );
 
+
         const productId =
             urlParams.get("id");
+
 
         const product =
             products[productId];
 
 
-        /* 
+
+        /*
            CHECK PRODUCT
-         */
+        */
 
         if (!product) {
 
@@ -405,70 +399,91 @@ const products = {
                 "Shop.html";
 
             return;
+
         }
 
 
-        /* 
+
+        /*
            FORMAT PRICE
-         */
+        */
 
         function formatPrice(price) {
 
             return (
                 "Rp " +
-                Number(price).toLocaleString("id-ID")
+                Number(price).toLocaleString(
+                    "id-ID"
+                )
             );
 
         }
 
 
-        /* 
+
+        /*
            PRODUCT ELEMENTS
-         */
+        */
 
         const productTitle =
-            document.querySelector("#productTitle");
+            document.querySelector(
+                "#productTitle"
+            );
+
 
         const productPrice =
-            document.querySelector("#productPrice");
+            document.querySelector(
+                "#productPrice"
+            );
+
 
         const productOldPrice =
-            document.querySelector("#productOldPrice");
+            document.querySelector(
+                "#productOldPrice"
+            );
+
 
         const productDescription =
             document.querySelector(
                 "#productShortDescription"
             );
 
+
         const productMainImage =
             document.querySelector(
                 "#mainProductImage"
             );
+
 
         const breadcrumbProduct =
             document.querySelector(
                 "#breadcrumbProduct"
             );
 
+
         const productSku =
             document.querySelector(
                 "#productSku"
             );
+
 
         const productCategory =
             document.querySelector(
                 "#productCategory"
             );
 
+
         const longDescription =
             document.querySelector(
                 "#longDescription"
             );
 
+
         const infoProductName =
             document.querySelector(
                 "#infoProductName"
             );
+
 
         const infoCategory =
             document.querySelector(
@@ -476,21 +491,26 @@ const products = {
             );
 
 
-        /* 
+
+        /*
            UPDATE PRODUCT INFORMATION
-         */
+        */
 
         if (productTitle) {
 
             productTitle.textContent =
                 product.name;
+
         }
 
 
         if (productPrice) {
 
             productPrice.textContent =
-                formatPrice(product.price);
+                formatPrice(
+                    product.price
+                );
+
         }
 
 
@@ -499,7 +519,9 @@ const products = {
             if (product.oldPrice) {
 
                 productOldPrice.textContent =
-                    formatPrice(product.oldPrice);
+                    formatPrice(
+                        product.oldPrice
+                    );
 
                 productOldPrice.style.display =
                     "inline-block";
@@ -511,7 +533,9 @@ const products = {
 
                 productOldPrice.style.display =
                     "none";
+
             }
+
         }
 
 
@@ -519,16 +543,7 @@ const products = {
 
             productDescription.textContent =
                 product.description;
-        }
 
-
-        if (productMainImage) {
-
-            productMainImage.src =
-                product.image;
-
-            productMainImage.alt =
-                product.name;
         }
 
 
@@ -536,6 +551,7 @@ const products = {
 
             breadcrumbProduct.textContent =
                 product.name;
+
         }
 
 
@@ -543,7 +559,11 @@ const products = {
 
             productSku.textContent =
                 "FUR-" +
-                product.id.padStart(3, "0");
+                product.id.padStart(
+                    3,
+                    "0"
+                );
+
         }
 
 
@@ -551,6 +571,7 @@ const products = {
 
             productCategory.textContent =
                 product.category;
+
         }
 
 
@@ -559,6 +580,7 @@ const products = {
             longDescription.textContent =
                 product.description +
                 " Designed with attention to detail, this product brings comfort, functionality and a modern look to your space.";
+
         }
 
 
@@ -566,6 +588,7 @@ const products = {
 
             infoProductName.textContent =
                 product.name;
+
         }
 
 
@@ -573,104 +596,178 @@ const products = {
 
             infoCategory.textContent =
                 product.category;
+
         }
 
 
 
-        /* 
+        /*
            PRODUCT GALLERY
-         */
+           
+           ONE LARGE IMAGE
+           + THREE ADDITIONAL IMAGES
+        */
 
-        const thumbnailButtons =
-            document.querySelectorAll(
-                ".thumbnail-button"
+        if (productMainImage) {
+
+            productMainImage.src =
+                product.mainImage ||
+                product.image;
+
+            productMainImage.alt =
+                product.name;
+
+        }
+
+
+        const thumbnailContainer =
+            document.querySelector(
+                ".thumbnail-images"
             );
 
-        const thumbnailImages =
-            document.querySelectorAll(
-                ".thumbnail-images img"
-            );
+
+        if (thumbnailContainer) {
+
+            thumbnailContainer.innerHTML =
+                "";
 
 
-        thumbnailButtons.forEach(
-            function (button, index) {
+            /*
+               MAIN PRODUCT IMAGE
+            */
 
-                button.addEventListener(
-                    "click",
-                    function () {
+            const galleryImages = [
 
-                        if (!productMainImage) {
-                            return;
-                        }
+                product.image,
 
+                ...(product.gallery || [])
 
-                        const image =
-                            button.querySelector("img");
-
-                        if (!image) {
-                            return;
-                        }
+            ];
 
 
-                        productMainImage.src =
-                            image.src;
+            /*
+               REMOVE DUPLICATE IMAGES
+            */
 
-                        productMainImage.alt =
-                            image.alt;
+            const uniqueImages =
+                galleryImages.filter(
+                    function (
+                        image,
+                        index,
+                        array
+                    ) {
 
-
-                        thumbnailButtons.forEach(
-                            function (item) {
-
-                                item.classList.remove(
-                                    "active"
-                                );
-
-                            }
+                        return (
+                            array.indexOf(
+                                image
+                            ) === index
                         );
 
+                    }
+                );
+
+
+            /*
+               ONLY THREE ADDITIONAL
+               THUMBNAILS
+            */
+
+            const thumbnailList =
+                uniqueImages.slice(
+                    0,
+                    4
+                );
+
+
+            thumbnailList.forEach(
+                function (
+                    image,
+                    index
+                ) {
+
+                    const button =
+                        document.createElement(
+                            "button"
+                        );
+
+
+                    button.type =
+                        "button";
+
+
+                    button.className =
+                        "thumbnail-button";
+
+
+                    if (index === 0) {
 
                         button.classList.add(
                             "active"
                         );
 
                     }
-                );
-
-            }
-        );
 
 
-        /*
-         * Fallback:
-         * If there are images but no
-         * thumbnail buttons, clicking
-         * the image still changes main image.
-         */
+                    button.innerHTML = `
 
-        if (
-            thumbnailButtons.length === 0 &&
-            thumbnailImages.length > 0
-        ) {
+                        <img
+                            src="${image}"
+                            alt="${product.name} ${index + 1}"
+                        >
 
-            thumbnailImages.forEach(
-                function (thumbnail) {
+                    `;
 
-                    thumbnail.addEventListener(
+
+                    button.addEventListener(
                         "click",
                         function () {
 
-                            if (!productMainImage) {
+                            if (
+                                !productMainImage
+                            ) {
+
                                 return;
+
                             }
 
+
                             productMainImage.src =
-                                thumbnail.src;
+                                image;
+
 
                             productMainImage.alt =
-                                thumbnail.alt;
+                                product.name;
+
+
+                            const buttons =
+                                thumbnailContainer.querySelectorAll(
+                                    ".thumbnail-button"
+                                );
+
+
+                            buttons.forEach(
+                                function (
+                                    item
+                                ) {
+
+                                    item.classList.remove(
+                                        "active"
+                                    );
+
+                                }
+                            );
+
+
+                            button.classList.add(
+                                "active"
+                            );
 
                         }
+                    );
+
+
+                    thumbnailContainer.appendChild(
+                        button
                     );
 
                 }
@@ -680,19 +777,21 @@ const products = {
 
 
 
-        /* 
+        /*
            PRODUCT QUANTITY
-         */
+        */
 
         const quantityValue =
             document.querySelector(
                 "#quantityValue"
             );
 
+
         const quantityMinus =
             document.querySelector(
                 "#quantityMinus"
             );
+
 
         const quantityPlus =
             document.querySelector(
@@ -703,15 +802,18 @@ const products = {
         let quantity = 1;
 
 
+
         function updateQuantity() {
 
             if (quantityValue) {
 
                 quantityValue.textContent =
                     quantity;
+
             }
 
         }
+
 
 
         if (quantityMinus) {
@@ -725,12 +827,14 @@ const products = {
                         quantity--;
 
                         updateQuantity();
+
                     }
 
                 }
             );
 
         }
+
 
 
         if (quantityPlus) {
@@ -750,9 +854,9 @@ const products = {
 
 
 
-        /* 
+        /*
            SIZE SELECTION
-         */
+        */
 
         const sizeButtons =
             document.querySelectorAll(
@@ -790,9 +894,9 @@ const products = {
 
 
 
-        /* 
+        /*
            COLOR SELECTION
-         */
+        */
 
         const colorButtons =
             document.querySelectorAll(
@@ -830,9 +934,157 @@ const products = {
 
 
 
-    
+        /*
+           SINGLE PRODUCT ADD TO CART
+        */
 
-        /* 
+        const singleAddCartButton =
+            document.querySelector(
+                "#singleAddCart"
+            );
+
+
+        /*
+           ADD CURRENT PRODUCT
+           TO CART
+        */
+
+        function addCurrentProductToCart() {
+
+            /*
+               CHECK GLOBAL CART FUNCTION
+            */
+
+            if (
+                typeof addProductToCart ===
+                "function"
+            ) {
+
+                addProductToCart(
+                    product,
+                    quantity
+                );
+
+
+                /*
+                   OPEN CART SIDEBAR
+                */
+
+                if (
+                    typeof openCartSidebar ===
+                    "function"
+                ) {
+
+                    openCartSidebar();
+
+                }
+
+
+                return;
+
+            }
+
+
+
+            /*
+               FALLBACK CART SYSTEM
+            */
+
+            let cart =
+                JSON.parse(
+                    localStorage.getItem(
+                        "cart"
+                    )
+                ) || [];
+
+
+            const existingProduct =
+                cart.find(
+                    function (item) {
+
+                        return (
+                            String(item.id) ===
+                            String(product.id)
+                        );
+
+                    }
+                );
+
+
+            if (existingProduct) {
+
+                existingProduct.quantity +=
+                    quantity;
+
+            } else {
+
+                cart.push({
+
+                    id:
+                        product.id,
+
+                    name:
+                        product.name,
+
+                    price:
+                        product.price,
+
+                    image:
+                        product.image,
+
+                    quantity:
+                        quantity
+
+                });
+
+            }
+
+
+            localStorage.setItem(
+                "cart",
+                JSON.stringify(
+                    cart
+                )
+            );
+
+
+            /*
+               OPEN CART SIDEBAR
+            */
+
+            if (
+                typeof openCartSidebar ===
+                "function"
+            ) {
+
+                openCartSidebar();
+
+            }
+
+        }
+
+
+
+        if (singleAddCartButton) {
+
+            singleAddCartButton.type =
+                "button";
+
+
+            singleAddCartButton.addEventListener(
+                "click",
+                function () {
+
+                    addCurrentProductToCart();
+
+                }
+            );
+
+        }
+
+
+
+        /*
            SINGLE PRODUCT COMPARE
         */
 
@@ -882,8 +1134,10 @@ const products = {
                     function (item) {
 
                         return (
-                            item.id ===
-                            selectedProduct.id
+                            String(item.id) ===
+                            String(
+                                selectedProduct.id
+                            )
                         );
 
                     }
@@ -945,6 +1199,7 @@ const products = {
         }
 
 
+
         if (singleCompareButton) {
 
             singleCompareButton.type =
@@ -956,7 +1211,9 @@ const products = {
                 function () {
 
                     const added =
-                        addToComparison(product);
+                        addToComparison(
+                            product
+                        );
 
 
                     if (added) {
@@ -973,14 +1230,15 @@ const products = {
 
 
 
-        /* 
+        /*
            DESCRIPTION TABS
-         */
+        */
 
         const descriptionTabs =
             document.querySelectorAll(
                 ".description-tab"
             );
+
 
         const tabContents =
             document.querySelectorAll(
@@ -1028,7 +1286,8 @@ const products = {
 
                         const targetContent =
                             document.querySelector(
-                                "#" + target
+                                "#" +
+                                target
                             );
 
 
@@ -1048,14 +1307,15 @@ const products = {
 
 
 
-        /* 
+        /*
            RELATED PRODUCTS
-         */
+        */
 
         const relatedGrid =
             document.querySelector(
                 "#relatedProductsGrid"
             );
+
 
         const relatedShowMore =
             document.querySelector(
@@ -1069,23 +1329,19 @@ const products = {
         if (relatedGrid) {
 
             const allProducts =
-                Object.values(products)
-                    .filter(
-                        function (item) {
+                Object.values(
+                    products
+                ).filter(
+                    function (item) {
 
-                            return (
-                                item.id !==
-                                product.id
-                            );
+                        return (
+                            item.id !==
+                            product.id
+                        );
 
-                        }
-                    );
+                    }
+                );
 
-
-            /*
-             * Products from the same category
-             * come first.
-             */
 
             const sameCategoryProducts =
                 allProducts.filter(
@@ -1114,8 +1370,11 @@ const products = {
 
 
             relatedProducts = [
+
                 ...sameCategoryProducts,
+
                 ...otherCategoryProducts
+
             ];
 
 
@@ -1125,7 +1384,9 @@ const products = {
         }
 
 
+
         let relatedVisibleCount = 4;
+
 
 
         function createRelatedProduct(
@@ -1253,13 +1514,18 @@ const products = {
 
 
                 <strong>
-                    ${formatPrice(item.price)}
+                    ${formatPrice(
+                        item.price
+                    )}
                 </strong>
 
             `;
 
 
-            if (index >= relatedVisibleCount) {
+            if (
+                index >=
+                relatedVisibleCount
+            ) {
 
                 article.style.display =
                     "none";
@@ -1272,13 +1538,17 @@ const products = {
         }
 
 
+
         if (
             relatedGrid &&
             relatedProducts.length > 0
         ) {
 
             relatedProducts.forEach(
-                function (item, index) {
+                function (
+                    item,
+                    index
+                ) {
 
                     const card =
                         createRelatedProduct(
@@ -1300,12 +1570,14 @@ const products = {
 
         /*
            RELATED SHOW MORE
-         */
+        */
 
         function updateRelatedVisibility() {
 
             if (!relatedGrid) {
+
                 return;
+
             }
 
 
@@ -1316,7 +1588,10 @@ const products = {
 
 
             cards.forEach(
-                function (card, index) {
+                function (
+                    card,
+                    index
+                ) {
 
                     if (
                         index <
@@ -1338,7 +1613,9 @@ const products = {
 
 
             if (!relatedShowMore) {
+
                 return;
+
             }
 
 
@@ -1363,6 +1640,7 @@ const products = {
         updateRelatedVisibility();
 
 
+
         if (relatedShowMore) {
 
             relatedShowMore.addEventListener(
@@ -1371,6 +1649,7 @@ const products = {
 
                     relatedVisibleCount +=
                         4;
+
 
                     updateRelatedVisibility();
 
@@ -1381,7 +1660,7 @@ const products = {
 
 
 
-        /* 
+        /*
            RELATED PRODUCT ACTIONS
         */
 
@@ -1392,9 +1671,9 @@ const products = {
                 function (event) {
 
 
-                    /* 
+                    /*
                        GET RELATED PRODUCT
-                     */
+                    */
 
                     const card =
                         event.target.closest(
@@ -1403,7 +1682,9 @@ const products = {
 
 
                     if (!card) {
+
                         return;
+
                     }
 
 
@@ -1412,18 +1693,22 @@ const products = {
 
 
                     const relatedProduct =
-                        products[relatedId];
+                        products[
+                            relatedId
+                        ];
 
 
                     if (!relatedProduct) {
+
                         return;
+
                     }
 
 
 
-                    /* 
+                    /*
                        ADD TO CART
-                     */
+                    */
 
                     const addButton =
                         event.target.closest(
@@ -1435,12 +1720,15 @@ const products = {
 
                         event.preventDefault();
 
+
                         addProductToCart(
                             relatedProduct,
                             1
                         );
 
+
                         openCartSidebar();
+
 
                         return;
 
@@ -1448,7 +1736,7 @@ const products = {
 
 
 
-                    /* 
+                    /*
                        COMPARE
                     */
 
@@ -1483,9 +1771,9 @@ const products = {
 
 
 
-                    /* 
+                    /*
                        LIKE / WISHLIST
-                     */
+                    */
 
                     const likeButton =
                         event.target.closest(
@@ -1508,11 +1796,17 @@ const products = {
 
                         const exists =
                             wishlist.some(
-                                function (item) {
+                                function (
+                                    item
+                                ) {
 
                                     return (
-                                        item.id ===
-                                        relatedProduct.id
+                                        String(
+                                            item.id
+                                        ) ===
+                                        String(
+                                            relatedProduct.id
+                                        )
                                     );
 
                                 }
@@ -1574,6 +1868,7 @@ const products = {
                                 "fa-regular"
                             );
 
+
                             icon.classList.add(
                                 "fa-solid"
                             );
@@ -1593,9 +1888,9 @@ const products = {
 
 
 
-                    /* 
+                    /*
                        SHARE
-                     */
+                    */
 
                     const shareButton =
                         event.target.closest(
@@ -1624,7 +1919,7 @@ const products = {
 
 
 
-        /* 
+        /*
            SHARE PRODUCT
         */
 
@@ -1664,12 +1959,15 @@ const products = {
 
                 }).catch(
                     function () {
+
                         return;
+
                     }
                 );
 
 
                 return;
+
             }
 
 
@@ -1686,9 +1984,9 @@ const products = {
 
 
 
-        /* 
+        /*
            COPY TEXT
-       */
+        */
 
         function copyText(
             text
@@ -1704,6 +2002,7 @@ const products = {
                 );
 
                 return;
+
             }
 
 
@@ -1719,6 +2018,7 @@ const products = {
 
             textarea.style.position =
                 "fixed";
+
 
             textarea.style.left =
                 "-9999px";
@@ -1755,7 +2055,7 @@ const products = {
 
 
 
-        /* 
+        /*
            PRODUCT META SOCIAL SHARE
         */
 
@@ -1769,11 +2069,15 @@ const products = {
             function (link) {
 
                 const icon =
-                    link.querySelector("i");
+                    link.querySelector(
+                        "i"
+                    );
 
 
                 if (!icon) {
+
                     return;
+
                 }
 
 
@@ -1833,6 +2137,7 @@ const products = {
                 link.target =
                     "_blank";
 
+
                 link.rel =
                     "noopener noreferrer";
 
@@ -1841,9 +2146,9 @@ const products = {
 
 
 
-        /* 
+        /*
            DESCRIPTION IMAGE LIGHTBOX
-         */
+        */
 
         const descriptionImages =
             document.querySelectorAll(
@@ -1869,10 +2174,11 @@ const products = {
             );
 
 
+
         /*
-         * Create lightbox automatically
-         * if it is not already in HTML.
-         */
+           CREATE LIGHTBOX
+           IF IT DOES NOT EXIST
+        */
 
         if (
             descriptionImages.length > 0 &&
@@ -1880,7 +2186,9 @@ const products = {
         ) {
 
             descriptionLightbox =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
 
 
             descriptionLightbox.className =
@@ -1937,6 +2245,7 @@ const products = {
         }
 
 
+
         if (
             descriptionImages.length > 0 &&
             descriptionLightbox &&
@@ -1945,9 +2254,9 @@ const products = {
         ) {
 
 
-            /* 
-               OPEN
-             */
+            /*
+               OPEN LIGHTBOX
+            */
 
             descriptionImages.forEach(
                 function (image) {
@@ -1958,6 +2267,7 @@ const products = {
 
                             descriptionLightboxImage.src =
                                 image.src;
+
 
                             descriptionLightboxImage.alt =
                                 image.alt;
@@ -1978,9 +2288,10 @@ const products = {
             );
 
 
-            /* 
+
+            /*
                CLOSE FUNCTION
-             */
+            */
 
             function closeDescriptionLightbox() {
 
@@ -1999,9 +2310,10 @@ const products = {
             }
 
 
-            /* 
+
+            /*
                CLOSE BUTTON
-             */
+            */
 
             descriptionLightboxClose.addEventListener(
                 "click",
@@ -2017,7 +2329,8 @@ const products = {
             );
 
 
-            /* 
+
+            /*
                CLICK OUTSIDE
             */
 
@@ -2038,16 +2351,18 @@ const products = {
             );
 
 
-            /* 
+
+            /*
                ESCAPE
-             */
+            */
 
             document.addEventListener(
                 "keydown",
                 function (event) {
 
                     if (
-                        event.key === "Escape" &&
+                        event.key ===
+                            "Escape" &&
                         descriptionLightbox.classList.contains(
                             "active"
                         )
@@ -2064,13 +2379,18 @@ const products = {
 
 
 
-
         /*
            INITIAL CART
-         */
+        */
 
-        renderCartSidebar();
+        if (
+            typeof renderCartSidebar ===
+            "function"
+        ) {
 
+            renderCartSidebar();
+
+        }
 
     }
 );
