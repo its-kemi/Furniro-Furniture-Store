@@ -2641,3 +2641,60 @@ body.dark-mode .footer-line {
     font-size: 18px;
     flex-shrink: 0;
 }
+
+
+
+
+
+
+
+
+
+/* =========================
+   USER MENU AVATAR
+========================= */
+
+.user-menu-avatar {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #b88e2f;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================
+   INITIALS
+========================= */
+
+#userMenuInitials {
+    width: 100%;
+    height: 100%;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    background-color: #b88e2f;
+
+    color: #ffffff;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    line-height: 1;
+
+    text-align: center;
+
+    text-transform: uppercase;
+}

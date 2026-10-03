@@ -1,6 +1,6 @@
 /* 
    ACCOUNT USER MENU
- */
+*/
 
 document.addEventListener(
     "DOMContentLoaded",
@@ -36,10 +36,19 @@ document.addEventListener(
                 "userMenuPhoto"
             );
 
+        /* 
+           Initials
+        */
+
+        const userMenuInitials =
+            document.getElementById(
+                "userMenuInitials"
+            );
+
 
         /* 
            Get Current User
-         */
+        */
 
         function getCurrentUser() {
 
@@ -53,8 +62,49 @@ document.addEventListener(
 
 
         /* 
+           Get User Initials
+        */
+
+        function getUserInitials(name) {
+
+            if (!name) {
+                return "";
+            }
+
+            const words =
+                name
+                    .trim()
+                    .split(/\s+/)
+                    .filter(Boolean);
+
+
+            if (words.length >= 2) {
+
+                return (
+                    words[0].charAt(0) +
+                    words[1].charAt(0)
+                ).toUpperCase();
+
+            }
+
+
+            if (words.length === 1) {
+
+                return words[0]
+                    .charAt(0)
+                    .toUpperCase();
+
+            }
+
+
+            return "";
+
+        }
+
+
+        /* 
            Update User Menu
-         */
+        */
 
         function updateUserMenu() {
 
@@ -62,43 +112,118 @@ document.addEventListener(
                 getCurrentUser();
 
 
+            /* =========================
+               USER NOT LOGGED IN
+            ========================= */
+
             if (!currentUser) {
 
                 if (userMenuName) {
+
                     userMenuName.textContent =
                         "Guest";
+
                 }
+
 
                 if (userMenuEmail) {
+
                     userMenuEmail.textContent =
                         "Please login";
+
                 }
+
+
+                /*
+                   Hide profile photo
+                */
 
                 if (userMenuPhoto) {
-                    userMenuPhoto.src =
-                        "";
+
+                    userMenuPhoto.style.display =
+                        "none";
+
                 }
 
+
+                /*
+                   Hide initials
+                */
+
+                if (userMenuInitials) {
+
+                    userMenuInitials.textContent =
+                        "";
+
+                    userMenuInitials.style.display =
+                        "none";
+
+                }
+
+
                 return;
+
             }
 
+
+            /* =========================
+               USER NAME
+            ========================= */
 
             if (userMenuName) {
+
                 userMenuName.textContent =
-                    currentUser.name;
+                    currentUser.name || "User";
+
             }
 
+
+            /* =========================
+               USER EMAIL
+            ========================= */
 
             if (userMenuEmail) {
+
                 userMenuEmail.textContent =
-                    currentUser.email;
+                    currentUser.email || "";
+
             }
 
 
+            /* =========================
+               USER INITIALS
+            ========================= */
+
+            const initials =
+                getUserInitials(
+                    currentUser.name
+                );
+
+
+            /*
+               Hide original profile photo
+            */
+
             if (userMenuPhoto) {
-                userMenuPhoto.src =
-                    currentUser.photo ||
-                    "";
+
+                userMenuPhoto.style.display =
+                    "none";
+
+            }
+
+
+            /*
+               Show user initials
+            */
+
+            if (userMenuInitials) {
+
+                userMenuInitials.textContent =
+                    initials;
+
+                userMenuInitials.style.display =
+                    "flex";
+
             }
 
         }
@@ -106,7 +231,7 @@ document.addEventListener(
 
         /* 
            Account Button
-         */
+        */
 
         if (accountOpen) {
 
@@ -120,6 +245,10 @@ document.addEventListener(
                     const currentUser =
                         getCurrentUser();
 
+
+                    /* =========================
+                       USER IS LOGGED IN
+                    ========================= */
 
                     if (currentUser) {
 
@@ -135,8 +264,13 @@ document.addEventListener(
                         }
 
                         return;
+
                     }
 
+
+                    /* =========================
+                       USER IS NOT LOGGED IN
+                    ========================= */
 
                     if (accountModal) {
 
@@ -163,7 +297,7 @@ document.addEventListener(
 
         /* 
            Initial User Menu Update
-         */
+        */
 
         updateUserMenu();
 
