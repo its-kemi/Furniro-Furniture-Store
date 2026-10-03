@@ -44,7 +44,7 @@
 
     <link
         rel="stylesheet"
-        href="CSS/Account.css">
+        href="CSS/Search.css">
 
 
     <!-- WhatsApp CSS -->
@@ -212,15 +212,52 @@
         </a>
 
 
-        <!-- SEARCH -->
+       <!-- SEARCH -->
 
-        <a
-            href="Search.html"
-            aria-label="Search">
+<div class="header-search">
 
-            <i class="fa fa-search"></i>
+    <button
+        type="button"
+        class="search-icon"
+        id="searchIcon"
+        aria-label="Search">
 
-        </a>
+        <i class="fa fa-search"></i>
+
+    </button>
+
+
+    <div
+        class="search-box"
+        id="searchBox">
+
+        <div class="search-input">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products..."
+                autocomplete="off">
+
+            <button
+                type="button"
+                id="searchButton"
+                aria-label="Search">
+
+                <i class="fa fa-search"></i>
+
+            </button>
+
+        </div>
+
+        <div
+            class="search-results"
+            id="searchResults">
+        </div>
+
+    </div>
+
+</div>
 
 
         <!-- CART -->
@@ -790,7 +827,7 @@
 
 <script src="JS/Newsletter.js"></script>
 
-<script src="JS/Account.js"></script>
+<script src="JS/Search.js"></script>
 
 <script src="JS/Language.js"></script>
 

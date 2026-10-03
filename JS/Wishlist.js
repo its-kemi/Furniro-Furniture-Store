@@ -1,9 +1,8 @@
-
-
-
 /* 
+   ==========================================
    GET WISHLIST
- */
+   ==========================================
+*/
 
 let wishlist =
     JSON.parse(
@@ -13,8 +12,10 @@ let wishlist =
 
 
 /* 
+   ==========================================
    SAVE WISHLIST
- */
+   ==========================================
+*/
 
 function saveWishlist() {
 
@@ -28,8 +29,10 @@ function saveWishlist() {
 
 
 /* 
+   ==========================================
    LIKE PRODUCT
- */
+   ==========================================
+*/
 
 const likeButtons =
     document.querySelectorAll(
@@ -76,6 +79,13 @@ likeButtons.forEach(function (button) {
                 );
 
 
+            if (!productImage) {
+
+                return;
+
+            }
+
+
             const existingProduct =
                 wishlist.find(
                     function (item) {
@@ -85,6 +95,11 @@ likeButtons.forEach(function (button) {
                     }
                 );
 
+
+
+            /* 
+               REMOVE FROM WISHLIST
+            */
 
             if (existingProduct) {
 
@@ -108,7 +123,15 @@ likeButtons.forEach(function (button) {
                     " removed from wishlist."
                 );
 
-            } else {
+            }
+
+
+
+            /* 
+               ADD TO WISHLIST
+            */
+
+            else {
 
                 wishlist.push({
 
@@ -149,8 +172,10 @@ likeButtons.forEach(function (button) {
 
 
 /* 
+   ==========================================
    WISHLIST PAGE
- */
+   ==========================================
+*/
 
 const wishlistGrid =
     document.querySelector(
@@ -173,8 +198,10 @@ if (wishlistGrid) {
 
 
 /* 
+   ==========================================
    RENDER WISHLIST
- */
+   ==========================================
+*/
 
 function renderWishlist() {
 
@@ -184,70 +211,99 @@ function renderWishlist() {
         );
 
 
-    oldItems.forEach(function (item) {
+    oldItems.forEach(
+        function (item) {
 
-        item.remove();
+            item.remove();
 
-    });
-
-
-    wishlist.forEach(function (product) {
-
-        const item =
-            document.createElement(
-                "article"
-            );
+        }
+    );
 
 
-        item.className =
-            "wishlist-item dynamic-wishlist-item";
+
+    wishlist.forEach(
+        function (product) {
+
+            const item =
+                document.createElement(
+                    "article"
+                );
 
 
-        item.innerHTML = `
+            item.className =
+                "wishlist-item dynamic-wishlist-item";
 
-            <div class="wishlist-image">
 
-                <img
-                    src="${product.image}"
-                    alt="${product.name}"
+
+            item.innerHTML = `
+
+                <div class="wishlist-image">
+
+                    <img
+                        src="${product.image}"
+                        alt="${product.name}"
+                    >
+
+                </div>
+
+
+                <div class="wishlist-info">
+
+                    <h3>
+                        ${product.name}
+                    </h3>
+
+
+                    <strong>
+                        ${formatWishlistPrice(
+                            product.price
+                        )}
+                    </strong>
+
+
+                    <button
+                        type="button"
+                        class="add-cart wishlist-add-cart"
+                        data-id="${product.id}"
+                    >
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        Add to Cart
+
+                    </button>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="remove-wishlist"
+                    data-id="${product.id}"
+                    aria-label="Remove from wishlist"
                 >
 
-            </div>
+                    <i class="fa-solid fa-trash-can"></i>
+
+                </button>
+
+            `;
 
 
-            <div class="wishlist-info">
+            wishlistGrid.appendChild(
+                item
+            );
 
-                <h3>
-                    ${product.name}
-                </h3>
+        }
+    );
 
-                <strong>
-                    ${formatWishlistPrice(
-                        product.price
-                    )}
-                </strong>
-
-            </div>
-
-
-            <button
-                class="remove-wishlist"
-                data-id="${product.id}"
-            >
-
-                <i class="fa-solid fa-trash-can"></i>
-
-            </button>
-
-        `;
-
-
-        wishlistGrid.appendChild(item);
-
-    });
 
 
     addWishlistRemoveEvents();
+
+    addWishlistCartEvents();
+
+    addWishlistProductClickEvents();
 
     updateEmptyWishlist();
 
@@ -256,8 +312,10 @@ function renderWishlist() {
 
 
 /* 
-   REMOVE
- */
+   ==========================================
+   REMOVE FROM WISHLIST
+   ==========================================
+*/
 
 function addWishlistRemoveEvents() {
 
@@ -267,46 +325,368 @@ function addWishlistRemoveEvents() {
         );
 
 
-    removeButtons.forEach(function (button) {
+    removeButtons.forEach(
+        function (button) {
 
-        button.addEventListener(
-            "click",
-            function () {
+            button.addEventListener(
+                "click",
+                function () {
 
-                const productId =
-                    button.dataset.id;
-
-
-                wishlist =
-                    wishlist.filter(
-                        function (item) {
-
-                            return item.id !== productId;
-
-                        }
-                    );
+                    const productId =
+                        button.dataset.id;
 
 
-                saveWishlist();
+                    wishlist =
+                        wishlist.filter(
+                            function (item) {
 
-                renderWishlist();
+                                return item.id !== productId;
 
-            }
-        );
+                            }
+                        );
 
-    });
+
+                    saveWishlist();
+
+                    renderWishlist();
+
+                }
+            );
+
+        }
+    );
 
 }
 
 
 
 /* 
+   ==========================================
+   ADD TO CART
+   ==========================================
+*/
+
+function addWishlistCartEvents() {
+
+    const cartButtons =
+        document.querySelectorAll(
+            ".wishlist-add-cart"
+        );
+
+
+    cartButtons.forEach(
+        function (button) {
+
+            button.addEventListener(
+                "click",
+                function (event) {
+
+                    /*
+                       جلوگیری از اجرای
+                       کلیک روی خود محصول
+                    */
+
+                    event.stopPropagation();
+
+
+                    const productId =
+                        button.dataset.id;
+
+
+                    const product =
+                        wishlist.find(
+                            function (item) {
+
+                                return item.id === productId;
+
+                            }
+                        );
+
+
+                    if (!product) {
+
+                        return;
+
+                    }
+
+
+
+                    /*
+                       GET CART
+                    */
+
+                    let cart =
+                        JSON.parse(
+                            localStorage.getItem(
+                                "cart"
+                            )
+                        ) || [];
+
+
+
+                    /*
+                       CHECK EXISTING PRODUCT
+                    */
+
+                    const existingProduct =
+                        cart.find(
+                            function (item) {
+
+                                return item.id === product.id;
+
+                            }
+                        );
+
+
+
+                    /*
+                       PRODUCT ALREADY EXISTS
+                    */
+
+                    if (existingProduct) {
+
+                        existingProduct.quantity =
+                            Number(
+                                existingProduct.quantity || 1
+                            ) + 1;
+
+                    }
+
+
+
+                    /*
+                       NEW PRODUCT
+                    */
+
+                    else {
+
+                        cart.push({
+
+                            id: product.id,
+
+                            name: product.name,
+
+                            price: Number(
+                                product.price
+                            ),
+
+                            image: product.image,
+
+                            quantity: 1
+
+                        });
+
+                    }
+
+
+
+                    /*
+                       SAVE CART
+                    */
+
+                    localStorage.setItem(
+                        "cart",
+                        JSON.stringify(cart)
+                    );
+
+
+
+                    /*
+                       GO TO CART
+                    */
+
+                    window.location.href =
+                        "Cart.html";
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+
+/* 
+   ==========================================
+   CLICK PRODUCT
+   GO TO CART
+   ==========================================
+*/
+
+function addWishlistProductClickEvents() {
+
+    const wishlistItems =
+        document.querySelectorAll(
+            ".dynamic-wishlist-item"
+        );
+
+
+    wishlistItems.forEach(
+        function (item) {
+
+            item.addEventListener(
+                "click",
+                function (event) {
+
+                    /*
+                       اگر روی Remove یا Add to Cart
+                       کلیک شده باشد، این قسمت اجرا نشود
+                    */
+
+                    if (
+                        event.target.closest(
+                            ".remove-wishlist"
+                        ) ||
+                        event.target.closest(
+                            ".wishlist-add-cart"
+                        )
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    const productId =
+                        item
+                            .querySelector(
+                                ".remove-wishlist"
+                            )
+                            .dataset.id;
+
+
+                    const product =
+                        wishlist.find(
+                            function (item) {
+
+                                return item.id === productId;
+
+                            }
+                        );
+
+
+                    if (!product) {
+
+                        return;
+
+                    }
+
+
+
+                    /*
+                       GET CART
+                    */
+
+                    let cart =
+                        JSON.parse(
+                            localStorage.getItem(
+                                "cart"
+                            )
+                        ) || [];
+
+
+
+                    /*
+                       CHECK PRODUCT
+                    */
+
+                    const existingProduct =
+                        cart.find(
+                            function (cartItem) {
+
+                                return (
+                                    cartItem.id ===
+                                    product.id
+                                );
+
+                            }
+                        );
+
+
+
+                    /*
+                       IF EXISTS
+                    */
+
+                    if (existingProduct) {
+
+                        existingProduct.quantity =
+                            Number(
+                                existingProduct.quantity || 1
+                            ) + 1;
+
+                    }
+
+
+
+                    /*
+                       IF NEW
+                    */
+
+                    else {
+
+                        cart.push({
+
+                            id: product.id,
+
+                            name: product.name,
+
+                            price: Number(
+                                product.price
+                            ),
+
+                            image: product.image,
+
+                            quantity: 1
+
+                        });
+
+                    }
+
+
+
+                    /*
+                       SAVE
+                    */
+
+                    localStorage.setItem(
+                        "cart",
+                        JSON.stringify(cart)
+                    );
+
+
+
+                    /*
+                       GO TO CART
+                    */
+
+                    window.location.href =
+                        "Cart.html";
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+
+/* 
+   ==========================================
    EMPTY WISHLIST
- */
+   ==========================================
+*/
 
 function updateEmptyWishlist() {
 
-    if (!wishlistGrid || !emptyWishlist) {
+    if (
+        !wishlistGrid ||
+        !emptyWishlist
+    ) {
 
         return;
 
@@ -318,13 +698,17 @@ function updateEmptyWishlist() {
         wishlistGrid.style.display =
             "none";
 
+
         emptyWishlist.style.display =
             "block";
 
-    } else {
+    }
+
+    else {
 
         wishlistGrid.style.display =
             "grid";
+
 
         emptyWishlist.style.display =
             "none";
@@ -336,8 +720,10 @@ function updateEmptyWishlist() {
 
 
 /* 
+   ==========================================
    FORMAT PRICE
- */
+   ==========================================
+*/
 
 function formatWishlistPrice(price) {
 

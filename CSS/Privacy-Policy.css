@@ -1049,3 +1049,63 @@ footer {
 body.dark-mode footer {
     background-color: #1b1b1a !important;
 }
+
+
+
+
+
+/* =========================================
+   FIX PAGE BANNER IMAGE
+========================================= */
+
+.page-banner {
+    position: relative !important;
+
+    width: 100%;
+    height: 320px;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-banner-bg {
+    position: absolute !important;
+
+    top: 0 !important;
+    left: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    background-image: url("../assite/Banar-images/banar5.png") !important;
+
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center !important;
+
+    filter: none !important;
+    transform: none !important;
+
+    opacity: 1 !important;
+
+    z-index: 0 !important;
+}
+
+/* لایه سفید روی تصویر Banner */
+
+.page-banner-overlay {
+    position: absolute !important;
+    inset: 0 !important;
+    background-color: rgba(255, 255, 255, 0.55) !important;
+    display: block !important;
+    z-index: 1 !important;
+}
+
+.page-banner-content {
+    position: relative !important;
+    z-index: 2 !important;
+}
+

@@ -3894,7 +3894,7 @@ body.dark-mode .share-social:hover {
     }
 
 
-
+}
 
 
 
@@ -4212,7 +4212,7 @@ body.dark-mode .share-social:hover {
   }
 
 
-  
+
 /* =========================================
    FOOTER GOLD
 ========================================= */
@@ -4224,3 +4224,4 @@ footer {
 body.dark-mode footer {
     background-color: #1b1b1a !important;
 }
+

@@ -20,7 +20,7 @@
 
     <!-- Shared CSS -->
     <link rel="stylesheet" href="CSS/Scroll-Animation.css">
-    <link rel="stylesheet" href="CSS/Account.css">
+    <link rel="stylesheet" href="CSS/Search.css">
     <link rel="stylesheet" href="CSS/WhatsApp-Chat.css">
 
 </head>
@@ -169,15 +169,53 @@
         </a>
 
 
-        <!-- Search -->
-        <a
-            href="Search.html"
-            aria-label="Search"
-        >
+        <!-- SEARCH -->
 
-            <i class="fa fa-search"></i>
+<div class="header-search">
 
-        </a>
+    <button
+        type="button"
+        class="search-icon"
+        id="searchIcon"
+        aria-label="Search">
+
+        <i class="fa fa-search"></i>
+
+    </button>
+
+
+    <div
+        class="search-box"
+        id="searchBox">
+
+        <div class="search-input">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products..."
+                autocomplete="off">
+
+            <button
+                type="button"
+                id="searchButton"
+                aria-label="Search">
+
+                <i class="fa fa-search"></i>
+
+            </button>
+
+        </div>
+
+        <div
+            class="search-results"
+            id="searchResults">
+        </div>
+
+    </div>
+
+</div>
+
 
 
         <!-- Cart -->
@@ -761,7 +799,7 @@
 
 <script src="JS/Newsletter.js"></script>
 
-<script src="JS/Account.js"></script>
+<script src="JS/Search.js"></script>
 
 <script src="JS/Language.js"></script>
 

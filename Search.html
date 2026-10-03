@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Search | Furniro</title>
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <!-- SEARCH CSS -->
+    <link rel="stylesheet" href="CSS/Search.css">
+
+    <!-- ACCOUNT CSS -->
+    <link rel="stylesheet" href="CSS/Account.css">
+
+    <!-- SHARE CSS -->
+    <link rel="stylesheet" href="CSS/Share.css">
+
+    <!-- SCROLL ANIMATION -->
+    <link rel="stylesheet" href="CSS/Scroll-Animation.css">
+
+    <!-- WHATSAPP -->
+    <link rel="stylesheet" href="CSS/WhatsApp-Chat.css">
+
+    <!-- FONT AWESOME -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="shop-header">
+
+    <!-- LOGO -->
+
+    <div class="logo">
+
+        <img
+            src="assite/Header-images/logo.png"
+            alt="Furniro logo">
+
+        <h3>Furniro</h3>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="Shop.html">
+                    Shop
+                </a>
+            </li>
+
+            <li>
+                <a href="About.html">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="Contact.html">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- MOBILE MENU -->
+
+    <button
+        id="menu-toggle"
+        type="button"
+        aria-label="Open menu">
+
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+
+    </button>
+
+
+    <!-- HEADER ICONS -->
+
+    <div class="icons">
+
+        <!-- ACCOUNT -->
+
+        <a
+            href="#"
+            class="account-icon"
+            id="accountOpen"
+            aria-label="Account">
+
+            <i class="fas fa-user-alt"></i>
+
+        </a>
+
+
+        <!-- WISHLIST -->
+
+        <a
+            href="Wishlist.html"
+            aria-label="Wishlist">
+
+            <i class="far fa-heart"></i>
+
+        </a>
+
+
+        <!-- SEARCH -->
+
+        <div class="header-search">
+
+            <button
+                type="button"
+                class="search-icon"
+                id="searchIcon"
+                aria-label="Search">
+
+                <i class="fa fa-search"></i>
+
+            </button>
+
+
+            <div
+                class="search-box active"
+                id="searchBox">
+
+                <div class="search-input">
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search products..."
+                        autocomplete="off">
+
+                    <button
+                        type="button"
+                        id="searchButton"
+                        aria-label="Search">
+
+                        <i class="fa fa-search"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CART -->
+
+        <a
+            href="Cart.html"
+            aria-label="Cart">
+
+            <i class="fa fa-shopping-cart"></i>
+
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     SEARCH PAGE
+===================================================== -->
+
+<main class="search-page">
+
+
+    <!-- PAGE TITLE -->
+
+    <section class="search-page-header">
+
+        <h1>
+            Search Products
+        </h1>
+
+        <p id="searchResultText">
+            Showing all products
+        </p>
+
+    </section>
+
+
+
+    <!-- SEARCH INPUT -->
+
+    <section class="search-page-form">
+
+        <div class="search-page-input">
+
+            <input
+                type="text"
+                id="pageSearchInput"
+                placeholder="Search products..."
+                autocomplete="off">
+
+            <button
+                type="button"
+                id="pageSearchButton">
+
+                <i class="fa fa-search"></i>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- PRODUCTS -->
+
+    <section
+        class="search-products"
+        id="searchProducts">
+
+    </section>
+
+
+    <!-- NO RESULT -->
+
+    <div
+        class="search-empty"
+        id="searchEmpty"
+        style="display: none;">
+
+        <i class="fa fa-search"></i>
+
+        <h2>
+            No products found
+        </h2>
+
+        <p>
+            Try searching for another product.
+        </p>
+
+    </div>
+
+</main>
+
+
+
+<!-- =====================================================
+     ACCOUNT MODAL
+===================================================== -->
+
+<div
+    class="account-modal"
+    id="accountModal">
+
+    <div class="account-modal-content">
+
+        <button
+            type="button"
+            id="accountClose"
+            class="account-close">
+
+            &times;
+
+        </button>
+
+
+        <!-- LOGIN -->
+
+        <div id="modalLoginSection">
+
+            <h2>
+                Login
+            </h2>
+
+            <form id="modalLoginForm">
+
+                <input
+                    type="email"
+                    id="modal-login-email"
+                    placeholder="Email"
+                    required>
+
+                <input
+                    type="password"
+                    id="modal-login-password"
+                    placeholder="Password"
+                    required>
+
+                <label>
+
+                    <input
+                        type="checkbox"
+                        id="modalRememberMe">
+
+                    Remember me
+
+                </label>
+
+                <button type="submit">
+                    Login
+                </button>
+
+            </form>
+
+            <button
+                type="button"
+                id="modalForgotPassword">
+
+                Forgot Password?
+
+            </button>
+
+        </div>
+
+
+        <!-- REGISTER -->
+
+        <div id="modalRegisterSection">
+
+            <h2>
+                Register
+            </h2>
+
+            <form id="modalRegisterForm">
+
+                <input
+                    type="text"
+                    id="modal-register-name"
+                    placeholder="Name"
+                    required>
+
+                <input
+                    type="email"
+                    id="modal-register-email"
+                    placeholder="Email"
+                    required>
+
+                <input
+                    type="password"
+                    id="modal-register-password"
+                    placeholder="Password"
+                    required>
+
+                <input
+                    type="password"
+                    id="modal-register-confirm"
+                    placeholder="Confirm Password"
+                    required>
+
+                <button type="submit">
+                    Register
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     USER MENU
+===================================================== -->
+
+<div
+    class="user-menu"
+    id="userMenu">
+
+    <div class="user-menu-photo">
+
+        <img
+            id="userMenuPhoto"
+            src=""
+            alt="User">
+
+        <span id="userMenuInitials">
+        </span>
+
+    </div>
+
+    <h3 id="userMenuName">
+    </h3>
+
+    <p id="userMenuEmail">
+    </p>
+
+    <button
+        type="button"
+        id="myProfile">
+
+        My Profile
+
+    </button>
+
+    <button
+        type="button"
+        id="logoutButton">
+
+        Logout
+
+    </button>
+
+</div>
+
+
+
+<!-- =====================================================
+     PROFILE MODAL
+===================================================== -->
+
+<div
+    class="profile-modal"
+    id="profileModal">
+
+    <div class="profile-modal-content">
+
+        <button
+            type="button"
+            id="profileModalClose">
+
+            &times;
+
+        </button>
+
+
+        <div id="profileModalView">
+
+            <div class="profile-photo">
+
+                <img
+                    id="modalProfilePhoto"
+                    src=""
+                    alt="Profile">
+
+                <span id="modalProfileInitials">
+                </span>
+
+            </div>
+
+            <h2>
+                My Profile
+            </h2>
+
+            <button
+                type="button"
+                id="modalEditProfile">
+
+                Edit Profile
+
+            </button>
+
+        </div>
+
+
+        <div id="profileModalEdit">
+
+            <div class="profile-edit-photo">
+
+                <img
+                    id="modalEditPhotoPreview"
+                    src=""
+                    alt="Profile">
+
+                <span id="modalEditPhotoInitials">
+                </span>
+
+            </div>
+
+            <form id="modalProfileForm">
+
+                <input
+                    type="text"
+                    id="modalEditName"
+                    placeholder="Name">
+
+                <input
+                    type="email"
+                    id="modalEditEmail"
+                    placeholder="Email">
+
+                <input
+                    type="file"
+                    id="modalEditPhoto"
+                    accept="image/*">
+
+                <button type="submit">
+                    Save
+                </button>
+
+                <button
+                    type="button"
+                    id="modalCancelEdit">
+
+                    Cancel
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SCRIPTS
+===================================================== -->
+
+<script src="JS/Search.js"></script>
+
+<script src="JS/main.js"></script>
+
+<script src="JS/Cart.js"></script>
+
+<script src="JS/Wishlist.js"></script>
+
+<script src="JS/Comparison.js"></script>
+
+<script src="JS/Share.js"></script>
+
+<script src="JS/Newsletter.js"></script>
+
+<script src="JS/Scroll-Animation.js"></script>
+
+<script src="JS/Dark-Mode.js"></script>
+
+<script src="JS/Language.js"></script>
+
+<script src="JS/WhatsApp-Chat.js"></script>
+
+
+<!-- ACCOUNT FILES -->
+
+<script src="JS/Accountjs/Account-Register.js"></script>
+
+<script src="JS/Accountjs/Account-Login.js"></script>
+
+<script src="JS/Accountjs/Account-User-Menu.js"></script>
+
+<script src="JS/Accountjs/Account-Profile.js"></script>
+
+<script src="JS/Accountjs/Account-Profile-Edit.js"></script>
+
+<script src="JS/Accountjs/Account-Logout.js"></script>
+
+<script src="JS/Accountjs/Account-Settings-Profile.js"></script>
+
+<script src="JS/Accountjs/Account-Settings-Password.js"></script>
+
+<script src="JS/Accountjs/Account-Settings-Logout.js"></script>
+
+
+</body>
+
+</html>

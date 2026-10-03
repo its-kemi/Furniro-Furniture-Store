@@ -14,7 +14,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="CSS/Payment-Options.css">
     <link rel="stylesheet" href="CSS/Scroll-Animation.css">
-    <link rel="stylesheet" href="CSS/Account.css">
+    <link rel="stylesheet" href="CSS/Search.css">
     <link rel="stylesheet" href="CSS/WhatsApp-Chat.css">
 </head>
 
@@ -70,16 +70,28 @@
         <!-- Header Icons -->
         <div class="icons">
 
-            <!-- Account -->
-            <a
-                href="#"
-                class="account-icon"
-                id="accountOpen"
-                aria-label="Account">
+           
 
-                <i class="fa-regular fa-user"></i>
 
-            </a>
+<!-- Account -->
+
+        <a
+            href="#"
+            class="account-icon"
+            id="accountOpen"
+            aria-label="Account"
+        >
+
+            <i class="fas fa-user-alt"></i>
+
+        </a>
+
+
+
+
+
+
+
 
 
             <!-- Wishlist -->
@@ -92,14 +104,53 @@
             </a>
 
 
-            <!-- Search -->
-            <a
-                href="Search.html"
+            
+            <!-- SEARCH -->
+
+<div class="header-search">
+
+    <button
+        type="button"
+        class="search-icon"
+        id="searchIcon"
+        aria-label="Search">
+
+        <i class="fa fa-search"></i>
+
+    </button>
+
+
+    <div
+        class="search-box"
+        id="searchBox">
+
+        <div class="search-input">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products..."
+                autocomplete="off">
+
+            <button
+                type="button"
+                id="searchButton"
                 aria-label="Search">
 
-                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa fa-search"></i>
 
-            </a>
+            </button>
+
+        </div>
+
+        <div
+            class="search-results"
+            id="searchResults">
+        </div>
+
+    </div>
+
+</div>
 
 
             <!-- Cart -->
@@ -626,7 +677,7 @@
 
     <script src="JS/Newsletter.js"></script>
 
-    <script src="JS/Account.js"></script>
+    <script src="JS/Search.js"></script>
 
     <script src="JS/Language.js"></script>
 
