@@ -1,14 +1,14 @@
-/* 
+/*
    ACCOUNT PROFILE
- */
+*/
 
 document.addEventListener(
     "DOMContentLoaded",
     function () {
 
-        /* 
-           Profile elements
-         */
+        /* =====================================================
+           PROFILE MODAL ELEMENTS
+        ===================================================== */
 
         const profileModal =
             document.getElementById(
@@ -31,9 +31,9 @@ document.addEventListener(
             );
 
 
-        /* 
-           Profile Modal information
-         */
+        /* =====================================================
+           PROFILE MODAL INFORMATION
+        ===================================================== */
 
         const modalProfilePhoto =
             document.getElementById(
@@ -60,10 +60,15 @@ document.addEventListener(
                 "modalEditPhotoPreview"
             );
 
+        const modalEditPhotoInitials =
+            document.getElementById(
+                "modalEditPhotoInitials"
+            );
 
-        /* 
-           User Menu
-         */
+
+        /* =====================================================
+           USER MENU
+        ===================================================== */
 
         const myProfile =
             document.getElementById(
@@ -76,9 +81,9 @@ document.addEventListener(
             );
 
 
-        /* 
-           Account Profile section
-         */
+        /* =====================================================
+           ACCOUNT PROFILE SECTION
+        ===================================================== */
 
         const profileSection =
             document.querySelector(
@@ -88,6 +93,11 @@ document.addEventListener(
         const profilePhoto =
             document.getElementById(
                 "profilePhoto"
+            );
+
+        const profileInitials =
+            document.getElementById(
+                "profileInitials"
             );
 
         const profileName =
@@ -101,9 +111,9 @@ document.addEventListener(
             );
 
 
-        /* 
-           Get current user
-         */
+        /* =====================================================
+           GET CURRENT USER
+        ===================================================== */
 
         let currentUser =
             JSON.parse(
@@ -113,9 +123,9 @@ document.addEventListener(
             ) || null;
 
 
-        /* 
-           Get user initials
-         */
+        /* =====================================================
+           GET USER INITIALS
+        ===================================================== */
 
         function getUserInitials(name) {
 
@@ -141,16 +151,23 @@ document.addEventListener(
             }
 
 
-            return words[0]
-                .charAt(0)
-                .toUpperCase();
+            if (words.length === 1) {
+
+                return words[0]
+                    .charAt(0)
+                    .toUpperCase();
+
+            }
+
+
+            return "";
 
         }
 
 
-        /* 
-           Update Profile
-         */
+        /* =====================================================
+           UPDATE PROFILE SECTION
+        ===================================================== */
 
         function updateProfile() {
 
@@ -159,40 +176,39 @@ document.addEventListener(
             }
 
 
-            /* 
-               Profile name
-             */
+            /* Profile name */
 
             if (profileName) {
 
                 profileName.textContent =
-                    currentUser.name;
+                    currentUser.name || "User";
 
             }
 
 
-            /* 
-               Profile email
-             */
+            /* Profile email */
 
             if (profileEmail) {
 
                 profileEmail.textContent =
-                    currentUser.email;
+                    currentUser.email || "";
 
             }
 
 
-            /* 
-               Profile photo
+            const initials =
+                getUserInitials(
+                    currentUser.name
+                );
 
-               If there is no photo,
-               do not show logo.
-             */
 
-            if (profilePhoto) {
+            /* =================================================
+               REAL PHOTO
+            ================================================= */
 
-                if (currentUser.photo) {
+            if (currentUser.photo) {
+
+                if (profilePhoto) {
 
                     profilePhoto.src =
                         currentUser.photo;
@@ -200,13 +216,47 @@ document.addEventListener(
                     profilePhoto.style.display =
                         "block";
 
-                } else {
+                }
 
-                    profilePhoto.src =
+
+                if (profileInitials) {
+
+                    profileInitials.textContent =
                         "";
+
+                    profileInitials.style.display =
+                        "none";
+
+                }
+
+            }
+
+
+            /* =================================================
+               NO PHOTO
+            ================================================= */
+
+            else {
+
+                if (profilePhoto) {
+
+                    profilePhoto.removeAttribute(
+                        "src"
+                    );
 
                     profilePhoto.style.display =
                         "none";
+
+                }
+
+
+                if (profileInitials) {
+
+                    profileInitials.textContent =
+                        initials;
+
+                    profileInitials.style.display =
+                        "flex";
 
                 }
 
@@ -215,9 +265,9 @@ document.addEventListener(
         }
 
 
-        /* 
-           Update Profile Modal
-         */
+        /* =====================================================
+           UPDATE PROFILE MODAL
+        ===================================================== */
 
         function updateProfileModal() {
 
@@ -226,33 +276,25 @@ document.addEventListener(
             }
 
 
-            /* 
-               Modal name
-             */
+            /* Modal name */
 
             if (modalProfileName) {
 
                 modalProfileName.textContent =
-                    currentUser.name;
+                    currentUser.name || "User";
 
             }
 
 
-            /* 
-               Modal email
-             */
+            /* Modal email */
 
             if (modalProfileEmail) {
 
                 modalProfileEmail.textContent =
-                    currentUser.email;
+                    currentUser.email || "";
 
             }
 
-
-            /* 
-               Get initials
-             */
 
             const initials =
                 getUserInitials(
@@ -260,9 +302,9 @@ document.addEventListener(
                 );
 
 
-            /* 
-               Modal photo
-             */
+            /* =================================================
+               MAIN PROFILE MODAL PHOTO
+            ================================================= */
 
             if (currentUser.photo) {
 
@@ -290,17 +332,17 @@ document.addEventListener(
             }
 
 
-            /* 
-               No photo
-               Show initials
-             */
+            /* =================================================
+               NO PROFILE PHOTO
+            ================================================= */
 
             else {
 
                 if (modalProfilePhoto) {
 
-                    modalProfilePhoto.src =
-                        "";
+                    modalProfilePhoto.removeAttribute(
+                        "src"
+                    );
 
                     modalProfilePhoto.style.display =
                         "none";
@@ -321,11 +363,9 @@ document.addEventListener(
             }
 
 
-            /* 
-               Edit photo preview
-
-               Keep edit preview separate.
-             */
+            /* =================================================
+               EDIT PHOTO PREVIEW
+            ================================================= */
 
             if (modalEditPhotoPreview) {
 
@@ -334,10 +374,48 @@ document.addEventListener(
                     modalEditPhotoPreview.src =
                         currentUser.photo;
 
-                } else {
+                    modalEditPhotoPreview.style.display =
+                        "block";
 
-                    modalEditPhotoPreview.src =
+                }
+
+                else {
+
+                    modalEditPhotoPreview.removeAttribute(
+                        "src"
+                    );
+
+                    modalEditPhotoPreview.style.display =
+                        "none";
+
+                }
+
+            }
+
+
+            /* =================================================
+               EDIT PHOTO INITIALS
+            ================================================= */
+
+            if (modalEditPhotoInitials) {
+
+                if (currentUser.photo) {
+
+                    modalEditPhotoInitials.textContent =
                         "";
+
+                    modalEditPhotoInitials.style.display =
+                        "none";
+
+                }
+
+                else {
+
+                    modalEditPhotoInitials.textContent =
+                        initials;
+
+                    modalEditPhotoInitials.style.display =
+                        "flex";
 
                 }
 
@@ -346,9 +424,9 @@ document.addEventListener(
         }
 
 
-        /* 
-           My Profile
-         */
+        /* =====================================================
+           MY PROFILE BUTTON
+        ===================================================== */
 
         if (myProfile) {
 
@@ -359,9 +437,7 @@ document.addEventListener(
                     event.preventDefault();
 
 
-                    /* 
-                       Get latest current user
-                     */
+                    /* Get latest user */
 
                     currentUser =
                         JSON.parse(
@@ -376,9 +452,7 @@ document.addEventListener(
                     }
 
 
-                    /* 
-                       Close User Menu
-                     */
+                    /* Close User Menu */
 
                     if (userMenu) {
 
@@ -389,9 +463,7 @@ document.addEventListener(
                     }
 
 
-                    /* 
-                       Show Profile View
-                     */
+                    /* Show Profile View */
 
                     if (profileModalView) {
 
@@ -401,9 +473,7 @@ document.addEventListener(
                     }
 
 
-                    /* 
-                       Hide Edit Form
-                     */
+                    /* Hide Edit Form */
 
                     if (profileModalEdit) {
 
@@ -414,16 +484,12 @@ document.addEventListener(
                     }
 
 
-                    /* 
-                       Update Profile Modal
-                     */
+                    /* Update modal */
 
                     updateProfileModal();
 
 
-                    /* 
-                       Open Profile Modal
-                     */
+                    /* Open modal */
 
                     if (profileModal) {
 
@@ -439,9 +505,9 @@ document.addEventListener(
         }
 
 
-        /* 
-           Close Profile Modal
-         */
+        /* =====================================================
+           CLOSE PROFILE MODAL
+        ===================================================== */
 
         if (profileModalClose) {
 
@@ -458,10 +524,6 @@ document.addEventListener(
                     }
 
 
-                    /* 
-                       Return to Profile View
-                     */
-
                     if (profileModalView) {
 
                         profileModalView.style.display =
@@ -469,10 +531,6 @@ document.addEventListener(
 
                     }
 
-
-                    /* 
-                       Hide Edit Form
-                     */
 
                     if (profileModalEdit) {
 
@@ -488,9 +546,9 @@ document.addEventListener(
         }
 
 
-        /* 
-           Load current user
-         */
+        /* =====================================================
+           INITIAL UI
+        ===================================================== */
 
         if (currentUser) {
 

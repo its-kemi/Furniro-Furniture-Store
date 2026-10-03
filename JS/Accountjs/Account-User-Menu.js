@@ -1,10 +1,14 @@
-/* 
+/*
    ACCOUNT USER MENU
 */
 
 document.addEventListener(
     "DOMContentLoaded",
     function () {
+
+        /* =====================================================
+           ELEMENTS
+        ===================================================== */
 
         const accountOpen =
             document.getElementById(
@@ -36,19 +40,15 @@ document.addEventListener(
                 "userMenuPhoto"
             );
 
-        /* 
-           Initials
-        */
-
         const userMenuInitials =
             document.getElementById(
                 "userMenuInitials"
             );
 
 
-        /* 
-           Get Current User
-        */
+        /* =====================================================
+           GET CURRENT USER
+        ===================================================== */
 
         function getCurrentUser() {
 
@@ -61,9 +61,9 @@ document.addEventListener(
         }
 
 
-        /* 
-           Get User Initials
-        */
+        /* =====================================================
+           GET USER INITIALS
+        ===================================================== */
 
         function getUserInitials(name) {
 
@@ -71,12 +71,15 @@ document.addEventListener(
                 return "";
             }
 
+
             const words =
                 name
                     .trim()
                     .split(/\s+/)
                     .filter(Boolean);
 
+
+            /* Two or more words */
 
             if (words.length >= 2) {
 
@@ -87,6 +90,8 @@ document.addEventListener(
 
             }
 
+
+            /* One word */
 
             if (words.length === 1) {
 
@@ -102,9 +107,9 @@ document.addEventListener(
         }
 
 
-        /* 
-           Update User Menu
-        */
+        /* =====================================================
+           UPDATE USER MENU
+        ===================================================== */
 
         function updateUserMenu() {
 
@@ -112,9 +117,9 @@ document.addEventListener(
                 getCurrentUser();
 
 
-            /* =========================
+            /* =================================================
                USER NOT LOGGED IN
-            ========================= */
+            ================================================= */
 
             if (!currentUser) {
 
@@ -134,14 +139,89 @@ document.addEventListener(
                 }
 
 
+                /* Hide photo */
+
+                if (userMenuPhoto) {
+
+                    userMenuPhoto.removeAttribute(
+                        "src"
+                    );
+
+                    userMenuPhoto.style.display =
+                        "none";
+
+                }
+
+
+                /* Hide initials */
+
+                if (userMenuInitials) {
+
+                    userMenuInitials.textContent =
+                        "";
+
+                    userMenuInitials.style.display =
+                        "none";
+
+                }
+
+
+                return;
+
+            }
+
+
+            /* =================================================
+               USER NAME
+            ================================================= */
+
+            if (userMenuName) {
+
+                userMenuName.textContent =
+                    currentUser.name || "User";
+
+            }
+
+
+            /* =================================================
+               USER EMAIL
+            ================================================= */
+
+            if (userMenuEmail) {
+
+                userMenuEmail.textContent =
+                    currentUser.email || "";
+
+            }
+
+
+            /* =================================================
+               GET INITIALS
+            ================================================= */
+
+            const initials =
+                getUserInitials(
+                    currentUser.name
+                );
+
+
+            /* =================================================
+               USER HAS A REAL PHOTO
+            ================================================= */
+
+            if (currentUser.photo) {
+
                 /*
-                   Hide profile photo
+                   Show real profile photo
                 */
 
                 if (userMenuPhoto) {
 
+                    userMenuPhoto.src =
+                        currentUser.photo;
+
                     userMenuPhoto.style.display =
-                        "none";
+                        "block";
 
                 }
 
@@ -160,78 +240,53 @@ document.addEventListener(
 
                 }
 
-
-                return;
-
             }
 
 
-            /* =========================
-               USER NAME
-            ========================= */
+            /* =================================================
+               USER DOES NOT HAVE A PHOTO
+            ================================================= */
 
-            if (userMenuName) {
+            else {
 
-                userMenuName.textContent =
-                    currentUser.name || "User";
+                /*
+                   Remove old photo
+                */
 
-            }
+                if (userMenuPhoto) {
 
+                    userMenuPhoto.removeAttribute(
+                        "src"
+                    );
 
-            /* =========================
-               USER EMAIL
-            ========================= */
+                    userMenuPhoto.style.display =
+                        "none";
 
-            if (userMenuEmail) {
-
-                userMenuEmail.textContent =
-                    currentUser.email || "";
-
-            }
+                }
 
 
-            /* =========================
-               USER INITIALS
-            ========================= */
+                /*
+                   Show initials
+                */
 
-            const initials =
-                getUserInitials(
-                    currentUser.name
-                );
+                if (userMenuInitials) {
 
+                    userMenuInitials.textContent =
+                        initials;
 
-            /*
-               Hide original profile photo
-            */
+                    userMenuInitials.style.display =
+                        "flex";
 
-            if (userMenuPhoto) {
-
-                userMenuPhoto.style.display =
-                    "none";
-
-            }
-
-
-            /*
-               Show user initials
-            */
-
-            if (userMenuInitials) {
-
-                userMenuInitials.textContent =
-                    initials;
-
-                userMenuInitials.style.display =
-                    "flex";
+                }
 
             }
 
         }
 
 
-        /* 
-           Account Button
-        */
+        /* =====================================================
+           ACCOUNT BUTTON
+        ===================================================== */
 
         if (accountOpen) {
 
@@ -246,11 +301,16 @@ document.addEventListener(
                         getCurrentUser();
 
 
-                    /* =========================
+                    /* =============================================
                        USER IS LOGGED IN
-                    ========================= */
+                    ============================================= */
 
                     if (currentUser) {
+
+                        /*
+                           Refresh user menu
+                           every time it opens
+                        */
 
                         updateUserMenu();
 
@@ -263,14 +323,15 @@ document.addEventListener(
 
                         }
 
+
                         return;
 
                     }
 
 
-                    /* =========================
+                    /* =============================================
                        USER IS NOT LOGGED IN
-                    ========================= */
+                    ============================================= */
 
                     if (accountModal) {
 
@@ -295,9 +356,9 @@ document.addEventListener(
         }
 
 
-        /* 
-           Initial User Menu Update
-        */
+        /* =====================================================
+           INITIAL USER MENU UPDATE
+        ===================================================== */
 
         updateUserMenu();
 

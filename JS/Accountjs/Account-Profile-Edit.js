@@ -1,14 +1,14 @@
-/* 
+/*
    ACCOUNT PROFILE EDIT
- */
+*/
 
 document.addEventListener(
     "DOMContentLoaded",
     function () {
 
-        /* 
-           Profile Modal elements
-         */
+        /* =====================================================
+           PROFILE MODAL ELEMENTS
+        ===================================================== */
 
         const modalEditProfile =
             document.getElementById(
@@ -50,15 +50,20 @@ document.addEventListener(
                 "modalEditPhotoPreview"
             );
 
+        const modalEditPhotoInitials =
+            document.getElementById(
+                "modalEditPhotoInitials"
+            );
+
         const modalCancelEdit =
             document.getElementById(
                 "modalCancelEdit"
             );
 
 
-        /* 
-           Account Profile elements
-         */
+        /* =====================================================
+           ACCOUNT PROFILE ELEMENTS
+        ===================================================== */
 
         const editProfileButton =
             document.getElementById(
@@ -91,9 +96,9 @@ document.addEventListener(
             );
 
 
-        /* 
-           Get current user
-         */
+        /* =====================================================
+           GET CURRENT USER
+        ===================================================== */
 
         let currentUser =
             JSON.parse(
@@ -103,9 +108,51 @@ document.addEventListener(
             ) || null;
 
 
-        /* 
-           Update User Menu
-         */
+        /* =====================================================
+           GET USER INITIALS
+        ===================================================== */
+
+        function getUserInitials(name) {
+
+            if (!name) {
+                return "";
+            }
+
+
+            const words =
+                name
+                    .trim()
+                    .split(/\s+/)
+                    .filter(Boolean);
+
+
+            if (words.length >= 2) {
+
+                return (
+                    words[0].charAt(0) +
+                    words[1].charAt(0)
+                ).toUpperCase();
+
+            }
+
+
+            if (words.length === 1) {
+
+                return words[0]
+                    .charAt(0)
+                    .toUpperCase();
+
+            }
+
+
+            return "";
+
+        }
+
+
+        /* =====================================================
+           UPDATE USER MENU
+        ===================================================== */
 
         function updateUserMenu() {
 
@@ -124,48 +171,120 @@ document.addEventListener(
                     "userMenuPhoto"
                 );
 
+            const userMenuInitials =
+                document.getElementById(
+                    "userMenuInitials"
+                );
+
 
             if (!currentUser) {
                 return;
             }
 
 
+            /* User name */
+
             if (userMenuName) {
 
                 userMenuName.textContent =
-                    currentUser.name;
+                    currentUser.name || "User";
 
             }
 
+
+            /* User email */
 
             if (userMenuEmail) {
 
                 userMenuEmail.textContent =
-                    currentUser.email;
+                    currentUser.email || "";
 
             }
 
 
-            if (userMenuPhoto) {
+            const initials =
+                getUserInitials(
+                    currentUser.name
+                );
 
-                userMenuPhoto.src =
-                    currentUser.photo ||
-                    "assite/Header-images/logo.png";
+
+            /* =================================================
+               REAL PHOTO
+            ================================================= */
+
+            if (currentUser.photo) {
+
+                if (userMenuPhoto) {
+
+                    userMenuPhoto.src =
+                        currentUser.photo;
+
+                    userMenuPhoto.style.display =
+                        "block";
+
+                }
+
+
+                if (userMenuInitials) {
+
+                    userMenuInitials.textContent =
+                        "";
+
+                    userMenuInitials.style.display =
+                        "none";
+
+                }
+
+            }
+
+
+            /* =================================================
+               NO PHOTO
+            ================================================= */
+
+            else {
+
+                if (userMenuPhoto) {
+
+                    userMenuPhoto.removeAttribute(
+                        "src"
+                    );
+
+                    userMenuPhoto.style.display =
+                        "none";
+
+                }
+
+
+                if (userMenuInitials) {
+
+                    userMenuInitials.textContent =
+                        initials;
+
+                    userMenuInitials.style.display =
+                        "flex";
+
+                }
 
             }
 
         }
 
 
-        /* 
-           Update Profile
-         */
+        /* =====================================================
+           UPDATE PROFILE
+        ===================================================== */
 
         function updateProfile() {
 
             const profilePhoto =
                 document.getElementById(
                     "profilePhoto"
+                );
+
+            const profileInitials =
+                document.getElementById(
+                    "profileInitials"
                 );
 
             const profileName =
@@ -184,42 +303,109 @@ document.addEventListener(
             }
 
 
+            /* Profile name */
+
             if (profileName) {
 
                 profileName.textContent =
-                    currentUser.name;
+                    currentUser.name || "User";
 
             }
 
+
+            /* Profile email */
 
             if (profileEmail) {
 
                 profileEmail.textContent =
-                    currentUser.email;
+                    currentUser.email || "";
 
             }
 
 
-            if (profilePhoto) {
+            const initials =
+                getUserInitials(
+                    currentUser.name
+                );
 
-                profilePhoto.src =
-                    currentUser.photo ||
-                    "assite/Header-images/logo.png";
+
+            /* =================================================
+               REAL PHOTO
+            ================================================= */
+
+            if (currentUser.photo) {
+
+                if (profilePhoto) {
+
+                    profilePhoto.src =
+                        currentUser.photo;
+
+                    profilePhoto.style.display =
+                        "block";
+
+                }
+
+
+                if (profileInitials) {
+
+                    profileInitials.textContent =
+                        "";
+
+                    profileInitials.style.display =
+                        "none";
+
+                }
+
+            }
+
+
+            /* =================================================
+               NO PHOTO
+            ================================================= */
+
+            else {
+
+                if (profilePhoto) {
+
+                    profilePhoto.removeAttribute(
+                        "src"
+                    );
+
+                    profilePhoto.style.display =
+                        "none";
+
+                }
+
+
+                if (profileInitials) {
+
+                    profileInitials.textContent =
+                        initials;
+
+                    profileInitials.style.display =
+                        "flex";
+
+                }
 
             }
 
         }
 
 
-        /* 
-           Update Profile Modal
-         */
+        /* =====================================================
+           UPDATE PROFILE MODAL
+        ===================================================== */
 
         function updateProfileModal() {
 
             const modalProfilePhoto =
                 document.getElementById(
                     "modalProfilePhoto"
+                );
+
+            const modalProfileInitials =
+                document.getElementById(
+                    "modalProfileInitials"
                 );
 
             const modalProfileName =
@@ -238,45 +424,157 @@ document.addEventListener(
             }
 
 
+            /* Modal name */
+
             if (modalProfileName) {
 
                 modalProfileName.textContent =
-                    currentUser.name;
+                    currentUser.name || "User";
 
             }
 
+
+            /* Modal email */
 
             if (modalProfileEmail) {
 
                 modalProfileEmail.textContent =
-                    currentUser.email;
+                    currentUser.email || "";
 
             }
 
 
-            if (modalProfilePhoto) {
+            const initials =
+                getUserInitials(
+                    currentUser.name
+                );
 
-                modalProfilePhoto.src =
-                    currentUser.photo ||
-                    "assite/Header-images/logo.png";
+
+            /* =================================================
+               REAL PROFILE PHOTO
+            ================================================= */
+
+            if (currentUser.photo) {
+
+                if (modalProfilePhoto) {
+
+                    modalProfilePhoto.src =
+                        currentUser.photo;
+
+                    modalProfilePhoto.style.display =
+                        "block";
+
+                }
+
+
+                if (modalProfileInitials) {
+
+                    modalProfileInitials.textContent =
+                        "";
+
+                    modalProfileInitials.style.display =
+                        "none";
+
+                }
 
             }
 
+
+            /* =================================================
+               NO PROFILE PHOTO
+            ================================================= */
+
+            else {
+
+                if (modalProfilePhoto) {
+
+                    modalProfilePhoto.removeAttribute(
+                        "src"
+                    );
+
+                    modalProfilePhoto.style.display =
+                        "none";
+
+                }
+
+
+                if (modalProfileInitials) {
+
+                    modalProfileInitials.textContent =
+                        initials;
+
+                    modalProfileInitials.style.display =
+                        "flex";
+
+                }
+
+            }
+
+
+            /* =================================================
+               EDIT PHOTO PREVIEW
+            ================================================= */
 
             if (modalEditPhotoPreview) {
 
-                modalEditPhotoPreview.src =
-                    currentUser.photo ||
-                    "assite/Header-images/logo.png";
+                if (currentUser.photo) {
+
+                    modalEditPhotoPreview.src =
+                        currentUser.photo;
+
+                    modalEditPhotoPreview.style.display =
+                        "block";
+
+                }
+
+                else {
+
+                    modalEditPhotoPreview.removeAttribute(
+                        "src"
+                    );
+
+                    modalEditPhotoPreview.style.display =
+                        "none";
+
+                }
+
+            }
+
+
+            /* =================================================
+               EDIT PHOTO INITIALS
+            ================================================= */
+
+            if (modalEditPhotoInitials) {
+
+                if (currentUser.photo) {
+
+                    modalEditPhotoInitials.textContent =
+                        "";
+
+                    modalEditPhotoInitials.style.display =
+                        "none";
+
+                }
+
+                else {
+
+                    modalEditPhotoInitials.textContent =
+                        initials;
+
+                    modalEditPhotoInitials.style.display =
+                        "flex";
+
+                }
 
             }
 
         }
 
 
-        /* 
-           Edit Profile from Modal
-         */
+        /* =====================================================
+           EDIT PROFILE FROM MODAL
+        ===================================================== */
 
         if (modalEditProfile) {
 
@@ -289,46 +587,88 @@ document.addEventListener(
                     }
 
 
-                    /* 
-                       Fill Name
-                     */
+                    /* Fill name */
 
                     if (modalEditName) {
 
                         modalEditName.value =
-                            currentUser.name;
+                            currentUser.name || "";
 
                     }
 
 
-                    /* 
-                       Fill Email
-                     */
+                    /* Fill email */
 
                     if (modalEditEmail) {
 
                         modalEditEmail.value =
-                            currentUser.email;
+                            currentUser.email || "";
 
                     }
 
 
-                    /* 
-                       Show Current Photo
-                     */
+                    /* =================================================
+                       CURRENT PHOTO
+                    ================================================= */
 
                     if (modalEditPhotoPreview) {
 
-                        modalEditPhotoPreview.src =
-                            currentUser.photo ||
-                            "assite/Header-images/logo.png";
+                        if (currentUser.photo) {
+
+                            modalEditPhotoPreview.src =
+                                currentUser.photo;
+
+                            modalEditPhotoPreview.style.display =
+                                "block";
+
+                        }
+
+                        else {
+
+                            modalEditPhotoPreview.removeAttribute(
+                                "src"
+                            );
+
+                            modalEditPhotoPreview.style.display =
+                                "none";
+
+                        }
 
                     }
 
 
-                    /* 
-                       Hide Profile View
-                     */
+                    /* =================================================
+                       CURRENT INITIALS
+                    ================================================= */
+
+                    if (modalEditPhotoInitials) {
+
+                        if (currentUser.photo) {
+
+                            modalEditPhotoInitials.textContent =
+                                "";
+
+                            modalEditPhotoInitials.style.display =
+                                "none";
+
+                        }
+
+                        else {
+
+                            modalEditPhotoInitials.textContent =
+                                getUserInitials(
+                                    currentUser.name
+                                );
+
+                            modalEditPhotoInitials.style.display =
+                                "flex";
+
+                        }
+
+                    }
+
+
+                    /* Hide Profile View */
 
                     if (profileModalView) {
 
@@ -338,9 +678,7 @@ document.addEventListener(
                     }
 
 
-                    /* 
-                       Show Edit Form
-                     */
+                    /* Show Edit Form */
 
                     if (profileModalEdit) {
 
@@ -356,9 +694,9 @@ document.addEventListener(
         }
 
 
-        /* 
-           Preview New Profile Photo
-         */
+        /* =====================================================
+           PREVIEW NEW PROFILE PHOTO
+        ===================================================== */
 
         if (modalEditPhoto) {
 
@@ -382,12 +720,28 @@ document.addEventListener(
                     reader.onload =
                         function () {
 
-                            if (
-                                modalEditPhotoPreview
-                            ) {
+                            /* Show new photo */
+
+                            if (modalEditPhotoPreview) {
 
                                 modalEditPhotoPreview.src =
                                     reader.result;
+
+                                modalEditPhotoPreview.style.display =
+                                    "block";
+
+                            }
+
+
+                            /* Hide initials */
+
+                            if (modalEditPhotoInitials) {
+
+                                modalEditPhotoInitials.textContent =
+                                    "";
+
+                                modalEditPhotoInitials.style.display =
+                                    "none";
 
                             }
 
@@ -404,9 +758,9 @@ document.addEventListener(
         }
 
 
-        /* 
-           Cancel Modal Edit
-         */
+        /* =====================================================
+           CANCEL MODAL EDIT
+        ===================================================== */
 
         if (modalCancelEdit) {
 
@@ -414,9 +768,7 @@ document.addEventListener(
                 "click",
                 function () {
 
-                    /* 
-                       Show Profile View
-                     */
+                    /* Show Profile View */
 
                     if (profileModalView) {
 
@@ -426,9 +778,7 @@ document.addEventListener(
                     }
 
 
-                    /* 
-                       Hide Edit Form
-                     */
+                    /* Hide Edit Form */
 
                     if (profileModalEdit) {
 
@@ -439,9 +789,7 @@ document.addEventListener(
                     }
 
 
-                    /* 
-                       Reset Edit Form
-                     */
+                    /* Reset form */
 
                     if (modalProfileForm) {
 
@@ -450,15 +798,65 @@ document.addEventListener(
                     }
 
 
-                    /* 
-                       Restore Current Photo
-                     */
+                    /* =================================================
+                       RESTORE OLD PHOTO OR INITIALS
+                    ================================================= */
 
                     if (modalEditPhotoPreview) {
 
-                        modalEditPhotoPreview.src =
-                            currentUser?.photo ||
-                            "assite/Header-images/logo.png";
+                        if (
+                            currentUser &&
+                            currentUser.photo
+                        ) {
+
+                            modalEditPhotoPreview.src =
+                                currentUser.photo;
+
+                            modalEditPhotoPreview.style.display =
+                                "block";
+
+                        }
+
+                        else {
+
+                            modalEditPhotoPreview.removeAttribute(
+                                "src"
+                            );
+
+                            modalEditPhotoPreview.style.display =
+                                "none";
+
+                        }
+
+                    }
+
+
+                    if (modalEditPhotoInitials) {
+
+                        if (
+                            currentUser &&
+                            currentUser.photo
+                        ) {
+
+                            modalEditPhotoInitials.textContent =
+                                "";
+
+                            modalEditPhotoInitials.style.display =
+                                "none";
+
+                        }
+
+                        else if (currentUser) {
+
+                            modalEditPhotoInitials.textContent =
+                                getUserInitials(
+                                    currentUser.name
+                                );
+
+                            modalEditPhotoInitials.style.display =
+                                "flex";
+
+                        }
 
                     }
 
@@ -468,9 +866,9 @@ document.addEventListener(
         }
 
 
-        /* 
-           Save Profile from Modal
-         */
+        /* =====================================================
+           SAVE PROFILE FROM MODAL
+        ===================================================== */
 
         if (modalProfileForm) {
 
@@ -486,9 +884,7 @@ document.addEventListener(
                     }
 
 
-                    /* 
-                       New Name
-                     */
+                    /* New name */
 
                     const newName =
                         modalEditName
@@ -496,9 +892,7 @@ document.addEventListener(
                             : "";
 
 
-                    /* 
-                       New Email
-                     */
+                    /* New email */
 
                     const newEmail =
                         modalEditEmail
@@ -508,9 +902,9 @@ document.addEventListener(
                             : "";
 
 
-                    /* 
-                       Name validation
-                     */
+                    /* =================================================
+                       NAME VALIDATION
+                    ================================================= */
 
                     if (newName.length < 2) {
 
@@ -522,9 +916,9 @@ document.addEventListener(
                     }
 
 
-                    /* 
-                       Email validation
-                     */
+                    /* =================================================
+                       EMAIL VALIDATION
+                    ================================================= */
 
                     if (
                         !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
@@ -540,9 +934,9 @@ document.addEventListener(
                     }
 
 
-                    /* 
-                       Get users
-                     */
+                    /* =================================================
+                       GET USERS
+                    ================================================= */
 
                     const users =
                         JSON.parse(
@@ -552,9 +946,9 @@ document.addEventListener(
                         ) || [];
 
 
-                    /* 
-                       Check duplicate email
-                     */
+                    /* =================================================
+                       CHECK DUPLICATE EMAIL
+                    ================================================= */
 
                     const emailExists =
                         users.find(
@@ -581,20 +975,21 @@ document.addEventListener(
                     }
 
 
-                    /* 
-                       Update name and email
-                     */
+                    /* Update name */
 
                     currentUser.name =
                         newName;
+
+
+                    /* Update email */
 
                     currentUser.email =
                         newEmail;
 
 
-                    /* 
-                       Profile photo
-                     */
+                    /* =================================================
+                       PROFILE PHOTO
+                    ================================================= */
 
                     const file =
                         modalEditPhoto
@@ -623,7 +1018,9 @@ document.addEventListener(
                             file
                         );
 
-                    } else {
+                    }
+
+                    else {
 
                         saveModalProfile();
 
@@ -635,15 +1032,13 @@ document.addEventListener(
         }
 
 
-        /* 
-           Save Modal Profile Data
-         */
+        /* =====================================================
+           SAVE MODAL PROFILE DATA
+        ===================================================== */
 
         function saveModalProfile() {
 
-            /* 
-               Save current user
-             */
+            /* Save current user */
 
             localStorage.setItem(
                 "furniroCurrentUser",
@@ -653,9 +1048,7 @@ document.addEventListener(
             );
 
 
-            /* 
-               Get users
-             */
+            /* Get users */
 
             const users =
                 JSON.parse(
@@ -665,9 +1058,7 @@ document.addEventListener(
                 ) || [];
 
 
-            /* 
-               Find current user
-             */
+            /* Find current user */
 
             const userIndex =
                 users.findIndex(
@@ -682,9 +1073,7 @@ document.addEventListener(
                 );
 
 
-            /* 
-               Update user
-             */
+            /* Update user */
 
             if (userIndex !== -1) {
 
@@ -700,9 +1089,7 @@ document.addEventListener(
             }
 
 
-            /* 
-               Save users
-             */
+            /* Save users */
 
             localStorage.setItem(
                 "furniroUsers",
@@ -712,9 +1099,7 @@ document.addEventListener(
             );
 
 
-            /* 
-               Update UI
-             */
+            /* Update UI */
 
             updateUserMenu();
 
@@ -723,9 +1108,7 @@ document.addEventListener(
             updateProfileModal();
 
 
-            /* 
-               Return to Profile View
-             */
+            /* Show Profile View */
 
             if (profileModalView) {
 
@@ -735,9 +1118,7 @@ document.addEventListener(
             }
 
 
-            /* 
-               Hide Edit Form
-             */
+            /* Hide Edit Form */
 
             if (profileModalEdit) {
 
@@ -748,9 +1129,7 @@ document.addEventListener(
             }
 
 
-            /* 
-               Reset form
-             */
+            /* Reset form */
 
             if (modalProfileForm) {
 
@@ -766,9 +1145,9 @@ document.addEventListener(
         }
 
 
-        /* 
-           Edit Profile in Account.html
-         */
+        /* =====================================================
+           EDIT PROFILE IN ACCOUNT.HTML
+        ===================================================== */
 
         if (editProfileButton) {
 
@@ -781,21 +1160,27 @@ document.addEventListener(
                     }
 
 
+                    /* Fill name */
+
                     if (profileNameInput) {
 
                         profileNameInput.value =
-                            currentUser.name;
+                            currentUser.name || "";
 
                     }
 
+
+                    /* Fill email */
 
                     if (profileEmailInput) {
 
                         profileEmailInput.value =
-                            currentUser.email;
+                            currentUser.email || "";
 
                     }
 
+
+                    /* Show edit form */
 
                     if (profileEdit) {
 
@@ -811,9 +1196,9 @@ document.addEventListener(
         }
 
 
-        /* 
-           Save Profile in Account.html
-         */
+        /* =====================================================
+           SAVE PROFILE IN ACCOUNT.HTML
+        ===================================================== */
 
         if (profileForm) {
 
@@ -829,11 +1214,15 @@ document.addEventListener(
                     }
 
 
+                    /* New name */
+
                     const newName =
                         profileNameInput
                             ? profileNameInput.value.trim()
                             : "";
 
+
+                    /* New email */
 
                     const newEmail =
                         profileEmailInput
@@ -843,9 +1232,9 @@ document.addEventListener(
                             : "";
 
 
-                    /* 
-                       Name validation
-                     */
+                    /* =================================================
+                       NAME VALIDATION
+                    ================================================= */
 
                     if (newName.length < 2) {
 
@@ -857,9 +1246,9 @@ document.addEventListener(
                     }
 
 
-                    /* 
-                       Email validation
-                     */
+                    /* =================================================
+                       EMAIL VALIDATION
+                    ================================================= */
 
                     if (
                         !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
@@ -875,9 +1264,7 @@ document.addEventListener(
                     }
 
 
-                    /* 
-                       Update current user
-                     */
+                    /* Update current user */
 
                     currentUser.name =
                         newName;
@@ -886,9 +1273,7 @@ document.addEventListener(
                         newEmail;
 
 
-                    /* 
-                       Profile photo
-                     */
+                    /* Profile photo */
 
                     const file =
                         profilePhotoInput
@@ -917,7 +1302,9 @@ document.addEventListener(
                             file
                         );
 
-                    } else {
+                    }
+
+                    else {
 
                         saveProfile();
 
@@ -929,15 +1316,13 @@ document.addEventListener(
         }
 
 
-        /* 
-           Save Profile Data in Account.html
-         */
+        /* =====================================================
+           SAVE PROFILE DATA IN ACCOUNT.HTML
+        ===================================================== */
 
         function saveProfile() {
 
-            /* 
-               Save current user
-             */
+            /* Save current user */
 
             localStorage.setItem(
                 "furniroCurrentUser",
@@ -947,9 +1332,7 @@ document.addEventListener(
             );
 
 
-            /* 
-               Get users
-             */
+            /* Get users */
 
             const users =
                 JSON.parse(
@@ -959,9 +1342,7 @@ document.addEventListener(
                 ) || [];
 
 
-            /* 
-               Find current user
-             */
+            /* Find current user */
 
             const userIndex =
                 users.findIndex(
@@ -976,9 +1357,7 @@ document.addEventListener(
                 );
 
 
-            /* 
-               Update user
-             */
+            /* Update user */
 
             if (userIndex !== -1) {
 
@@ -994,9 +1373,7 @@ document.addEventListener(
             }
 
 
-            /* 
-               Save users
-             */
+            /* Save users */
 
             localStorage.setItem(
                 "furniroUsers",
@@ -1006,9 +1383,7 @@ document.addEventListener(
             );
 
 
-            /* 
-               Update UI
-             */
+            /* Update UI */
 
             updateUserMenu();
 
@@ -1017,9 +1392,7 @@ document.addEventListener(
             updateProfileModal();
 
 
-            /* 
-               Close Edit Form
-             */
+            /* Close Edit Form */
 
             if (profileEdit) {
 
@@ -1030,9 +1403,7 @@ document.addEventListener(
             }
 
 
-            /* 
-               Reset form
-             */
+            /* Reset form */
 
             if (profileForm) {
 
@@ -1044,6 +1415,21 @@ document.addEventListener(
             alert(
                 "Profile updated successfully!"
             );
+
+        }
+
+
+        /* =====================================================
+           INITIAL UI UPDATE
+        ===================================================== */
+
+        if (currentUser) {
+
+            updateUserMenu();
+
+            updateProfile();
+
+            updateProfileModal();
 
         }
 
