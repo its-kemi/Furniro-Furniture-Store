@@ -40,6 +40,11 @@ document.addEventListener(
                 "modalProfilePhoto"
             );
 
+        const modalProfileInitials =
+            document.getElementById(
+                "modalProfileInitials"
+            );
+
         const modalProfileName =
             document.getElementById(
                 "modalProfileName"
@@ -109,6 +114,41 @@ document.addEventListener(
 
 
         /* 
+           Get user initials
+         */
+
+        function getUserInitials(name) {
+
+            if (!name) {
+                return "";
+            }
+
+
+            const words =
+                name
+                    .trim()
+                    .split(/\s+/)
+                    .filter(Boolean);
+
+
+            if (words.length >= 2) {
+
+                return (
+                    words[0].charAt(0) +
+                    words[1].charAt(0)
+                ).toUpperCase();
+
+            }
+
+
+            return words[0]
+                .charAt(0)
+                .toUpperCase();
+
+        }
+
+
+        /* 
            Update Profile
          */
 
@@ -145,13 +185,30 @@ document.addEventListener(
 
             /* 
                Profile photo
+
+               If there is no photo,
+               do not show logo.
              */
 
             if (profilePhoto) {
 
-                profilePhoto.src =
-                    currentUser.photo ||
-                    "assite/Header-images/logo.png";
+                if (currentUser.photo) {
+
+                    profilePhoto.src =
+                        currentUser.photo;
+
+                    profilePhoto.style.display =
+                        "block";
+
+                } else {
+
+                    profilePhoto.src =
+                        "";
+
+                    profilePhoto.style.display =
+                        "none";
+
+                }
 
             }
 
@@ -194,27 +251,95 @@ document.addEventListener(
 
 
             /* 
+               Get initials
+             */
+
+            const initials =
+                getUserInitials(
+                    currentUser.name
+                );
+
+
+            /* 
                Modal photo
              */
 
-            if (modalProfilePhoto) {
+            if (currentUser.photo) {
 
-                modalProfilePhoto.src =
-                    currentUser.photo ||
-                    "assite/Header-images/logo.png";
+                if (modalProfilePhoto) {
+
+                    modalProfilePhoto.src =
+                        currentUser.photo;
+
+                    modalProfilePhoto.style.display =
+                        "block";
+
+                }
+
+
+                if (modalProfileInitials) {
+
+                    modalProfileInitials.textContent =
+                        "";
+
+                    modalProfileInitials.style.display =
+                        "none";
+
+                }
+
+            }
+
+
+            /* 
+               No photo
+               Show initials
+             */
+
+            else {
+
+                if (modalProfilePhoto) {
+
+                    modalProfilePhoto.src =
+                        "";
+
+                    modalProfilePhoto.style.display =
+                        "none";
+
+                }
+
+
+                if (modalProfileInitials) {
+
+                    modalProfileInitials.textContent =
+                        initials;
+
+                    modalProfileInitials.style.display =
+                        "flex";
+
+                }
 
             }
 
 
             /* 
                Edit photo preview
+
+               Keep edit preview separate.
              */
 
             if (modalEditPhotoPreview) {
 
-                modalEditPhotoPreview.src =
-                    currentUser.photo ||
-                    "assite/Header-images/logo.png";
+                if (currentUser.photo) {
+
+                    modalEditPhotoPreview.src =
+                        currentUser.photo;
+
+                } else {
+
+                    modalEditPhotoPreview.src =
+                        "";
+
+                }
 
             }
 
