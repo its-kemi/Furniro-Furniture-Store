@@ -15,6 +15,7 @@ const orders =
     ) || [];
 
 
+
 /*
    GET ELEMENTS
 */
@@ -24,10 +25,18 @@ const ordersList =
         "ordersList"
     );
 
+
 const emptyOrders =
     document.getElementById(
         "emptyOrders"
     );
+
+
+const orderSuccessMessage =
+    document.getElementById(
+        "orderSuccessMessage"
+    );
+
 
 
 /*
@@ -46,6 +55,7 @@ function formatOrderPrice(price) {
 }
 
 
+
 /*
    FORMAT DATE
 */
@@ -54,6 +64,7 @@ function formatOrderDate(date) {
 
     const orderDate =
         new Date(date);
+
 
     return orderDate.toLocaleDateString(
         "en-US",
@@ -67,6 +78,70 @@ function formatOrderDate(date) {
 }
 
 
+
+/*
+   SHOW ORDER SUCCESS MESSAGE
+*/
+
+function showOrderSuccess(message) {
+
+    if (!orderSuccessMessage) {
+
+        return;
+
+    }
+
+
+    /*
+       GET MESSAGE TEXT
+    */
+
+    const text =
+        orderSuccessMessage.querySelector(
+            "span"
+        );
+
+
+    /*
+       SET MESSAGE
+    */
+
+    if (text) {
+
+        text.textContent =
+            message;
+
+    }
+
+
+    /*
+       SHOW MESSAGE
+    */
+
+    orderSuccessMessage.classList.add(
+        "show"
+    );
+
+
+    /*
+       HIDE MESSAGE AFTER 4 SECONDS
+    */
+
+    setTimeout(
+        function () {
+
+            orderSuccessMessage.classList.remove(
+                "show"
+            );
+
+        },
+        4000
+    );
+
+}
+
+
+
 /*
    RENDER ORDERS
 */
@@ -74,7 +149,9 @@ function formatOrderDate(date) {
 function renderOrders() {
 
     if (!ordersList) {
+
         return;
+
     }
 
 
@@ -92,11 +169,14 @@ function renderOrders() {
     if (orders.length === 0) {
 
         if (emptyOrders) {
+
             emptyOrders.style.display =
                 "block";
+
         }
 
         return;
+
     }
 
 
@@ -105,8 +185,10 @@ function renderOrders() {
     */
 
     if (emptyOrders) {
+
         emptyOrders.style.display =
             "none";
+
     }
 
 
@@ -122,6 +204,7 @@ function renderOrders() {
                     "div"
                 );
 
+
             orderCard.className =
                 "order-card";
 
@@ -133,45 +216,62 @@ function renderOrders() {
             let itemsHTML = "";
 
 
-            order.items.forEach(
-                function (item) {
+            /*
+               CHECK ORDER ITEMS
+            */
 
-                    itemsHTML += `
+            if (
+                order.items &&
+                order.items.length > 0
+            ) {
 
-                        <div class="order-item">
+                order.items.forEach(
+                    function (item) {
 
-                            <div class="order-item-image">
+                        itemsHTML += `
 
-                                <img
-                                    src="${item.image}"
-                                    alt="${item.name}"
-                                >
+                            <div class="order-item">
+
+                                <div class="order-item-image">
+
+                                    <img
+                                        src="${item.image}"
+                                        alt="${item.name}"
+                                    >
+
+                                </div>
+
+
+                                <div class="order-item-info">
+
+                                    <h3>
+                                        ${item.name}
+                                    </h3>
+
+
+                                    <p>
+                                        Quantity:
+                                        ${item.quantity}
+                                    </p>
+
+
+                                    <span>
+                                        ${formatOrderPrice(
+                                            item.price
+                                        )}
+                                    </span>
+
+                                </div>
 
                             </div>
 
-                            <div class="order-item-info">
+                        `;
 
-                                <h3>
-                                    ${item.name}
-                                </h3>
+                    }
+                );
 
-                                <p>
-                                    Quantity:
-                                    ${item.quantity}
-                                </p>
+            }
 
-                                <span>
-                                    ${formatOrderPrice(item.price)}
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    `;
-
-                }
-            );
 
 
             /*
@@ -188,11 +288,15 @@ function renderOrders() {
                             Order #${order.id}
                         </h2>
 
+
                         <p>
-                            ${formatOrderDate(order.date)}
+                            ${formatOrderDate(
+                                order.date
+                            )}
                         </p>
 
                     </div>
+
 
                     <span class="order-status">
                         ${order.status}
@@ -201,32 +305,38 @@ function renderOrders() {
                 </div>
 
 
+
                 <div class="order-customer">
 
                     <h3>
                         Customer Information
                     </h3>
 
+
                     <p>
                         <strong>Name:</strong>
                         ${order.customer.name}
                     </p>
+
 
                     <p>
                         <strong>Email:</strong>
                         ${order.customer.email}
                     </p>
 
+
                     <p>
                         <strong>Phone:</strong>
                         ${order.customer.phone}
                     </p>
+
 
                     <p>
                         <strong>Address:</strong>
                         ${order.customer.address},
                         ${order.customer.city}
                     </p>
+
 
                     <p>
                         <strong>Payment:</strong>
@@ -236,15 +346,18 @@ function renderOrders() {
                 </div>
 
 
+
                 <div class="order-items">
 
                     <h3>
                         Ordered Products
                     </h3>
 
+
                     ${itemsHTML}
 
                 </div>
+
 
 
                 <div class="order-footer">
@@ -255,8 +368,11 @@ function renderOrders() {
                             Total
                         </span>
 
+
                         <strong>
-                            ${formatOrderPrice(order.total)}
+                            ${formatOrderPrice(
+                                order.total
+                            )}
                         </strong>
 
                     </div>
@@ -265,6 +381,10 @@ function renderOrders() {
 
             `;
 
+
+            /*
+               ADD ORDER CARD
+            */
 
             ordersList.appendChild(
                 orderCard
@@ -276,8 +396,39 @@ function renderOrders() {
 }
 
 
+
 /*
    LOAD ORDERS
 */
 
 renderOrders();
+
+
+
+/*
+   CHECK ORDER SUCCESS MESSAGE
+*/
+
+const orderSuccess =
+    sessionStorage.getItem(
+        "orderSuccess"
+    );
+
+
+if (orderSuccess) {
+
+    showOrderSuccess(
+        orderSuccess
+    );
+
+
+    /*
+       REMOVE MESSAGE
+       AFTER READING
+    */
+
+    sessionStorage.removeItem(
+        "orderSuccess"
+    );
+
+}

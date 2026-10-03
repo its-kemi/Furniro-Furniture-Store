@@ -559,3 +559,117 @@
     }
 
 }
+
+
+
+/* ================================
+   ORDER SUCCESS MESSAGE
+================================ */
+
+.order-success-message {
+
+    display: none;
+
+    align-items: center;
+
+    gap: 10px;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 14px 18px;
+
+    margin-bottom: 25px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5dfd3;
+
+    border-left: 4px solid #b88e2f;
+
+    border-radius: 6px;
+
+    color: #5d8a62;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+}
+
+
+/*
+   SHOW MESSAGE
+*/
+
+.order-success-message.show {
+
+    display: flex;
+
+}
+
+
+/*
+   ICON
+*/
+
+.order-success-message i {
+
+    color: #b88e2f;
+
+    font-size: 18px;
+
+    flex-shrink: 0;
+
+}
+
+
+
+
+
+/* ================================
+   BACK TO HOME BUTTON
+================================ */
+
+.back-home-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 18px;
+
+    padding: 11px 20px;
+
+    background: #b88e2f;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    border-radius: 4px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+
+}
+
+
+.back-home-button:hover {
+
+    background: #967323;
+
+}
+
+
+.back-home-button i {
+
+    font-size: 13px;
+
+}

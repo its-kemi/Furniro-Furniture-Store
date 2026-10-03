@@ -76,7 +76,7 @@ document.addEventListener(
 
                 if (userMenuPhoto) {
                     userMenuPhoto.src =
-                        "assite/Header-images/logo.png";
+                        "";
                 }
 
                 return;
@@ -98,7 +98,7 @@ document.addEventListener(
             if (userMenuPhoto) {
                 userMenuPhoto.src =
                     currentUser.photo ||
-                    "assite/Header-images/logo.png";
+                    "";
             }
 
         }

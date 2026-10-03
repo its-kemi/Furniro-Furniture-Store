@@ -1,9 +1,9 @@
-/* 
+/*
    CHECKOUT SYSTEM
 */
 
 
-/* 
+/*
    GET CART
 */
 
@@ -14,7 +14,7 @@ const checkoutCart =
 
 
 
-/* 
+/*
    GET CHECKOUT ELEMENTS
 */
 
@@ -43,7 +43,7 @@ const checkoutForm =
 
 
 
-/* 
+/*
    FORMAT PRICE
 */
 
@@ -60,12 +60,11 @@ function formatCheckoutPrice(price) {
 
 
 
-/* 
+/*
    RENDER CHECKOUT PRODUCTS
 */
 
 function renderCheckoutProducts() {
-
 
     if (!checkoutProducts) {
 
@@ -77,8 +76,7 @@ function renderCheckoutProducts() {
     checkoutProducts.innerHTML = "";
 
 
-
-    /* 
+    /*
        CHECK EMPTY CART
     */
 
@@ -107,14 +105,12 @@ function renderCheckoutProducts() {
     }
 
 
-
-    /* 
+    /*
        CREATE PRODUCTS
     */
 
     checkoutCart.forEach(
         function (product) {
-
 
             const checkoutProduct =
                 document.createElement(
@@ -175,12 +171,11 @@ function renderCheckoutProducts() {
 
 
 
-/* 
+/*
    CALCULATE TOTAL
 */
 
 function calculateCheckoutTotal() {
-
 
     let total = 0;
 
@@ -202,12 +197,11 @@ function calculateCheckoutTotal() {
 
 
 
-/* 
+/*
    UPDATE TOTAL
 */
 
 function updateCheckoutTotal() {
-
 
     const total =
         calculateCheckoutTotal();
@@ -232,12 +226,11 @@ function updateCheckoutTotal() {
 
 
 
-/* 
+/*
    LOAD CURRENT USER
 */
 
 function loadCheckoutUser() {
-
 
     const currentUser =
         JSON.parse(
@@ -252,7 +245,6 @@ function loadCheckoutUser() {
         return;
 
     }
-
 
 
     const nameInput =
@@ -286,7 +278,7 @@ function loadCheckoutUser() {
 
 
 
-/* 
+/*
    PLACE ORDER
 */
 
@@ -299,24 +291,28 @@ if (checkoutForm) {
             event.preventDefault();
 
 
-
-            /* 
+            /*
                CHECK CART
             */
 
             if (checkoutCart.length === 0) {
 
-                alert(
+                /*
+                   SAVE ERROR MESSAGE
+                */
+
+                sessionStorage.setItem(
+                    "checkoutError",
                     "Your cart is empty."
                 );
+
 
                 return;
 
             }
 
 
-
-            /* 
+            /*
                GET FORM VALUES
             */
 
@@ -374,7 +370,7 @@ if (checkoutForm) {
 
 
 
-            /* 
+            /*
                CHECK INFORMATION
             */
 
@@ -387,9 +383,15 @@ if (checkoutForm) {
                 !payment
             ) {
 
-                alert(
+                /*
+                   SAVE ERROR MESSAGE
+                */
+
+                sessionStorage.setItem(
+                    "checkoutError",
                     "Please complete all required fields."
                 );
+
 
                 return;
 
@@ -397,7 +399,7 @@ if (checkoutForm) {
 
 
 
-            /* 
+            /*
                CALCULATE TOTAL
             */
 
@@ -406,7 +408,7 @@ if (checkoutForm) {
 
 
 
-            /* 
+            /*
                GET EXISTING ORDERS
             */
 
@@ -419,7 +421,7 @@ if (checkoutForm) {
 
 
 
-            /* 
+            /*
                CREATE ORDER ID
             */
 
@@ -429,7 +431,7 @@ if (checkoutForm) {
 
 
 
-            /* 
+            /*
                CREATE ORDER
             */
 
@@ -499,7 +501,7 @@ if (checkoutForm) {
 
 
 
-            /* 
+            /*
                SAVE ORDER
             */
 
@@ -515,7 +517,7 @@ if (checkoutForm) {
 
 
 
-            /* 
+            /*
                CLEAR CART
             */
 
@@ -525,17 +527,19 @@ if (checkoutForm) {
 
 
 
-            /* 
-               MESSAGE
+            /*
+               SAVE SUCCESS MESSAGE
+               FOR ORDERS PAGE
             */
 
-            alert(
-                "Your order has been placed successfully!"
+            sessionStorage.setItem(
+                "orderSuccess",
+                "Order placed successfully! Your order has been saved."
             );
 
 
 
-            /* 
+            /*
                GO TO ORDERS
             */
 
@@ -549,7 +553,7 @@ if (checkoutForm) {
 
 
 
-/* 
+/*
    LOAD CHECKOUT
 */
 
