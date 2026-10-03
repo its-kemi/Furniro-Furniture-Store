@@ -4209,4 +4209,18 @@ body.dark-mode .share-social:hover {
         font-size: 11px;
     }
 
+  }
+
+
+  
+/* =========================================
+   FOOTER GOLD
+========================================= */
+
+footer {
+    background-color: #fdf5e5 !important;
+}
+
+body.dark-mode footer {
+    background-color: #1b1b1a !important;
 }

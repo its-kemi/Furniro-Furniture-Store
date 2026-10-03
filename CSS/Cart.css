@@ -2062,3 +2062,18 @@ body.dark-mode .mobile-menu-button {
     }
 
 }
+
+
+
+
+/* =========================================
+   FOOTER GOLD
+========================================= */
+
+footer {
+    background-color: #fdf5e5 !important;
+}
+
+body.dark-mode footer {
+    background-color: #1b1b1a !important;
+}
