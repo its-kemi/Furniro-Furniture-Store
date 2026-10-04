@@ -152,7 +152,7 @@ header nav ul li a:hover {
     inset: 0;
 
     background-image:
-        url("../assite/account.images/account-atelier-bg1.png");
+        url("../assite/account.img/account-atelier-bg.png");
 
     background-size: cover;
 
@@ -543,7 +543,7 @@ header nav ul li a:hover {
             rgba(30, 25, 20, 0.02),
             rgba(30, 25, 20, 0.82)
         ),
-        url("../assite/account.images/account-atelier-bg.png");
+        url("../assite/account.img/account-atelier-bg1.png");
 
     background-size: cover;
 
@@ -2773,3 +2773,7 @@ body.dark-mode .footer-line {
 #modalEditPhotoInitials.active {
     display: flex;
 }
+
+
+
+
