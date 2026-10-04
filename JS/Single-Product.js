@@ -601,164 +601,131 @@ document.addEventListener(
 
 
 
-        /*
-           PRODUCT GALLERY
-           
-           ONE LARGE IMAGE
-           + THREE ADDITIONAL IMAGES
-        */
+       /*
+   PRODUCT GALLERY
+*/
 
-        if (productMainImage) {
+if (productMainImage) {
 
-            productMainImage.src =
-                product.mainImage ||
-                product.image;
+    productMainImage.src =
+        product.mainImage ||
+        product.image;
 
-            productMainImage.alt =
-                product.name;
+    productMainImage.alt =
+        product.name;
 
-        }
+}
 
 
-        const thumbnailContainer =
-            document.querySelector(
-                ".thumbnail-images"
-            );
+const thumbnailContainer =
+    document.querySelector(
+        ".thumbnail-images"
+    );
 
 
-        if (thumbnailContainer) {
+if (thumbnailContainer) {
 
-            thumbnailContainer.innerHTML =
-                "";
-
-
-            /*
-               MAIN PRODUCT IMAGE
-            */
-
-            const galleryImages = [
-
-                product.image,
-
-                ...(product.gallery || [])
-
-            ];
+    thumbnailContainer.innerHTML =
+        "";
 
 
-            /*
-               REMOVE DUPLICATE IMAGES
-            */
+    /*
+       FOUR SMALL IMAGES
+    */
 
-            const uniqueImages =
-                galleryImages.filter(
-                    function (
-                        image,
-                        index,
-                        array
+    const thumbnailList = [
+
+        "assite/Single Product.images/Single Product1.png",
+
+        "assite/Single Product.images/Single Product2.png",
+
+        "assite/Single Product.images/Single Product3.png",
+
+        "assite/Single Product.images/Single Product4.png"
+
+    ];
+
+
+    thumbnailList.forEach(
+        function (
+            image,
+            index
+        ) {
+
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+
+            button.type =
+                "button";
+
+
+            button.className =
+                "thumbnail-button";
+
+
+            if (index === 0) {
+
+                button.classList.add(
+                    "active"
+                );
+
+            }
+
+
+            button.innerHTML = `
+
+                <img
+                    src="${image}"
+                    alt="${product.name} ${index + 1}"
+                >
+
+            `;
+
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    if (
+                        !productMainImage
                     ) {
 
-                        return (
-                            array.indexOf(
-                                image
-                            ) === index
-                        );
-
-                    }
-                );
-
-
-            /*
-               ONLY THREE ADDITIONAL
-               THUMBNAILS
-            */
-
-            const thumbnailList =
-                uniqueImages.slice(
-                    0,
-                    4
-                );
-
-
-            thumbnailList.forEach(
-                function (
-                    image,
-                    index
-                ) {
-
-                    const button =
-                        document.createElement(
-                            "button"
-                        );
-
-
-                    button.type =
-                        "button";
-
-
-                    button.className =
-                        "thumbnail-button";
-
-
-                    if (index === 0) {
-
-                        button.classList.add(
-                            "active"
-                        );
+                        return;
 
                     }
 
 
-                    button.innerHTML = `
+                    /*
+                       CHANGE LARGE IMAGE
+                    */
 
-                        <img
-                            src="${image}"
-                            alt="${product.name} ${index + 1}"
-                        >
-
-                    `;
+                    productMainImage.src =
+                        image;
 
 
-                    button.addEventListener(
-                        "click",
-                        function () {
-
-                            if (
-                                !productMainImage
-                            ) {
-
-                                return;
-
-                            }
+                    productMainImage.alt =
+                        product.name;
 
 
-                            productMainImage.src =
-                                image;
+                    /*
+                       ACTIVE THUMBNAIL
+                    */
+
+                    const buttons =
+                        thumbnailContainer.querySelectorAll(
+                            ".thumbnail-button"
+                        );
 
 
-                            productMainImage.alt =
-                                product.name;
+                    buttons.forEach(
+                        function (
+                            item
+                        ) {
 
-
-                            const buttons =
-                                thumbnailContainer.querySelectorAll(
-                                    ".thumbnail-button"
-                                );
-
-
-                            buttons.forEach(
-                                function (
-                                    item
-                                ) {
-
-                                    item.classList.remove(
-                                        "active"
-                                    );
-
-                                }
-                            );
-
-
-                            button.classList.add(
+                            item.classList.remove(
                                 "active"
                             );
 
@@ -766,15 +733,22 @@ document.addEventListener(
                     );
 
 
-                    thumbnailContainer.appendChild(
-                        button
+                    button.classList.add(
+                        "active"
                     );
 
                 }
             );
 
-        }
 
+            thumbnailContainer.appendChild(
+                button
+            );
+
+        }
+    );
+
+}
 
 
         /*
