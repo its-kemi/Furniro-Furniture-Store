@@ -1,53 +1,40 @@
 /* ==================================================
-   SCROLL REVEAL ANIMATION
+   GENERAL SCROLL ANIMATION
 ================================================== */
 
-.scroll-reveal {
-    opacity: 0;
+section,
+.section,
+main > div,
+article {
+    will-change: opacity, transform;
+}
 
-    transform: translateY(50px);
 
+/* ==================================================
+   SMOOTH TRANSITION
+================================================== */
+
+section,
+.section,
+main > div,
+article {
     transition:
         opacity 0.8s ease,
         transform 0.8s ease;
 }
 
 
-.scroll-reveal.show {
-    opacity: 1;
+/* ==================================================
+   REDUCE MOTION
+================================================== */
 
-    transform: translateY(0);
-}
+@media (prefers-reduced-motion: reduce) {
 
-
-
-
-
-
-
-
-
-
-
-.home-banner-content {
-    animation:
-        bannerContent 1s ease-out both;
-}
-
-@keyframes bannerContent {
-
-    from {
-        opacity: 0;
-        transform:
-            translateY(-50%)
-            translateX(50px);
-    }
-
-    to {
-        opacity: 1;
-        transform:
-            translateY(-50%)
-            translateX(0);
+    section,
+    .section,
+    main > div,
+    article {
+        transition: none !important;
     }
 
 }
