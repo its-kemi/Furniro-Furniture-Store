@@ -1,6 +1,4 @@
 
-
-
 /* 
    GET COMPARISON
  */
@@ -108,9 +106,17 @@ compareButtons.forEach(function (button) {
 
             if (alreadyExists) {
 
-                alert(
-                    "This product is already in comparison."
-                );
+                Swal.fire({
+                    icon: "warning",
+                    title: "Already Added",
+                    text: "This product is already in comparison.",
+                    confirmButtonText: "OK",
+                    position: "top",
+                    customClass: {
+                        container:
+                            "furniro-swal-container"
+                    }
+                });
 
                 return;
 
@@ -123,9 +129,17 @@ compareButtons.forEach(function (button) {
 
             if (comparison.length >= 2) {
 
-                alert(
-                    "You can compare only two products."
-                );
+                Swal.fire({
+                    icon: "warning",
+                    title: "Comparison Limit",
+                    text: "You can compare only two products.",
+                    confirmButtonText: "OK",
+                    position: "top",
+                    customClass: {
+                        container:
+                            "furniro-swal-container"
+                    }
+                });
 
                 return;
 
@@ -163,18 +177,29 @@ compareButtons.forEach(function (button) {
                SUCCESS MESSAGE
              */
 
-            alert(
-                productName +
-                " added to comparison!"
-            );
+            Swal.fire({
+                icon: "success",
+                title: "Added to Comparison!",
+                text:
+                    productName +
+                    " added to comparison!",
+                confirmButtonText: "OK",
+                position: "top",
+                customClass: {
+                    container:
+                        "furniro-swal-container"
+                }
+            }).then(function () {
 
 
-            /* 
-               GO TO COMPARISON PAGE
-             */
+                /* 
+                   GO TO COMPARISON PAGE
+                 */
 
-            window.location.href =
-                "Product-Comparison.html";
+                window.location.href =
+                    "Product-Comparison.html";
+
+            });
 
         }
     );

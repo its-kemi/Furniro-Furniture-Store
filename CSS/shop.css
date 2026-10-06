@@ -4663,3 +4663,35 @@ body.dark-mode footer {
     background-color: #1b1b1a !important;
 }
 
+
+
+/* 
+   NEWSLETTER
+*/
+
+.newsletter {
+    width: 100%;
+}
+
+.newsletter form {
+    display: flex;
+    align-items: center;
+}
+
+.newsletter input {
+    outline: none;
+}
+
+.newsletter button {
+    cursor: pointer;
+}
+
+
+/* 
+   SWEETALERT
+*/
+
+.furniro-swal-container {
+    z-index: 999999 !important;
+}
+

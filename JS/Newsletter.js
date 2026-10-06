@@ -25,18 +25,34 @@ if (newsletterForm) {
 
             if (newsletterEmail === "") {
 
-                alert(
-                    "Please enter your email."
-                );
+                Swal.fire({
+                    icon: "warning",
+                    title: "Email Required",
+                    text: "Please enter your email.",
+                    confirmButtonText: "OK",
+                    position: "top",
+                    customClass: {
+                        container:
+                            "furniro-swal-container"
+                    }
+                });
 
                 return;
 
             }
 
 
-            alert(
-                "Thank you for subscribing!"
-            );
+            Swal.fire({
+                icon: "success",
+                title: "Subscribed Successfully!",
+                text: "Thank you for subscribing!",
+                confirmButtonText: "OK",
+                position: "top",
+                customClass: {
+                    container:
+                        "furniro-swal-container"
+                }
+            });
 
 
             newsletterForm.reset();
