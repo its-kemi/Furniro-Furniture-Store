@@ -7,11 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "#contactForm"
         );
 
-    const formMessage =
-        document.querySelector(
-            "#formMessage"
-        );
-
     // - Check form
 
     if (!contactForm) {
@@ -68,10 +63,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (nameValue === "") {
 
-                showFormMessage(
-                    "Please enter your name.",
-                    "error"
-                );
+                Swal.fire({
+                    icon: "warning",
+                    title: "Name Required",
+                    text: "Please enter your name.",
+                    confirmButtonText: "OK",
+                    position: "top",
+                    customClass: {
+                        container:
+                            "furniro-swal-container"
+                    }
+                });
 
                 name.focus();
 
@@ -82,10 +84,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (emailValue === "") {
 
-                showFormMessage(
-                    "Please enter your email address.",
-                    "error"
-                );
+                Swal.fire({
+                    icon: "warning",
+                    title: "Email Required",
+                    text: "Please enter your email address.",
+                    confirmButtonText: "OK",
+                    position: "top",
+                    customClass: {
+                        container:
+                            "furniro-swal-container"
+                    }
+                });
 
                 email.focus();
 
@@ -103,10 +112,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 )
             ) {
 
-                showFormMessage(
-                    "Please enter a valid email address.",
-                    "error"
-                );
+                Swal.fire({
+                    icon: "warning",
+                    title: "Invalid Email",
+                    text: "Please enter a valid email address.",
+                    confirmButtonText: "OK",
+                    position: "top",
+                    customClass: {
+                        container:
+                            "furniro-swal-container"
+                    }
+                });
 
                 email.focus();
 
@@ -117,10 +133,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (messageValue === "") {
 
-                showFormMessage(
-                    "Please write your message.",
-                    "error"
-                );
+                Swal.fire({
+                    icon: "warning",
+                    title: "Message Required",
+                    text: "Please write your message.",
+                    confirmButtonText: "OK",
+                    position: "top",
+                    customClass: {
+                        container:
+                            "furniro-swal-container"
+                    }
+                });
 
                 message.focus();
 
@@ -129,12 +152,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // - Success
 
-            showFormMessage(
-                "Thank you, " +
-                nameValue +
-                "! Your message has been submitted successfully.",
-                "success"
-            );
+            Swal.fire({
+                icon: "success",
+                title: "Message Submitted!",
+                text:
+                    "Thank you, " +
+                    nameValue +
+                    "! Your message has been submitted successfully.",
+                confirmButtonText: "OK",
+                position: "top",
+                customClass: {
+                    container:
+                        "furniro-swal-container"
+                }
+            });
 
             // - Clear form
 
@@ -142,24 +173,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
     );
-
-    // - Form message
-
-    function showFormMessage(
-        text,
-        type
-    ) {
-
-        if (!formMessage) {
-            return;
-        }
-
-        formMessage.textContent =
-            text;
-
-        formMessage.className =
-            "form-message show " +
-            type;
-    }
 
 });
