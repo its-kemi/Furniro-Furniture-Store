@@ -976,8 +976,8 @@ header .icons a:hover {
 .faq-content {
     flex: 1;
 }
-
 .faq-content h3 {
+    cursor: pointer;
     margin: 0;
 
     display: flex;
@@ -1041,12 +1041,117 @@ header .icons a:hover {
 }
 
 
+/* =========================
+   FEEDBACK INSIDE FAQ
+========================= */
+
+.feedback-answer {
+    display: none;
+
+    margin-top: 20px;
+
+    width: 100%;
+}
 
 
+.faq-item.faq-active
+.feedback-answer {
+    display: block;
+}
 
 
+/* Feedback description */
+
+.feedback-answer p {
+    max-height: none;
+
+    overflow: visible;
+
+    opacity: 1;
+
+    margin: 0 0 15px 0;
+
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
 
 
+/* Textarea */
+
+.feedback-textarea {
+    display: block;
+
+    width: 100%;
+
+    min-height: 110px;
+
+    padding: 14px;
+
+    border: 1px solid #ddd;
+
+    background: #fff;
+
+    resize: vertical;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    outline: none;
+
+    box-sizing: border-box;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.feedback-textarea:focus {
+    border-color: #b88e2f;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(184, 142, 47, 0.08);
+}
+
+
+/* Submit button */
+
+.feedback-submit {
+    margin-top: 12px;
+
+    padding: 11px 22px;
+
+    border: none;
+
+    background: #b88e2f;
+
+    color: #fff;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.feedback-submit:hover {
+    opacity: 0.9;
+
+    transform:
+        translateY(-2px);
+}
 
 
 
