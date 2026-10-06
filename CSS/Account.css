@@ -1,12 +1,18 @@
+/* ========================================================= */
+/* - RESET */
+/* ========================================================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+
 html {
     scroll-behavior: smooth;
 }
+
 
 body {
     margin: 0;
@@ -31,7 +37,6 @@ header {
     height: 80px;
 
     display: flex;
-
     align-items: center;
     justify-content: space-between;
 
@@ -55,12 +60,14 @@ header {
     gap: 10px;
 }
 
+
 .logo img {
     width: 42px;
     height: 42px;
 
     object-fit: contain;
 }
+
 
 .logo h3 {
     font-size: 22px;
@@ -81,17 +88,19 @@ header nav ul {
     list-style: none;
 }
 
-header nav ul li a {
-    text-decoration: none;
 
+header nav ul li a {
     color: #000000;
 
     font-size: 15px;
 
     font-weight: 500;
 
+    text-decoration: none;
+
     transition: color 0.3s ease;
 }
+
 
 header nav ul li a:hover {
     color: #b88e2f;
@@ -108,318 +117,22 @@ header nav ul li a:hover {
     gap: 22px;
 }
 
+
 .icons a {
     color: #000000;
 
-    text-decoration: none;
-
     font-size: 18px;
+
+    text-decoration: none;
 
     transition:
         color 0.3s ease,
         transform 0.3s ease;
 }
 
+
 .icons a:hover {
     color: #b88e2f;
-
-    transform: translateY(-2px);
-}
-
-
-/* ========================================================= */
-/* - Page Banner */
-/* ========================================================= */
-
-.page-banner {
-    position: relative;
-
-    width: 100%;
-
-    min-height: 300px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
-}
-
-.page-banner-bg {
-    position: absolute;
-
-    inset: 0;
-
-    background-image:
-        url("../assite/account.img/account-atelier-bg.png");
-
-    background-size: cover;
-
-    background-position: center;
-
-    z-index: 0;
-}
-
-.page-banner-overlay {
-    position: absolute;
-
-    inset: 0;
-
-    background: rgba(255, 255, 255, 0.45);
-
-    z-index: 1;
-}
-
-.page-banner-content {
-    position: relative;
-
-    z-index: 2;
-
-    text-align: center;
-}
-
-.page-banner-content img {
-    width: 55px;
-    height: 55px;
-
-    object-fit: contain;
-
-    margin-bottom: 10px;
-}
-
-.page-banner-content h1 {
-    margin-bottom: 12px;
-
-    font-size: 42px;
-
-    color: #222222;
-}
-
-.page-banner-content p {
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 8px;
-
-    font-size: 14px;
-
-    color: #555555;
-}
-
-.page-banner-content p a {
-    color: #222222;
-
-    text-decoration: none;
-
-    font-weight: 600;
-}
-
-.page-banner-content p a:hover {
-    color: #b88e2f;
-}
-
-
-/* ========================================================= */
-/* - Account Section */
-/* ========================================================= */
-
-.account-section {
-    width: 100%;
-
-    padding: 80px 5%;
-
-    background-color: #ffffff;
-}
-
-.account-container {
-    width: 90%;
-
-    max-width: 1100px;
-
-    margin: 0 auto;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 35px;
-}
-
-.account-section .account-box {
-    padding: 35px;
-
-    background-color: #ffffff;
-
-    border: 1px solid #eeeeee;
-
-    border-radius: 8px;
-
-    box-shadow:
-        0 10px 30px
-        rgba(0, 0, 0, 0.06);
-}
-
-.account-section .account-box h2 {
-    margin-bottom: 10px;
-
-    font-size: 26px;
-
-    color: #222222;
-}
-
-.account-text {
-    margin-bottom: 25px;
-
-    color: #777777;
-
-    font-size: 14px;
-
-    line-height: 1.6;
-}
-
-
-/* - Form */
-
-.account-box form {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 10px;
-}
-
-.account-box form label {
-    margin-top: 6px;
-
-    color: #333333;
-
-    font-size: 14px;
-
-    font-weight: 600;
-}
-
-.account-box form input[type="text"],
-.account-box form input[type="email"],
-.account-box form input[type="password"] {
-    width: 100%;
-
-    min-height: 48px;
-
-    padding: 12px 14px;
-
-    border: 1px solid #dddddd;
-
-    border-radius: 5px;
-
-    outline: none;
-
-    background-color: #ffffff;
-
-    color: #333333;
-
-    font-size: 14px;
-
-    font-family: inherit;
-
-    transition:
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.account-box form input:focus {
-    border-color: #b88e2f;
-
-    box-shadow:
-        0 0 0 3px
-        rgba(184, 142, 47, 0.10);
-}
-
-
-/* - Form Options */
-
-.form-options {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 15px;
-
-    margin: 8px 0 15px;
-}
-
-.remember {
-    display: flex !important;
-
-    align-items: center;
-
-    gap: 7px;
-
-    margin: 0 !important;
-
-    color: #666666 !important;
-
-    font-size: 13px !important;
-
-    font-weight: 400 !important;
-}
-
-.remember input {
-    width: 15px;
-
-    height: 15px;
-
-    accent-color: #b88e2f;
-}
-
-.form-options a {
-    color: #b88e2f;
-
-    font-size: 13px;
-
-    text-decoration: none;
-}
-
-.form-options a:hover {
-    text-decoration: underline;
-}
-
-
-/* - Form Button */
-
-.account-section .account-box button {
-    width: 100%;
-
-    min-height: 48px;
-
-    margin-top: 10px;
-
-    border: none;
-
-    border-radius: 5px;
-
-    background-color: #b88e2f;
-
-    color: #ffffff;
-
-    font-size: 14px;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    transition:
-        background-color 0.3s ease,
-        transform 0.3s ease;
-}
-
-.account-section .account-box button:hover {
-    background-color: #967323;
 
     transform: translateY(-2px);
 }
@@ -452,6 +165,7 @@ header nav ul li a:hover {
     z-index: 99999;
 }
 
+
 .account-modal.active {
     display: flex;
 }
@@ -472,8 +186,7 @@ header nav ul li a:hover {
 
     display: grid;
 
-    grid-template-columns:
-        40% 60%;
+    grid-template-columns: 40% 60%;
 
     overflow: hidden;
 
@@ -610,6 +323,7 @@ header nav ul li a:hover {
     color: #ffffff;
 }
 
+
 .account-modal-image-content span {
     display: block;
 
@@ -623,6 +337,7 @@ header nav ul li a:hover {
 
     letter-spacing: 4px;
 }
+
 
 .account-modal-image-content h2 {
     margin-bottom: 18px;
@@ -640,6 +355,7 @@ header nav ul li a:hover {
 
     line-height: 1.08;
 }
+
 
 .account-modal-image-content p {
     max-width: 300px;
@@ -683,15 +399,18 @@ header nav ul li a:hover {
     width: 6px;
 }
 
+
 .account-modal-content::-webkit-scrollbar-track {
     background: #f4f1ec;
 }
+
 
 .account-modal-content::-webkit-scrollbar-thumb {
     background-color: #b88e2f;
 
     border-radius: 10px;
 }
+
 
 .account-modal-content::-webkit-scrollbar-thumb:hover {
     background-color: #967323;
@@ -739,6 +458,7 @@ header nav ul li a:hover {
         transform 0.3s ease,
         border-color 0.3s ease;
 }
+
 
 .account-modal-close:hover {
     background-color: #b88e2f;
@@ -833,8 +553,7 @@ header nav ul li a:hover {
 .account-modal-forms {
     display: grid;
 
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
     min-height: 0;
 
@@ -904,6 +623,7 @@ header nav ul li a:hover {
     line-height: 1.2;
 }
 
+
 .account-modal .account-text {
     margin-bottom: 27px;
 
@@ -927,6 +647,7 @@ header nav ul li a:hover {
     gap: 8px;
 }
 
+
 .account-modal .account-box form label {
     margin-top: 8px;
 
@@ -947,7 +668,6 @@ header nav ul li a:hover {
 .account-modal .account-box input[type="text"],
 .account-modal .account-box input[type="email"],
 .account-modal .account-box input[type="password"] {
-
     width: 100%;
 
     height: 47px;
@@ -1041,7 +761,6 @@ header nav ul li a:hover {
 
 .account-modal .remember input {
     width: 13px;
-
     height: 13px;
 
     accent-color: #b88e2f;
@@ -1079,7 +798,6 @@ header nav ul li a:hover {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     gap: 14px;
@@ -1134,343 +852,30 @@ header nav ul li a:hover {
 
 
 /* ========================================================= */
-/* - Account Message */
+/* - Account Form Messages */
 /* ========================================================= */
 
-.account-message {
-    padding:
-        10px
-        12px;
+.account-form-message {
+    display: block;
 
-    margin-bottom: 15px;
+    min-height: 18px;
 
-    font-size: 12px;
+    margin-top: 6px;
+    margin-bottom: 8px;
 
-    line-height: 1.5;
+    font-size: 13px;
 
-    border-radius: 5px;
-}
-
-.account-message.error {
-    background-color: #fff0f0;
-
-    color: #b42318;
-}
-
-.account-message.success {
-    background-color: #effaf3;
-
-    color: #18794e;
+    line-height: 1.4;
 }
 
 
-/* ========================================================= */
-/* - Footer */
-/* ========================================================= */
-
-footer {
-    width: 100%;
-
-    padding:
-        50px 5%
-        30px;
-
-    background-color: #ffffff;
-}
-
-.footer-top {
-    display: flex;
-
-    justify-content: space-between;
-
-    gap: 40px;
-}
-
-.footer-brand {
-    width: 30%;
-}
-
-.footer-brand h2 {
-    margin-bottom: 40px;
-
-    font-size: 24px;
-}
-
-.footer-brand p {
-    color: #777777;
-
-    line-height: 1.6;
-
-    font-size: 14px;
-}
-
-.footer-links,
-.footer-help {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 20px;
-}
-
-.footer-links h3,
-.footer-help h3,
-.footer-newsletter h3 {
-    margin-bottom: 15px;
-
-    color: #999999;
-
-    font-size: 16px;
-}
-
-.footer-links a,
-.footer-help a {
-    color: #333333;
-
-    font-size: 15px;
-
-    text-decoration: none;
-
-    transition: color 0.3s ease;
-}
-
-.footer-links a:hover,
-.footer-help a:hover {
-    color: #b88e2f;
-}
-
-.footer-newsletter {
-    width: 25%;
-}
-
-.newsletter-form {
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-}
-
-.footer-newsletter input {
-    width: 180px;
-
-    padding: 8px 0;
-
-    border: none;
-
-    border-bottom:
-        1px solid #333333;
-
-    outline: none;
-
-    font-family: inherit;
-}
-
-.footer-newsletter button {
-    padding: 8px 0;
-
-    border: none;
-
-    border-bottom:
-        1px solid #333333;
-
-    background-color: #ffffff;
-
-    color: #222222;
-
-    font-weight: bold;
-
-    cursor: pointer;
-}
-
-.footer-line {
-    width: 100%;
-
-    height: 1px;
-
-    margin:
-        50px 0
-        25px;
-
-    background-color: #dddddd;
-}
-
-.footer-bottom {
-    text-align: left;
-}
-
-.footer-bottom p {
-    color: #333333;
-
-    font-size: 14px;
+.account-form-message.error {
+    color: #c55a5a;
 }
 
 
-/* ========================================================= */
-/* - Dark Mode */
-/* ========================================================= */
-
-body.dark-mode {
-    background-color: #111111;
-
-    color: #ffffff;
-}
-
-body.dark-mode header {
-    background-color: #111111;
-
-    border-bottom:
-        1px solid #333333;
-}
-
-body.dark-mode .logo h3,
-body.dark-mode header nav ul li a,
-body.dark-mode .icons a {
-    color: #ffffff;
-}
-
-body.dark-mode header nav ul li a:hover,
-body.dark-mode .icons a:hover {
-    color: #b88e2f;
-}
-
-body.dark-mode .account-section {
-    background-color: #111111;
-}
-
-body.dark-mode .account-section .account-box {
-    background-color: #1c1c1c;
-
-    border-color: #333333;
-}
-
-body.dark-mode .account-section .account-box h2 {
-    color: #ffffff;
-}
-
-body.dark-mode .account-text,
-body.dark-mode .account-box form label {
-    color: #bbbbbb;
-}
-
-body.dark-mode .account-box form input {
-    background-color: #242424;
-
-    color: #ffffff;
-
-    border-color: #444444;
-}
-
-
-/* - Dark Modal */
-
-body.dark-mode .account-modal-box,
-body.dark-mode .account-modal-content {
-    background-color: #181818;
-}
-
-body.dark-mode .account-modal-header h2,
-body.dark-mode .account-modal .account-box h2 {
-    color: #ffffff;
-}
-
-body.dark-mode .account-modal-header p,
-body.dark-mode .account-modal .account-text {
-    color: #aaaaaa;
-}
-
-body.dark-mode .account-modal .account-box {
-    background-color: #181818;
-}
-
-body.dark-mode .account-modal .account-box:last-child {
-    background-color: #202020;
-}
-
-body.dark-mode .account-modal .account-box:first-child {
-    border-right-color: #333333;
-}
-
-body.dark-mode .account-modal .account-box form label {
-    color: #dddddd;
-}
-
-body.dark-mode .account-modal .account-box input {
-    background-color: transparent;
-
-    color: #ffffff;
-
-    border-bottom-color: #444444;
-}
-
-body.dark-mode .account-modal-close {
-    background-color: #242424;
-
-    color: #ffffff;
-
-    border-color: #444444;
-}
-
-
-/* - Dark Features */
-
-body.dark-mode .features {
-    background-color: #1c1c1c;
-}
-
-body.dark-mode .feature h3 {
-    color: #ffffff;
-}
-
-body.dark-mode .feature p {
-    color: #aaaaaa;
-}
-
-
-/* - Dark Footer */
-
-body.dark-mode footer {
-    background-color: #111111;
-}
-
-body.dark-mode .footer-brand h2 {
-    color: #ffffff;
-}
-
-body.dark-mode .footer-brand p,
-body.dark-mode .footer-bottom p {
-    color: #aaaaaa;
-}
-
-body.dark-mode .footer-links h3,
-body.dark-mode .footer-help h3,
-body.dark-mode .footer-newsletter h3 {
-    color: #888888;
-}
-
-body.dark-mode .footer-links a,
-body.dark-mode .footer-help a {
-    color: #dddddd;
-}
-
-body.dark-mode .footer-newsletter input {
-    background-color: transparent;
-
-    color: #ffffff;
-
-    border-bottom-color: #aaaaaa;
-}
-
-body.dark-mode .footer-newsletter button {
-    background-color: transparent;
-
-    color: #ffffff;
-
-    border-bottom-color: #aaaaaa;
-}
-
-body.dark-mode .footer-line {
-    background-color: #333333;
+.account-form-message.success {
+    color: #5d8a62;
 }
 
 
@@ -1482,16 +887,19 @@ body.dark-mode .footer-line {
     position: absolute;
 
     top: 75px;
-
     right: 30px;
 
     width: 300px;
 
     padding: 20px;
 
+    display: none;
+
     background: #ffffff;
 
-    border: 1px solid #eeeeee;
+    border:
+        1px solid
+        #eeeeee;
 
     border-radius: 12px;
 
@@ -1499,15 +907,16 @@ body.dark-mode .footer-line {
         0 15px 40px
         rgba(0, 0, 0, 0.12);
 
-    display: none;
-
     z-index: 9999;
 }
+
 
 .user-menu.active {
     display: block;
 }
 
+
+/* - User Header */
 
 .user-menu-header {
     display: flex;
@@ -1519,8 +928,12 @@ body.dark-mode .footer-line {
     padding-bottom: 18px;
 
     border-bottom:
-        1px solid #eeeeee;
+        1px solid
+        #eeeeee;
 }
+
+
+/* - User Avatar */
 
 .user-avatar {
     width: 55px;
@@ -1530,10 +943,16 @@ body.dark-mode .footer-line {
 
     overflow: hidden;
 
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
     border-radius: 50%;
 
-    background: #f3f3f3;
+    background: #b88e2f;
 }
+
 
 .user-avatar img {
     width: 100%;
@@ -1542,34 +961,40 @@ body.dark-mode .footer-line {
     object-fit: cover;
 }
 
+
 .user-menu-info {
     min-width: 0;
 }
+
 
 .user-menu-info h3 {
     margin:
         0 0 5px;
 
-    font-size: 16px;
-
     color: #1b1b1b;
+
+    font-size: 16px;
 }
+
 
 .user-menu-info p {
     margin: 0;
 
-    font-size: 13px;
-
     color: #777777;
+
+    font-size: 13px;
 
     word-break: break-word;
 }
 
 
+/* - User Links */
+
 .user-menu-links {
     padding:
         12px 0;
 }
+
 
 .user-menu-links a {
     display: flex;
@@ -1587,12 +1012,15 @@ body.dark-mode .footer-line {
 
     border-radius: 6px;
 
-    transition: 0.2s ease;
+    transition:
+        background-color 0.2s ease;
 }
+
 
 .user-menu-links a:hover {
     background: #f7f7f7;
 }
+
 
 .user-menu-links i {
     width: 20px;
@@ -1600,6 +1028,8 @@ body.dark-mode .footer-line {
     text-align: center;
 }
 
+
+/* - Logout */
 
 .logout-button {
     width: 100%;
@@ -1616,7 +1046,8 @@ body.dark-mode .footer-line {
     border: none;
 
     border-top:
-        1px solid #eeeeee;
+        1px solid
+        #eeeeee;
 
     background: transparent;
 
@@ -1642,10 +1073,9 @@ body.dark-mode .footer-line {
     padding:
         80px 20px;
 
-    box-sizing: border-box;
-
     background: #f8f8f8;
 }
+
 
 .profile-container {
     max-width: 1000px;
@@ -1676,6 +1106,7 @@ body.dark-mode .footer-line {
         rgba(0, 0, 0, 0.08);
 }
 
+
 .profile-photo {
     width: 110px;
     height: 110px;
@@ -1690,6 +1121,7 @@ body.dark-mode .footer-line {
     background: #f1f1f1;
 }
 
+
 .profile-photo img {
     width: 100%;
     height: 100%;
@@ -1697,14 +1129,16 @@ body.dark-mode .footer-line {
     object-fit: cover;
 }
 
+
 .profile-card h2 {
     margin:
         0 0 8px;
 
-    font-size: 22px;
-
     color: #1b1b1b;
+
+    font-size: 22px;
 }
+
 
 .profile-card p {
     margin:
@@ -1715,6 +1149,8 @@ body.dark-mode .footer-line {
     font-size: 14px;
 }
 
+
+/* - Edit Profile Button */
 
 .edit-profile-button {
     padding:
@@ -1734,6 +1170,8 @@ body.dark-mode .footer-line {
 }
 
 
+/* - Profile Edit */
+
 .profile-edit {
     display: none;
 
@@ -1748,9 +1186,11 @@ body.dark-mode .footer-line {
         rgba(0, 0, 0, 0.08);
 }
 
+
 .profile-edit.active {
     display: block;
 }
+
 
 .profile-edit h2 {
     margin:
@@ -1768,13 +1208,15 @@ body.dark-mode .footer-line {
     gap: 10px;
 }
 
+
 #profileForm label {
     margin-top: 8px;
 
-    font-size: 14px;
-
     color: #333333;
+
+    font-size: 14px;
 }
+
 
 #profileForm input {
     width: 100%;
@@ -1782,14 +1224,14 @@ body.dark-mode .footer-line {
     padding: 13px;
 
     border:
-        1px solid #dddddd;
+        1px solid
+        #dddddd;
 
     border-radius: 6px;
 
-    box-sizing: border-box;
-
     outline: none;
 }
+
 
 #profileForm input:focus {
     border-color: #742277;
@@ -1829,7 +1271,6 @@ body.dark-mode .footer-line {
     display: none;
 
     align-items: center;
-
     justify-content: center;
 
     padding: 20px;
@@ -1837,6 +1278,7 @@ body.dark-mode .footer-line {
     background:
         rgba(0, 0, 0, 0.45);
 }
+
 
 .profile-modal.active {
     display: flex;
@@ -1865,15 +1307,15 @@ body.dark-mode .footer-line {
 }
 
 
+/* - Profile Modal Close */
+
 .profile-modal-close {
     position: absolute;
 
     top: 15px;
-
     right: 15px;
 
     width: 35px;
-
     height: 35px;
 
     border: none;
@@ -1887,801 +1329,13 @@ body.dark-mode .footer-line {
     cursor: pointer;
 }
 
+
 .profile-modal-close:hover {
     color: #742277;
 }
 
 
-.profile-modal-photo {
-    width: 100px;
-
-    height: 100px;
-
-    margin:
-        0 auto 20px;
-
-    overflow: hidden;
-
-    border-radius: 50%;
-
-    background: #f1f1f1;
-}
-
-.profile-modal-photo img {
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: cover;
-}
-
-
-.profile-modal-box h2 {
-    margin:
-        0 0 8px;
-
-    color: #1b1b1b;
-
-    font-size: 22px;
-}
-
-
-.profile-modal-box p {
-    margin:
-        0 0 25px;
-
-    color: #777777;
-
-    font-size: 14px;
-}
-
-
-.profile-modal-edit {
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 8px;
-
-    padding:
-        12px 24px;
-
-    border: none;
-
-    border-radius: 6px;
-
-    background: #742277;
-
-    color: #ffffff;
-
-    font-size: 14px;
-
-    cursor: pointer;
-}
-
-.profile-modal-edit:hover {
-    background: #5e1b62;
-}
-
-
-.profile-modal-edit-form {
-    display: none;
-}
-
-.profile-modal-edit-form.active {
-    display: block;
-}
-
-.profile-modal-edit-form h2 {
-    margin:
-        0 0 20px;
-
-    color: #1b1b1b;
-
-    font-size: 22px;
-}
-
-
-#modalProfileForm {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 10px;
-
-    text-align: left;
-}
-
-#modalProfileForm label {
-    margin-top: 6px;
-
-    color: #333333;
-
-    font-size: 14px;
-}
-
-#modalProfileForm input {
-    width: 100%;
-
-    padding: 12px;
-
-    border:
-        1px solid #dddddd;
-
-    border-radius: 6px;
-
-    box-sizing: border-box;
-
-    outline: none;
-}
-
-#modalProfileForm input:focus {
-    border-color: #742277;
-}
-
-
-.profile-modal-form-buttons {
-    display: flex;
-
-    gap: 10px;
-
-    margin-top: 20px;
-}
-
-.profile-modal-cancel,
-.profile-modal-save {
-    flex: 1;
-
-    padding: 12px;
-
-    border: none;
-
-    border-radius: 6px;
-
-    cursor: pointer;
-
-    font-size: 14px;
-}
-
-.profile-modal-cancel {
-    background: #eeeeee;
-
-    color: #333333;
-}
-
-.profile-modal-save {
-    background: #742277;
-
-    color: #ffffff;
-}
-
-
-/* ========================================================= */
-/* - Responsive */
-/* ========================================================= */
-
-@media (max-width: 1000px) {
-
-    .account-modal-box {
-        width: 100%;
-
-        height: 94vh;
-
-        max-height: 94vh;
-    }
-
-    .account-modal-image {
-        padding: 40px;
-    }
-
-    .account-modal-image-content h2 {
-        font-size: 34px;
-    }
-
-    .account-modal-header {
-        padding:
-            55px 40px
-            20px;
-    }
-
-    .account-modal-forms {
-        padding:
-            8px 40px
-            45px;
-    }
-
-}
-
-
-@media (max-width: 900px) {
-
-    .account-modal-box {
-        max-width: 760px;
-
-        height: 94vh;
-
-        grid-template-columns: 1fr;
-    }
-
-    .account-modal-image {
-        height: 220px;
-
-        min-height: 220px;
-
-        padding:
-            35px 40px;
-    }
-
-    .account-modal-image::before {
-        top: 30px;
-
-        left: 40px;
-    }
-
-    .account-modal-image-content h2 {
-        font-size: 30px;
-    }
-
-    .account-modal-image-content p {
-        display: none;
-    }
-
-    .account-modal-content {
-        height:
-            calc(94vh - 220px);
-
-        overflow-y: auto;
-    }
-
-    .account-modal-header {
-        padding:
-            40px 40px
-            15px;
-    }
-
-    .account-modal-forms {
-        padding:
-            5px 40px
-            40px;
-    }
-
-}
-
-
-@media (max-width: 800px) {
-
-    header nav {
-        display: none;
-    }
-
-    .account-container {
-        grid-template-columns: 1fr;
-    }
-
-    .account-modal {
-        padding: 10px;
-    }
-
-    .account-modal-box {
-        width: 100%;
-
-        height: 96vh;
-
-        max-height: 96vh;
-
-        grid-template-columns: 1fr;
-
-        overflow: hidden;
-    }
-
-    .account-modal-image {
-        height: 180px;
-
-        min-height: 180px;
-
-        padding: 25px;
-    }
-
-    .account-modal-image-content h2 {
-        font-size: 26px;
-    }
-
-    .account-modal-content {
-        height:
-            calc(96vh - 180px);
-
-        overflow-y: auto;
-    }
-
-    .account-modal-forms {
-        grid-template-columns: 1fr;
-
-        gap: 25px;
-    }
-
-    .account-modal .account-box {
-        padding:
-            22px 0;
-    }
-
-    .account-modal .account-box:first-child {
-        padding-right: 0;
-
-        padding-bottom: 30px;
-
-        border-right: none;
-
-        border-bottom:
-            1px solid #eeeeee;
-    }
-
-    .account-modal .account-box:last-child {
-        padding-left: 0;
-    }
-
-    .features {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-    .footer-top {
-        flex-wrap: wrap;
-    }
-
-    .footer-brand,
-    .footer-newsletter {
-        width: 45%;
-    }
-
-}
-
-
-@media (max-width: 600px) {
-
-    .account-modal {
-        padding: 6px;
-    }
-
-    .account-modal-box {
-        height: 97vh;
-
-        max-height: 97vh;
-    }
-
-    .account-modal-image {
-        height: 155px;
-
-        min-height: 155px;
-
-        padding: 22px;
-    }
-
-    .account-modal-image::before {
-        top: 25px;
-
-        left: 25px;
-
-        width: 30px;
-    }
-
-    .account-modal-image-content span {
-        margin-bottom: 9px;
-
-        font-size: 9px;
-
-        letter-spacing: 3px;
-    }
-
-    .account-modal-image-content h2 {
-        font-size: 22px;
-    }
-
-    .account-modal-content {
-        height:
-            calc(97vh - 155px);
-
-        overflow-y: auto;
-    }
-
-    .account-modal-header {
-        padding:
-            28px 20px
-            8px;
-    }
-
-    .account-modal-header h2 {
-        font-size: 24px;
-    }
-
-    .account-modal-header p {
-        font-size: 11px;
-    }
-
-    .account-modal-forms {
-        padding:
-            5px 20px
-            25px;
-
-        gap: 15px;
-    }
-
-    .account-modal .account-box {
-        padding:
-            18px 0;
-    }
-
-    .account-modal .account-box h2 {
-        font-size: 23px;
-    }
-
-    .account-modal .account-text {
-        font-size: 11px;
-
-        margin-bottom: 20px;
-    }
-
-    .account-modal .form-options {
-        align-items: flex-start;
-
-        flex-direction: column;
-
-        gap: 8px;
-    }
-
-    .features {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-brand,
-    .footer-newsletter {
-        width: 100%;
-    }
-
-    .footer-top {
-        flex-direction: column;
-    }
-
-    .newsletter-form {
-        width: 100%;
-    }
-
-    .footer-newsletter input {
-        width: 100%;
-    }
-
-    .user-menu {
-        right: 15px;
-
-        width:
-            calc(100% - 30px);
-
-        max-width: 300px;
-    }
-
-    .profile-modal-box {
-        max-width: 320px;
-
-        padding:
-            30px 20px;
-    }
-
-}
-
-
-@media (max-width: 500px) {
-
-    header {
-        height: 70px;
-
-        padding:
-            12px 5%;
-    }
-
-    .icons {
-        gap: 13px;
-    }
-
-    .account-section {
-        padding:
-            60px 5%;
-    }
-
-    .account-container {
-        width: 100%;
-    }
-
-    .account-section .account-box {
-        padding: 25px;
-    }
-
-    .account-modal {
-        padding: 5px;
-    }
-
-    .account-modal-box {
-        height: 97vh;
-
-        max-height: 97vh;
-
-        border-radius: 4px;
-    }
-
-    .account-modal-image {
-        height: 155px;
-
-        min-height: 155px;
-
-        padding: 22px;
-    }
-
-    .account-modal-image-content h2 {
-        font-size: 22px;
-    }
-
-    .account-modal-image-content p {
-        display: none;
-    }
-
-    .account-modal-header {
-        padding:
-            28px 20px
-            8px;
-    }
-
-    .account-modal-header h2 {
-        font-size: 24px;
-    }
-
-    .account-modal-header p {
-        font-size: 11px;
-    }
-
-    .account-modal-forms {
-        padding:
-            5px 20px
-            25px;
-
-        gap: 15px;
-    }
-
-    .account-modal .account-box {
-        padding:
-            18px 0;
-    }
-
-    .account-modal .account-box h2 {
-        font-size: 23px;
-    }
-
-    .account-modal .account-text {
-        font-size: 11px;
-
-        margin-bottom: 20px;
-    }
-
-    .account-modal .form-options {
-        align-items: flex-start;
-
-        flex-direction: column;
-
-        gap: 8px;
-    }
-
-    .features {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-brand,
-    .footer-newsletter {
-        width: 100%;
-    }
-
-    .footer-top {
-        flex-direction: column;
-    }
-
-    .newsletter-form {
-        width: 100%;
-    }
-
-    .footer-newsletter input {
-        width: 100%;
-    }
-
-    .user-menu {
-        right: 15px;
-
-        width:
-            calc(100% - 30px);
-
-        max-width: 300px;
-    }
-
-    .profile-modal-box {
-        max-width: 320px;
-
-        padding:
-            30px 20px;
-    }
-
-}
-
-
-@media (max-width: 380px) {
-
-    .account-modal-image {
-        height: 135px;
-
-        min-height: 135px;
-    }
-
-    .account-modal-image-content h2 {
-        font-size: 20px;
-    }
-
-    .account-modal-header h2 {
-        font-size: 22px;
-    }
-
-    .account-modal .account-box {
-        padding:
-            15px 0;
-    }
-
-}
-
-
-
-
-
-.account-success-message {
-    display: none;
-    align-items: center;
-    gap: 14px;
-    width: 100%;
-    padding: 16px 20px;
-    margin: 20px 0;
-    background: #ffffff;
-    border: 1px solid #e7e1d5;
-    border-left: 4px solid #b88e2f;
-    border-radius: 6px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-}
-
-.account-success-message.show {
-    display: flex;
-}
-
-.account-success-message i {
-    color: #b88e2f;
-    font-size: 22px;
-}
-
-.account-success-message strong {
-    display: block;
-    margin-bottom: 4px;
-    color: #2b2926;
-}
-
-.account-success-message p {
-    margin: 0;
-    color: #777;
-    font-size: 14px;
-}
-
-
-.account-success-message.error {
-    display: flex;
-    border-left-color: #c85c5c;
-}
-
-.account-success-message.error i {
-    color: #c85c5c;
-}
-
-.account-success-message.error strong {
-    color: #a94442;
-}
-
-
-/* ================================
-   ACCOUNT FORM MESSAGES
-================================ */
-
-.account-form-message {
-    display: block;
-    min-height: 18px;
-    margin-top: 6px;
-    margin-bottom: 8px;
-    font-size: 13px;
-    line-height: 1.4;
-}
-
-.account-form-message.error {
-    color: #c55a5a;
-}
-
-.account-form-message.success {
-    color: #5d8a62;
-}
-
-
-/* ================================
-   LOGIN SUCCESS
-================================ */
-
-.account-login-success,
-.account-register-success {
-    display: none;
-    align-items: center;
-    gap: 9px;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 12px 14px;
-    margin: 14px 0;
-    background: #ffffff;
-    border: 1px solid #e5dfd3;
-    border-left: 3px solid #b88e2f;
-    border-radius: 5px;
-    color: #5d8a62;
-    font-size: 13px;
-    line-height: 1.5;
-}
-
-.account-login-success.show,
-.account-register-success.show {
-    display: flex;
-}
-
-.account-login-success i,
-.account-register-success i {
-    color: #b88e2f;
-    font-size: 18px;
-    flex-shrink: 0;
-}
-
-
-
-
-
-
-
-
-
-/* =========================
-   USER MENU AVATAR
-========================= */
-
-.user-menu-avatar {
-    width: 55px;
-    height: 55px;
-
-    border-radius: 50%;
-
-    overflow: hidden;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background-color: #b88e2f;
-
-    flex-shrink: 0;
-}
-
-
-
-
-
-
-
-
-
-/* =========================
-   PROFILE MODAL AVATAR
-========================= */
+/* - Profile Modal Photo */
 
 .profile-modal-photo {
     position: relative;
@@ -2689,21 +1343,23 @@ body.dark-mode .footer-line {
     width: 100px;
     height: 100px;
 
-    margin: 0 auto 20px;
-
-    border-radius: 50%;
+    margin:
+        0 auto 20px;
 
     overflow: hidden;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
+
+    border-radius: 50%;
 
     background-color: #b88e2f;
 }
 
 
-/* Profile Photo */
+/* - Profile Photo */
 
 #modalProfilePhoto,
 #modalEditPhotoPreview {
@@ -2724,7 +1380,7 @@ body.dark-mode .footer-line {
 }
 
 
-/* Profile Initials */
+/* - Profile Initials */
 
 #modalProfileInitials,
 #modalEditPhotoInitials {
@@ -2747,6 +1403,7 @@ body.dark-mode .footer-line {
     color: #ffffff;
 
     font-size: 30px;
+
     font-weight: 700;
 
     line-height: 1;
@@ -2759,15 +1416,11 @@ body.dark-mode .footer-line {
 }
 
 
-/* When there is no photo */
-
 #modalProfilePhoto.hidden,
 #modalEditPhotoPreview.hidden {
     display: none;
 }
 
-
-/* Show initials */
 
 #modalProfileInitials.active,
 #modalEditPhotoInitials.active {
@@ -2775,5 +1428,1003 @@ body.dark-mode .footer-line {
 }
 
 
+/* - Profile Modal Text */
+
+.profile-modal-box h2 {
+    margin:
+        0 0 8px;
+
+    color: #1b1b1b;
+
+    font-size: 22px;
+}
 
 
+.profile-modal-box p {
+    margin:
+        0 0 25px;
+
+    color: #777777;
+
+    font-size: 14px;
+}
+
+
+/* - Profile Modal Edit Button */
+
+.profile-modal-edit {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding:
+        12px 24px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #742277;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+
+.profile-modal-edit:hover {
+    background: #5e1b62;
+}
+
+
+/* - Profile Edit Form */
+
+.profile-modal-edit-form {
+    display: none;
+}
+
+
+.profile-modal-edit-form.active {
+    display: block;
+}
+
+
+.profile-modal-edit-form h2 {
+    margin:
+        0 0 20px;
+
+    color: #1b1b1b;
+
+    font-size: 22px;
+}
+
+
+#modalProfileForm {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    text-align: left;
+}
+
+
+#modalProfileForm label {
+    margin-top: 6px;
+
+    color: #333333;
+
+    font-size: 14px;
+}
+
+
+#modalProfileForm input {
+    width: 100%;
+
+    padding: 12px;
+
+    border:
+        1px solid
+        #dddddd;
+
+    border-radius: 6px;
+
+    outline: none;
+}
+
+
+#modalProfileForm input:focus {
+    border-color: #742277;
+}
+
+
+/* - Profile Form Buttons */
+
+.profile-modal-form-buttons {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+
+.profile-modal-cancel,
+.profile-modal-save {
+    flex: 1;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+
+.profile-modal-cancel {
+    background: #eeeeee;
+
+    color: #333333;
+}
+
+
+.profile-modal-save {
+    background: #742277;
+
+    color: #ffffff;
+}
+
+
+/* ========================================================= */
+/* - Footer */
+/* ========================================================= */
+
+footer {
+    width: 100%;
+
+    padding:
+        50px 5%
+        30px;
+
+    background-color: #ffffff;
+}
+
+
+.footer-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 40px;
+}
+
+
+.footer-brand {
+    width: 30%;
+}
+
+
+.footer-brand h2 {
+    margin-bottom: 40px;
+
+    font-size: 24px;
+}
+
+
+.footer-brand p {
+    color: #777777;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+.footer-links,
+.footer-help {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+.footer-links h3,
+.footer-help h3,
+.footer-newsletter h3 {
+    margin-bottom: 15px;
+
+    color: #999999;
+
+    font-size: 16px;
+}
+
+
+.footer-links a,
+.footer-help a {
+    color: #333333;
+
+    font-size: 15px;
+
+    text-decoration: none;
+
+    transition:
+        color 0.3s ease;
+}
+
+
+.footer-links a:hover,
+.footer-help a:hover {
+    color: #b88e2f;
+}
+
+
+.footer-newsletter {
+    width: 25%;
+}
+
+
+.newsletter-form {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.footer-newsletter input {
+    width: 180px;
+
+    padding: 8px 0;
+
+    border: none;
+
+    border-bottom:
+        1px solid
+        #333333;
+
+    outline: none;
+
+    font-family: inherit;
+}
+
+
+.footer-newsletter button {
+    padding: 8px 0;
+
+    border: none;
+
+    border-bottom:
+        1px solid
+        #333333;
+
+    background-color: #ffffff;
+
+    color: #222222;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.footer-line {
+    width: 100%;
+
+    height: 1px;
+
+    margin:
+        50px 0
+        25px;
+
+    background-color: #dddddd;
+}
+
+
+.footer-bottom {
+    text-align: left;
+}
+
+
+.footer-bottom p {
+    color: #333333;
+
+    font-size: 14px;
+}
+
+
+/* ========================================================= */
+/* - Dark Mode */
+/* ========================================================= */
+
+body.dark-mode {
+    background-color: #111111;
+
+    color: #ffffff;
+}
+
+
+body.dark-mode header {
+    background-color: #111111;
+
+    border-bottom:
+        1px solid
+        #333333;
+}
+
+
+body.dark-mode .logo h3,
+body.dark-mode header nav ul li a,
+body.dark-mode .icons a {
+    color: #ffffff;
+}
+
+
+body.dark-mode header nav ul li a:hover,
+body.dark-mode .icons a:hover {
+    color: #b88e2f;
+}
+
+
+/* - Dark Modal */
+
+body.dark-mode .account-modal-box,
+body.dark-mode .account-modal-content {
+    background-color: #181818;
+}
+
+
+body.dark-mode .account-modal-header h2,
+body.dark-mode .account-modal .account-box h2 {
+    color: #ffffff;
+}
+
+
+body.dark-mode .account-modal-header p,
+body.dark-mode .account-modal .account-text {
+    color: #aaaaaa;
+}
+
+
+body.dark-mode .account-modal .account-box {
+    background-color: #181818;
+}
+
+
+body.dark-mode .account-modal .account-box:last-child {
+    background-color: #202020;
+}
+
+
+body.dark-mode .account-modal .account-box:first-child {
+    border-right-color: #333333;
+}
+
+
+body.dark-mode .account-modal .account-box form label {
+    color: #dddddd;
+}
+
+
+body.dark-mode .account-modal .account-box input {
+    background-color: transparent;
+
+    color: #ffffff;
+
+    border-bottom-color: #444444;
+}
+
+
+body.dark-mode .account-modal-close {
+    background-color: #242424;
+
+    color: #ffffff;
+
+    border-color: #444444;
+}
+
+
+/* - Dark Footer */
+
+body.dark-mode footer {
+    background-color: #111111;
+}
+
+
+body.dark-mode .footer-brand h2 {
+    color: #ffffff;
+}
+
+
+body.dark-mode .footer-brand p,
+body.dark-mode .footer-bottom p {
+    color: #aaaaaa;
+}
+
+
+body.dark-mode .footer-links h3,
+body.dark-mode .footer-help h3,
+body.dark-mode .footer-newsletter h3 {
+    color: #888888;
+}
+
+
+body.dark-mode .footer-links a,
+body.dark-mode .footer-help a {
+    color: #dddddd;
+}
+
+
+body.dark-mode .footer-newsletter input {
+    background-color: transparent;
+
+    color: #ffffff;
+
+    border-bottom-color: #aaaaaa;
+}
+
+
+body.dark-mode .footer-newsletter button {
+    background-color: transparent;
+
+    color: #ffffff;
+
+    border-bottom-color: #aaaaaa;
+}
+
+
+body.dark-mode .footer-line {
+    background-color: #333333;
+}
+
+
+/* ========================================================= */
+/* - SweetAlert2 */
+/* ========================================================= */
+
+.furniro-swal-container {
+    z-index: 999999 !important;
+}
+
+
+/* ========================================================= */
+/* - Responsive: 1000px */
+/* ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .account-modal-box {
+        width: 100%;
+
+        height: 94vh;
+
+        max-height: 94vh;
+    }
+
+
+    .account-modal-image {
+        padding: 40px;
+    }
+
+
+    .account-modal-image-content h2 {
+        font-size: 34px;
+    }
+
+
+    .account-modal-header {
+        padding:
+            55px 40px
+            20px;
+    }
+
+
+    .account-modal-forms {
+        padding:
+            8px 40px
+            45px;
+    }
+
+}
+
+
+/* ========================================================= */
+/* - Responsive: 900px */
+/* ========================================================= */
+
+@media (max-width: 900px) {
+
+    .account-modal-box {
+        max-width: 760px;
+
+        height: 94vh;
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .account-modal-image {
+        height: 220px;
+
+        min-height: 220px;
+
+        padding:
+            35px 40px;
+    }
+
+
+    .account-modal-image::before {
+        top: 30px;
+
+        left: 40px;
+    }
+
+
+    .account-modal-image-content h2 {
+        font-size: 30px;
+    }
+
+
+    .account-modal-image-content p {
+        display: none;
+    }
+
+
+    .account-modal-content {
+        height:
+            calc(94vh - 220px);
+
+        overflow-y: auto;
+    }
+
+
+    .account-modal-header {
+        padding:
+            40px 40px
+            15px;
+    }
+
+
+    .account-modal-forms {
+        padding:
+            5px 40px
+            40px;
+    }
+
+}
+
+
+/* ========================================================= */
+/* - Responsive: 800px */
+/* ========================================================= */
+
+@media (max-width: 800px) {
+
+    header nav {
+        display: none;
+    }
+
+
+    .account-modal {
+        padding: 10px;
+    }
+
+
+    .account-modal-box {
+        width: 100%;
+
+        height: 96vh;
+
+        max-height: 96vh;
+
+        grid-template-columns: 1fr;
+
+        overflow: hidden;
+    }
+
+
+    .account-modal-image {
+        height: 180px;
+
+        min-height: 180px;
+
+        padding: 25px;
+    }
+
+
+    .account-modal-image-content h2 {
+        font-size: 26px;
+    }
+
+
+    .account-modal-content {
+        height:
+            calc(96vh - 180px);
+
+        overflow-y: auto;
+    }
+
+
+    .account-modal-forms {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+
+    .account-modal .account-box {
+        padding:
+            22px 0;
+    }
+
+
+    .account-modal .account-box:first-child {
+        padding-right: 0;
+
+        padding-bottom: 30px;
+
+        border-right: none;
+
+        border-bottom:
+            1px solid
+            #eeeeee;
+    }
+
+
+    .account-modal .account-box:last-child {
+        padding-left: 0;
+    }
+
+
+    .footer-top {
+        flex-wrap: wrap;
+    }
+
+
+    .footer-brand,
+    .footer-newsletter {
+        width: 45%;
+    }
+
+}
+
+
+/* ========================================================= */
+/* - Responsive: 600px */
+/* ========================================================= */
+
+@media (max-width: 600px) {
+
+    .account-modal {
+        padding: 6px;
+    }
+
+
+    .account-modal-box {
+        height: 97vh;
+
+        max-height: 97vh;
+    }
+
+
+    .account-modal-image {
+        height: 155px;
+
+        min-height: 155px;
+
+        padding: 22px;
+    }
+
+
+    .account-modal-image::before {
+        top: 25px;
+
+        left: 25px;
+
+        width: 30px;
+    }
+
+
+    .account-modal-image-content span {
+        margin-bottom: 9px;
+
+        font-size: 9px;
+
+        letter-spacing: 3px;
+    }
+
+
+    .account-modal-image-content h2 {
+        font-size: 22px;
+    }
+
+
+    .account-modal-content {
+        height:
+            calc(97vh - 155px);
+
+        overflow-y: auto;
+    }
+
+
+    .account-modal-header {
+        padding:
+            28px 20px
+            8px;
+    }
+
+
+    .account-modal-header h2 {
+        font-size: 24px;
+    }
+
+
+    .account-modal-header p {
+        font-size: 11px;
+    }
+
+
+    .account-modal-forms {
+        padding:
+            5px 20px
+            25px;
+
+        gap: 15px;
+    }
+
+
+    .account-modal .account-box {
+        padding:
+            18px 0;
+    }
+
+
+    .account-modal .account-box h2 {
+        font-size: 23px;
+    }
+
+
+    .account-modal .account-text {
+        font-size: 11px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .account-modal .form-options {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+
+    .footer-brand,
+    .footer-newsletter {
+        width: 100%;
+    }
+
+
+    .footer-top {
+        flex-direction: column;
+    }
+
+
+    .newsletter-form {
+        width: 100%;
+    }
+
+
+    .footer-newsletter input {
+        width: 100%;
+    }
+
+
+    .user-menu {
+        right: 15px;
+
+        width:
+            calc(100% - 30px);
+
+        max-width: 300px;
+    }
+
+
+    .profile-modal-box {
+        max-width: 320px;
+
+        padding:
+            30px 20px;
+    }
+
+}
+
+
+/* ========================================================= */
+/* - Responsive: 500px */
+/* ========================================================= */
+
+@media (max-width: 500px) {
+
+    header {
+        height: 70px;
+
+        padding:
+            12px 5%;
+    }
+
+
+    .icons {
+        gap: 13px;
+    }
+
+
+    .account-modal {
+        padding: 5px;
+    }
+
+
+    .account-modal-box {
+        height: 97vh;
+
+        max-height: 97vh;
+
+        border-radius: 4px;
+    }
+
+
+    .account-modal-image {
+        height: 155px;
+
+        min-height: 155px;
+
+        padding: 22px;
+    }
+
+
+    .account-modal-image-content h2 {
+        font-size: 22px;
+    }
+
+
+    .account-modal-image-content p {
+        display: none;
+    }
+
+
+    .account-modal-header {
+        padding:
+            28px 20px
+            8px;
+    }
+
+
+    .account-modal-header h2 {
+        font-size: 24px;
+    }
+
+
+    .account-modal-header p {
+        font-size: 11px;
+    }
+
+
+    .account-modal-forms {
+        padding:
+            5px 20px
+            25px;
+
+        gap: 15px;
+    }
+
+
+    .account-modal .account-box {
+        padding:
+            18px 0;
+    }
+
+
+    .account-modal .account-box h2 {
+        font-size: 23px;
+    }
+
+
+    .account-modal .account-text {
+        font-size: 11px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .account-modal .form-options {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+
+    .footer-brand,
+    .footer-newsletter {
+        width: 100%;
+    }
+
+
+    .footer-top {
+        flex-direction: column;
+    }
+
+
+    .newsletter-form {
+        width: 100%;
+    }
+
+
+    .footer-newsletter input {
+        width: 100%;
+    }
+
+
+    .user-menu {
+        right: 15px;
+
+        width:
+            calc(100% - 30px);
+
+        max-width: 300px;
+    }
+
+
+    .profile-modal-box {
+        max-width: 320px;
+
+        padding:
+            30px 20px;
+    }
+
+}
+
+
+/* ========================================================= */
+/* - Responsive: 380px */
+/* ========================================================= */
+
+@media (max-width: 380px) {
+
+    .account-modal-image {
+        height: 135px;
+
+        min-height: 135px;
+    }
+
+
+    .account-modal-image-content h2 {
+        font-size: 20px;
+    }
+
+
+    .account-modal-header h2 {
+        font-size: 22px;
+    }
+
+
+    .account-modal .account-box {
+        padding:
+            15px 0;
+    }
+
+}
