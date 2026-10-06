@@ -865,6 +865,9 @@ header .icons a:hover {
 }
 
 
+
+
+
 /* ==================================================
    FAQ
 ================================================== */
@@ -876,6 +879,11 @@ header .icons a:hover {
 
     margin: 120px auto;
 }
+
+
+/* ==================================================
+   FAQ HEADING
+================================================== */
 
 .faq-heading {
     text-align: center;
@@ -912,6 +920,76 @@ header .icons a:hover {
     font-weight: 600;
 }
 
+.faq-heading p {
+    max-width: 650px;
+
+    margin: 18px auto 0;
+
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* ==================================================
+   VIEW CUSTOMER REVIEWS BUTTON
+================================================== */
+
+.view-feedback-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+    padding: 13px 26px;
+
+    background-color: #b88e2f;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.3px;
+
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.view-feedback-btn:hover {
+    background-color: #222;
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(0, 0, 0, 0.12);
+}
+
+
+.view-feedback-btn i {
+    font-size: 14px;
+}
+
+
+/* ==================================================
+   FAQ GRID
+================================================== */
+
 .faq-grid {
     display: grid;
 
@@ -920,6 +998,11 @@ header .icons a:hover {
 
     gap: 20px;
 }
+
+
+/* ==================================================
+   FAQ ITEM
+================================================== */
 
 .faq-item {
     display: flex;
@@ -943,6 +1026,7 @@ header .icons a:hover {
         border-color 0.35s ease;
 }
 
+
 .faq-item:hover,
 .faq-item:focus {
     transform:
@@ -955,6 +1039,7 @@ header .icons a:hover {
         rgba(0, 0, 0, 0.07);
 }
 
+
 .faq-item.faq-active {
     border-color: #b88e2f;
 
@@ -962,6 +1047,11 @@ header .icons a:hover {
         0 15px 35px
         rgba(184, 142, 47, 0.14);
 }
+
+
+/* ==================================================
+   FAQ NUMBER
+================================================== */
 
 .faq-number {
     color: #b88e2f;
@@ -973,11 +1063,21 @@ header .icons a:hover {
     min-width: 30px;
 }
 
+
+/* ==================================================
+   FAQ CONTENT
+================================================== */
+
 .faq-content {
     flex: 1;
+
+    min-width: 0;
 }
+
+
 .faq-content h3 {
     cursor: pointer;
+
     margin: 0;
 
     display: flex;
@@ -995,7 +1095,10 @@ header .icons a:hover {
     line-height: 1.5;
 }
 
+
 .faq-content h3 i {
+    flex-shrink: 0;
+
     color: #b88e2f;
 
     font-size: 14px;
@@ -1004,13 +1107,19 @@ header .icons a:hover {
         transform 0.3s ease;
 }
 
+
 .faq-item.faq-active
 .faq-content h3 i {
     transform:
         rotate(45deg);
 }
 
-.faq-content p {
+
+/* ==================================================
+   FAQ DESCRIPTION
+================================================== */
+
+.faq-content > p {
     max-height: 0;
 
     overflow: hidden;
@@ -1031,8 +1140,9 @@ header .icons a:hover {
         margin-top 0.4s ease;
 }
 
+
 .faq-item.faq-active
-.faq-content p {
+.faq-content > p {
     max-height: 150px;
 
     opacity: 1;
@@ -1041,9 +1151,9 @@ header .icons a:hover {
 }
 
 
-/* =========================
+/* ==================================================
    FEEDBACK INSIDE FAQ
-========================= */
+================================================== */
 
 .feedback-answer {
     display: none;
@@ -1060,7 +1170,9 @@ header .icons a:hover {
 }
 
 
-/* Feedback description */
+/* ==================================================
+   FEEDBACK DESCRIPTION
+================================================== */
 
 .feedback-answer p {
     max-height: none;
@@ -1079,7 +1191,9 @@ header .icons a:hover {
 }
 
 
-/* Textarea */
+/* ==================================================
+   TEXTAREA
+================================================== */
 
 .feedback-textarea {
     display: block;
@@ -1090,9 +1204,10 @@ header .icons a:hover {
 
     padding: 14px;
 
-    border: 1px solid #ddd;
+    border:
+        1px solid #ddd;
 
-    background: #fff;
+    background-color: #fff;
 
     resize: vertical;
 
@@ -1121,7 +1236,9 @@ header .icons a:hover {
 }
 
 
-/* Submit button */
+/* ==================================================
+   SUBMIT FEEDBACK
+================================================== */
 
 .feedback-submit {
     margin-top: 12px;
@@ -1130,7 +1247,7 @@ header .icons a:hover {
 
     border: none;
 
-    background: #b88e2f;
+    background-color: #b88e2f;
 
     color: #fff;
 
@@ -1153,6 +1270,85 @@ header .icons a:hover {
         translateY(-2px);
 }
 
+
+/* ==================================================
+   SUCCESS MESSAGE
+================================================== */
+
+.feedback-success {
+    margin-top: 12px !important;
+
+    color: #4a7c59 !important;
+
+    font-size: 13px !important;
+
+    font-weight: 600;
+
+    opacity: 1 !important;
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 768px) {
+
+    .contact-faq {
+        width: 92%;
+
+        margin: 80px auto;
+    }
+
+
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .faq-item {
+        padding: 24px;
+    }
+
+
+    .faq-content h3 {
+        font-size: 16px;
+    }
+
+
+    .view-feedback-btn {
+        padding: 12px 22px;
+
+        font-size: 13px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .faq-item {
+        gap: 12px;
+
+        padding: 20px;
+    }
+
+
+    .faq-number {
+        min-width: 25px;
+    }
+
+
+    .faq-content h3 {
+        font-size: 15px;
+    }
+
+
+    .feedback-textarea {
+        min-height: 100px;
+    }
+
+}
 
 
 
