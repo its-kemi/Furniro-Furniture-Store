@@ -1,14 +1,14 @@
 /* 
    ACCOUNT SETTINGS PASSWORD
- */
+*/
 
 document.addEventListener(
     "DOMContentLoaded",
     function () {
 
-        /* 
+        /*
            Settings Password elements
-         */
+        */
 
         const settingsPasswordForm =
             document.getElementById(
@@ -31,9 +31,9 @@ document.addEventListener(
             );
 
 
-        /* 
+        /*
            Get current user
-         */
+        */
 
         const currentUser =
             JSON.parse(
@@ -43,18 +43,18 @@ document.addEventListener(
             );
 
 
-        /* 
+        /*
            Check Login
-         */
+        */
 
         if (!currentUser) {
             return;
         }
 
 
-        /* 
+        /*
            Change Password
-         */
+        */
 
         if (settingsPasswordForm) {
 
@@ -75,9 +75,9 @@ document.addEventListener(
                         confirmPassword.value;
 
 
-                    /* 
+                    /*
                        Get Users
-                     */
+                    */
 
                     const users =
                         JSON.parse(
@@ -87,9 +87,9 @@ document.addEventListener(
                         ) || [];
 
 
-                    /* 
+                    /*
                        Find Current User
-                     */
+                    */
 
                     const userIndex =
                         users.findIndex(
@@ -106,83 +106,115 @@ document.addEventListener(
 
                     if (userIndex === -1) {
 
-                        alert(
-                            "User account not found."
-                        );
+                        Swal.fire({
+                            icon: "error",
+                            title: "User Not Found",
+                            text: "User account not found.",
+                            confirmButtonText: "OK",
+                            position: "top",
+                            customClass: {
+                                container:
+                                    "furniro-swal-container"
+                            }
+                        });
 
                         return;
                     }
 
 
-                    /* 
+                    /*
                        Get Full User
-                     */
+                    */
 
                     const user =
                         users[userIndex];
 
 
-                    /* 
+                    /*
                        Check Current Password
-                     */
+                    */
 
                     if (
                         oldPassword !==
                         user.password
                     ) {
 
-                        alert(
-                            "Current password is incorrect."
-                        );
+                        Swal.fire({
+                            icon: "warning",
+                            title: "Incorrect Password",
+                            text: "Current password is incorrect.",
+                            confirmButtonText: "OK",
+                            position: "top",
+                            customClass: {
+                                container:
+                                    "furniro-swal-container"
+                            }
+                        });
 
                         return;
                     }
 
 
-                    /* 
+                    /*
                        Check New Password
-                     */
+                    */
 
                     if (
                         password.length < 6
                     ) {
 
-                        alert(
-                            "New password must be at least 6 characters."
-                        );
+                        Swal.fire({
+                            icon: "warning",
+                            title: "Password Too Short",
+                            text: "New password must be at least 6 characters.",
+                            confirmButtonText: "OK",
+                            position: "top",
+                            customClass: {
+                                container:
+                                    "furniro-swal-container"
+                            }
+                        });
 
                         return;
                     }
 
 
-                    /* 
+                    /*
                        Check Confirm Password
-                     */
+                    */
 
                     if (
                         password !==
                         confirm
                     ) {
 
-                        alert(
-                            "New passwords do not match."
-                        );
+                        Swal.fire({
+                            icon: "warning",
+                            title: "Passwords Do Not Match",
+                            text: "New passwords do not match.",
+                            confirmButtonText: "OK",
+                            position: "top",
+                            customClass: {
+                                container:
+                                    "furniro-swal-container"
+                            }
+                        });
 
                         return;
                     }
 
 
-                    /* 
+                    /*
                        Update Password
-                     */
+                    */
 
                     users[userIndex].password =
                         password;
 
 
-                    /* 
+                    /*
                        Save Users
-                     */
+                    */
 
                     localStorage.setItem(
                         "furniroUsers",
@@ -192,9 +224,9 @@ document.addEventListener(
                     );
 
 
-                    /* 
+                    /*
                        Clear Password Fields
-                     */
+                    */
 
                     currentPassword.value =
                         "";
@@ -206,9 +238,21 @@ document.addEventListener(
                         "";
 
 
-                    alert(
-                        "Your password has been updated."
-                    );
+                    /*
+                       Success Message
+                    */
+
+                    Swal.fire({
+                        icon: "success",
+                        title: "Password Updated!",
+                        text: "Your password has been updated successfully.",
+                        confirmButtonText: "OK",
+                        position: "top",
+                        customClass: {
+                            container:
+                                "furniro-swal-container"
+                        }
+                    });
 
                 }
             );

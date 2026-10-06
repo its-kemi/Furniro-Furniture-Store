@@ -1,14 +1,14 @@
 /* 
    ACCOUNT SETTINGS PROFILE
- */
+*/
 
 document.addEventListener(
     "DOMContentLoaded",
     function () {
 
-        /* 
+        /*
            Settings Profile elements
-         */
+        */
 
         const settingsProfileForm =
             document.getElementById(
@@ -26,9 +26,9 @@ document.addEventListener(
             );
 
 
-        /* 
+        /*
            Get current user
-         */
+        */
 
         const currentUser =
             JSON.parse(
@@ -38,9 +38,9 @@ document.addEventListener(
             );
 
 
-        /* 
+        /*
            Check Login
-         */
+        */
 
         if (!currentUser) {
 
@@ -56,9 +56,9 @@ document.addEventListener(
         }
 
 
-        /* 
+        /*
            Show Current User Information
-         */
+        */
 
         if (settingsName) {
 
@@ -75,9 +75,9 @@ document.addEventListener(
         }
 
 
-        /* 
+        /*
            Save Personal Information
-         */
+        */
 
         if (settingsProfileForm) {
 
@@ -97,23 +97,31 @@ document.addEventListener(
                             .toLowerCase();
 
 
-                    /* 
+                    /*
                        Check Name
-                     */
+                    */
 
                     if (!name) {
 
-                        alert(
-                            "Please enter your full name."
-                        );
+                        Swal.fire({
+                            icon: "warning",
+                            title: "Invalid Name",
+                            text: "Please enter your full name.",
+                            confirmButtonText: "OK",
+                            position: "top",
+                            customClass: {
+                                container:
+                                    "furniro-swal-container"
+                            }
+                        });
 
                         return;
                     }
 
 
-                    /* 
+                    /*
                        Check Email
-                     */
+                    */
 
                     const emailPattern =
                         /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -125,17 +133,25 @@ document.addEventListener(
                         )
                     ) {
 
-                        alert(
-                            "Please enter a valid email address."
-                        );
+                        Swal.fire({
+                            icon: "warning",
+                            title: "Invalid Email",
+                            text: "Please enter a valid email address.",
+                            confirmButtonText: "OK",
+                            position: "top",
+                            customClass: {
+                                container:
+                                    "furniro-swal-container"
+                            }
+                        });
 
                         return;
                     }
 
 
-                    /* 
+                    /*
                        Get Users
-                     */
+                    */
 
                     const users =
                         JSON.parse(
@@ -145,9 +161,9 @@ document.addEventListener(
                         ) || [];
 
 
-                    /* 
+                    /*
                        Check Duplicate Email
-                     */
+                    */
 
                     const emailExists =
                         users.some(
@@ -166,17 +182,25 @@ document.addEventListener(
 
                     if (emailExists) {
 
-                        alert(
-                            "This email is already in use."
-                        );
+                        Swal.fire({
+                            icon: "warning",
+                            title: "Email Already in Use",
+                            text: "This email is already in use.",
+                            confirmButtonText: "OK",
+                            position: "top",
+                            customClass: {
+                                container:
+                                    "furniro-swal-container"
+                            }
+                        });
 
                         return;
                     }
 
 
-                    /* 
+                    /*
                        Update Current User
-                     */
+                    */
 
                     currentUser.name =
                         name;
@@ -185,9 +209,9 @@ document.addEventListener(
                         email;
 
 
-                    /* 
+                    /*
                        Update Users Array
-                     */
+                    */
 
                     const updatedUsers =
                         users.map(
@@ -214,9 +238,9 @@ document.addEventListener(
                         );
 
 
-                    /* 
+                    /*
                        Save Current User
-                     */
+                    */
 
                     localStorage.setItem(
                         "furniroCurrentUser",
@@ -226,9 +250,9 @@ document.addEventListener(
                     );
 
 
-                    /* 
+                    /*
                        Save Users
-                     */
+                    */
 
                     localStorage.setItem(
                         "furniroUsers",
@@ -238,9 +262,21 @@ document.addEventListener(
                     );
 
 
-                    alert(
-                        "Your personal information has been updated."
-                    );
+                    /*
+                       Success Message
+                    */
+
+                    Swal.fire({
+                        icon: "success",
+                        title: "Profile Updated!",
+                        text: "Your personal information has been updated successfully.",
+                        confirmButtonText: "OK",
+                        position: "top",
+                        customClass: {
+                            container:
+                                "furniro-swal-container"
+                        }
+                    });
 
                 }
             );

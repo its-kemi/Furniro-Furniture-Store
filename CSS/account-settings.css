@@ -421,3 +421,10 @@
 
     transform: translateX(-3px);
 }
+
+
+
+
+.furniro-swal-container {
+    z-index: 999999 !important;
+}

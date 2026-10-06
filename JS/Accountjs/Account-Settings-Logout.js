@@ -1,14 +1,14 @@
 /* 
    ACCOUNT SETTINGS LOGOUT
- */
+*/
 
 document.addEventListener(
     "DOMContentLoaded",
     function () {
 
-        /* 
+        /*
            Settings Logout
-         */
+        */
 
         const settingsLogoutButton =
             document.getElementById(
@@ -16,9 +16,9 @@ document.addEventListener(
             );
 
 
-        /* 
+        /*
            Logout
-         */
+        */
 
         if (settingsLogoutButton) {
 
@@ -26,32 +26,44 @@ document.addEventListener(
                 "click",
                 function () {
 
-                    const confirmLogout =
-                        confirm(
-                            "Are you sure you want to logout?"
-                        );
+                    Swal.fire({
+                        icon: "warning",
+                        title: "Logout?",
+                        text: "Are you sure you want to logout?",
+                        showCancelButton: true,
+                        confirmButtonText: "Yes, Logout",
+                        cancelButtonText: "Cancel",
+                        position: "top",
+                        customClass: {
+                            container:
+                                "furniro-swal-container"
+                        }
+                    }).then(
+                        function (result) {
+
+                            if (!result.isConfirmed) {
+                                return;
+                            }
 
 
-                    if (!confirmLogout) {
-                        return;
-                    }
+                            /*
+                               Remove Current User
+                            */
+
+                            localStorage.removeItem(
+                                "furniroCurrentUser"
+                            );
 
 
-                    /* 
-                       Remove Current User
-                     */
+                            /*
+                               Go Home
+                            */
 
-                    localStorage.removeItem(
-                        "furniroCurrentUser"
+                            window.location.href =
+                                "index.html";
+
+                        }
                     );
-
-
-                    /* 
-                       Go Home
-                     */
-
-                    window.location.href =
-                        "index.html";
 
                 }
             );
