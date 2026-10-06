@@ -601,131 +601,139 @@ document.addEventListener(
 
 
 
-       /*
-   PRODUCT GALLERY
-*/
+        /*
+           PRODUCT GALLERY
+        */
 
-if (productMainImage) {
+        if (productMainImage) {
 
-    productMainImage.src =
-        product.mainImage ||
-        product.image;
+            productMainImage.src =
+                product.mainImage ||
+                product.image;
 
-    productMainImage.alt =
-        product.name;
+            productMainImage.alt =
+                product.name;
 
-}
-
-
-const thumbnailContainer =
-    document.querySelector(
-        ".thumbnail-images"
-    );
+        }
 
 
-if (thumbnailContainer) {
-
-    thumbnailContainer.innerHTML =
-        "";
-
-
-    /*
-       FOUR SMALL IMAGES
-    */
-
-    const thumbnailList = [
-
-        "assite/Single Product.images/Single Product1.png",
-
-        "assite/Single Product.images/Single Product2.png",
-
-        "assite/Single Product.images/Single Product3.png",
-
-        "assite/Single Product.images/Single Product4.png"
-
-    ];
+        const thumbnailContainer =
+            document.querySelector(
+                ".thumbnail-images"
+            );
 
 
-    thumbnailList.forEach(
-        function (
-            image,
-            index
-        ) {
+        if (thumbnailContainer) {
 
-            const button =
-                document.createElement(
-                    "button"
-                );
+            thumbnailContainer.innerHTML =
+                "";
 
 
-            button.type =
-                "button";
+            /*
+               FOUR SMALL IMAGES
+            */
+
+            const thumbnailList = [
+
+                "assite/Single Product.images/Single Product1.png",
+
+                "assite/Single Product.images/Single Product2.png",
+
+                "assite/Single Product.images/Single Product3.png",
+
+                "assite/Single Product.images/Single Product4.png"
+
+            ];
 
 
-            button.className =
-                "thumbnail-button";
+            thumbnailList.forEach(
+                function (
+                    image,
+                    index
+                ) {
+
+                    const button =
+                        document.createElement(
+                            "button"
+                        );
 
 
-            if (index === 0) {
-
-                button.classList.add(
-                    "active"
-                );
-
-            }
+                    button.type =
+                        "button";
 
 
-            button.innerHTML = `
-
-                <img
-                    src="${image}"
-                    alt="${product.name} ${index + 1}"
-                >
-
-            `;
+                    button.className =
+                        "thumbnail-button";
 
 
-            button.addEventListener(
-                "click",
-                function () {
+                    if (index === 0) {
 
-                    if (
-                        !productMainImage
-                    ) {
-
-                        return;
+                        button.classList.add(
+                            "active"
+                        );
 
                     }
 
 
-                    /*
-                       CHANGE LARGE IMAGE
-                    */
+                    button.innerHTML = `
 
-                    productMainImage.src =
-                        image;
+                        <img
+                            src="${image}"
+                            alt="${product.name} ${index + 1}"
+                        >
 
-
-                    productMainImage.alt =
-                        product.name;
+                    `;
 
 
-                    /*
-                       ACTIVE THUMBNAIL
-                    */
+                    button.addEventListener(
+                        "click",
+                        function () {
 
-                    const buttons =
-                        thumbnailContainer.querySelectorAll(
-                            ".thumbnail-button"
-                        );
+                            if (
+                                !productMainImage
+                            ) {
+
+                                return;
+
+                            }
 
 
-                    buttons.forEach(
-                        function (
-                            item
-                        ) {
+                            /*
+                               CHANGE LARGE IMAGE
+                            */
 
-                            item.classList.remove(
+                            productMainImage.src =
+                                image;
+
+
+                            productMainImage.alt =
+                                product.name;
+
+
+                            /*
+                               ACTIVE THUMBNAIL
+                            */
+
+                            const buttons =
+                                thumbnailContainer.querySelectorAll(
+                                    ".thumbnail-button"
+                                );
+
+
+                            buttons.forEach(
+                                function (
+                                    item
+                                ) {
+
+                                    item.classList.remove(
+                                        "active"
+                                    );
+
+                                }
+                            );
+
+
+                            button.classList.add(
                                 "active"
                             );
 
@@ -733,22 +741,15 @@ if (thumbnailContainer) {
                     );
 
 
-                    button.classList.add(
-                        "active"
+                    thumbnailContainer.appendChild(
+                        button
                     );
 
                 }
             );
 
-
-            thumbnailContainer.appendChild(
-                button
-            );
-
         }
-    );
 
-}
 
 
         /*
@@ -941,6 +942,25 @@ if (thumbnailContainer) {
 
 
                 /*
+                   SWEETALERT
+                */
+
+                Swal.fire({
+                    icon: "success",
+                    title: "Added to Cart!",
+                    text:
+                        product.name +
+                        " has been added to your cart.",
+                    confirmButtonText: "OK",
+                    position: "top",
+                    customClass: {
+                        container:
+                            "furniro-swal-container"
+                    }
+                });
+
+
+                /*
                    OPEN CART SIDEBAR
                 */
 
@@ -1023,6 +1043,25 @@ if (thumbnailContainer) {
 
 
             /*
+               SWEETALERT
+            */
+
+            Swal.fire({
+                icon: "success",
+                title: "Added to Cart!",
+                text:
+                    product.name +
+                    " has been added to your cart.",
+                confirmButtonText: "OK",
+                position: "top",
+                customClass: {
+                    container:
+                        "furniro-swal-container"
+                }
+            });
+
+
+            /*
                OPEN CART SIDEBAR
             */
 
@@ -1036,7 +1075,6 @@ if (thumbnailContainer) {
             }
 
         }
-
 
 
         if (singleAddCartButton) {
@@ -1120,9 +1158,17 @@ if (thumbnailContainer) {
 
             if (alreadyExists) {
 
-                alert(
-                    "This product is already in comparison."
-                );
+                Swal.fire({
+                    icon: "warning",
+                    title: "Already Added",
+                    text: "This product is already in comparison.",
+                    confirmButtonText: "OK",
+                    position: "top",
+                    customClass: {
+                        container:
+                            "furniro-swal-container"
+                    }
+                });
 
                 return false;
 
@@ -1131,9 +1177,17 @@ if (thumbnailContainer) {
 
             if (comparison.length >= 2) {
 
-                alert(
-                    "You can compare only two products."
-                );
+                Swal.fire({
+                    icon: "warning",
+                    title: "Comparison Limit",
+                    text: "You can compare only two products.",
+                    confirmButtonText: "OK",
+                    position: "top",
+                    customClass: {
+                        container:
+                            "furniro-swal-container"
+                    }
+                });
 
                 return false;
 
@@ -1162,10 +1216,19 @@ if (thumbnailContainer) {
             );
 
 
-            alert(
-                selectedProduct.name +
-                " added to comparison!"
-            );
+            Swal.fire({
+                icon: "success",
+                title: "Added to Comparison!",
+                text:
+                    selectedProduct.name +
+                    " has been added to comparison.",
+                confirmButtonText: "OK",
+                position: "top",
+                customClass: {
+                    container:
+                        "furniro-swal-container"
+                }
+            });
 
 
             return true;
@@ -1695,13 +1758,119 @@ if (thumbnailContainer) {
                         event.preventDefault();
 
 
-                        addProductToCart(
-                            relatedProduct,
-                            1
+                        /*
+                           GET CART
+                        */
+
+                        let cart =
+                            JSON.parse(
+                                localStorage.getItem(
+                                    "cart"
+                                )
+                            ) || [];
+
+
+                        /*
+                           CHECK EXISTING PRODUCT
+                        */
+
+                        const existingProduct =
+                            cart.find(
+                                function (item) {
+
+                                    return (
+                                        String(item.id) ===
+                                        String(
+                                            relatedProduct.id
+                                        )
+                                    );
+
+                                }
+                            );
+
+
+                        /*
+                           INCREASE QUANTITY
+                        */
+
+                        if (existingProduct) {
+
+                            existingProduct.quantity++;
+
+                        }
+
+
+                        /*
+                           ADD NEW PRODUCT
+                        */
+
+                        else {
+
+                            cart.push({
+
+                                id:
+                                    relatedProduct.id,
+
+                                name:
+                                    relatedProduct.name,
+
+                                price:
+                                    relatedProduct.price,
+
+                                image:
+                                    relatedProduct.image,
+
+                                quantity:
+                                    1
+
+                            });
+
+                        }
+
+
+                        /*
+                           SAVE CART
+                        */
+
+                        localStorage.setItem(
+                            "cart",
+                            JSON.stringify(
+                                cart
+                            )
                         );
 
 
-                        openCartSidebar();
+                        /*
+                           SWEETALERT
+                        */
+
+                        Swal.fire({
+                            icon: "success",
+                            title: "Added to Cart!",
+                            text:
+                                relatedProduct.name +
+                                " has been added to your cart.",
+                            confirmButtonText: "OK",
+                            position: "top",
+                            customClass: {
+                                container:
+                                    "furniro-swal-container"
+                            }
+                        });
+
+
+                        /*
+                           OPEN CART SIDEBAR
+                        */
+
+                        if (
+                            typeof openCartSidebar ===
+                            "function"
+                        ) {
+
+                            openCartSidebar();
+
+                        }
 
 
                         return;
@@ -1789,10 +1958,19 @@ if (thumbnailContainer) {
 
                         if (exists) {
 
-                            alert(
-                                relatedProduct.name +
-                                " is already in your wishlist."
-                            );
+                            Swal.fire({
+                                icon: "warning",
+                                title: "Already in Wishlist",
+                                text:
+                                    relatedProduct.name +
+                                    " is already in your wishlist.",
+                                confirmButtonText: "OK",
+                                position: "top",
+                                customClass: {
+                                    container:
+                                        "furniro-swal-container"
+                                }
+                            });
 
 
                             return;
@@ -1850,10 +2028,19 @@ if (thumbnailContainer) {
                         }
 
 
-                        alert(
-                            relatedProduct.name +
-                            " added to wishlist!"
-                        );
+                        Swal.fire({
+                            icon: "success",
+                            title: "Added to Wishlist!",
+                            text:
+                                relatedProduct.name +
+                                " has been added to your wishlist.",
+                            confirmButtonText: "OK",
+                            position: "top",
+                            customClass: {
+                                container:
+                                    "furniro-swal-container"
+                            }
+                        });
 
 
                         return;
@@ -1950,9 +2137,16 @@ if (thumbnailContainer) {
             );
 
 
-            alert(
-                "Product link copied!"
-            );
+            Swal.fire({
+                icon: "success",
+                title: "Link Copied!",
+                text: "Product link copied!",
+                confirmButtonText: "OK",
+                position: "top",
+                customClass: {
+                    container: "furniro-swal-container"
+                }
+            });
 
         }
 

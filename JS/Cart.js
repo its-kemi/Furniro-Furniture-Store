@@ -167,10 +167,19 @@ addCartButtons.forEach(function (button) {
                MESSAGE
             */
 
-            alert(
-                productName +
-                " added to cart!"
-            );
+            Swal.fire({
+                icon: "success",
+                title: "Added to Cart!",
+                text:
+                    productName +
+                    " has been added to your cart.",
+                confirmButtonText: "OK",
+                position: "top",
+                customClass: {
+                    container:
+                        "furniro-swal-container"
+                }
+            });
 
         }
     );
@@ -730,9 +739,17 @@ if (checkoutButton) {
 
             if (cart.length === 0) {
 
-                alert(
-                    "Your cart is empty."
-                );
+                Swal.fire({
+                    icon: "warning",
+                    title: "Cart is Empty",
+                    text: "Your cart is empty.",
+                    confirmButtonText: "OK",
+                    position: "top",
+                    customClass: {
+                        container:
+                            "furniro-swal-container"
+                    }
+                });
 
                 return;
 
