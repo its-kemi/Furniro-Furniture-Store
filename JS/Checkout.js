@@ -298,13 +298,20 @@ if (checkoutForm) {
             if (checkoutCart.length === 0) {
 
                 /*
-                   SAVE ERROR MESSAGE
+                   SWEETALERT
                 */
 
-                sessionStorage.setItem(
-                    "checkoutError",
-                    "Your cart is empty."
-                );
+                Swal.fire({
+                    icon: "warning",
+                    title: "Cart is Empty",
+                    text: "Your cart is empty.",
+                    confirmButtonText: "OK",
+                    position: "top",
+                    customClass: {
+                        container:
+                            "furniro-swal-container"
+                    }
+                });
 
 
                 return;
@@ -384,13 +391,20 @@ if (checkoutForm) {
             ) {
 
                 /*
-                   SAVE ERROR MESSAGE
+                   SWEETALERT
                 */
 
-                sessionStorage.setItem(
-                    "checkoutError",
-                    "Please complete all required fields."
-                );
+                Swal.fire({
+                    icon: "warning",
+                    title: "Incomplete Information",
+                    text: "Please complete all required fields.",
+                    confirmButtonText: "OK",
+                    position: "top",
+                    customClass: {
+                        container:
+                            "furniro-swal-container"
+                    }
+                });
 
 
                 return;
@@ -528,23 +542,29 @@ if (checkoutForm) {
 
 
             /*
-               SAVE SUCCESS MESSAGE
-               FOR ORDERS PAGE
+               SWEETALERT SUCCESS
             */
 
-            sessionStorage.setItem(
-                "orderSuccess",
-                "Order placed successfully! Your order has been saved."
-            );
+            Swal.fire({
+                icon: "success",
+                title: "Order Placed Successfully!",
+                text: "Your order has been saved successfully.",
+                confirmButtonText: "OK",
+                position: "top",
+                customClass: {
+                    container:
+                        "furniro-swal-container"
+                }
+            }).then(function () {
 
+                /*
+                   GO TO ORDERS
+                */
 
+                window.location.href =
+                    "Orders.html";
 
-            /*
-               GO TO ORDERS
-            */
-
-            window.location.href =
-                "Orders.html";
+            });
 
         }
     );

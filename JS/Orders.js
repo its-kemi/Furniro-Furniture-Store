@@ -32,12 +32,6 @@ const emptyOrders =
     );
 
 
-const orderSuccessMessage =
-    document.getElementById(
-        "orderSuccessMessage"
-    );
-
-
 
 /*
    FORMAT PRICE
@@ -73,69 +67,6 @@ function formatOrderDate(date) {
             month: "long",
             day: "numeric"
         }
-    );
-
-}
-
-
-
-/*
-   SHOW ORDER SUCCESS MESSAGE
-*/
-
-function showOrderSuccess(message) {
-
-    if (!orderSuccessMessage) {
-
-        return;
-
-    }
-
-
-    /*
-       GET MESSAGE TEXT
-    */
-
-    const text =
-        orderSuccessMessage.querySelector(
-            "span"
-        );
-
-
-    /*
-       SET MESSAGE
-    */
-
-    if (text) {
-
-        text.textContent =
-            message;
-
-    }
-
-
-    /*
-       SHOW MESSAGE
-    */
-
-    orderSuccessMessage.classList.add(
-        "show"
-    );
-
-
-    /*
-       HIDE MESSAGE AFTER 4 SECONDS
-    */
-
-    setTimeout(
-        function () {
-
-            orderSuccessMessage.classList.remove(
-                "show"
-            );
-
-        },
-        4000
     );
 
 }
@@ -402,33 +333,3 @@ function renderOrders() {
 */
 
 renderOrders();
-
-
-
-/*
-   CHECK ORDER SUCCESS MESSAGE
-*/
-
-const orderSuccess =
-    sessionStorage.getItem(
-        "orderSuccess"
-    );
-
-
-if (orderSuccess) {
-
-    showOrderSuccess(
-        orderSuccess
-    );
-
-
-    /*
-       REMOVE MESSAGE
-       AFTER READING
-    */
-
-    sessionStorage.removeItem(
-        "orderSuccess"
-    );
-
-}
