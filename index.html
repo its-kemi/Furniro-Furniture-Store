@@ -3374,42 +3374,49 @@
                     id="modalEditEmail"
                     required>
 
+                     <!-- - Photo -->
 
-                <!-- - Photo -->
+<label for="modalEditPhoto">
+    Profile Photo
+</label>
 
-                <label for="modalEditPhoto">
-                    Profile Photo
-                </label>
+<input
+    type="file"
+    id="modalEditPhoto"
+    accept="image/*">
 
-                <input
-                    type="file"
-                    id="modalEditPhoto"
-                    accept="image/*">
-
-
-                <!-- - Buttons -->
-
-                <div class="profile-modal-form-buttons">
-
-                    <button
-                        type="button"
-                        id="modalCancelEdit"
-                        class="profile-modal-cancel">
-
-                        Cancel
-
-                    </button>
+<button
+    type="button"
+    id="removeProfilePhoto">
+    Remove Photo
+</button>
 
 
-                    <button
-                        type="submit"
-                        class="profile-modal-save">
+<!-- - Buttons -->
 
-                        Save Changes
+<div class="profile-modal-form-buttons">
 
-                    </button>
+    <button
+        type="button"
+        id="modalCancelEdit"
+        class="profile-modal-cancel">
 
-                </div>
+        Cancel
+
+    </button>
+
+    <button
+        type="submit"
+        class="profile-modal-save">
+
+        Save Changes
+
+    </button>
+
+</div>
+
+
+                   
 
             </form>
 

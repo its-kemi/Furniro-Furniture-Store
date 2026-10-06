@@ -11,54 +11,37 @@ document.addEventListener(
         ===================================================== */
 
         const modalEditProfile =
-            document.getElementById(
-                "modalEditProfile"
-            );
+            document.getElementById("modalEditProfile");
 
         const profileModalView =
-            document.getElementById(
-                "profileModalView"
-            );
+            document.getElementById("profileModalView");
 
         const profileModalEdit =
-            document.getElementById(
-                "profileModalEdit"
-            );
+            document.getElementById("profileModalEdit");
 
         const modalProfileForm =
-            document.getElementById(
-                "modalProfileForm"
-            );
+            document.getElementById("modalProfileForm");
 
         const modalEditName =
-            document.getElementById(
-                "modalEditName"
-            );
+            document.getElementById("modalEditName");
 
         const modalEditEmail =
-            document.getElementById(
-                "modalEditEmail"
-            );
+            document.getElementById("modalEditEmail");
 
         const modalEditPhoto =
-            document.getElementById(
-                "modalEditPhoto"
-            );
+            document.getElementById("modalEditPhoto");
 
         const modalEditPhotoPreview =
-            document.getElementById(
-                "modalEditPhotoPreview"
-            );
+            document.getElementById("modalEditPhotoPreview");
 
         const modalEditPhotoInitials =
-            document.getElementById(
-                "modalEditPhotoInitials"
-            );
+            document.getElementById("modalEditPhotoInitials");
 
         const modalCancelEdit =
-            document.getElementById(
-                "modalCancelEdit"
-            );
+            document.getElementById("modalCancelEdit");
+
+        const removeProfilePhoto =
+            document.getElementById("removeProfilePhoto");
 
 
         /* =====================================================
@@ -66,34 +49,22 @@ document.addEventListener(
         ===================================================== */
 
         const editProfileButton =
-            document.getElementById(
-                "editProfileButton"
-            );
+            document.getElementById("editProfileButton");
 
         const profileEdit =
-            document.getElementById(
-                "profileEdit"
-            );
+            document.getElementById("profileEdit");
 
         const profileForm =
-            document.getElementById(
-                "profileForm"
-            );
+            document.getElementById("profileForm");
 
         const profileNameInput =
-            document.getElementById(
-                "profile-name"
-            );
+            document.getElementById("profile-name");
 
         const profileEmailInput =
-            document.getElementById(
-                "profile-email"
-            );
+            document.getElementById("profile-email");
 
         const profilePhotoInput =
-            document.getElementById(
-                "profile-photo-input"
-            );
+            document.getElementById("profile-photo-input");
 
 
         /* =====================================================
@@ -109,6 +80,34 @@ document.addEventListener(
 
 
         /* =====================================================
+           ORIGINAL PHOTO
+           Used for Cancel
+        ===================================================== */
+
+        let originalProfilePhoto = "";
+
+
+        /* =====================================================
+           GET USER NAME
+        ===================================================== */
+
+        function getUserName(user) {
+
+            if (!user) {
+                return "User";
+            }
+
+            return (
+                user.name ||
+                user.fullName ||
+                user.username ||
+                "User"
+            );
+
+        }
+
+
+        /* =====================================================
            GET USER INITIALS
         ===================================================== */
 
@@ -118,13 +117,11 @@ document.addEventListener(
                 return "";
             }
 
-
             const words =
                 name
                     .trim()
                     .split(/\s+/)
                     .filter(Boolean);
-
 
             if (words.length >= 2) {
 
@@ -135,7 +132,6 @@ document.addEventListener(
 
             }
 
-
             if (words.length === 1) {
 
                 return words[0]
@@ -143,7 +139,6 @@ document.addEventListener(
                     .toUpperCase();
 
             }
-
 
             return "";
 
@@ -157,24 +152,16 @@ document.addEventListener(
         function updateUserMenu() {
 
             const userMenuName =
-                document.getElementById(
-                    "userMenuName"
-                );
+                document.getElementById("userMenuName");
 
             const userMenuEmail =
-                document.getElementById(
-                    "userMenuEmail"
-                );
+                document.getElementById("userMenuEmail");
 
             const userMenuPhoto =
-                document.getElementById(
-                    "userMenuPhoto"
-                );
+                document.getElementById("userMenuPhoto");
 
             const userMenuInitials =
-                document.getElementById(
-                    "userMenuInitials"
-                );
+                document.getElementById("userMenuInitials");
 
 
             if (!currentUser) {
@@ -187,7 +174,7 @@ document.addEventListener(
             if (userMenuName) {
 
                 userMenuName.textContent =
-                    currentUser.name || "User";
+                    getUserName(currentUser);
 
             }
 
@@ -204,7 +191,7 @@ document.addEventListener(
 
             const initials =
                 getUserInitials(
-                    currentUser.name
+                    getUserName(currentUser)
                 );
 
 
@@ -223,7 +210,6 @@ document.addEventListener(
                         "block";
 
                 }
-
 
                 if (userMenuInitials) {
 
@@ -246,15 +232,12 @@ document.addEventListener(
 
                 if (userMenuPhoto) {
 
-                    userMenuPhoto.removeAttribute(
-                        "src"
-                    );
+                    userMenuPhoto.removeAttribute("src");
 
                     userMenuPhoto.style.display =
                         "none";
 
                 }
-
 
                 if (userMenuInitials) {
 
@@ -278,24 +261,16 @@ document.addEventListener(
         function updateProfile() {
 
             const profilePhoto =
-                document.getElementById(
-                    "profilePhoto"
-                );
+                document.getElementById("profilePhoto");
 
             const profileInitials =
-                document.getElementById(
-                    "profileInitials"
-                );
+                document.getElementById("profileInitials");
 
             const profileName =
-                document.getElementById(
-                    "profileName"
-                );
+                document.getElementById("profileName");
 
             const profileEmail =
-                document.getElementById(
-                    "profileEmail"
-                );
+                document.getElementById("profileEmail");
 
 
             if (!currentUser) {
@@ -308,7 +283,7 @@ document.addEventListener(
             if (profileName) {
 
                 profileName.textContent =
-                    currentUser.name || "User";
+                    getUserName(currentUser);
 
             }
 
@@ -325,7 +300,7 @@ document.addEventListener(
 
             const initials =
                 getUserInitials(
-                    currentUser.name
+                    getUserName(currentUser)
                 );
 
 
@@ -344,7 +319,6 @@ document.addEventListener(
                         "block";
 
                 }
-
 
                 if (profileInitials) {
 
@@ -367,15 +341,12 @@ document.addEventListener(
 
                 if (profilePhoto) {
 
-                    profilePhoto.removeAttribute(
-                        "src"
-                    );
+                    profilePhoto.removeAttribute("src");
 
                     profilePhoto.style.display =
                         "none";
 
                 }
-
 
                 if (profileInitials) {
 
@@ -399,24 +370,16 @@ document.addEventListener(
         function updateProfileModal() {
 
             const modalProfilePhoto =
-                document.getElementById(
-                    "modalProfilePhoto"
-                );
+                document.getElementById("modalProfilePhoto");
 
             const modalProfileInitials =
-                document.getElementById(
-                    "modalProfileInitials"
-                );
+                document.getElementById("modalProfileInitials");
 
             const modalProfileName =
-                document.getElementById(
-                    "modalProfileName"
-                );
+                document.getElementById("modalProfileName");
 
             const modalProfileEmail =
-                document.getElementById(
-                    "modalProfileEmail"
-                );
+                document.getElementById("modalProfileEmail");
 
 
             if (!currentUser) {
@@ -429,7 +392,7 @@ document.addEventListener(
             if (modalProfileName) {
 
                 modalProfileName.textContent =
-                    currentUser.name || "User";
+                    getUserName(currentUser);
 
             }
 
@@ -446,7 +409,7 @@ document.addEventListener(
 
             const initials =
                 getUserInitials(
-                    currentUser.name
+                    getUserName(currentUser)
                 );
 
 
@@ -465,7 +428,6 @@ document.addEventListener(
                         "block";
 
                 }
-
 
                 if (modalProfileInitials) {
 
@@ -488,15 +450,12 @@ document.addEventListener(
 
                 if (modalProfilePhoto) {
 
-                    modalProfilePhoto.removeAttribute(
-                        "src"
-                    );
+                    modalProfilePhoto.removeAttribute("src");
 
                     modalProfilePhoto.style.display =
                         "none";
 
                 }
-
 
                 if (modalProfileInitials) {
 
@@ -587,12 +546,18 @@ document.addEventListener(
                     }
 
 
+                    /* Save original photo */
+
+                    originalProfilePhoto =
+                        currentUser.photo || "";
+
+
                     /* Fill name */
 
                     if (modalEditName) {
 
                         modalEditName.value =
-                            currentUser.name || "";
+                            getUserName(currentUser);
 
                     }
 
@@ -607,9 +572,7 @@ document.addEventListener(
                     }
 
 
-                    /* =================================================
-                       CURRENT PHOTO
-                    ================================================= */
+                    /* Current photo */
 
                     if (modalEditPhotoPreview) {
 
@@ -637,9 +600,7 @@ document.addEventListener(
                     }
 
 
-                    /* =================================================
-                       CURRENT INITIALS
-                    ================================================= */
+                    /* Current initials */
 
                     if (modalEditPhotoInitials) {
 
@@ -657,7 +618,7 @@ document.addEventListener(
 
                             modalEditPhotoInitials.textContent =
                                 getUserInitials(
-                                    currentUser.name
+                                    getUserName(currentUser)
                                 );
 
                             modalEditPhotoInitials.style.display =
@@ -665,6 +626,13 @@ document.addEventListener(
 
                         }
 
+                    }
+
+
+                    /* Clear file input */
+
+                    if (modalEditPhoto) {
+                        modalEditPhoto.value = "";
                     }
 
 
@@ -748,8 +716,106 @@ document.addEventListener(
                         };
 
 
-                    reader.readAsDataURL(
-                        file
+                    reader.readAsDataURL(file);
+
+                }
+            );
+
+        }
+
+
+        /* =====================================================
+           REMOVE PROFILE PHOTO
+        ===================================================== */
+
+        if (removeProfilePhoto) {
+
+            removeProfilePhoto.addEventListener(
+                "click",
+                function () {
+
+                    if (!currentUser) {
+                        return;
+                    }
+
+
+                    Swal.fire({
+                        icon: "warning",
+                        title: "Remove Profile Photo?",
+                        text: "Your profile photo will be removed.",
+                        showCancelButton: true,
+                        confirmButtonText: "Yes, Remove",
+                        cancelButtonText: "Cancel",
+                        position: "top",
+                        customClass: {
+                            container:
+                                "furniro-swal-container"
+                        }
+                    }).then(
+                        function (result) {
+
+                            if (!result.isConfirmed) {
+                                return;
+                            }
+
+
+                            /* Remove photo */
+
+                            currentUser.photo = "";
+
+
+                            /* Remove preview */
+
+                            if (modalEditPhotoPreview) {
+
+                                modalEditPhotoPreview.removeAttribute(
+                                    "src"
+                                );
+
+                                modalEditPhotoPreview.style.display =
+                                    "none";
+
+                            }
+
+
+                            /* Show initials */
+
+                            if (modalEditPhotoInitials) {
+
+                                modalEditPhotoInitials.textContent =
+                                    getUserInitials(
+                                        getUserName(currentUser)
+                                    );
+
+                                modalEditPhotoInitials.style.display =
+                                    "flex";
+
+                            }
+
+
+                            /* Clear selected file */
+
+                            if (modalEditPhoto) {
+
+                                modalEditPhoto.value =
+                                    "";
+
+                            }
+
+
+                            Swal.fire({
+                                icon: "success",
+                                title: "Photo Removed!",
+                                text: "Your profile photo has been removed.",
+                                confirmButtonText: "OK",
+                                position: "top",
+                                customClass: {
+                                    container:
+                                        "furniro-swal-container"
+                                }
+                            });
+
+                        }
                     );
 
                 }
@@ -767,6 +833,16 @@ document.addEventListener(
             modalCancelEdit.addEventListener(
                 "click",
                 function () {
+
+                    /* Restore original photo */
+
+                    if (currentUser) {
+
+                        currentUser.photo =
+                            originalProfilePhoto;
+
+                    }
+
 
                     /* Show Profile View */
 
@@ -798,9 +874,7 @@ document.addEventListener(
                     }
 
 
-                    /* =================================================
-                       RESTORE OLD PHOTO OR INITIALS
-                    ================================================= */
+                    /* Restore photo preview */
 
                     if (modalEditPhotoPreview) {
 
@@ -831,6 +905,8 @@ document.addEventListener(
                     }
 
 
+                    /* Restore initials */
+
                     if (modalEditPhotoInitials) {
 
                         if (
@@ -850,7 +926,7 @@ document.addEventListener(
 
                             modalEditPhotoInitials.textContent =
                                 getUserInitials(
-                                    currentUser.name
+                                    getUserName(currentUser)
                                 );
 
                             modalEditPhotoInitials.style.display =
@@ -908,9 +984,17 @@ document.addEventListener(
 
                     if (newName.length < 2) {
 
-                        alert(
-                            "Please enter your full name."
-                        );
+                        Swal.fire({
+                            icon: "warning",
+                            title: "Invalid Name",
+                            text: "Please enter your full name.",
+                            confirmButtonText: "OK",
+                            position: "top",
+                            customClass: {
+                                container:
+                                    "furniro-swal-container"
+                            }
+                        });
 
                         return;
                     }
@@ -926,9 +1010,17 @@ document.addEventListener(
                         )
                     ) {
 
-                        alert(
-                            "Please enter a valid email."
-                        );
+                        Swal.fire({
+                            icon: "warning",
+                            title: "Invalid Email",
+                            text: "Please enter a valid email.",
+                            confirmButtonText: "OK",
+                            position: "top",
+                            customClass: {
+                                container:
+                                    "furniro-swal-container"
+                            }
+                        });
 
                         return;
                     }
@@ -967,9 +1059,17 @@ document.addEventListener(
 
                     if (emailExists) {
 
-                        alert(
-                            "This email is already registered."
-                        );
+                        Swal.fire({
+                            icon: "warning",
+                            title: "Email Already Exists",
+                            text: "This email is already registered.",
+                            confirmButtonText: "OK",
+                            position: "top",
+                            customClass: {
+                                container:
+                                    "furniro-swal-container"
+                            }
+                        });
 
                         return;
                     }
@@ -1014,9 +1114,7 @@ document.addEventListener(
                             };
 
 
-                        reader.readAsDataURL(
-                            file
-                        );
+                        reader.readAsDataURL(file);
 
                     }
 
@@ -1138,9 +1236,25 @@ document.addEventListener(
             }
 
 
-            alert(
-                "Profile updated successfully!"
-            );
+            /* Reset original photo */
+
+            originalProfilePhoto =
+                currentUser.photo || "";
+
+
+            /* Success Message */
+
+            Swal.fire({
+                icon: "success",
+                title: "Profile Updated!",
+                text: "Profile updated successfully.",
+                confirmButtonText: "OK",
+                position: "top",
+                customClass: {
+                    container:
+                        "furniro-swal-container"
+                }
+            });
 
         }
 
@@ -1165,7 +1279,7 @@ document.addEventListener(
                     if (profileNameInput) {
 
                         profileNameInput.value =
-                            currentUser.name || "";
+                            getUserName(currentUser);
 
                     }
 
@@ -1238,9 +1352,17 @@ document.addEventListener(
 
                     if (newName.length < 2) {
 
-                        alert(
-                            "Please enter your full name."
-                        );
+                        Swal.fire({
+                            icon: "warning",
+                            title: "Invalid Name",
+                            text: "Please enter your full name.",
+                            confirmButtonText: "OK",
+                            position: "top",
+                            customClass: {
+                                container:
+                                    "furniro-swal-container"
+                            }
+                        });
 
                         return;
                     }
@@ -1256,9 +1378,66 @@ document.addEventListener(
                         )
                     ) {
 
-                        alert(
-                            "Please enter a valid email."
+                        Swal.fire({
+                            icon: "warning",
+                            title: "Invalid Email",
+                            text: "Please enter a valid email.",
+                            confirmButtonText: "OK",
+                            position: "top",
+                            customClass: {
+                                container:
+                                    "furniro-swal-container"
+                            }
+                        });
+
+                        return;
+                    }
+
+
+                    /* =================================================
+                       GET USERS
+                    ================================================= */
+
+                    const users =
+                        JSON.parse(
+                            localStorage.getItem(
+                                "furniroUsers"
+                            )
+                        ) || [];
+
+
+                    /* =================================================
+                       CHECK DUPLICATE EMAIL
+                    ================================================= */
+
+                    const emailExists =
+                        users.find(
+                            function (user) {
+
+                                return (
+                                    user.email ===
+                                        newEmail &&
+                                    user.id !==
+                                        currentUser.id
+                                );
+
+                            }
                         );
+
+
+                    if (emailExists) {
+
+                        Swal.fire({
+                            icon: "warning",
+                            title: "Email Already Exists",
+                            text: "This email is already registered.",
+                            confirmButtonText: "OK",
+                            position: "top",
+                            customClass: {
+                                container:
+                                    "furniro-swal-container"
+                            }
+                        });
 
                         return;
                     }
@@ -1298,9 +1477,7 @@ document.addEventListener(
                             };
 
 
-                        reader.readAsDataURL(
-                            file
-                        );
+                        reader.readAsDataURL(file);
 
                     }
 
@@ -1412,9 +1589,19 @@ document.addEventListener(
             }
 
 
-            alert(
-                "Profile updated successfully!"
-            );
+            /* Success Message */
+
+            Swal.fire({
+                icon: "success",
+                title: "Profile Updated!",
+                text: "Profile updated successfully.",
+                confirmButtonText: "OK",
+                position: "top",
+                customClass: {
+                    container:
+                        "furniro-swal-container"
+                }
+            });
 
         }
 

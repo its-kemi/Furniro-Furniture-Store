@@ -3786,6 +3786,39 @@ body.dark-mode .home-header .theme-button i {
 }
 
 
+/* استایل‌های قبلی پروفایل */
+
+
+/* =========================
+   REMOVE PROFILE PHOTO
+========================= */
+
+#removeProfilePhoto {
+    width: 100%;
+    padding: 12px 20px;
+    margin-top: 10px;
+
+    border: 1px solid #b88e2f;
+    border-radius: 4px;
+
+    background: transparent;
+    color: #b88e2f;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+#removeProfilePhoto:hover {
+    background: #b88e2f;
+    color: #fff;
+}
+
+
 
 
 
