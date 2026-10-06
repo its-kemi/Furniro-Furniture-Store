@@ -1,4 +1,6 @@
-/* - Reset */
+/* ==================================================
+   RESET
+================================================== */
 
 * {
     margin: 0;
@@ -15,7 +17,9 @@ body {
 }
 
 
-/* - Sticky Header */
+/* ==================================================
+   STICKY HEADER
+================================================== */
 
 .about-header {
     width: 100%;
@@ -101,7 +105,9 @@ header .icons i:hover {
 }
 
 
-/* - Mobile Menu */
+/* ==================================================
+   MOBILE MENU
+================================================== */
 
 .mobile-menu-button {
     display: none;
@@ -121,7 +127,9 @@ header .icons i:hover {
 }
 
 
-/* - About Banner */
+/* ==================================================
+   ABOUT BANNER
+================================================== */
 
 .about-banner {
     width: 100%;
@@ -196,9 +204,10 @@ header .icons i:hover {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
-    transition: transform 0.3s ease,
-                background-color 0.3s ease,
-                color 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease;
 }
 
 .about-banner-content a:hover {
@@ -216,7 +225,9 @@ header .icons i:hover {
 }
 
 
-/* - Banner Animation */
+/* ==================================================
+   BANNER ANIMATION
+================================================== */
 
 .about-banner-content span,
 .about-banner-content h1,
@@ -254,15 +265,19 @@ header .icons i:hover {
 }
 
 
-/* - Our Story */
+/* ==================================================
+   OUR STORY
+================================================== */
 
 .about-intro {
     width: 90%;
     max-width: 1200px;
     margin: 110px auto;
+
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 70px;
+
     align-items: center;
 }
 
@@ -320,13 +335,17 @@ header .icons i:hover {
     gap: 12px;
     margin-top: 15px;
     padding: 14px 25px;
+
     background-color: #333;
     color: #fff;
+
     text-decoration: none;
     font-weight: bold;
-    transition: transform 0.3s ease,
-                background-color 0.3s ease,
-                color 0.3s ease;
+
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease;
 }
 
 .about-intro-text a:hover {
@@ -343,7 +362,9 @@ header .icons i:hover {
 }
 
 
-/* - Why Furniro */
+/* ==================================================
+   WHY FUNRIRO
+================================================== */
 
 .about-features {
     width: 90%;
@@ -384,8 +405,10 @@ header .icons i:hover {
     background-color: #f8f8f8;
     text-align: center;
     cursor: pointer;
-    transition: transform 0.35s ease,
-                box-shadow 0.35s ease;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
 .feature-card:hover {
@@ -402,11 +425,14 @@ header .icons i:hover {
     width: 65px;
     height: 65px;
     margin: 0 auto 20px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     background-color: #fff;
     border-radius: 50%;
+
     color: #b88e2f;
     font-size: 25px;
 }
@@ -423,22 +449,21 @@ header .icons i:hover {
 }
 
 
-
-
-
-
-
-
-/* - Feature Button */
+/* ==================================================
+   FEATURE BUTTON
+================================================== */
 
 .feature-more {
     margin-top: 18px;
     padding: 10px 20px;
+
     border: 1px solid #b88e2f;
     background-color: transparent;
     color: #b88e2f;
+
     font-size: 14px;
     cursor: pointer;
+
     transition: 0.3s ease;
 }
 
@@ -448,7 +473,9 @@ header .icons i:hover {
 }
 
 
-/* - Feature Details */
+/* ==================================================
+   FEATURE DETAILS
+================================================== */
 
 .feature-details {
     display: none;
@@ -459,80 +486,24 @@ header .icons i:hover {
     margin: 0;
 }
 
-
-/* - Selected Feature */
-
 .feature-card.feature-selected .feature-details {
     display: block;
 }
 
 
-/* - Dark Mode */
-
-body.dark-mode .feature-card {
-    background-color: #1c1c1c;
-}
-
-body.dark-mode .feature-card h3 {
-    color: #fff;
-}
-
-body.dark-mode .feature-card p {
-    color: #aaa;
-}
-
-body.dark-mode .feature-icon {
-    background-color: #222;
-    color: #b88e2f;
-}
-
-body.dark-mode .feature-more {
-    border-color: #b88e2f;
-    color: #b88e2f;
-    background-color: transparent;
-}
-
-body.dark-mode .feature-more:hover {
-    background-color: #b88e2f;
-    color: #fff;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* - Our Philosophy */
+/* ==================================================
+   OUR PHILOSOPHY
+================================================== */
 
 .about-showcase {
     width: 90%;
     max-width: 1200px;
     margin: 130px auto;
+
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
+
     align-items: center;
 }
 
@@ -558,8 +529,10 @@ body.dark-mode .feature-more:hover {
     position: absolute;
     bottom: 20px;
     right: 20px;
+
     background-color: #fff;
     padding: 15px 20px;
+
     font-size: 20px;
     font-weight: bold;
     color: #b88e2f;
@@ -589,15 +562,20 @@ body.dark-mode .feature-more:hover {
     display: inline-flex;
     align-items: center;
     gap: 12px;
+
     margin-top: 15px;
     padding: 14px 25px;
+
     background-color: #333;
     color: #fff;
+
     text-decoration: none;
     font-weight: bold;
-    transition: transform 0.3s ease,
-                background-color 0.3s ease,
-                color 0.3s ease;
+
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease;
 }
 
 .showcase-content a:hover {
@@ -614,7 +592,9 @@ body.dark-mode .feature-more:hover {
 }
 
 
-/* - Our Values */
+/* ==================================================
+   OUR VALUES
+================================================== */
 
 .about-values {
     width: 90%;
@@ -644,13 +624,22 @@ body.dark-mode .feature-more:hover {
     color: #b88e2f;
 }
 
+
+/* ==================================================
+   VALUES LIST
+================================================== */
+
+.values-list {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
 .values-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;
 }
-
-
 
 .value-item:hover {
     transform: translateX(8px);
@@ -678,68 +667,15 @@ body.dark-mode .feature-more:hover {
 }
 
 
-
-
-
-/* - Our Values */
-
-.about-values {
-    width: 90%;
-    max-width: 1200px;
-    margin: 120px auto;
-}
-
-.values-heading {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.values-heading span {
-    color: #b88e2f;
-    font-size: 13px;
-    font-weight: bold;
-    letter-spacing: 3px;
-}
-
-.values-heading h2 {
-    font-size: 42px;
-    color: #333;
-    margin-top: 15px;
-}
-
-.values-heading strong {
-    color: #b88e2f;
-}
-
-
-/* - Values List */
-
-.values-list {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-}
-
-
-
-
-
-
-
-
-
-
-
-/* - Value Image */
+/* ==================================================
+   VALUE IMAGE
+================================================== */
 
 .value-image {
     width: 100%;
     height: 300px;
     margin-bottom: 20px;
 }
-
-
-/* - Image */
 
 .value-image img {
     width: 100%;
@@ -748,9 +684,6 @@ body.dark-mode .feature-more:hover {
     object-fit: cover;
     transition: transform 0.4s ease;
 }
-
-
-/* - Line Under Image */
 
 .value-image::after {
     content: "";
@@ -761,14 +694,14 @@ body.dark-mode .feature-more:hover {
     margin-top: 8px;
 }
 
-
-/* - Image Hover */
-
 .value-item:hover .value-image img {
     transform: scale(1.06);
 }
 
-/* - Extra Text */
+
+/* ==================================================
+   VALUE EXTRA
+================================================== */
 
 .value-extra {
     display: none;
@@ -781,15 +714,14 @@ body.dark-mode .feature-more:hover {
     font-size: 14px;
 }
 
-
-/* - Open Value */
-
 .value-item.value-open .value-extra {
     display: block;
 }
 
 
-/* - Arrow */
+/* ==================================================
+   VALUE ARROW
+================================================== */
 
 .value-arrow {
     margin-top: 15px;
@@ -818,43 +750,9 @@ body.dark-mode .feature-more:hover {
 }
 
 
-/* - Dark Mode */
-
-body.dark-mode .value-image {
-    background-color: #222;
-}
-
-body.dark-mode .value-extra p {
-    color: #aaa;
-}
-
-body.dark-mode .value-arrow {
-    border-color: #b88e2f;
-    color: #b88e2f;
-}
-
-body.dark-mode .value-arrow:hover {
-    background-color: #b88e2f;
-    color: #fff;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* - Our Process */
+/* ==================================================
+   OUR PROCESS
+================================================== */
 
 .about-process {
     width: 90%;
@@ -862,7 +760,8 @@ body.dark-mode .value-arrow:hover {
     margin: 100px auto;
 }
 
-/* - Section Title */
+
+/* Section Title */
 
 .about-process .about-section-title {
     text-align: center;
@@ -884,23 +783,19 @@ body.dark-mode .value-arrow:hover {
 
 .about-process .about-section-title h2 {
     margin: 0 0 20px;
-
     font-size: 42px;
-
     color: #222;
 }
 
 .about-process .about-section-title p {
     margin: 0;
-
     color: #777;
-
     font-size: 15px;
     line-height: 1.8;
 }
 
 
-/* - Process Accordion */
+/* Process Accordion */
 
 .process-accordion {
     width: 100%;
@@ -914,7 +809,7 @@ body.dark-mode .value-arrow:hover {
 }
 
 
-/* - Process Card */
+/* Process Card */
 
 .process-card {
     position: relative;
@@ -935,15 +830,12 @@ body.dark-mode .value-arrow:hover {
         transform 0.4s ease;
 }
 
-
-/* - Active Card */
-
 .process-card.process-active {
     flex: 2.5;
 }
 
 
-/* - Card Image */
+/* Card Image */
 
 .process-card img {
     width: 100%;
@@ -957,19 +849,15 @@ body.dark-mode .value-arrow:hover {
         transform 0.7s ease;
 }
 
-
-/* - Image Hover */
-
 .process-card:hover img {
     transform: scale(1.05);
 }
 
 
-/* - Card Overlay */
+/* Card Overlay */
 
 .process-card-overlay {
     position: absolute;
-
     inset: 0;
 
     background:
@@ -981,7 +869,7 @@ body.dark-mode .value-arrow:hover {
 }
 
 
-/* - Card Number */
+/* Card Number */
 
 .process-card-number {
     position: absolute;
@@ -998,7 +886,7 @@ body.dark-mode .value-arrow:hover {
 }
 
 
-/* - Card Content */
+/* Card Content */
 
 .process-card-content {
     position: absolute;
@@ -1011,9 +899,6 @@ body.dark-mode .value-arrow:hover {
 
     color: #fff;
 }
-
-
-/* - Small Number */
 
 .process-card-content span {
     display: block;
@@ -1028,9 +913,6 @@ body.dark-mode .value-arrow:hover {
     letter-spacing: 2px;
 }
 
-
-/* - Card Title */
-
 .process-card-content h3 {
     margin: 0 0 12px;
 
@@ -1038,9 +920,6 @@ body.dark-mode .value-arrow:hover {
 
     font-size: 25px;
 }
-
-
-/* - Card Description */
 
 .process-card-content p {
     max-width: 500px;
@@ -1062,9 +941,6 @@ body.dark-mode .value-arrow:hover {
         transform 0.4s ease;
 }
 
-
-/* - Show Description */
-
 .process-card.process-active
 .process-card-content p {
     opacity: 1;
@@ -1074,122 +950,32 @@ body.dark-mode .value-arrow:hover {
     transition-delay: 0.25s;
 }
 
-
-/* - Active Image */
-
 .process-card.process-active img {
     transform: scale(1.02);
 }
 
 
-/* - Dark Mode */
-
-body.dark-mode
-.about-process .about-section-title h2 {
-    color: #fff;
-}
-
-
-/* - Tablet */
-
-@media (max-width: 900px) {
-
-    .process-accordion {
-        height: 600px;
-
-        display: grid;
-
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-
-        gap: 12px;
-    }
-
-    .process-card {
-        flex: none;
-    }
-
-    .process-card.process-active {
-        flex: none;
-    }
-
-}
-
-
-/* - Small Mobile */
-
-@media (max-width: 576px) {
-
-    .about-process {
-        width: 92%;
-
-        margin: 70px auto;
-    }
-
-    .about-process .about-section-title h2 {
-        font-size: 30px;
-    }
-
-    .about-process .about-section-title p {
-        font-size: 14px;
-    }
-
-    .process-accordion {
-        height: auto;
-
-        display: flex;
-
-        flex-direction: column;
-
-        gap: 10px;
-    }
-
-    .process-card,
-    .process-card.process-active {
-        flex: none;
-
-        width: 100%;
-        height: 180px;
-    }
-
-    .process-card.process-active {
-        height: 300px;
-    }
-
-    .process-card-content {
-        left: 20px;
-        right: 20px;
-        bottom: 20px;
-    }
-
-    .process-card-content h3 {
-        font-size: 21px;
-    }
-
-}
-
-
-
-
-
-
-
-
-
-/* - Stats */
+/* ==================================================
+   STATS
+================================================== */
 
 .about-stats {
     width: 100%;
+
     background-color: #333;
+
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+
     padding: 60px 5%;
 }
 
 .stat-item {
     text-align: center;
     color: #fff;
+
     border-right: 1px solid rgba(255, 255, 255, 0.15);
+
     transition: transform 0.3s ease;
 }
 
@@ -1215,21 +1001,27 @@ body.dark-mode
 }
 
 
-/* - About CTA */
+/* ==================================================
+   ABOUT CTA
+================================================== */
 
 .about-cta {
     width: 100%;
     min-height: 450px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     text-align: center;
+
     background:
         linear-gradient(
             rgba(0, 0, 0, 0.60),
             rgba(0, 0, 0, 0.60)
         ),
         url("../assite/about.images/ABOUT\ CTA.png");
+
     background-size: cover;
     background-position: center;
 }
@@ -1264,14 +1056,19 @@ body.dark-mode
     display: inline-flex;
     align-items: center;
     gap: 12px;
+
     padding: 15px 30px;
+
     background-color: #b88e2f;
     color: #fff;
+
     text-decoration: none;
     font-weight: bold;
-    transition: transform 0.3s ease,
-                background-color 0.3s ease,
-                color 0.3s ease;
+
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease;
 }
 
 .about-cta-content a:hover {
@@ -1289,7 +1086,9 @@ body.dark-mode
 }
 
 
-/* - Footer */
+/* ==================================================
+   FOOTER
+================================================== */
 
 footer {
     width: 100%;
@@ -1391,12 +1190,16 @@ footer {
 }
 
 
-/* - Scroll Reveal */
+/* ==================================================
+   SCROLL REVEAL
+================================================== */
 
 .reveal {
     opacity: 0;
     transform: translateY(40px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
 }
 
 .reveal.show {
@@ -1405,7 +1208,9 @@ footer {
 }
 
 
-/* - Language */
+/* ==================================================
+   LANGUAGE
+================================================== */
 
 .language-menu {
     position: relative;
@@ -1418,7 +1223,10 @@ footer {
     font-size: 19px;
     cursor: pointer;
     padding: 2px;
-    transition: color 0.3s ease, transform 0.2s ease;
+
+    transition:
+        color 0.3s ease,
+        transform 0.2s ease;
 }
 
 .language-button:hover {
@@ -1428,15 +1236,23 @@ footer {
 
 .language-dropdown {
     position: absolute;
+
     top: 35px;
     right: 0;
+
     width: 120px;
+
     background-color: #fff;
+
     border: 1px solid #ddd;
     border-radius: 8px;
+
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+
     padding: 6px;
+
     display: none;
+
     z-index: 2000;
 }
 
@@ -1446,12 +1262,18 @@ footer {
 
 .language-option {
     width: 100%;
+
     border: none;
     background: transparent;
+
     padding: 9px 10px;
+
     text-align: left;
+
     font-size: 14px;
+
     cursor: pointer;
+
     border-radius: 5px;
 }
 
@@ -1462,7 +1284,9 @@ footer {
 }
 
 
-/* - Dark Mode Button */
+/* ==================================================
+   DARK MODE BUTTON
+================================================== */
 
 .theme-button {
     border: none;
@@ -1471,7 +1295,10 @@ footer {
     font-size: 19px;
     cursor: pointer;
     padding: 2px;
-    transition: color 0.3s ease, transform 0.2s ease;
+
+    transition:
+        color 0.3s ease,
+        transform 0.2s ease;
 }
 
 .theme-button:hover {
@@ -1480,7 +1307,9 @@ footer {
 }
 
 
-/* - Dark Mode */
+/* ==================================================
+   DARK MODE
+================================================== */
 
 body.dark-mode {
     background-color: #111;
@@ -1518,7 +1347,9 @@ body.dark-mode .theme-button:hover {
 }
 
 
-/* - Mobile Menu Dark Mode */
+/* ==================================================
+   MOBILE MENU DARK MODE
+================================================== */
 
 body.dark-mode .mobile-menu {
     background-color: #111;
@@ -1550,7 +1381,9 @@ body.dark-mode .mobile-menu-button {
 }
 
 
-/* - About Dark Mode */
+/* ==================================================
+   ABOUT DARK MODE
+================================================== */
 
 body.dark-mode .about-intro-text h2,
 body.dark-mode .about-section-title h2,
@@ -1608,7 +1441,9 @@ body.dark-mode .process-number {
 }
 
 
-/* - Footer Dark Mode */
+/* ==================================================
+   FOOTER DARK MODE
+================================================== */
 
 body.dark-mode footer {
     background-color: #111;
@@ -1663,7 +1498,9 @@ body.dark-mode .footer-line {
 }
 
 
-/* - Language Dark Mode */
+/* ==================================================
+   LANGUAGE DARK MODE
+================================================== */
 
 body.dark-mode .language-dropdown {
     background-color: #1c1c1c;
@@ -1682,7 +1519,9 @@ body.dark-mode .language-option.active {
 }
 
 
-/* - WhatsApp */
+/* ==================================================
+   WHATSAPP
+================================================== */
 
 .whatsapp-chat-container {
     position: fixed;
@@ -1693,15 +1532,22 @@ body.dark-mode .language-option.active {
 
 .whatsapp-chat-box {
     position: absolute;
+
     right: 0;
     bottom: 72px;
+
     width: 350px;
     height: 480px;
+
     display: none;
     flex-direction: column;
+
     overflow: hidden;
+
     background-color: #efeae2;
+
     border-radius: 14px;
+
     box-shadow: 0 8px 35px rgba(0, 0, 0, 0.25);
 }
 
@@ -1712,9 +1558,11 @@ body.dark-mode .language-option.active {
 .whatsapp-chat-header {
     height: 65px;
     padding: 10px 14px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     background-color: #075e54;
     color: #fff;
 }
@@ -1728,12 +1576,16 @@ body.dark-mode .language-option.active {
 .whatsapp-profile-icon {
     width: 42px;
     height: 42px;
+
     border-radius: 50%;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     background-color: #25d366;
     color: #fff;
+
     font-size: 24px;
 }
 
@@ -1746,6 +1598,7 @@ body.dark-mode .language-option.active {
 .whatsapp-profile span {
     display: block;
     margin-top: 3px;
+
     font-size: 11px;
     color: #d8f8e9;
 }
@@ -1753,16 +1606,23 @@ body.dark-mode .language-option.active {
 .whatsapp-close {
     width: 35px;
     height: 35px;
+
     border: none;
     background: transparent;
+
     color: #fff;
     font-size: 20px;
+
     cursor: pointer;
     border-radius: 50%;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.2s ease, transform 0.2s ease;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
 }
 
 .whatsapp-close:hover {
@@ -1772,8 +1632,11 @@ body.dark-mode .language-option.active {
 
 .whatsapp-chat-messages {
     flex: 1;
+
     padding: 18px 14px;
+
     overflow-y: auto;
+
     background-color: #efeae2;
 }
 
@@ -1784,27 +1647,38 @@ body.dark-mode .language-option.active {
 
 .whatsapp-date span {
     display: inline-block;
+
     padding: 5px 12px;
+
     background-color: #fff;
     color: #777;
+
     border-radius: 7px;
+
     font-size: 11px;
+
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
 }
 
 .whatsapp-message {
     position: relative;
+
     width: fit-content;
     max-width: 78%;
+
     margin-bottom: 10px;
     padding: 9px 12px 17px;
+
     background-color: #fff;
+
     border-radius: 8px;
+
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.10);
 }
 
 .whatsapp-message p {
     margin: 0;
+
     color: #222;
     font-size: 13px;
     line-height: 1.5;
@@ -1816,8 +1690,10 @@ body.dark-mode .language-option.active {
 
 .message-time {
     position: absolute;
+
     right: 7px;
     bottom: 4px;
+
     font-size: 9px;
     color: #888;
 }
@@ -1825,18 +1701,26 @@ body.dark-mode .language-option.active {
 .whatsapp-input-area {
     display: flex;
     align-items: center;
+
     gap: 7px;
+
     padding: 8px;
+
     background-color: #f0f2f5;
 }
 
 .whatsapp-input-box {
     flex: 1;
+
     min-height: 43px;
+
     display: flex;
     align-items: center;
+
     gap: 5px;
+
     padding: 3px 6px;
+
     background-color: #fff;
     border-radius: 22px;
 }
@@ -1844,25 +1728,35 @@ body.dark-mode .language-option.active {
 .whatsapp-emoji {
     width: 32px;
     height: 32px;
+
     flex-shrink: 0;
+
     border: none;
     background: transparent;
+
     color: #667781;
     font-size: 19px;
+
     cursor: pointer;
 }
 
 .whatsapp-input-box textarea {
     flex: 1;
     width: 100%;
+
     min-height: 32px;
     max-height: 80px;
+
     padding: 7px 2px;
+
     border: none;
     outline: none;
+
     resize: none;
+
     background: transparent;
     color: #222;
+
     font-family: inherit;
     font-size: 13px;
     line-height: 18px;
@@ -1876,10 +1770,14 @@ body.dark-mode .language-option.active {
 .whatsapp-call {
     width: 43px;
     height: 43px;
+
     flex-shrink: 0;
+
     border-radius: 50%;
+
     background-color: #25d366;
     color: #fff;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1888,10 +1786,16 @@ body.dark-mode .language-option.active {
 .whatsapp-send {
     width: 34px;
     height: 34px;
+
     border: none;
+
     font-size: 14px;
+
     cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
 }
 
 .whatsapp-send:hover,
@@ -1903,23 +1807,35 @@ body.dark-mode .language-option.active {
 .whatsapp-call {
     text-decoration: none;
     font-size: 17px;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
 }
 
 .whatsapp-chat-button {
     width: 58px;
     height: 58px;
+
     border: none;
     border-radius: 50%;
+
     background-color: #25d366;
     color: #fff;
+
     font-size: 30px;
+
     cursor: pointer;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.20);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .whatsapp-chat-button:hover {
@@ -1928,11 +1844,13 @@ body.dark-mode .language-option.active {
 }
 
 
-/* - Responsive Tablet */
+/* ==================================================
+   RESPONSIVE TABLET
+================================================== */
 
 @media (max-width: 1024px) {
 
-    /* - Header */
+    /* Header */
 
     header {
         padding: 15px 30px;
@@ -1951,7 +1869,7 @@ body.dark-mode .language-option.active {
     }
 
 
-    /* - About Banner */
+    /* About Banner */
 
     .about-banner {
         height: 480px;
@@ -1962,7 +1880,7 @@ body.dark-mode .language-option.active {
     }
 
 
-    /* - Our Story */
+    /* Our Story */
 
     .about-intro {
         gap: 40px;
@@ -1973,14 +1891,14 @@ body.dark-mode .language-option.active {
     }
 
 
-    /* - Features */
+    /* Features */
 
     .features-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
 
-    /* - Philosophy */
+    /* Philosophy */
 
     .about-showcase {
         gap: 45px;
@@ -1995,7 +1913,7 @@ body.dark-mode .language-option.active {
     }
 
 
-    /* - Our Process */
+    /* Our Process */
 
     .process-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -2006,7 +1924,7 @@ body.dark-mode .language-option.active {
     }
 
 
-    /* - Footer */
+    /* Footer */
 
     .footer-top {
         flex-wrap: wrap;
@@ -2023,11 +1941,13 @@ body.dark-mode .language-option.active {
 }
 
 
-/* - Responsive Mobile */
+/* ==================================================
+   RESPONSIVE MOBILE
+================================================== */
 
 @media (max-width: 768px) {
 
-    /* - Header */
+    /* Header */
 
     header {
         min-height: 70px;
@@ -2060,21 +1980,29 @@ body.dark-mode .language-option.active {
     }
 
 
-    /* - Mobile Menu */
+    /* Mobile Menu */
 
     .mobile-menu {
         position: fixed;
+
         top: 0;
         right: -100%;
+
         width: 280px;
         height: 100vh;
+
         display: block;
+
         padding: 20px;
+
         background-color: #fff;
+
         box-shadow:
             -5px 0 20px
             rgba(0, 0, 0, 0.15);
+
         z-index: 3000;
+
         transition: right 0.3s ease;
     }
 
@@ -2086,7 +2014,9 @@ body.dark-mode .language-option.active {
         display: flex;
         align-items: center;
         justify-content: space-between;
+
         padding-bottom: 20px;
+
         border-bottom: 1px solid #ddd;
     }
 
@@ -2097,10 +2027,15 @@ body.dark-mode .language-option.active {
     .mobile-menu-close {
         width: 38px;
         height: 38px;
+
         border: none;
+
         background-color: #f5f5f5;
+
         border-radius: 50%;
+
         cursor: pointer;
+
         font-size: 18px;
     }
 
@@ -2115,9 +2050,12 @@ body.dark-mode .language-option.active {
 
     .mobile-menu ul li a {
         display: block;
+
         padding: 16px 5px;
+
         text-decoration: none;
         color: #222;
+
         font-size: 16px;
     }
 
@@ -2126,7 +2064,7 @@ body.dark-mode .language-option.active {
     }
 
 
-    /* - About Banner */
+    /* About Banner */
 
     .about-banner {
         height: 500px;
@@ -2145,12 +2083,14 @@ body.dark-mode .language-option.active {
     }
 
 
-    /* - Our Story */
+    /* Our Story */
 
     .about-intro {
         width: 90%;
         margin: 80px auto;
+
         grid-template-columns: 1fr;
+
         gap: 40px;
     }
 
@@ -2163,7 +2103,7 @@ body.dark-mode .language-option.active {
     }
 
 
-    /* - Why Furniro */
+    /* Why Furniro */
 
     .about-features {
         width: 90%;
@@ -2184,12 +2124,14 @@ body.dark-mode .language-option.active {
     }
 
 
-    /* - Philosophy */
+    /* Philosophy */
 
     .about-showcase {
         width: 90%;
         margin: 90px auto;
+
         grid-template-columns: 1fr;
+
         gap: 40px;
     }
 
@@ -2202,7 +2144,7 @@ body.dark-mode .language-option.active {
     }
 
 
-    /* - Values */
+    /* Values */
 
     .about-values {
         width: 90%;
@@ -2219,7 +2161,7 @@ body.dark-mode .language-option.active {
     }
 
 
-    /* - Our Process */
+    /* Our Process */
 
     .about-process {
         width: 90%;
@@ -2244,7 +2186,7 @@ body.dark-mode .language-option.active {
     }
 
 
-    /* - Stats */
+    /* Stats */
 
     .about-stats {
         grid-template-columns: repeat(2, 1fr);
@@ -2257,7 +2199,7 @@ body.dark-mode .language-option.active {
     }
 
 
-    /* - CTA */
+    /* CTA */
 
     .about-cta {
         min-height: 420px;
@@ -2268,11 +2210,13 @@ body.dark-mode .language-option.active {
     }
 
 
-    /* - Footer */
+    /* Footer */
 
     .footer-top {
         display: grid;
+
         grid-template-columns: 1fr 1fr;
+
         gap: 40px 25px;
     }
 
@@ -2291,7 +2235,7 @@ body.dark-mode .language-option.active {
     }
 
 
-    /* - WhatsApp */
+    /* WhatsApp */
 
     .whatsapp-chat-container {
         right: 15px;
@@ -2307,11 +2251,13 @@ body.dark-mode .language-option.active {
 }
 
 
-/* - Responsive Small Mobile */
+/* ==================================================
+   RESPONSIVE SMALL MOBILE
+================================================== */
 
 @media (max-width: 480px) {
 
-    /* - Header */
+    /* Header */
 
     header {
         padding: 12px 15px;
@@ -2336,14 +2282,14 @@ body.dark-mode .language-option.active {
     }
 
 
-    /* - Mobile Menu */
+    /* Mobile Menu */
 
     .mobile-menu {
         width: 100%;
     }
 
 
-    /* - About Banner */
+    /* About Banner */
 
     .about-banner {
         height: 460px;
@@ -2369,7 +2315,7 @@ body.dark-mode .language-option.active {
     }
 
 
-    /* - Our Story */
+    /* Our Story */
 
     .about-intro {
         width: 92%;
@@ -2385,7 +2331,7 @@ body.dark-mode .language-option.active {
     }
 
 
-    /* - Why Furniro */
+    /* Why Furniro */
 
     .about-features {
         width: 92%;
@@ -2401,7 +2347,7 @@ body.dark-mode .language-option.active {
     }
 
 
-    /* - Philosophy */
+    /* Philosophy */
 
     .about-showcase {
         width: 92%;
@@ -2417,7 +2363,7 @@ body.dark-mode .language-option.active {
     }
 
 
-    /* - Values */
+    /* Values */
 
     .about-values {
         width: 92%;
@@ -2429,7 +2375,7 @@ body.dark-mode .language-option.active {
     }
 
 
-    /* - Our Process */
+    /* Our Process */
 
     .about-process {
         width: 92%;
@@ -2449,7 +2395,7 @@ body.dark-mode .language-option.active {
     }
 
 
-    /* - Stats */
+    /* Stats */
 
     .about-stats {
         grid-template-columns: 1fr;
@@ -2458,7 +2404,11 @@ body.dark-mode .language-option.active {
 
     .stat-item {
         border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+
+        border-bottom:
+            1px solid
+            rgba(255, 255, 255, 0.15);
+
         padding-bottom: 25px;
     }
 
@@ -2471,7 +2421,7 @@ body.dark-mode .language-option.active {
     }
 
 
-    /* - CTA */
+    /* CTA */
 
     .about-cta {
         min-height: 400px;
@@ -2486,7 +2436,7 @@ body.dark-mode .language-option.active {
     }
 
 
-    /* - Footer */
+    /* Footer */
 
     .footer-top {
         grid-template-columns: 1fr;
@@ -2510,7 +2460,7 @@ body.dark-mode .language-option.active {
     }
 
 
-    /* - WhatsApp */
+    /* WhatsApp */
 
     .whatsapp-chat-box {
         width: calc(100vw - 30px);
@@ -2526,10 +2476,9 @@ body.dark-mode .language-option.active {
 }
 
 
-
-/* =========================================
+/* ==================================================
    FOOTER GOLD
-========================================= */
+================================================== */
 
 footer {
     background-color: #fdf5e5 !important;
@@ -2540,11 +2489,9 @@ body.dark-mode footer {
 }
 
 
-
-
-/* 
+/* ==================================================
    NEWSLETTER
-*/
+================================================== */
 
 .newsletter {
     width: 100%;
@@ -2564,9 +2511,9 @@ body.dark-mode footer {
 }
 
 
-/* 
+/* ==================================================
    SWEETALERT
-*/
+================================================== */
 
 .furniro-swal-container {
     z-index: 999999 !important;
