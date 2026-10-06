@@ -125,12 +125,19 @@ document.addEventListener(
 
 
                     /* 
-                       Success message
+                       SweetAlert Success Message
                      */
 
-                    alert(
-                        "You have been logged out."
-                    );
+                    Swal.fire({
+                        icon: "success",
+                        title: "Logged Out!",
+                        text: "You have been logged out successfully.",
+                        confirmButtonText: "OK",
+                        position: "top",
+                        customClass: {
+                            container: "furniro-swal-container"
+                        }
+                    });
 
                 }
             );

@@ -11,39 +11,25 @@ document.addEventListener(
         ===================================================== */
 
         const accountOpen =
-            document.getElementById(
-                "accountOpen"
-            );
+            document.getElementById("accountOpen");
 
         const userMenu =
-            document.getElementById(
-                "userMenu"
-            );
+            document.getElementById("userMenu");
 
         const accountModal =
-            document.getElementById(
-                "accountModal"
-            );
+            document.getElementById("accountModal");
 
         const userMenuName =
-            document.getElementById(
-                "userMenuName"
-            );
+            document.getElementById("userMenuName");
 
         const userMenuEmail =
-            document.getElementById(
-                "userMenuEmail"
-            );
+            document.getElementById("userMenuEmail");
 
         const userMenuPhoto =
-            document.getElementById(
-                "userMenuPhoto"
-            );
+            document.getElementById("userMenuPhoto");
 
         const userMenuInitials =
-            document.getElementById(
-                "userMenuInitials"
-            );
+            document.getElementById("userMenuInitials");
 
 
         /* =====================================================
@@ -52,11 +38,38 @@ document.addEventListener(
 
         function getCurrentUser() {
 
-            return JSON.parse(
-                localStorage.getItem(
-                    "furniroCurrentUser"
-                )
-            ) || null;
+            try {
+
+                return JSON.parse(
+                    localStorage.getItem(
+                        "furniroCurrentUser"
+                    )
+                ) || null;
+
+            } catch (error) {
+
+                /*
+                   If localStorage data is invalid
+                */
+
+                if (typeof Swal !== "undefined") {
+
+                    Swal.fire({
+                        icon: "error",
+                        title: "Account Error",
+                        text: "Your account data could not be loaded.",
+                        confirmButtonText: "OK",
+                        position: "top",
+                        customClass: {
+                            container:
+                                "furniro-swal-container"
+                        }
+                    });
+
+                }
+
+                return null;
+            }
 
         }
 
@@ -79,7 +92,9 @@ document.addEventListener(
                     .filter(Boolean);
 
 
-            /* Two or more words */
+            /*
+               Two or more words
+            */
 
             if (words.length >= 2) {
 
@@ -91,7 +106,9 @@ document.addEventListener(
             }
 
 
-            /* One word */
+            /*
+               One word
+            */
 
             if (words.length === 1) {
 
@@ -139,7 +156,9 @@ document.addEventListener(
                 }
 
 
-                /* Hide photo */
+                /*
+                   No default photo
+                */
 
                 if (userMenuPhoto) {
 
@@ -153,7 +172,9 @@ document.addEventListener(
                 }
 
 
-                /* Hide initials */
+                /*
+                   Hide initials
+                */
 
                 if (userMenuInitials) {
 
@@ -206,13 +227,16 @@ document.addEventListener(
 
 
             /* =================================================
-               USER HAS A REAL PHOTO
+               USER HAS PHOTO
             ================================================= */
 
-            if (currentUser.photo) {
+            if (
+                currentUser.photo &&
+                currentUser.photo.trim() !== ""
+            ) {
 
                 /*
-                   Show real profile photo
+                   Show user's real photo
                 */
 
                 if (userMenuPhoto) {
@@ -244,13 +268,13 @@ document.addEventListener(
 
 
             /* =================================================
-               USER DOES NOT HAVE A PHOTO
+               USER DOES NOT HAVE PHOTO
             ================================================= */
 
             else {
 
                 /*
-                   Remove old photo
+                   Do NOT use a default image
                 */
 
                 if (userMenuPhoto) {
@@ -266,7 +290,7 @@ document.addEventListener(
 
 
                 /*
-                   Show initials
+                   Show user's initials
                 */
 
                 if (userMenuInitials) {
@@ -308,8 +332,8 @@ document.addEventListener(
                     if (currentUser) {
 
                         /*
-                           Refresh user menu
-                           every time it opens
+                           Update information
+                           before opening menu
                         */
 
                         updateUserMenu();
