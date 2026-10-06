@@ -1,4 +1,3 @@
-
 /* =========================================================
    WISHLIST
 ========================================================= */
@@ -12,10 +11,12 @@ let wishlist =
 ========================================================= */
 
 function saveWishlist() {
+
     localStorage.setItem(
         "wishlist",
         JSON.stringify(wishlist)
     );
+
 }
 
 
@@ -42,6 +43,7 @@ function getProductData(button) {
 
     let productImage = null;
 
+
     if (productCard) {
 
         const image =
@@ -50,10 +52,14 @@ function getProductData(button) {
             );
 
         if (image) {
+
             productImage =
                 image.getAttribute("src");
+
         }
+
     }
+
 
     /*
        اگر محصول داخل Product Card نباشد،
@@ -74,17 +80,27 @@ function getProductData(button) {
             );
 
         if (image) {
+
             productImage =
                 image.getAttribute("src");
+
         }
+
     }
 
+
     return {
+
         id: productId,
+
         name: productName,
+
         price: Number(productPrice) || 0,
+
         image: productImage
+
     };
+
 }
 
 
@@ -99,26 +115,38 @@ function updateWishlistButtons() {
             ".like-product"
         );
 
+
     likeButtons.forEach(function(button) {
 
         const productId =
             button.dataset.id ||
             button.closest(".product-card")?.dataset.id;
 
+
         if (!productId) return;
+
 
         const isLiked =
             wishlist.some(function(item) {
+
                 return String(item.id) ===
                     String(productId);
+
             });
 
+
         if (isLiked) {
+
             button.classList.add("liked");
+
         } else {
+
             button.classList.remove("liked");
+
         }
+
     });
+
 }
 
 
@@ -135,11 +163,13 @@ document.addEventListener(
                 ".like-product"
             );
 
+
         if (!button) return;
 
 
         const product =
             getProductData(button);
+
 
         if (!product.id) return;
 
@@ -164,6 +194,7 @@ document.addEventListener(
                 1
             );
 
+
             button.classList.remove(
                 "liked"
             );
@@ -178,6 +209,7 @@ document.addEventListener(
         else {
 
             wishlist.push(product);
+
 
             button.classList.add(
                 "liked"
@@ -203,6 +235,7 @@ const wishlistGrid =
         "#wishlistGrid"
     );
 
+
 const emptyWishlist =
     document.querySelector(
         "#emptyWishlist"
@@ -218,6 +251,7 @@ function formatWishlistPrice(price) {
     return new Intl.NumberFormat(
         "id-ID"
     ).format(price);
+
 }
 
 
@@ -238,6 +272,7 @@ function renderWishlist() {
         updateEmptyWishlist();
 
         return;
+
     }
 
 
@@ -248,15 +283,22 @@ function renderWishlist() {
                 "div"
             );
 
+
+        /*
+           هماهنگ با CSS اصلی Wishlist
+        */
+
         card.className =
-            "product-card";
+            "wishlist-item";
 
 
         card.dataset.id =
             product.id;
 
+
         card.dataset.name =
             product.name;
+
 
         card.dataset.price =
             product.price;
@@ -264,7 +306,7 @@ function renderWishlist() {
 
         card.innerHTML = `
 
-            <div class="product-image">
+            <div class="wishlist-image">
 
                 <a href="Single-Product.html?id=${product.id}">
 
@@ -278,40 +320,46 @@ function renderWishlist() {
             </div>
 
 
-            <div class="product-info">
+            <div class="wishlist-info">
 
                 <h3>
                     ${product.name}
                 </h3>
 
-                <p class="product-price">
+
+                <strong>
                     Rp ${formatWishlistPrice(product.price)}
-                </p>
+                </strong>
 
 
                 <div class="product-buttons">
 
                     <button
-                        class="add-cart"
+                        class="wishlist-add-cart add-cart"
                         type="button"
                     >
                         Add to Cart
                     </button>
 
-                    <button
-                        class="remove-wishlist"
-                        type="button"
-                    >
-                        Remove
-                    </button>
+
+                      <button
+    class="remove-wishlist"
+    type="button"
+    title="Remove from Wishlist"
+>
+    <i class="fa-solid fa-xmark"></i>
+</button> 
 
                 </div>
 
             </div>
+
         `;
 
 
-        wishlistGrid.appendChild(card);
+        wishlistGrid.appendChild(
+            card
+        );
 
     });
 
@@ -331,8 +379,13 @@ function renderWishlist() {
 
 function updateEmptyWishlist() {
 
-    if (!wishlistGrid || !emptyWishlist) {
+    if (
+        !wishlistGrid ||
+        !emptyWishlist
+    ) {
+
         return;
+
     }
 
 
@@ -340,6 +393,7 @@ function updateEmptyWishlist() {
 
         wishlistGrid.style.display =
             "none";
+
 
         emptyWishlist.style.display =
             "block";
@@ -349,9 +403,12 @@ function updateEmptyWishlist() {
         wishlistGrid.style.display =
             "grid";
 
+
         emptyWishlist.style.display =
             "none";
+
     }
+
 }
 
 
@@ -368,13 +425,15 @@ document.addEventListener(
                 ".remove-wishlist"
             );
 
+
         if (!button) return;
 
 
         const card =
             button.closest(
-                ".product-card"
+                ".wishlist-item"
             );
+
 
         if (!card) return;
 
@@ -424,8 +483,9 @@ function addWishlistCartEvents() {
 
                 const card =
                     button.closest(
-                        ".product-card"
+                        ".wishlist-item"
                     );
+
 
                 if (!card) return;
 
@@ -433,8 +493,10 @@ function addWishlistCartEvents() {
                 const productId =
                     card.dataset.id;
 
+
                 const productName =
                     card.dataset.name;
+
 
                 const productPrice =
                     Number(
@@ -444,7 +506,7 @@ function addWishlistCartEvents() {
 
                 const image =
                     card.querySelector(
-                        ".product-image img"
+                        ".wishlist-image img"
                     );
 
 
@@ -501,6 +563,34 @@ function addWishlistCartEvents() {
                     JSON.stringify(cart)
                 );
 
+
+                /*
+                   SWEETALERT
+                */
+
+                Swal.fire({
+
+                    icon: "success",
+
+                    title: "Added to Cart!",
+
+                    text:
+                        productName +
+                        " has been added to your cart.",
+
+                    confirmButtonText: "OK",
+
+                    position: "top",
+
+                    customClass: {
+
+                        container:
+                            "furniro-swal-container"
+
+                    }
+
+                });
+
             }
         );
 
@@ -517,7 +607,7 @@ function addWishlistProductClickEvents() {
 
     const cards =
         document.querySelectorAll(
-            "#wishlistGrid .product-card"
+            "#wishlistGrid .wishlist-item"
         );
 
 
@@ -525,8 +615,9 @@ function addWishlistProductClickEvents() {
 
         const link =
             card.querySelector(
-                ".product-image a"
+                ".wishlist-image a"
             );
+
 
         if (!link) return;
 
@@ -537,6 +628,7 @@ function addWishlistProductClickEvents() {
 
                 const productId =
                     card.dataset.id;
+
 
                 if (!productId) return;
 
