@@ -15,24 +15,20 @@ document.addEventListener(
                 "modalRegisterForm"
             );
 
-
         const registerNameInput =
             document.getElementById(
                 "modal-register-name"
             );
-
 
         const registerEmailInput =
             document.getElementById(
                 "modal-register-email"
             );
 
-
         const registerPasswordInput =
             document.getElementById(
                 "modal-register-password"
             );
-
 
         const registerConfirmInput =
             document.getElementById(
@@ -165,127 +161,6 @@ document.addEventListener(
 
 
         /*
-           Create success message
-        */
-
-        function showRegisterSuccess(
-            message
-        ) {
-
-            let successBox =
-                document.getElementById(
-                    "registerSuccessMessage"
-                );
-
-
-            if (!successBox) {
-
-                successBox =
-                    document.createElement(
-                        "div"
-                    );
-
-                successBox.id =
-                    "registerSuccessMessage";
-
-                successBox.className =
-                    "account-register-success";
-
-
-                successBox.innerHTML = `
-                    <i class="fa-solid fa-circle-check"></i>
-                    <span></span>
-                `;
-
-
-                /*
-                   Put success message
-                   before submit button
-                */
-
-                const submitButton =
-                    registerForm.querySelector(
-                        ".modal-submit-button"
-                    );
-
-
-                if (submitButton) {
-
-                    submitButton.insertAdjacentElement(
-                        "beforebegin",
-                        successBox
-                    );
-
-                } else {
-
-                    registerForm.appendChild(
-                        successBox
-                    );
-
-                }
-
-            }
-
-
-            const text =
-                successBox.querySelector(
-                    "span"
-                );
-
-
-            if (text) {
-
-                text.textContent =
-                    message;
-
-            }
-
-
-            successBox.classList.add(
-                "show"
-            );
-
-        }
-
-
-        /*
-           Clear success message
-        */
-
-        function clearRegisterSuccess() {
-
-            const successBox =
-                document.getElementById(
-                    "registerSuccessMessage"
-                );
-
-
-            if (successBox) {
-
-                successBox.classList.remove(
-                    "show"
-                );
-
-
-                const text =
-                    successBox.querySelector(
-                        "span"
-                    );
-
-
-                if (text) {
-
-                    text.textContent =
-                        "";
-
-                }
-
-            }
-
-        }
-
-
-        /*
            Clear name message
         */
 
@@ -298,8 +173,6 @@ document.addEventListener(
                     clearMessage(
                         registerNameInput
                     );
-
-                    clearRegisterSuccess();
 
                 }
             );
@@ -321,8 +194,6 @@ document.addEventListener(
                         registerEmailInput
                     );
 
-                    clearRegisterSuccess();
-
                 }
             );
 
@@ -343,8 +214,6 @@ document.addEventListener(
                         registerPasswordInput
                     );
 
-                    clearRegisterSuccess();
-
                 }
             );
 
@@ -364,8 +233,6 @@ document.addEventListener(
                     clearMessage(
                         registerConfirmInput
                     );
-
-                    clearRegisterSuccess();
 
                 }
             );
@@ -405,8 +272,6 @@ document.addEventListener(
                     clearMessage(
                         registerConfirmInput
                     );
-
-                    clearRegisterSuccess();
 
 
                     /*
@@ -719,12 +584,35 @@ document.addEventListener(
 
 
                     /*
-                       Show success message
+                       SweetAlert success
+                       Above Account Modal
                     */
 
-                    showRegisterSuccess(
-                        "Account created successfully! Welcome to Furniro."
-                    );
+                    Swal.fire({
+
+                        icon:
+                            "success",
+
+                        title:
+                            "Account Created!",
+
+                        text:
+                            "Welcome to Furniro.",
+
+                        confirmButtonText:
+                            "OK",
+
+                        position:
+                            "top",
+
+                        customClass: {
+
+                            container:
+                                "furniro-swal-container"
+
+                        }
+
+                    });
 
 
                     /*

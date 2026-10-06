@@ -161,126 +161,6 @@ document.addEventListener(
 
 
         /*
-           Create success message
-        */
-
-        function showLoginSuccess(
-            message
-        ) {
-
-            let successBox =
-                document.getElementById(
-                    "loginSuccessMessage"
-                );
-
-
-            if (!successBox) {
-
-                successBox =
-                    document.createElement(
-                        "div"
-                    );
-
-                successBox.id =
-                    "loginSuccessMessage";
-
-                successBox.className =
-                    "account-login-success";
-
-
-                successBox.innerHTML = `
-                    <i class="fa-solid fa-circle-check"></i>
-                    <span></span>
-                `;
-
-
-                /*
-                   Put success message
-                   before form options
-                */
-
-                const submitButton =
-                    loginForm.querySelector(
-                        ".modal-submit-button"
-                    );
-
-
-                if (submitButton) {
-
-                    submitButton.insertAdjacentElement(
-                        "beforebegin",
-                        successBox
-                    );
-
-                } else {
-
-                    loginForm.appendChild(
-                        successBox
-                    );
-
-                }
-
-            }
-
-
-            const text =
-                successBox.querySelector(
-                    "span"
-                );
-
-
-            if (text) {
-
-                text.textContent =
-                    message;
-
-            }
-
-
-            successBox.classList.add(
-                "show"
-            );
-
-        }
-
-
-        /*
-           Clear success message
-        */
-
-        function clearLoginSuccess() {
-
-            const successBox =
-                document.getElementById(
-                    "loginSuccessMessage"
-                );
-
-
-            if (successBox) {
-
-                successBox.classList.remove(
-                    "show"
-                );
-
-                const text =
-                    successBox.querySelector(
-                        "span"
-                    );
-
-
-                if (text) {
-
-                    text.textContent =
-                        "";
-
-                }
-
-            }
-
-        }
-
-
-        /*
            Clear messages when
            user changes email
         */
@@ -294,8 +174,6 @@ document.addEventListener(
                     clearMessage(
                         loginEmailInput
                     );
-
-                    clearLoginSuccess();
 
                 }
             );
@@ -317,8 +195,6 @@ document.addEventListener(
                     clearMessage(
                         loginPasswordInput
                     );
-
-                    clearLoginSuccess();
 
                 }
             );
@@ -383,8 +259,6 @@ document.addEventListener(
                     clearMessage(
                         loginPasswordInput
                     );
-
-                    clearLoginSuccess();
 
 
                     /*
@@ -559,12 +433,35 @@ document.addEventListener(
 
 
                     /*
-                       Show success
+                       Show SweetAlert
+                       Above Account Modal
                     */
 
-                    showLoginSuccess(
-                        "Login successful! Welcome back to Furniro."
-                    );
+                    Swal.fire({
+
+                        icon:
+                            "success",
+
+                        title:
+                            "Login Successful!",
+
+                        text:
+                            "Welcome back to Furniro.",
+
+                        confirmButtonText:
+                            "OK",
+
+                        position:
+                            "top",
+
+                        customClass: {
+
+                            container:
+                                "furniro-swal-container"
+
+                        }
+
+                    });
 
 
                     /*

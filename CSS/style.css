@@ -3777,6 +3777,16 @@ body.dark-mode .home-header .theme-button i {
 
 
 
+/* =================================
+   SWEET ALERT - ABOVE ACCOUNT MODAL
+================================= */
+
+.swal2-container {
+    z-index: 999999 !important;
+}
+
+
+
 
 
 
