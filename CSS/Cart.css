@@ -2077,3 +2077,10 @@ footer {
 body.dark-mode footer {
     background-color: #1b1b1a !important;
 }
+
+
+
+
+.furniro-swal-container {
+    z-index: 999999 !important;
+}

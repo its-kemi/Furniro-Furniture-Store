@@ -231,7 +231,6 @@ const products = [
 ];
 
 
-
 /*   
    GET COMPARISON PRODUCTS
 */
@@ -240,7 +239,6 @@ let comparisonProducts =
     JSON.parse(
         localStorage.getItem("comparison")
     ) || [];
-
 
 
 /*   
@@ -291,7 +289,6 @@ localStorage.setItem(
 );
 
 
-
 /*   
    PRODUCT ELEMENTS
 */
@@ -326,7 +323,6 @@ const comparisonProductPrices =
     );
 
 
-
 /*   
    PRODUCT SELECT
 */
@@ -335,7 +331,6 @@ const comparisonSelect =
     document.querySelector(
         ".comparison-select"
     );
-
 
 
 /*   
@@ -354,7 +349,6 @@ function saveComparison() {
 }
 
 
-
 /*   
    GET IMAGE PATH
 */
@@ -371,7 +365,6 @@ function getProductImage(image) {
     return image;
 
 }
-
 
 
 /*   
@@ -399,7 +392,6 @@ function updateTableTitles() {
     );
 
 }
-
 
 
 /*   
@@ -433,7 +425,7 @@ function updateProductIntro() {
                 );
 
 
-            /*   
+            /*
                PRODUCT EXISTS
             */
 
@@ -487,7 +479,7 @@ function updateProductIntro() {
             }
 
 
-            /*   
+            /*
                PRODUCT DOES NOT EXIST
             */
 
@@ -531,7 +523,6 @@ function updateProductIntro() {
 }
 
 
-
 /*   
    FORMAT PRICE
 */
@@ -546,7 +537,6 @@ function formatPrice(price) {
     );
 
 }
-
 
 
 /*   
@@ -571,7 +561,6 @@ function updateEmptyColumns() {
     );
 
 }
-
 
 
 /*   
@@ -644,9 +633,16 @@ function addProductToComparison(
 
     if (alreadyExists) {
 
-        alert(
-            "This product is already in comparison."
-        );
+        Swal.fire({
+            icon: "warning",
+            title: "Already Added",
+            text: "This product is already in comparison.",
+            confirmButtonText: "OK",
+            position: "top",
+            customClass: {
+                container: "furniro-swal-container"
+            }
+        });
 
         return;
 
@@ -659,9 +655,16 @@ function addProductToComparison(
 
     if (comparisonProducts.length >= 2) {
 
-        alert(
-            "You can compare only two products."
-        );
+        Swal.fire({
+            icon: "warning",
+            title: "Comparison Limit",
+            text: "You can compare only two products.",
+            confirmButtonText: "OK",
+            position: "top",
+            customClass: {
+                container: "furniro-swal-container"
+            }
+        });
 
         return;
 
@@ -701,7 +704,6 @@ function addProductToComparison(
 }
 
 
-
 /*   
    SELECT PRODUCT
 */
@@ -732,7 +734,6 @@ if (comparisonSelect) {
     );
 
 }
-
 
 
 /*   
@@ -828,7 +829,6 @@ function setupCartButtons() {
 }
 
 
-
 /*   
    REMOVE PRODUCT FROM COMPARISON
 */
@@ -874,7 +874,6 @@ function removeProductFromComparison(index) {
     setupCartButtons();
 
 }
-
 
 
 /*   
@@ -957,7 +956,6 @@ function createRemoveButtons() {
     );
 
 }
-
 
 
 /*   
