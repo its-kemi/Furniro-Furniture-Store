@@ -199,6 +199,34 @@ document.addEventListener(
                 "liked"
             );
 
+
+            /* =========================================
+               SWEETALERT - REMOVE WISHLIST
+            ========================================= */
+
+            Swal.fire({
+
+                icon: "info",
+
+                title: "Removed from Wishlist",
+
+                text:
+                    product.name +
+                    " has been removed from your wishlist.",
+
+                confirmButtonText: "OK",
+
+                position: "top",
+
+                customClass: {
+
+                    container:
+                        "furniro-swal-container"
+
+                }
+
+            });
+
         }
 
 
@@ -214,6 +242,34 @@ document.addEventListener(
             button.classList.add(
                 "liked"
             );
+
+
+            /* =========================================
+               SWEETALERT - ADD WISHLIST
+            ========================================= */
+
+            Swal.fire({
+
+                icon: "success",
+
+                title: "Added to Wishlist!",
+
+                text:
+                    product.name +
+                    " has been added to your wishlist.",
+
+                confirmButtonText: "OK",
+
+                position: "top",
+
+                customClass: {
+
+                    container:
+                        "furniro-swal-container"
+
+                }
+
+            });
 
         }
 
@@ -342,13 +398,13 @@ function renderWishlist() {
                     </button>
 
 
-                      <button
-    class="remove-wishlist"
-    type="button"
-    title="Remove from Wishlist"
->
-    <i class="fa-solid fa-xmark"></i>
-</button> 
+                    <button
+                        class="remove-wishlist"
+                        type="button"
+                        title="Remove from Wishlist"
+                    >
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
 
                 </div>
 
@@ -442,6 +498,17 @@ document.addEventListener(
             card.dataset.id;
 
 
+        const product =
+            wishlist.find(
+                function(item) {
+
+                    return String(item.id) ===
+                        String(productId);
+
+                }
+            );
+
+
         wishlist =
             wishlist.filter(
                 function(item) {
@@ -458,6 +525,38 @@ document.addEventListener(
         renderWishlist();
 
         updateWishlistButtons();
+
+
+        /* =========================================
+           SWEETALERT - REMOVE FROM WISHLIST PAGE
+        ========================================= */
+
+        if (product) {
+
+            Swal.fire({
+
+                icon: "info",
+
+                title: "Removed from Wishlist",
+
+                text:
+                    product.name +
+                    " has been removed from your wishlist.",
+
+                confirmButtonText: "OK",
+
+                position: "top",
+
+                customClass: {
+
+                    container:
+                        "furniro-swal-container"
+
+                }
+
+            });
+
+        }
 
     }
 );
