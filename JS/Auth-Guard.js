@@ -1,14 +1,14 @@
 /* ==================================================
-   AUTH GUARD
+   FURNIRO AUTH GUARD
 ================================================== */
 
 document.addEventListener(
     "DOMContentLoaded",
     function () {
 
-        // ==========================================
-        // CHECK LOGIN
-        // ==========================================
+        /* ==================================================
+           CHECK LOGIN
+        ================================================== */
 
         function isUserLoggedIn() {
 
@@ -21,13 +21,12 @@ document.addEventListener(
                 currentUser !== null &&
                 currentUser !== ""
             );
-
         }
 
 
-        // ==========================================
-        // ACCOUNT ELEMENTS
-        // ==========================================
+        /* ==================================================
+           ACCOUNT ELEMENTS
+        ================================================== */
 
         const accountModal =
             document.getElementById(
@@ -53,16 +52,16 @@ document.addEventListener(
             );
 
 
-        // ==========================================
-        // ALERT CONTROL
-        // ==========================================
+        /* ==================================================
+           ALERT CONTROL
+        ================================================== */
 
         let isAlertOpen = false;
 
 
-        // ==========================================
-        // OPEN ACCOUNT
-        // ==========================================
+        /* ==================================================
+           OPEN ACCOUNT
+        ================================================== */
 
         function openAccount() {
 
@@ -81,13 +80,12 @@ document.addEventListener(
 
             document.body.style.overflow =
                 "hidden";
-
         }
 
 
-        // ==========================================
-        // SHOW LOGIN FORM
-        // ==========================================
+        /* ==================================================
+           SHOW LOGIN FORM
+        ================================================== */
 
         function showLoginForm() {
 
@@ -102,15 +100,13 @@ document.addEventListener(
 
                 accountBoxes[1].style.display =
                     "none";
-
             }
-
         }
 
 
-        // ==========================================
-        // SHOW REGISTER FORM
-        // ==========================================
+        /* ==================================================
+           SHOW REGISTER FORM
+        ================================================== */
 
         function showRegisterForm() {
 
@@ -125,15 +121,13 @@ document.addEventListener(
 
                 accountBoxes[1].style.display =
                     "";
-
             }
-
         }
 
 
-        // ==========================================
-        // LOGIN REQUIRED ALERT
-        // ==========================================
+        /* ==================================================
+           LOGIN REQUIRED ALERT
+        ================================================== */
 
         function showLoginRequiredAlert() {
 
@@ -177,7 +171,6 @@ document.addEventListener(
 
                     container:
                         "furniro-swal-container"
-
                 }
 
             }).then(
@@ -186,103 +179,75 @@ document.addEventListener(
                     isAlertOpen = false;
 
 
-                    // ==================================
-                    // LOGIN
-                    // ==================================
+                    /* ======================================
+                       LOGIN
+                    ====================================== */
 
                     if (
                         result.isConfirmed
                     ) {
 
                         showLoginForm();
-
                     }
 
 
-                    // ==================================
-                    // REGISTER
-                    // ==================================
+                    /* ======================================
+                       REGISTER
+                    ====================================== */
 
                     else if (
                         result.isDenied
                     ) {
 
                         showRegisterForm();
-
                     }
 
                 }
             );
-
         }
 
 
-        // ==========================================
-        // PAGE LINKS
-        // ==========================================
+        /* ==================================================
+           PROTECTED PAGES
+           
+           These pages require Login.
+        ================================================== */
 
-        function isPageLink(element) {
+        const protectedPages = [
+
+            "Cart.html",
+
+            "Wishlist.html",
+
+            "Checkout.html",
+
+            "Orders.html",
+
+            "AccountSettings.html"
+
+        ];
+
+
+        /* ==================================================
+           CHECK PROTECTED PAGE
+        ================================================== */
+
+        function isProtectedPage(element) {
 
             const link =
-                element.closest(
-                    "a"
-                );
+                element.closest("a");
 
             if (!link) {
                 return false;
             }
 
 
-            // Account
-            if (
-                link.id ===
-                "accountOpen"
-            ) {
-
-                return true;
-
-            }
-
-
             const href =
-                link.getAttribute(
-                    "href"
-                );
+                link.getAttribute("href");
+
 
             if (!href) {
                 return false;
-            }
-
-
-            // Hash
-            if (
-                href === "#" ||
-                href.startsWith("#")
-            ) {
-
-                return false;
-
-            }
-
-
-            // External links
-            if (
-                href.startsWith(
-                    "http://"
-                ) ||
-                href.startsWith(
-                    "https://"
-                ) ||
-                href.startsWith(
-                    "mailto:"
-                ) ||
-                href.startsWith(
-                    "tel:"
-                )
-            ) {
-
-                return false;
-
             }
 
 
@@ -294,23 +259,234 @@ document.addEventListener(
                     .split("#")[0];
 
 
-            // ======================================
-            // PROTECTED PAGES
-            // ======================================
+            return protectedPages.includes(
+                pageName
+            );
+        }
 
-            const protectedPages = [
 
-                "Cart.html",
+        /* ==================================================
+           PROTECTED ACTIONS
+           
+           Only these actions require Login.
+        ================================================== */
 
-                "Wishlist.html",
+        function isProtectedAction(element) {
 
-                "Checkout.html",
+            const protectedSelectors = [
 
-                "Orders.html"
+                /* Add to Cart */
+                "#addToCart",
+                ".add-to-cart",
+                ".add-cart",
+                ".add-cart-btn",
+                ".add-to-cart-btn",
+
+                /* Wishlist */
+                "#addToWishlist",
+                ".add-to-wishlist",
+                ".wishlist-btn",
+                ".wishlist-button",
+
+                /* Cart */
+                "#cartButton",
+                ".cart-button",
+                ".cart-link",
+
+                /* Wishlist page/link */
+                "#wishlistButton",
+                ".wishlist-link",
+
+                /* Checkout */
+                "#checkoutButton",
+                ".checkout-button",
+                ".checkout-link",
+
+                /* Orders */
+                "#ordersButton",
+                ".orders-button",
+                ".orders-link",
+
+                /* Account Settings */
+                "#accountSettings",
+                ".account-settings",
+
+                /* Generic protection */
+                "[data-requires-login]"
 
             ];
 
 
+            for (
+                let i = 0;
+                i < protectedSelectors.length;
+                i++
+            ) {
+
+                if (
+                    element.closest(
+                        protectedSelectors[i]
+                    )
+                ) {
+
+                    return true;
+                }
+            }
+
+
+            return false;
+        }
+
+
+        /* ==================================================
+           PUBLIC UI
+           
+           These areas are always available for guests.
+        ================================================== */
+
+        function isPublicUI(element) {
+
+            const publicSelectors = [
+
+                /* Account */
+                "#accountOpen",
+
+                "#accountModal",
+
+                /* Search */
+                "#searchIcon",
+                "#searchButton",
+                "#searchInput",
+                "#searchForm",
+                ".search-form",
+
+                /* Language */
+                "#languageButton",
+                ".language-option",
+
+                /* Theme */
+                "#themeButton",
+                ".theme-button",
+
+                /* Mobile menu */
+                "#mobileMenuButton",
+                "#mobileMenuClose",
+
+                /* Sidebar */
+                "#sidebar-toggle",
+                "#sidebar-close",
+                "#sidebar-overlay",
+                "#app-sidebar",
+                ".sidebar",
+                ".sidebar-toggle",
+                ".sidebar-close",
+
+                /* Product */
+                ".product-card",
+                ".product-item",
+                ".product-image",
+                ".product-gallery",
+                ".gallery",
+                ".gallery-image",
+
+                /* Product modal */
+                ".product-modal",
+                ".product-details",
+
+                /* General public content */
+                ".public-content"
+
+            ];
+
+
+            for (
+                let i = 0;
+                i < publicSelectors.length;
+                i++
+            ) {
+
+                if (
+                    element.closest(
+                        publicSelectors[i]
+                    )
+                ) {
+
+                    return true;
+                }
+            }
+
+
+            return false;
+        }
+
+
+        /* ==================================================
+           PUBLIC PAGE LINK
+           
+           Normal website pages are available to guests.
+        ================================================== */
+
+        function isPublicPageLink(element) {
+
+            const link =
+                element.closest("a");
+
+            if (!link) {
+                return false;
+            }
+
+
+            /* Account icon */
+            if (
+                link.id ===
+                "accountOpen"
+            ) {
+
+                return true;
+            }
+
+
+            const href =
+                link.getAttribute("href");
+
+
+            if (!href) {
+                return false;
+            }
+
+
+            /* Hash links */
+            if (
+                href === "#" ||
+                href.startsWith("#")
+            ) {
+
+                return true;
+            }
+
+
+            /* External links */
+            if (
+                href.startsWith("http://") ||
+                href.startsWith("https://") ||
+                href.startsWith("mailto:") ||
+                href.startsWith("tel:")
+            ) {
+
+                return true;
+            }
+
+
+            /* Get page name */
+            const pageName =
+                href
+                    .split("/")
+                    .pop()
+                    .split("?")[0]
+                    .split("#")[0];
+
+
+            /* Protected pages */
             if (
                 protectedPages.includes(
                     pageName
@@ -318,88 +494,42 @@ document.addEventListener(
             ) {
 
                 return false;
-
             }
 
 
-            // Other HTML pages are viewable
-            return pageName.endsWith(
-                ".html"
-            );
-
-        }
-
-
-        // ==========================================
-        // ALLOWED UI
-        // ==========================================
-
-        function isAllowedUI(element) {
-
-            const allowedSelectors = [
-
-                "#accountOpen",
-
-                "#languageButton",
-
-                ".language-option",
-
-                "#themeButton",
-
-                "#mobileMenuButton",
-
-                "#mobileMenuClose",
-
-                "#searchIcon",
-
-                "#searchButton",
-
-                "#searchInput"
-
-            ];
-
-
-            for (
-                let i = 0;
-                i < allowedSelectors.length;
-                i++
+            /* All other HTML pages are public */
+            if (
+                pageName.endsWith(".html")
             ) {
 
-                if (
-                    element.closest(
-                        allowedSelectors[i]
-                    )
-                ) {
-
-                    return true;
-
-                }
-
+                return true;
             }
 
 
-            return false;
-
+            return true;
         }
 
 
-        // ==========================================
-        // CLICK
-        // ==========================================
+        /* ==================================================
+           CLICK CONTROL
+        ================================================== */
 
         document.addEventListener(
             "click",
             function (event) {
 
-                // If logged in
-                // allow everything
+
+                /* ==========================================
+                   LOGGED-IN USER
+                   
+                   Logged-in users can use everything.
+                ========================================== */
 
                 if (
                     isUserLoggedIn()
                 ) {
 
                     return;
-
                 }
 
 
@@ -407,10 +537,11 @@ document.addEventListener(
                     event.target;
 
 
-                // ==================================
-                // SWEETALERT
-                // NEVER BLOCK SWEETALERT
-                // ==================================
+                /* ==========================================
+                   SWEETALERT
+                   
+                   Never block SweetAlert buttons.
+                ========================================== */
 
                 if (
                     element.closest(
@@ -419,13 +550,14 @@ document.addEventListener(
                 ) {
 
                     return;
-
                 }
 
 
-                // ==================================
-                // ACCOUNT
-                // ==================================
+                /* ==========================================
+                   ACCOUNT
+                   
+                   Login/Register must remain available.
+                ========================================== */
 
                 if (
                     element.closest(
@@ -434,13 +566,15 @@ document.addEventListener(
                 ) {
 
                     return;
-
                 }
 
 
-                // ==================================
-                // ACCOUNT MODAL
-                // ==================================
+                /* ==========================================
+                   ACCOUNT MODAL
+                   
+                   Everything inside Login/Register modal
+                   is allowed.
+                ========================================== */
 
                 if (
                     element.closest(
@@ -449,70 +583,135 @@ document.addEventListener(
                 ) {
 
                     return;
-
                 }
 
 
-                // ==================================
-                // NORMAL PAGE LINK
-                // ==================================
+                /* ==========================================
+                   PROTECTED PAGE
+                   
+                   Example:
+                   Cart.html
+                   Wishlist.html
+                   Orders.html
+                   Checkout.html
+                ========================================== */
 
                 if (
-                    isPageLink(
+                    isProtectedPage(
+                        element
+                    )
+                ) {
+
+                    event.preventDefault();
+
+                    event.stopPropagation();
+
+                    showLoginRequiredAlert();
+
+                    return;
+                }
+
+
+                /* ==========================================
+                   PROTECTED ACTION
+                   
+                   Example:
+                   Add to Cart
+                   Wishlist
+                   Checkout
+                ========================================== */
+
+                if (
+                    isProtectedAction(
+                        element
+                    )
+                ) {
+
+                    event.preventDefault();
+
+                    event.stopPropagation();
+
+                    showLoginRequiredAlert();
+
+                    return;
+                }
+
+
+                /* ==========================================
+                   PUBLIC UI
+                   
+                   Search, Sidebar, Gallery, etc.
+                ========================================== */
+
+                if (
+                    isPublicUI(
                         element
                     )
                 ) {
 
                     return;
-
                 }
 
 
-                // ==================================
-                // ALLOWED UI
-                // ==================================
+                /* ==========================================
+                   NORMAL PUBLIC PAGE
+                ========================================== */
 
                 if (
-                    isAllowedUI(
+                    isPublicPageLink(
                         element
                     )
                 ) {
 
                     return;
-
                 }
 
 
-                // ==================================
-                // BLOCK
-                // ==================================
+                /* ==========================================
+                   EVERYTHING ELSE
+                   
+                   IMPORTANT:
+                   Do NOT block normal clicks anymore.
+                   
+                   Guest users can:
+                   - See products
+                   - See images
+                   - Open galleries
+                   - Open product details
+                   - Use search
+                   - Open Sidebar
+                   - Use language
+                   - Use dark mode
+                ========================================== */
 
-                event.preventDefault();
-
-                event.stopPropagation();
-
-                showLoginRequiredAlert();
+                return;
 
             },
             true
         );
 
 
-        // ==========================================
-        // FORM SUBMIT
-        // ==========================================
+        /* ==================================================
+           FORM SUBMIT
+           
+           Only forms that specifically require Login
+           should be blocked.
+        ================================================== */
 
         document.addEventListener(
             "submit",
             function (event) {
 
-                // Logged in
+
+                /* ==========================================
+                   LOGGED-IN USER
+                ========================================== */
+
                 if (
                     isUserLoggedIn()
                 ) {
 
                     return;
-
                 }
 
 
@@ -520,54 +719,116 @@ document.addEventListener(
                     event.target;
 
 
-                // Login allowed
+                /* ==========================================
+                   LOGIN FORM
+                ========================================== */
+
                 if (
                     form ===
                     loginForm
                 ) {
 
                     return;
-
                 }
 
 
-                // Register allowed
+                /* ==========================================
+                   REGISTER FORM
+                ========================================== */
+
                 if (
                     form ===
                     registerForm
                 ) {
 
                     return;
-
                 }
 
 
-                // Block other forms
-                event.preventDefault();
+                /* ==========================================
+                   SEARCH FORM
+                   
+                   Search is public.
+                ========================================== */
 
-                event.stopPropagation();
+                if (
+                    form.id ===
+                    "searchForm"
+                ) {
 
-                showLoginRequiredAlert();
+                    return;
+                }
+
+
+                if (
+                    form.closest(
+                        ".search-form"
+                    )
+                ) {
+
+                    return;
+                }
+
+
+                /* ==========================================
+                   FORM REQUIRES LOGIN
+                ========================================== */
+
+                if (
+                    form.matches(
+                        "[data-requires-login]"
+                    ) ||
+                    form.closest(
+                        "[data-requires-login]"
+                    )
+                ) {
+
+                    event.preventDefault();
+
+                    event.stopPropagation();
+
+                    showLoginRequiredAlert();
+
+                    return;
+                }
+
+
+                /* ==========================================
+                   OTHER FORMS
+                   
+                   Do NOT block them automatically.
+                ========================================== */
+
+                return;
 
             },
             true
         );
 
 
-        // ==========================================
-        // CHANGE
-        // ==========================================
+        /* ==================================================
+           CHANGE CONTROL
+           
+           Do NOT block every change event.
+           
+           Search filters, language, theme and other
+           public controls must work for guests.
+        ================================================== */
 
         document.addEventListener(
             "change",
             function (event) {
+
+
+                /* ==========================================
+                   LOGGED-IN USER
+                ========================================== */
 
                 if (
                     isUserLoggedIn()
                 ) {
 
                     return;
-
                 }
 
 
@@ -575,51 +836,88 @@ document.addEventListener(
                     event.target;
 
 
-                // Language
+                /* ==========================================
+                   PROTECTED CONTROL
+                ========================================== */
+
                 if (
                     element.closest(
-                        ".language-option"
+                        "[data-requires-login]"
                     )
                 ) {
 
-                    return;
+                    event.preventDefault();
 
+                    event.stopPropagation();
+
+                    showLoginRequiredAlert();
+
+                    return;
                 }
 
-                   // ==================================
-// ACCOUNT
-// ==================================
 
-if (
-    element.closest(
-        "#accountOpen"
-    )
-) {
+                /* ==========================================
+                   ALL OTHER CHANGE EVENTS
+                   
+                   Public:
+                   - Search filters
+                   - Language
+                   - Theme
+                   - Gallery
+                   - Other UI
+                ========================================== */
 
-    // Restore both account forms
-    // when Account icon is opened
+                return;
 
-    if (
-        accountBoxes.length >= 2
-    ) {
+            },
+            true
+        );
 
-        accountBoxes[0].style.display =
-            "";
 
-        accountBoxes[1].style.display =
-            "";
+        /* ==================================================
+           INPUT CONTROL
+           
+           IMPORTANT:
+           Guest users must be able to type in Search.
+           
+           Therefore we do NOT block input events.
+        ================================================== */
 
-    }
+        document.addEventListener(
+            "input",
+            function (event) {
 
-    return;
+                /*
+                    Search input and other public inputs
+                    are completely available to guests.
+                */
 
-}
+                return;
 
-                event.preventDefault();
+            },
+            true
+        );
 
-                event.stopPropagation();
 
-                showLoginRequiredAlert();
+        /* ==================================================
+           KEYDOWN CONTROL
+           
+           Do not block keyboard interaction for guests.
+        ================================================== */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                /*
+                    Search
+                    Gallery
+                    Sidebar
+                    Public UI
+                    are available.
+                */
+
+                return;
 
             },
             true
