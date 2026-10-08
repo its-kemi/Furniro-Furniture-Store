@@ -434,7 +434,7 @@ document.addEventListener(
 
                     /*
                        Show SweetAlert
-                       Above Account Modal
+                       Then go to Home
                     */
 
                     Swal.fire({
@@ -446,20 +446,19 @@ document.addEventListener(
                             "Login Successful!",
 
                         text:
-                            "Welcome back to Furniro.",
+                            "Welcome back!",
 
                         confirmButtonText:
-                            "OK",
+                            "OK"
 
-                        position:
-                            "top",
+                    }).then(function () {
 
-                        customClass: {
+                        /*
+                           Go to Home page
+                        */
 
-                            container:
-                                "furniro-swal-container"
-
-                        }
+                        window.location.href =
+                            "index.html";
 
                     });
 
@@ -469,28 +468,6 @@ document.addEventListener(
                     */
 
                     loginForm.reset();
-
-
-                    /*
-                       Keep modal open
-                    */
-
-                    if (accountModal) {
-
-                        accountModal.classList.add(
-                            "active"
-                        );
-
-                        accountModal.setAttribute(
-                            "aria-hidden",
-                            "false"
-                        );
-
-                    }
-
-
-                    document.body.style.overflow =
-                        "hidden";
 
                 }
             );
