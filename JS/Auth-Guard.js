@@ -1,926 +1,994 @@
-/* ==================================================
+/* =========================================================
    FURNIRO AUTH GUARD
-================================================== */
+   Protects login-required pages and actions
+========================================================= */
+
+
+/* =========================================================
+   CHECK LOGIN STATUS
+========================================================= */
+
+function isUserLoggedIn() {
+
+    return !!localStorage.getItem("furniroCurrentUser");
+
+}
+
+
+/* =========================================================
+   SHOW LOGIN FORM
+========================================================= */
+
+function showLoginForm() {
+
+    const loginForm =
+        document.querySelector("#modalLoginForm");
+
+    const registerForm =
+        document.querySelector("#modalRegisterForm");
+
+    if (loginForm) {
+        loginForm.style.display = "block";
+    }
+
+    if (registerForm) {
+        registerForm.style.display = "none";
+    }
+
+}
+
+
+/* =========================================================
+   SHOW REGISTER FORM
+========================================================= */
+
+function showRegisterForm() {
+
+    const loginForm =
+        document.querySelector("#modalLoginForm");
+
+    const registerForm =
+        document.querySelector("#modalRegisterForm");
+
+    if (loginForm) {
+        loginForm.style.display = "none";
+    }
+
+    if (registerForm) {
+        registerForm.style.display = "block";
+    }
+
+}
+
+
+/* =========================================================
+   OPEN ACCOUNT MODAL
+========================================================= */
+
+function openAccountModal() {
+
+    const accountModal =
+        document.querySelector("#accountModal");
+
+    if (accountModal) {
+
+        accountModal.style.display = "flex";
+
+    }
+
+}
+
+
+/* =========================================================
+   LOGIN REQUIRED ALERT
+========================================================= */
+
+function showLoginRequiredAlert() {
+
+    Swal.fire({
+
+        icon: "warning",
+
+        title: "Login Required",
+
+        text:
+            "Please login or create an account to continue.",
+
+        showCancelButton: true,
+
+        showDenyButton: true,
+
+        confirmButtonText: "Login",
+
+        denyButtonText: "Register",
+
+        cancelButtonText: "Close",
+
+        position: "top",
+
+        customClass: {
+
+            container: "furniro-swal-container"
+
+        }
+
+    }).then(function (result) {
+
+        if (result.isConfirmed) {
+
+            openAccountModal();
+
+            showLoginForm();
+
+        }
+
+        else if (result.isDenied) {
+
+            openAccountModal();
+
+            showRegisterForm();
+
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   PROTECTED PAGES
+========================================================= */
+
+const protectedPages = [
+
+    "Checkout.html",
+
+    "Orders.html",
+
+    "AccountSettings.html"
+
+];
+
+
+/* =========================================================
+   GET CURRENT PAGE
+========================================================= */
+
+function getCurrentPage() {
+
+    let page =
+        window.location.pathname
+            .split("/")
+            .pop();
+
+    if (!page) {
+
+        page = "index.html";
+
+    }
+
+    return page;
+
+}
+
+
+/* =========================================================
+   CHECK PROTECTED PAGE
+========================================================= */
+
+function isProtectedPage() {
+
+    const currentPage =
+        getCurrentPage();
+
+    return protectedPages.some(function (page) {
+
+        return page.toLowerCase() ===
+            currentPage.toLowerCase();
+
+    });
+
+}
+
+
+/* =========================================================
+   PROTECTED ACTIONS
+========================================================= */
+
+function isProtectedAction(element) {
+
+    if (!element) {
+
+        return false;
+
+    }
+
+
+    /*
+       ADD TO CART
+    */
+
+    const cartAction =
+        element.closest(
+            [
+                "#addToCart",
+
+                ".add-to-cart",
+
+                ".add-cart",
+
+                ".add-cart-btn",
+
+                ".add-to-cart-btn",
+
+                "#cartAction",
+
+                ".cart-action",
+
+                ".cart-remove",
+
+                ".remove-from-cart",
+
+                ".cart-update",
+
+                ".update-cart"
+
+            ].join(",")
+        );
+
+
+    if (cartAction) {
+
+        return true;
+
+    }
+
+
+    /*
+       WISHLIST
+    */
+
+    const wishlistAction =
+        element.closest(
+            [
+                "#addToWishlist",
+
+                "#wishlistButton",
+
+                ".add-to-wishlist",
+
+                ".wishlist-btn",
+
+                ".wishlist-button",
+
+                ".wishlist-icon",
+
+                ".wishlist-link",
+
+                ".wishlist-add",
+
+                ".add-wishlist",
+
+                ".product-wishlist",
+
+                ".product-wishlist-btn",
+
+                ".like-product",
+
+                ".wishlist-action",
+
+                ".remove-from-wishlist",
+
+                ".wishlist-remove",
+
+                ".wishlist-action-button",
+
+                "[data-wishlist]",
+
+                "[data-action='wishlist']",
+
+                "[data-action='add-wishlist']",
+
+                "[aria-label='Wishlist']",
+
+                "[aria-label='Add to wishlist']",
+
+                "[title='Wishlist']",
+
+                "[title='Add to wishlist']"
+
+            ].join(",")
+        );
+
+
+    if (wishlistAction) {
+
+        return true;
+
+    }
+
+
+    /*
+       COMPARE
+    */
+
+    const compareAction =
+        element.closest(
+            [
+                "#compareButton",
+
+                "#addToCompare",
+
+                ".compare-product",
+
+                ".compare-btn",
+
+                ".compare-button",
+
+                ".add-to-compare",
+
+                ".compare-product",
+
+                ".product-compare",
+
+                "[data-compare]",
+
+                "[data-action='compare']",
+
+                "[aria-label='Compare']",
+
+                "[title='Compare']"
+
+            ].join(",")
+        );
+
+
+    if (compareAction) {
+
+        return true;
+
+    }
+
+
+    /*
+       CHECKOUT
+    */
+
+    const checkoutAction =
+        element.closest(
+            [
+                "#checkoutButton",
+
+                ".checkout-button",
+
+                ".checkout-link"
+
+            ].join(",")
+        );
+
+
+    if (checkoutAction) {
+
+        return true;
+
+    }
+
+
+    /*
+       ORDERS
+    */
+
+    const ordersAction =
+        element.closest(
+            [
+                "#ordersButton",
+
+                ".orders-button",
+
+                ".orders-link"
+
+            ].join(",")
+        );
+
+
+    if (ordersAction) {
+
+        return true;
+
+    }
+
+
+    /*
+       ACCOUNT SETTINGS
+    */
+
+    const accountSettings =
+        element.closest(
+            [
+                "#accountSettings",
+
+                ".account-settings",
+
+                "[data-requires-login]"
+
+            ].join(",")
+        );
+
+
+    if (accountSettings) {
+
+        return true;
+
+    }
+
+
+    /*
+       FONT AWESOME HEART
+       Extra protection for heart icons
+    */
+
+    const heartIcon =
+        element.closest(
+            [
+                ".fa-heart",
+
+                ".fa-regular.fa-heart",
+
+                ".fa-solid.fa-heart"
+
+            ].join(",")
+        );
+
+
+    if (heartIcon) {
+
+        return true;
+
+    }
+
+
+    return false;
+
+}
+
+
+/* =========================================================
+   PUBLIC UI ELEMENTS
+========================================================= */
+
+function isPublicUI(element) {
+
+    if (!element) {
+
+        return false;
+
+    }
+
+
+    return !!element.closest(
+
+        [
+
+            /*
+               ACCOUNT
+            */
+
+            "#accountOpen",
+
+            "#accountModal",
+
+
+            /*
+               SEARCH
+            */
+
+            "#searchOpen",
+
+            ".search-icon",
+
+            ".search-button",
+
+            ".search-toggle",
+
+            ".search-input",
+
+            ".search-form",
+
+            "#searchInput",
+
+
+            /*
+               LANGUAGE
+            */
+
+            ".language-selector",
+
+            ".language-menu",
+
+            ".language-option",
+
+            "[data-language]",
+
+
+            /*
+               DARK MODE
+            */
+
+            "#darkModeToggle",
+
+            ".dark-mode-toggle",
+
+            ".theme-toggle",
+
+            "#themeToggle",
+
+
+            /*
+               MOBILE MENU
+            */
+
+            ".menu-toggle",
+
+            ".mobile-menu-toggle",
+
+            ".hamburger",
+
+            "#mobileMenu",
+
+
+            /*
+               PRODUCT DISPLAY
+               These are public only when the click
+               is NOT on a protected action.
+            */
+
+            ".product-card",
+
+            ".product-item",
+
+            ".product-image",
+
+            ".product-gallery",
+
+            ".gallery",
+
+            ".gallery-image",
+
+            ".product-modal",
+
+            ".product-details",
+
+            ".public-content"
+
+        ].join(",")
+
+    );
+
+}
+
+
+/* =========================================================
+   PUBLIC PAGE LINKS
+========================================================= */
+
+function isPublicPageLink(element) {
+
+    if (!element) {
+
+        return false;
+
+    }
+
+
+    const link =
+        element.closest("a");
+
+    if (!link) {
+
+        return false;
+
+    }
+
+
+    const href =
+        link.getAttribute("href");
+
+    if (!href) {
+
+        return false;
+
+    }
+
+
+    const publicPages = [
+
+        "index.html",
+
+        "Shop.html",
+
+        "About.html",
+
+        "Contact.html",
+
+        "Search.html",
+
+        "Wishlist.html",
+
+        "Cart.html",
+
+        "Single-Product.html",
+
+        "Product-Comparison.html",
+
+        "Returns.html"
+
+    ];
+
+
+    const cleanHref =
+        href
+            .split("?")[0]
+            .split("#")[0]
+            .split("/")
+            .pop();
+
+
+    return publicPages.some(function (page) {
+
+        return page.toLowerCase() ===
+            cleanHref.toLowerCase();
+
+    });
+
+}
+
+
+/* =========================================================
+   ACCOUNT MODAL
+========================================================= */
+
+document.addEventListener(
+    "click",
+    function (event) {
+
+        const accountButton =
+            event.target.closest("#accountOpen");
+
+
+        if (accountButton) {
+
+            /*
+               Account button itself is public.
+               It should open the account modal.
+            */
+
+            return;
+
+        }
+
+    },
+    true
+);
+
+
+/* =========================================================
+   GLOBAL AUTH GUARD
+========================================================= */
+
+document.addEventListener(
+    "click",
+    function (event) {
+
+        const element =
+            event.target;
+
+
+        /*
+           -------------------------------------------------
+           ALREADY LOGGED IN
+           -------------------------------------------------
+        */
+
+        if (isUserLoggedIn()) {
+
+            return;
+
+        }
+
+
+        /*
+           -------------------------------------------------
+           SWEETALERT ITSELF
+           -------------------------------------------------
+        */
+
+        if (
+            element.closest(".swal2-container") ||
+            element.closest(".swal2-popup")
+        ) {
+
+            return;
+
+        }
+
+
+        /*
+           -------------------------------------------------
+           ACCOUNT BUTTON
+           -------------------------------------------------
+        */
+
+        if (
+            element.closest("#accountOpen") ||
+            element.closest("#accountModal")
+        ) {
+
+            return;
+
+        }
+
+
+        /*
+           -------------------------------------------------
+           PROTECTED PAGE
+           -------------------------------------------------
+        */
+
+        if (isProtectedPage()) {
+
+            event.preventDefault();
+
+            event.stopPropagation();
+
+            showLoginRequiredAlert();
+
+            return;
+
+        }
+
+
+        /*
+           -------------------------------------------------
+           PROTECTED ACTION
+           -------------------------------------------------
+        */
+
+        if (isProtectedAction(element)) {
+
+            event.preventDefault();
+
+            event.stopPropagation();
+
+            event.stopImmediatePropagation();
+
+            showLoginRequiredAlert();
+
+            return;
+
+        }
+
+
+        /*
+           -------------------------------------------------
+           PUBLIC UI
+           -------------------------------------------------
+        */
+
+        if (isPublicUI(element)) {
+
+            return;
+
+        }
+
+
+        /*
+           -------------------------------------------------
+           PUBLIC PAGE LINK
+           -------------------------------------------------
+        */
+
+        if (isPublicPageLink(element)) {
+
+            return;
+
+        }
+
+
+        /*
+           -------------------------------------------------
+           EVERYTHING ELSE
+           -------------------------------------------------
+        */
+
+        return;
+
+    },
+    true
+);
+
+
+/* =========================================================
+   PROTECTED PAGE CHECK ON LOAD
+========================================================= */
 
 document.addEventListener(
     "DOMContentLoaded",
     function () {
 
-        /* ==================================================
-           CHECK LOGIN
-        ================================================== */
+        if (
+            isProtectedPage() &&
+            !isUserLoggedIn()
+        ) {
 
-        function isUserLoggedIn() {
+            showLoginRequiredAlert();
 
-            const currentUser =
-                localStorage.getItem(
-                    "furniroCurrentUser"
-                );
-
-            return (
-                currentUser !== null &&
-                currentUser !== ""
-            );
         }
 
-
-        /* ==================================================
-           ACCOUNT ELEMENTS
-        ================================================== */
-
-        const accountModal =
-            document.getElementById(
-                "accountModal"
-            );
-
-        const accountBoxes =
-            accountModal
-                ? accountModal.querySelectorAll(
-                    ".account-box"
-                )
-                : [];
+    }
+);
 
 
-        const loginForm =
-            document.getElementById(
-                "modalLoginForm"
-            );
+/* =========================================================
+   UPDATE ACCOUNT UI
+========================================================= */
 
-        const registerForm =
-            document.getElementById(
-                "modalRegisterForm"
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const currentUser =
+            localStorage.getItem(
+                "furniroCurrentUser"
             );
 
 
-        /* ==================================================
-           ALERT CONTROL
-        ================================================== */
+        if (!currentUser) {
 
-        let isAlertOpen = false;
+            return;
+
+        }
 
 
-        /* ==================================================
-           OPEN ACCOUNT
-        ================================================== */
+        let user = null;
 
-        function openAccount() {
 
-            if (!accountModal) {
-                return;
-            }
+        try {
 
-            accountModal.classList.add(
-                "active"
+            user =
+                JSON.parse(currentUser);
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Invalid current user data.",
+                error
             );
 
-            accountModal.setAttribute(
-                "aria-hidden",
-                "false"
+            return;
+
+        }
+
+
+        if (!user) {
+
+            return;
+
+        }
+
+
+        /*
+           Account avatar / initials
+        */
+
+        const accountButtons =
+            document.querySelectorAll(
+                "#accountOpen"
             );
 
-            document.body.style.overflow =
-                "hidden";
-        }
 
+        accountButtons.forEach(
+            function (button) {
 
-        /* ==================================================
-           SHOW LOGIN FORM
-        ================================================== */
+                const icon =
+                    button.querySelector(
+                        "i"
+                    );
 
-        function showLoginForm() {
-
-            openAccount();
-
-            if (
-                accountBoxes.length >= 2
-            ) {
-
-                accountBoxes[0].style.display =
-                    "";
-
-                accountBoxes[1].style.display =
-                    "none";
-            }
-        }
-
-
-        /* ==================================================
-           SHOW REGISTER FORM
-        ================================================== */
-
-        function showRegisterForm() {
-
-            openAccount();
-
-            if (
-                accountBoxes.length >= 2
-            ) {
-
-                accountBoxes[0].style.display =
-                    "none";
-
-                accountBoxes[1].style.display =
-                    "";
-            }
-        }
-
-
-        /* ==================================================
-           LOGIN REQUIRED ALERT
-        ================================================== */
-
-        function showLoginRequiredAlert() {
-
-            if (isAlertOpen) {
-                return;
-            }
-
-            isAlertOpen = true;
-
-
-            Swal.fire({
-
-                icon:
-                    "warning",
-
-                title:
-                    "Login Required",
-
-                text:
-                    "Please login or create an account to continue.",
-
-                showConfirmButton:
-                    true,
-
-                showDenyButton:
-                    true,
-
-                showCloseButton:
-                    true,
-
-                confirmButtonText:
-                    "Login",
-
-                denyButtonText:
-                    "Register",
-
-                position:
-                    "top",
-
-                customClass: {
-
-                    container:
-                        "furniro-swal-container"
-                }
-
-            }).then(
-                function (result) {
-
-                    isAlertOpen = false;
-
-
-                    /* ======================================
-                       LOGIN
-                    ====================================== */
-
-                    if (
-                        result.isConfirmed
-                    ) {
-
-                        showLoginForm();
-                    }
-
-
-                    /* ======================================
-                       REGISTER
-                    ====================================== */
-
-                    else if (
-                        result.isDenied
-                    ) {
-
-                        showRegisterForm();
-                    }
-
-                }
-            );
-        }
-
-
-        /* ==================================================
-           PROTECTED PAGES
-           
-           These pages require Login.
-        ================================================== */
-
-        const protectedPages = [
-
-            "Cart.html",
-
-            "Wishlist.html",
-
-            "Checkout.html",
-
-            "Orders.html",
-
-            "AccountSettings.html"
-
-        ];
-
-
-        /* ==================================================
-           CHECK PROTECTED PAGE
-        ================================================== */
-
-        function isProtectedPage(element) {
-
-            const link =
-                element.closest("a");
-
-            if (!link) {
-                return false;
-            }
-
-
-            const href =
-                link.getAttribute("href");
-
-
-            if (!href) {
-                return false;
-            }
-
-
-            const pageName =
-                href
-                    .split("/")
-                    .pop()
-                    .split("?")[0]
-                    .split("#")[0];
-
-
-            return protectedPages.includes(
-                pageName
-            );
-        }
-
-
-        /* ==================================================
-           PROTECTED ACTIONS
-           
-           Only these actions require Login.
-        ================================================== */
-
-        function isProtectedAction(element) {
-
-            const protectedSelectors = [
-
-                /* Add to Cart */
-                "#addToCart",
-                ".add-to-cart",
-                ".add-cart",
-                ".add-cart-btn",
-                ".add-to-cart-btn",
-
-                /* Wishlist */
-                "#addToWishlist",
-                ".add-to-wishlist",
-                ".wishlist-btn",
-                ".wishlist-button",
-
-                /* Cart */
-                "#cartButton",
-                ".cart-button",
-                ".cart-link",
-
-                /* Wishlist page/link */
-                "#wishlistButton",
-                ".wishlist-link",
-
-                /* Checkout */
-                "#checkoutButton",
-                ".checkout-button",
-                ".checkout-link",
-
-                /* Orders */
-                "#ordersButton",
-                ".orders-button",
-                ".orders-link",
-
-                /* Account Settings */
-                "#accountSettings",
-                ".account-settings",
-
-                /* Generic protection */
-                "[data-requires-login]"
-
-            ];
-
-
-            for (
-                let i = 0;
-                i < protectedSelectors.length;
-                i++
-            ) {
-
-                if (
-                    element.closest(
-                        protectedSelectors[i]
-                    )
-                ) {
-
-                    return true;
-                }
-            }
-
-
-            return false;
-        }
-
-
-        /* ==================================================
-           PUBLIC UI
-           
-           These areas are always available for guests.
-        ================================================== */
-
-        function isPublicUI(element) {
-
-            const publicSelectors = [
-
-                /* Account */
-                "#accountOpen",
-
-                "#accountModal",
-
-                /* Search */
-                "#searchIcon",
-                "#searchButton",
-                "#searchInput",
-                "#searchForm",
-                ".search-form",
-
-                /* Language */
-                "#languageButton",
-                ".language-option",
-
-                /* Theme */
-                "#themeButton",
-                ".theme-button",
-
-                /* Mobile menu */
-                "#mobileMenuButton",
-                "#mobileMenuClose",
-
-                /* Sidebar */
-                "#sidebar-toggle",
-                "#sidebar-close",
-                "#sidebar-overlay",
-                "#app-sidebar",
-                ".sidebar",
-                ".sidebar-toggle",
-                ".sidebar-close",
-
-                /* Product */
-                ".product-card",
-                ".product-item",
-                ".product-image",
-                ".product-gallery",
-                ".gallery",
-                ".gallery-image",
-
-                /* Product modal */
-                ".product-modal",
-                ".product-details",
-
-                /* General public content */
-                ".public-content"
-
-            ];
-
-
-            for (
-                let i = 0;
-                i < publicSelectors.length;
-                i++
-            ) {
-
-                if (
-                    element.closest(
-                        publicSelectors[i]
-                    )
-                ) {
-
-                    return true;
-                }
-            }
-
-
-            return false;
-        }
-
-
-        /* ==================================================
-           PUBLIC PAGE LINK
-           
-           Normal website pages are available to guests.
-        ================================================== */
-
-        function isPublicPageLink(element) {
-
-            const link =
-                element.closest("a");
-
-            if (!link) {
-                return false;
-            }
-
-
-            /* Account icon */
-            if (
-                link.id ===
-                "accountOpen"
-            ) {
-
-                return true;
-            }
-
-
-            const href =
-                link.getAttribute("href");
-
-
-            if (!href) {
-                return false;
-            }
-
-
-            /* Hash links */
-            if (
-                href === "#" ||
-                href.startsWith("#")
-            ) {
-
-                return true;
-            }
-
-
-            /* External links */
-            if (
-                href.startsWith("http://") ||
-                href.startsWith("https://") ||
-                href.startsWith("mailto:") ||
-                href.startsWith("tel:")
-            ) {
-
-                return true;
-            }
-
-
-            /* Get page name */
-            const pageName =
-                href
-                    .split("/")
-                    .pop()
-                    .split("?")[0]
-                    .split("#")[0];
-
-
-            /* Protected pages */
-            if (
-                protectedPages.includes(
-                    pageName
-                )
-            ) {
-
-                return false;
-            }
-
-
-            /* All other HTML pages are public */
-            if (
-                pageName.endsWith(".html")
-            ) {
-
-                return true;
-            }
-
-
-            return true;
-        }
-
-
-        /* ==================================================
-           CLICK CONTROL
-        ================================================== */
-
-        document.addEventListener(
-            "click",
-            function (event) {
-
-
-                /* ==========================================
-                   LOGGED-IN USER
-                   
-                   Logged-in users can use everything.
-                ========================================== */
-
-                if (
-                    isUserLoggedIn()
-                ) {
-
-                    return;
-                }
-
-
-                const element =
-                    event.target;
-
-
-                /* ==========================================
-                   SWEETALERT
-                   
-                   Never block SweetAlert buttons.
-                ========================================== */
-
-                if (
-                    element.closest(
-                        ".swal2-container"
-                    )
-                ) {
-
-                    return;
-                }
-
-
-                /* ==========================================
-                   ACCOUNT
-                   
-                   Login/Register must remain available.
-                ========================================== */
-
-                if (
-                    element.closest(
-                        "#accountOpen"
-                    )
-                ) {
-
-                    return;
-                }
-
-
-                /* ==========================================
-                   ACCOUNT MODAL
-                   
-                   Everything inside Login/Register modal
-                   is allowed.
-                ========================================== */
-
-                if (
-                    element.closest(
-                        "#accountModal"
-                    )
-                ) {
-
-                    return;
-                }
-
-
-                /* ==========================================
-                   PROTECTED PAGE
-                   
-                   Example:
-                   Cart.html
-                   Wishlist.html
-                   Orders.html
-                   Checkout.html
-                ========================================== */
-
-                if (
-                    isProtectedPage(
-                        element
-                    )
-                ) {
-
-                    event.preventDefault();
-
-                    event.stopPropagation();
-
-                    showLoginRequiredAlert();
-
-                    return;
-                }
-
-
-                /* ==========================================
-                   PROTECTED ACTION
-                   
-                   Example:
-                   Add to Cart
-                   Wishlist
-                   Checkout
-                ========================================== */
-
-                if (
-                    isProtectedAction(
-                        element
-                    )
-                ) {
-
-                    event.preventDefault();
-
-                    event.stopPropagation();
-
-                    showLoginRequiredAlert();
-
-                    return;
-                }
-
-
-                /* ==========================================
-                   PUBLIC UI
-                   
-                   Search, Sidebar, Gallery, etc.
-                ========================================== */
-
-                if (
-                    isPublicUI(
-                        element
-                    )
-                ) {
-
-                    return;
-                }
-
-
-                /* ==========================================
-                   NORMAL PUBLIC PAGE
-                ========================================== */
-
-                if (
-                    isPublicPageLink(
-                        element
-                    )
-                ) {
-
-                    return;
-                }
-
-
-                /* ==========================================
-                   EVERYTHING ELSE
-                   
-                   IMPORTANT:
-                   Do NOT block normal clicks anymore.
-                   
-                   Guest users can:
-                   - See products
-                   - See images
-                   - Open galleries
-                   - Open product details
-                   - Use search
-                   - Open Sidebar
-                   - Use language
-                   - Use dark mode
-                ========================================== */
-
-                return;
-
-            },
-            true
-        );
-
-
-        /* ==================================================
-           FORM SUBMIT
-           
-           Only forms that specifically require Login
-           should be blocked.
-        ================================================== */
-
-        document.addEventListener(
-            "submit",
-            function (event) {
-
-
-                /* ==========================================
-                   LOGGED-IN USER
-                ========================================== */
-
-                if (
-                    isUserLoggedIn()
-                ) {
-
-                    return;
-                }
-
-
-                const form =
-                    event.target;
-
-
-                /* ==========================================
-                   LOGIN FORM
-                ========================================== */
-
-                if (
-                    form ===
-                    loginForm
-                ) {
-
-                    return;
-                }
-
-
-                /* ==========================================
-                   REGISTER FORM
-                ========================================== */
-
-                if (
-                    form ===
-                    registerForm
-                ) {
-
-                    return;
-                }
-
-
-                /* ==========================================
-                   SEARCH FORM
-                   
-                   Search is public.
-                ========================================== */
-
-                if (
-                    form.id ===
-                    "searchForm"
-                ) {
-
-                    return;
-                }
-
-
-                if (
-                    form.closest(
-                        ".search-form"
-                    )
-                ) {
-
-                    return;
-                }
-
-
-                /* ==========================================
-                   FORM REQUIRES LOGIN
-                ========================================== */
-
-                if (
-                    form.matches(
-                        "[data-requires-login]"
-                    ) ||
-                    form.closest(
-                        "[data-requires-login]"
-                    )
-                ) {
-
-                    event.preventDefault();
-
-                    event.stopPropagation();
-
-                    showLoginRequiredAlert();
-
-                    return;
-                }
-
-
-                /* ==========================================
-                   OTHER FORMS
-                   
-                   Do NOT block them automatically.
-                ========================================== */
-
-                return;
-
-            },
-            true
-        );
-
-
-        /* ==================================================
-           CHANGE CONTROL
-           
-           Do NOT block every change event.
-           
-           Search filters, language, theme and other
-           public controls must work for guests.
-        ================================================== */
-
-        document.addEventListener(
-            "change",
-            function (event) {
-
-
-                /* ==========================================
-                   LOGGED-IN USER
-                ========================================== */
-
-                if (
-                    isUserLoggedIn()
-                ) {
-
-                    return;
-                }
-
-
-                const element =
-                    event.target;
-
-
-                /* ==========================================
-                   PROTECTED CONTROL
-                ========================================== */
-
-                if (
-                    element.closest(
-                        "[data-requires-login]"
-                    )
-                ) {
-
-                    event.preventDefault();
-
-                    event.stopPropagation();
-
-                    showLoginRequiredAlert();
-
-                    return;
-                }
-
-
-                /* ==========================================
-                   ALL OTHER CHANGE EVENTS
-                   
-                   Public:
-                   - Search filters
-                   - Language
-                   - Theme
-                   - Gallery
-                   - Other UI
-                ========================================== */
-
-                return;
-
-            },
-            true
-        );
-
-
-        /* ==================================================
-           INPUT CONTROL
-           
-           IMPORTANT:
-           Guest users must be able to type in Search.
-           
-           Therefore we do NOT block input events.
-        ================================================== */
-
-        document.addEventListener(
-            "input",
-            function (event) {
 
                 /*
-                    Search input and other public inputs
-                    are completely available to guests.
+                   Get user's name
                 */
 
-                return;
+                const fullName =
+                    user.name ||
+                    user.fullName ||
+                    user.username ||
+                    user.email ||
+                    "";
 
-            },
-            true
-        );
+
+                if (!fullName) {
+
+                    return;
+
+                }
 
 
-        /* ==================================================
-           KEYDOWN CONTROL
-           
-           Do not block keyboard interaction for guests.
-        ================================================== */
+                const nameParts =
+                    fullName
+                        .trim()
+                        .split(/\s+/);
 
-        document.addEventListener(
-            "keydown",
-            function (event) {
+
+                let initials = "";
+
+
+                if (nameParts.length >= 2) {
+
+                    initials =
+                        nameParts[0]
+                            .charAt(0)
+                            .toUpperCase() +
+
+                        nameParts[nameParts.length - 1]
+                            .charAt(0)
+                            .toUpperCase();
+
+                }
+
+                else {
+
+                    initials =
+                        nameParts[0]
+                            .substring(0, 2)
+                            .toUpperCase();
+
+                }
+
 
                 /*
-                    Search
-                    Gallery
-                    Sidebar
-                    Public UI
-                    are available.
+                   Keep original icon hidden
+                   and show initials.
                 */
 
-                return;
+                if (icon) {
 
-            },
-            true
+                    icon.style.display =
+                        "none";
+
+                }
+
+
+                let avatar =
+                    button.querySelector(
+                        ".account-initials"
+                    );
+
+
+                if (!avatar) {
+
+                    avatar =
+                        document.createElement(
+                            "span"
+                        );
+
+                    avatar.className =
+                        "account-initials";
+
+
+                    button.appendChild(
+                        avatar
+                    );
+
+                }
+
+
+                avatar.textContent =
+                    initials;
+
+            }
         );
 
     }
