@@ -336,6 +336,9 @@ document.addEventListener(
         const searchResultText =
             document.getElementById("searchResultText");
 
+        const searchBackButton =
+            document.getElementById("searchBackButton");
+
 
 
         /* =====================================================
@@ -382,67 +385,14 @@ document.addEventListener(
 
                     <div class="product-image">
 
-                        <a href="Single-Product.html?id=${product.id}">
+                        <a
+                            href="Single-Product.html?id=${product.id}">
 
                             <img
                                 src="${product.image}"
                                 alt="${product.name}">
 
                         </a>
-
-
-                        <div class="product-actions">
-
-                            <button
-                                class="add-cart"
-                                data-id="${product.id}"
-                                type="button">
-
-                                Add to Cart
-
-                            </button>
-
-
-                            <div class="product-buttons">
-
-                                <button
-                                    class="share-product"
-                                    data-id="${product.id}"
-                                    data-name="${product.name}"
-                                    title="Share"
-                                    type="button">
-
-                                    <i class="fa fa-share-alt"></i>
-
-                                </button>
-
-
-                                <button
-                                    class="compare-product"
-                                    data-id="${product.id}"
-                                    data-name="${product.name}"
-                                    title="Compare"
-                                    type="button">
-
-                                    <i class="fa fa-code-compare"></i>
-
-                                </button>
-
-
-                                <button
-                                    class="like-product"
-                                    data-id="${product.id}"
-                                    data-name="${product.name}"
-                                    title="Add to Wishlist"
-                                    type="button">
-
-                                    <i class="far fa-heart"></i>
-
-                                </button>
-
-                            </div>
-
-                        </div>
 
                     </div>
 
@@ -490,8 +440,7 @@ document.addEventListener(
                 );
 
 
-            let found =
-                0;
+            let found = 0;
 
 
             cards.forEach(function (card) {
@@ -521,15 +470,13 @@ document.addEventListener(
 
                 if (matches) {
 
-                    card.style.display =
-                        "";
+                    card.style.display = "";
 
                     found++;
 
                 } else {
 
-                    card.style.display =
-                        "none";
+                    card.style.display = "none";
 
                 }
 
@@ -587,8 +534,9 @@ document.addEventListener(
             params.get("search");
 
 
+
         /* =====================================================
-           INITIALIZE
+           INITIALIZE PRODUCTS
         ===================================================== */
 
         createProducts();
@@ -623,7 +571,8 @@ document.addEventListener(
 
 
         /* =====================================================
-           HEADER SEARCH OPEN / CLOSE
+           HEADER SEARCH
+           فقط در صفحاتی که Header دارند
         ===================================================== */
 
         if (
@@ -665,8 +614,7 @@ document.addEventListener(
         function goToSearchPage(value) {
 
             const query =
-                value
-                    .trim();
+                value.trim();
 
 
             if (query === "") {
@@ -686,7 +634,7 @@ document.addEventListener(
            HEADER SEARCH BUTTON
         ===================================================== */
 
-        if (searchButton) {
+        if (searchButton && searchInput) {
 
             searchButton.addEventListener(
                 "click",
@@ -704,7 +652,7 @@ document.addEventListener(
 
 
         /* =====================================================
-           HEADER ENTER
+           HEADER SEARCH ENTER
         ===================================================== */
 
         if (searchInput) {
@@ -772,6 +720,26 @@ document.addEventListener(
                         );
 
                     }
+
+                }
+            );
+
+        }
+
+
+
+        /* =====================================================
+           BACK BUTTON
+        ===================================================== */
+
+        if (searchBackButton) {
+
+            searchBackButton.addEventListener(
+                "click",
+                function () {
+
+                    window.location.href =
+                        "Shop.html";
 
                 }
             );

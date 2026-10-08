@@ -1,6 +1,24 @@
 /* =========================================================
+   SEARCH PAGE
+========================================================= */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
    HEADER SEARCH
-   فقط Search — بدون تغییر دادن Header Icons
+   برای حفظ استایل سرچ Header در صفحات دیگر
 ========================================================= */
 
 .header-search {
@@ -10,10 +28,12 @@
     height: auto;
 }
 
+
 /* SEARCH ICON */
 
 .header-search .search-icon {
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -79,11 +99,13 @@
     flex: 1;
 
     width: 100%;
+
     height: 38px;
 
     padding: 0 10px;
 
     border: none;
+
     outline: none;
 
     background: transparent;
@@ -96,9 +118,11 @@
 
 .header-search .search-input button {
     width: 38px;
+
     height: 38px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -121,21 +145,530 @@
 
 body.dark-mode .header-search .search-box {
     background: #222222;
+
     border-color: #444444;
 }
+
 
 body.dark-mode .header-search .search-input {
     border-color: #444444;
 }
 
+
 body.dark-mode .header-search .search-input input {
     color: #ffffff;
 }
+
 
 body.dark-mode .header-search .search-input button {
     color: #ffffff;
 }
 
+
 body.dark-mode .header-search .search-icon {
     color: inherit;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.search-back-wrapper {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 30px auto 0;
+}
+
+
+.search-back-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 10px 18px;
+
+    border: 1px solid #dddddd;
+
+    background: #ffffff;
+
+    color: #333333;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.search-back-button:hover {
+    background: #333333;
+
+    color: #ffffff;
+
+    border-color: #333333;
+}
+
+
+/* =========================================================
+   SEARCH PAGE LAYOUT
+========================================================= */
+
+.search-page {
+    width: 100%;
+
+    min-height: calc(100vh - 80px);
+
+    padding: 45px 0 100px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   SEARCH PAGE HEADER
+========================================================= */
+
+.search-page-header {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 0 auto 40px;
+
+    text-align: center;
+}
+
+
+.search-page-header h1 {
+    margin: 0 0 12px;
+
+    font-size: 36px;
+
+    font-weight: 600;
+
+    color: #333333;
+}
+
+
+.search-page-header p {
+    margin: 0;
+
+    font-size: 16px;
+
+    color: #777777;
+}
+
+
+/* =========================================================
+   SEARCH INPUT
+========================================================= */
+
+.search-page-form {
+    width: 90%;
+    max-width: 700px;
+
+    margin: 0 auto 50px;
+}
+
+
+.search-page-input {
+    display: flex;
+
+    width: 100%;
+
+    border: 1px solid #dddddd;
+
+    background: #ffffff;
+
+    box-sizing: border-box;
+}
+
+
+.search-page-input input {
+    flex: 1;
+
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 15px;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: #333333;
+
+    font-size: 15px;
+}
+
+
+.search-page-input button {
+    width: 55px;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #333333;
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+    transition: 0.3s ease;
+}
+
+
+.search-page-input button:hover {
+    color: #b88e2f;
+}
+
+
+/* =========================================================
+   PRODUCTS GRID
+========================================================= */
+
+.search-page .search-products {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 30px;
+
+    align-items: start;
+}
+
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
+.search-page .product-card {
+    width: 100%;
+
+    background: #f4f5f7;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    transition: 0.3s ease;
+}
+
+
+.search-page .product-card:hover {
+    transform: translateY(-5px);
+}
+
+
+/* =========================================================
+   PRODUCT IMAGE
+========================================================= */
+
+.search-page .product-image {
+    width: 100%;
+
+    height: 280px;
+
+    overflow: hidden;
+}
+
+
+.search-page .product-image a {
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+}
+
+
+.search-page .product-image img {
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: 0.4s ease;
+}
+
+
+.search-page .product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   PRODUCT TEXT
+========================================================= */
+
+.search-page .product-card h3 {
+    margin: 16px 16px 6px;
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+    color: #333333;
+}
+
+
+.search-page .product-card p {
+    margin: 0 16px 10px;
+
+    font-size: 14px;
+
+    color: #898989;
+}
+
+
+.search-page .product-card strong {
+    display: block;
+
+    margin: 0 16px 18px;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    color: #333333;
+}
+
+
+/* =========================================================
+   EMPTY SEARCH RESULT
+========================================================= */
+
+.search-page .search-empty {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 80px auto;
+
+    text-align: center;
+}
+
+
+.search-page .search-empty i {
+    display: block;
+
+    margin-bottom: 20px;
+
+    font-size: 45px;
+
+    color: #b88e2f;
+}
+
+
+.search-page .search-empty h2 {
+    margin: 0 0 10px;
+
+    font-size: 24px;
+
+    color: #333333;
+}
+
+
+.search-page .search-empty p {
+    margin: 0;
+
+    color: #777777;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark-mode .search-page-header h1 {
+    color: #ffffff;
+}
+
+
+body.dark-mode .search-page-header p {
+    color: #bbbbbb;
+}
+
+
+body.dark-mode .search-page-input {
+    background: #222222;
+
+    border-color: #444444;
+}
+
+
+body.dark-mode .search-page-input input {
+    color: #ffffff;
+
+    background: transparent;
+}
+
+
+body.dark-mode .search-page-input button {
+    color: #ffffff;
+}
+
+
+body.dark-mode .search-page .product-card {
+    background: #2a2a2a;
+}
+
+
+body.dark-mode .search-page .product-card h3 {
+    color: #ffffff;
+}
+
+
+body.dark-mode .search-page .product-card p {
+    color: #bbbbbb;
+}
+
+
+body.dark-mode .search-page .product-card strong {
+    color: #ffffff;
+}
+
+
+body.dark-mode .search-page .search-empty h2 {
+    color: #ffffff;
+}
+
+
+body.dark-mode .search-page .search-empty p {
+    color: #bbbbbb;
+}
+
+
+body.dark-mode .search-back-button {
+    background: #222222;
+
+    border-color: #444444;
+
+    color: #ffffff;
+}
+
+
+body.dark-mode .search-back-button:hover {
+    background: #ffffff;
+
+    color: #222222;
+
+    border-color: #ffffff;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .search-page .search-products {
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 25px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .search-back-wrapper {
+        width: 92%;
+
+        margin-top: 20px;
+    }
+
+
+    .search-page {
+        padding-top: 40px;
+    }
+
+
+    .search-page-header h1 {
+        font-size: 30px;
+    }
+
+
+    .search-page .search-products {
+        width: 92%;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 20px;
+    }
+
+
+    .search-page .product-image {
+        height: 220px;
+    }
+
+
+    .search-page .product-card h3 {
+        font-size: 17px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .search-page .search-products {
+        grid-template-columns: 1fr;
+    }
+
+
+    .search-page .product-image {
+        height: 280px;
+    }
+
 }
