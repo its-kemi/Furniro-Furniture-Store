@@ -1,572 +1,467 @@
+
 /*
    ACCOUNT REGISTER
+   Password Hashing with PBKDF2
 */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-        /*
-           Register elements
-        */
+    /*
+       Register elements
+    */
 
-        const registerForm =
-            document.getElementById(
-                "modalRegisterForm"
+    const registerForm =
+        document.getElementById("modalRegisterForm");
+
+    const registerNameInput =
+        document.getElementById("modal-register-name");
+
+    const registerEmailInput =
+        document.getElementById("modal-register-email");
+
+    const registerPasswordInput =
+        document.getElementById("modal-register-password");
+
+    const registerConfirmInput =
+        document.getElementById("modal-register-confirm");
+
+
+    /*
+       Account Modal
+    */
+
+    const accountModal =
+        document.getElementById("accountModal");
+
+
+    /*
+       Create message element
+    */
+
+    function createMessage(input, type, message) {
+
+        if (!input) {
+            return;
+        }
+
+        let messageElement =
+            input.parentElement.querySelector(
+                `[data-message-for="${input.id}"]`
             );
 
-        const registerNameInput =
-            document.getElementById(
-                "modal-register-name"
+        if (!messageElement) {
+
+            messageElement = document.createElement("small");
+
+            messageElement.dataset.messageFor = input.id;
+
+            messageElement.className = "account-form-message";
+
+            input.insertAdjacentElement(
+                "afterend",
+                messageElement
             );
 
-        const registerEmailInput =
-            document.getElementById(
-                "modal-register-email"
+        }
+
+        messageElement.classList.remove("error", "success");
+
+        messageElement.classList.add(type);
+
+        messageElement.textContent = message;
+
+    }
+
+
+    /*
+       Clear input message
+    */
+
+    function clearMessage(input) {
+
+        if (!input) {
+            return;
+        }
+
+        const messageElement =
+            input.parentElement.querySelector(
+                `[data-message-for="${input.id}"]`
             );
 
-        const registerPasswordInput =
-            document.getElementById(
-                "modal-register-password"
-            );
+        if (messageElement) {
 
-        const registerConfirmInput =
-            document.getElementById(
-                "modal-register-confirm"
-            );
+            messageElement.textContent = "";
 
+            messageElement.classList.remove("error", "success");
 
-        /*
-           Account Modal
-        */
+        }
 
-        const accountModal =
-            document.getElementById(
-                "accountModal"
-            );
+    }
 
 
-        /*
-           Create message element
-        */
+    /*
+       Clear messages while typing
+    */
 
-        function createMessage(
-            input,
-            type,
-            message
-        ) {
+    [
+        registerNameInput,
+        registerEmailInput,
+        registerPasswordInput,
+        registerConfirmInput
+    ].forEach(function (input) {
 
-            if (!input) {
-                return;
-            }
+        if (input) {
+
+            input.addEventListener("input", function () {
+
+                clearMessage(input);
+
+            });
+
+        }
+
+    });
 
 
-            let messageElement =
-                input.parentElement.querySelector(
-                    `[data-message-for="${input.id}"]`
-                );
+    /*
+       Register
+    */
 
+    if (registerForm) {
 
-            /*
-               Create message
-               if it does not exist
-            */
+        registerForm.addEventListener(
+            "submit",
+            async function (event) {
 
-            if (!messageElement) {
-
-                messageElement =
-                    document.createElement(
-                        "small"
-                    );
-
-                messageElement.dataset.messageFor =
-                    input.id;
-
-                messageElement.className =
-                    "account-form-message";
+                event.preventDefault();
 
 
                 /*
-                   Put message directly
-                   after input
+                   Clear old messages
                 */
 
-                input.insertAdjacentElement(
-                    "afterend",
-                    messageElement
-                );
-
-            }
-
-
-            /*
-               Clear old classes
-            */
-
-            messageElement.classList.remove(
-                "error",
-                "success"
-            );
+                [
+                    registerNameInput,
+                    registerEmailInput,
+                    registerPasswordInput,
+                    registerConfirmInput
+                ].forEach(clearMessage);
 
 
-            /*
-               Add message type
-            */
+                /*
+                   Get register information
+                */
 
-            messageElement.classList.add(
-                type
-            );
+                const name = registerNameInput
+                    ? registerNameInput.value.trim()
+                    : "";
 
+                const email = registerEmailInput
+                    ? registerEmailInput.value.trim().toLowerCase()
+                    : "";
 
-            /*
-               Set message
-            */
+                const password = registerPasswordInput
+                    ? registerPasswordInput.value
+                    : "";
 
-            messageElement.textContent =
-                message;
-
-        }
-
-
-        /*
-           Clear input message
-        */
-
-        function clearMessage(input) {
-
-            if (!input) {
-                return;
-            }
+                const confirmPassword = registerConfirmInput
+                    ? registerConfirmInput.value
+                    : "";
 
 
-            const messageElement =
-                input.parentElement.querySelector(
-                    `[data-message-for="${input.id}"]`
-                );
+                /*
+                   Name validation
+                */
 
+                if (name.length < 2) {
 
-            if (messageElement) {
-
-                messageElement.textContent =
-                    "";
-
-                messageElement.classList.remove(
-                    "error",
-                    "success"
-                );
-
-            }
-
-        }
-
-
-        /*
-           Clear name message
-        */
-
-        if (registerNameInput) {
-
-            registerNameInput.addEventListener(
-                "input",
-                function () {
-
-                    clearMessage(
-                        registerNameInput
+                    createMessage(
+                        registerNameInput,
+                        "error",
+                        "Please enter your full name."
                     );
+
+                    registerNameInput.focus();
+
+                    return;
 
                 }
-            );
-
-        }
 
 
-        /*
-           Clear email message
-        */
+                /*
+                   Email validation
+                */
 
-        if (registerEmailInput) {
+                if (!email) {
 
-            registerEmailInput.addEventListener(
-                "input",
-                function () {
-
-                    clearMessage(
-                        registerEmailInput
+                    createMessage(
+                        registerEmailInput,
+                        "error",
+                        "Please enter your email address."
                     );
+
+                    registerEmailInput.focus();
+
+                    return;
 
                 }
-            );
-
-        }
 
 
-        /*
-           Clear password message
-        */
+                /*
+                   Email format validation
+                */
 
-        if (registerPasswordInput) {
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
 
-            registerPasswordInput.addEventListener(
-                "input",
-                function () {
-
-                    clearMessage(
-                        registerPasswordInput
+                    createMessage(
+                        registerEmailInput,
+                        "error",
+                        "Please enter a valid email address."
                     );
+
+                    registerEmailInput.focus();
+
+                    return;
 
                 }
-            );
-
-        }
 
 
-        /*
-           Clear confirm password message
-        */
+                /*
+                   Password validation
+                */
 
-        if (registerConfirmInput) {
+                if (!password) {
 
-            registerConfirmInput.addEventListener(
-                "input",
-                function () {
-
-                    clearMessage(
-                        registerConfirmInput
+                    createMessage(
+                        registerPasswordInput,
+                        "error",
+                        "Please create a password."
                     );
+
+                    registerPasswordInput.focus();
+
+                    return;
 
                 }
-            );
-
-        }
 
 
-        /*
-           Register
-        */
+                /*
+                   Password length
+                */
 
-        if (registerForm) {
+                if (password.length < 6) {
 
-            registerForm.addEventListener(
-                "submit",
-                function (event) {
-
-                    event.preventDefault();
-
-
-                    /*
-                       Clear old messages
-                    */
-
-                    clearMessage(
-                        registerNameInput
+                    createMessage(
+                        registerPasswordInput,
+                        "error",
+                        "Password must be at least 6 characters."
                     );
 
-                    clearMessage(
-                        registerEmailInput
+                    registerPasswordInput.focus();
+
+                    return;
+
+                }
+
+
+                /*
+                   Confirm password
+                */
+
+                if (!confirmPassword) {
+
+                    createMessage(
+                        registerConfirmInput,
+                        "error",
+                        "Please confirm your password."
                     );
 
-                    clearMessage(
-                        registerPasswordInput
+                    registerConfirmInput.focus();
+
+                    return;
+
+                }
+
+
+                /*
+                   Password match
+                */
+
+                if (password !== confirmPassword) {
+
+                    createMessage(
+                        registerConfirmInput,
+                        "error",
+                        "Passwords do not match."
                     );
 
-                    clearMessage(
-                        registerConfirmInput
+                    registerConfirmInput.focus();
+
+                    return;
+
+                }
+
+
+                /*
+                   Check password utility
+                */
+
+                if (
+                    !window.FurniroPassword ||
+                    typeof window.FurniroPassword.createPasswordHash !==
+                        "function"
+                ) {
+
+                    Swal.fire({
+                        icon: "error",
+                        title: "Security Utility Missing",
+                        text: "Please check Password-Utils.js and its script order."
+                    });
+
+                    return;
+
+                }
+
+
+                /*
+                   Get existing users
+                */
+
+                let users = [];
+
+                try {
+
+                    users = JSON.parse(
+                        localStorage.getItem("furniroUsers")
+                    ) || [];
+
+                    if (!Array.isArray(users)) {
+                        throw new Error("Invalid users data.");
+                    }
+
+                } catch (error) {
+
+                    Swal.fire({
+                        icon: "error",
+                        title: "Storage Error",
+                        text: "Unable to read registered accounts."
+                    });
+
+                    return;
+
+                }
+
+
+                /*
+                   Check existing email
+                */
+
+                const existingUser = users.find(function (user) {
+
+                    return (
+                        user.email &&
+                        user.email.toLowerCase() === email
                     );
 
+                });
+
+
+                /*
+                   Email already exists
+                */
+
+                if (existingUser) {
+
+                    createMessage(
+                        registerEmailInput,
+                        "error",
+                        "This email is already registered."
+                    );
+
+                    registerEmailInput.focus();
+
+                    return;
+
+                }
+
+
+                /*
+                   Disable submit button during hashing
+                */
+
+                const submitButton =
+                    registerForm.querySelector(
+                        'button[type="submit"], input[type="submit"]'
+                    );
+
+                if (submitButton) {
+                    submitButton.disabled = true;
+                }
+
+
+                try {
 
                     /*
-                       Get register information
+                       Create password hash and salt
                     */
 
-                    const name =
-                        registerNameInput
-                            ? registerNameInput.value.trim()
-                            : "";
-
-
-                    const email =
-                        registerEmailInput
-                            ? registerEmailInput.value
-                                .trim()
-                                .toLowerCase()
-                            : "";
-
-
-                    const password =
-                        registerPasswordInput
-                            ? registerPasswordInput.value
-                            : "";
-
-
-                    const confirmPassword =
-                        registerConfirmInput
-                            ? registerConfirmInput.value
-                            : "";
-
-
-                    /*
-                       Name validation
-                    */
-
-                    if (name.length < 2) {
-
-                        createMessage(
-                            registerNameInput,
-                            "error",
-                            "Please enter your full name."
+                    const passwordData =
+                        await window.FurniroPassword.createPasswordHash(
+                            password
                         );
-
-                        registerNameInput.focus();
-
-                        return;
-
-                    }
-
-
-                    /*
-                       Email validation
-                    */
-
-                    if (!email) {
-
-                        createMessage(
-                            registerEmailInput,
-                            "error",
-                            "Please enter your email address."
-                        );
-
-                        registerEmailInput.focus();
-
-                        return;
-
-                    }
-
-
-                    /*
-                       Email format validation
-                    */
-
-                    if (
-                        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
-                            email
-                        )
-                    ) {
-
-                        createMessage(
-                            registerEmailInput,
-                            "error",
-                            "Please enter a valid email address."
-                        );
-
-                        registerEmailInput.focus();
-
-                        return;
-
-                    }
-
-
-                    /*
-                       Password validation
-                    */
-
-                    if (!password) {
-
-                        createMessage(
-                            registerPasswordInput,
-                            "error",
-                            "Please create a password."
-                        );
-
-                        registerPasswordInput.focus();
-
-                        return;
-
-                    }
-
-
-                    /*
-                       Password length
-                    */
-
-                    if (password.length < 6) {
-
-                        createMessage(
-                            registerPasswordInput,
-                            "error",
-                            "Password must be at least 6 characters."
-                        );
-
-                        registerPasswordInput.focus();
-
-                        return;
-
-                    }
-
-
-                    /*
-                       Confirm password
-                    */
-
-                    if (!confirmPassword) {
-
-                        createMessage(
-                            registerConfirmInput,
-                            "error",
-                            "Please confirm your password."
-                        );
-
-                        registerConfirmInput.focus();
-
-                        return;
-
-                    }
-
-
-                    /*
-                       Password match
-                    */
-
-                    if (
-                        password !==
-                        confirmPassword
-                    ) {
-
-                        createMessage(
-                            registerConfirmInput,
-                            "error",
-                            "Passwords do not match."
-                        );
-
-                        registerConfirmInput.focus();
-
-                        return;
-
-                    }
-
-
-                    /*
-                       Get users
-                    */
-
-                    let users = [];
-
-
-                    try {
-
-                        users =
-                            JSON.parse(
-                                localStorage.getItem(
-                                    "furniroUsers"
-                                )
-                            ) || [];
-
-                    } catch (error) {
-
-                        users = [];
-
-                    }
-
-
-                    /*
-                       Check existing user
-                    */
-
-                    const existingUser =
-                        users.find(
-                            function (user) {
-
-                                return (
-                                    user.email ===
-                                    email
-                                );
-
-                            }
-                        );
-
-
-                    /*
-                       Email already exists
-                    */
-
-                    if (existingUser) {
-
-                        createMessage(
-                            registerEmailInput,
-                            "error",
-                            "This email is already registered."
-                        );
-
-                        registerEmailInput.focus();
-
-                        return;
-
-                    }
 
 
                     /*
                        Create new user
+                       Never save the plain password
                     */
 
                     const newUser = {
 
-                        id:
-                            Date.now(),
+                        id: Date.now(),
 
-                        name:
-                            name,
+                        name: name,
 
-                        email:
-                            email,
+                        email: email,
 
-                        password:
-                            password,
+                        passwordHash:
+                            passwordData.passwordHash,
+
+                        passwordSalt:
+                            passwordData.passwordSalt,
 
                         photo:
-                            "assite/Header-images/logo.png"
+                            ""
 
                     };
 
 
                     /*
-                       Add user
+                       Save user
                     */
 
-                    users.push(
-                        newUser
-                    );
-
-
-                    /*
-                       Save users
-                    */
+                    users.push(newUser);
 
                     localStorage.setItem(
                         "furniroUsers",
-                        JSON.stringify(
-                            users
-                        )
+                        JSON.stringify(users)
                     );
 
 
                     /*
                        Current user
-                       Automatically login
-                       after registration
+                       Do not include password or hash
                     */
 
                     const currentUser = {
 
-                        id:
-                            newUser.id,
+                        id: newUser.id,
 
-                        name:
-                            newUser.name,
+                        name: newUser.name,
 
-                        email:
-                            newUser.email,
+                        email: newUser.email,
 
-                        photo:
-                            newUser.photo
+                        photo: newUser.photo
 
                     };
 
@@ -577,39 +472,28 @@ document.addEventListener(
 
                     localStorage.setItem(
                         "furniroCurrentUser",
-                        JSON.stringify(
-                            currentUser
-                        )
+                        JSON.stringify(currentUser)
                     );
 
 
                     /*
-                       SweetAlert success
-                       Above Account Modal
+                       Success message
                     */
 
-                    Swal.fire({
+                    await Swal.fire({
 
-                        icon:
-                            "success",
+                        icon: "success",
 
-                        title:
-                            "Account Created!",
+                        title: "Account Created!",
 
-                        text:
-                            "Welcome to Furniro.",
+                        text: "Welcome to Furniro.",
 
-                        confirmButtonText:
-                            "OK",
+                        confirmButtonText: "OK",
 
-                        position:
-                            "top",
+                        position: "top",
 
                         customClass: {
-
-                            container:
-                                "furniro-swal-container"
-
+                            container: "furniro-swal-container"
                         }
 
                     });
@@ -623,14 +507,12 @@ document.addEventListener(
 
 
                     /*
-                       Keep modal open
+                       Keep account modal open
                     */
 
                     if (accountModal) {
 
-                        accountModal.classList.add(
-                            "active"
-                        );
+                        accountModal.classList.add("active");
 
                         accountModal.setAttribute(
                             "aria-hidden",
@@ -639,14 +521,37 @@ document.addEventListener(
 
                     }
 
+                    document.body.style.overflow = "hidden";
 
-                    document.body.style.overflow =
-                        "hidden";
+
+                } catch (error) {
+
+                    console.error(
+                        "Registration error:",
+                        error
+                    );
+
+                    Swal.fire({
+                        icon: "error",
+                        title: "Registration Failed",
+                        text: "Your account could not be saved. Please try again."
+                    });
+
+                } finally {
+
+                    /*
+                       Enable submit button again
+                    */
+
+                    if (submitButton) {
+                        submitButton.disabled = false;
+                    }
 
                 }
-            );
 
-        }
+            }
+        );
 
     }
-);
+
+});
