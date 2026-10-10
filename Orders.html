@@ -1,203 +1,103 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>My Orders - Furniro</title>
+    <title>My Orders | Furniro Furniture Store</title>
 
-
-    <!-- - Font Awesome -->
-
+    <!-- Font Awesome -->
     <link
         rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
 
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="CSS/style.css">
 
-    <!-- - Main CSS -->
-
-    <link
-        rel="stylesheet"
-        href="CSS/style.css">
-
-
-    <!-- - Orders CSS -->
-
-    <link
-        rel="stylesheet"
-        href="CSS/orders.css">
-
+    <!-- Orders CSS -->
+    <link rel="stylesheet" href="CSS/orders.css">
 </head>
-
 
 <body>
 
-
-    <!-- - Orders Section -->
-
+    <!-- MY ORDERS PAGE -->
     <main class="orders-page">
 
-        <div class="orders-header">
+        <!-- PAGE HEADER -->
+        <header class="orders-header">
 
-    <h1>
-        My Orders
-    </h1>
+            <div class="orders-heading-content">
 
-    <p>
-        View and manage your recent orders.
-    </p>
+                <span class="orders-eyebrow">
+                    FURNIRO FURNITURE STORE
+                </span>
 
-    <a
-        href="index.html"
-        class="back-home-button">
+                <h1>My Orders</h1>
 
-        <i class="fa-solid fa-arrow-left"></i>
-
-        Back to Home
-
-    </a>
-
-</div>
-
-
-            <!-- - Orders List -->
-
-            <div
-                class="orders-list"
-                id="ordersList">
-
-
-                <!-- - Order -->
-
-                <div class="order-card">
-
-
-                    <!-- - Order Header -->
-
-                    <div class="order-header">
-
-                        <div>
-
-                            <h2>
-                                Order #1001
-                            </h2>
-
-                            <p>
-                                September 26, 2026
-                            </p>
-
-                        </div>
-
-
-                        <span class="order-status">
-                            Delivered
-                        </span>
-
-                    </div>
-
-
-                    <!-- - Order Information -->
-
-                    <div class="order-info">
-
-                        <div>
-
-                            <span>
-                                Total
-                            </span>
-
-                            <strong>
-                                $249.00
-                            </strong>
-
-                        </div>
-
-
-                        <div>
-
-                            <span>
-                                Items
-                            </span>
-
-                            <strong>
-                                2 Items
-                            </strong>
-
-                        </div>
-
-
-                        <div>
-
-                            <span>
-                                Payment
-                            </span>
-
-                            <strong>
-                                Paid
-                            </strong>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- - Order Footer -->
-
-                    <div class="order-footer">
-
-                        <button
-                            type="button"
-                            class="view-order-button">
-
-                            <i class="fa-solid fa-eye"></i>
-
-                            View Details
-
-                        </button>
-
-                    </div>
-
-                </div>
-
+                <p>
+                    View your purchases, payment information,
+                    shipping details, and order status.
+                </p>
 
             </div>
 
+            <a href="index.html" class="back-home-button">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back to Home</span>
+            </a>
 
-            <!-- - Empty Orders -->
+        </header>
 
+        <!-- ORDERS CONTENT -->
+        <section class="orders-content" aria-label="My orders">
+
+            <!-- SAVED ORDERS -->
+            <div
+                class="orders-list"
+                id="ordersList"
+                aria-live="polite"
+            ></div>
+
+            <!-- EMPTY ORDERS -->
             <div
                 class="empty-orders"
-                id="emptyOrders">
+                id="emptyOrders"
+                style="display: none;"
+            >
 
-                <i class="fa-solid fa-box-open"></i>
+                <div class="empty-orders-icon">
+                    <i class="fa-solid fa-box-open"></i>
+                </div>
 
-                <h2>
-                    No Orders Yet
-                </h2>
+                <h2>No Orders Yet</h2>
 
                 <p>
                     You haven't placed any orders yet.
+                    Your purchases will appear here.
                 </p>
 
-                <a href="Shop.html">
+                <a
+                    href="Shop.html"
+                    class="continue-shopping-button"
+                >
+                    <i class="fa-solid fa-bag-shopping"></i>
                     Continue Shopping
                 </a>
 
             </div>
 
-
-        </div>
+        </section>
 
     </main>
 
+    <!-- AUTHENTICATION GUARD -->
+    <script src="JS/Auth-Guard.js"></script>
 
-   <script src="JS/Auth-Guard.js"></script>
-
+    <!-- ORDERS JAVASCRIPT -->
     <script src="JS/Orders.js"></script>
 
 </body>
