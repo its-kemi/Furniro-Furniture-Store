@@ -1,995 +1,462 @@
 /* =========================================================
    FURNIRO AUTH GUARD
-   Protects login-required pages and actions
+   Protect account pages and selected actions
 ========================================================= */
 
-
-/* =========================================================
-   CHECK LOGIN STATUS
-========================================================= */
-
-function isUserLoggedIn() {
-
-    return !!localStorage.getItem("furniroCurrentUser");
-
-}
-
-
-/* =========================================================
-   SHOW LOGIN FORM
-========================================================= */
-
-function showLoginForm() {
-
-    const loginForm =
-        document.querySelector("#modalLoginForm");
-
-    const registerForm =
-        document.querySelector("#modalRegisterForm");
-
-    if (loginForm) {
-        loginForm.style.display = "block";
-    }
-
-    if (registerForm) {
-        registerForm.style.display = "none";
-    }
-
-}
-
-
-/* =========================================================
-   SHOW REGISTER FORM
-========================================================= */
-
-function showRegisterForm() {
-
-    const loginForm =
-        document.querySelector("#modalLoginForm");
-
-    const registerForm =
-        document.querySelector("#modalRegisterForm");
-
-    if (loginForm) {
-        loginForm.style.display = "none";
-    }
-
-    if (registerForm) {
-        registerForm.style.display = "block";
-    }
-
-}
-
-
-/* =========================================================
-   OPEN ACCOUNT MODAL
-========================================================= */
-
-function openAccountModal() {
-
-    const accountModal =
-        document.querySelector("#accountModal");
-
-    if (accountModal) {
-
-        accountModal.style.display = "flex";
-
-    }
-
-}
-
-
-/* =========================================================
-   LOGIN REQUIRED ALERT
-========================================================= */
-
-function showLoginRequiredAlert() {
-
-    Swal.fire({
-
-        icon: "warning",
-
-        title: "Login Required",
-
-        text:
-            "Please login or create an account to continue.",
-
-        showCancelButton: true,
-
-        showDenyButton: true,
-
-        confirmButtonText: "Login",
-
-        denyButtonText: "Register",
-
-        cancelButtonText: "Close",
-
-        position: "top",
-
-        customClass: {
-
-            container: "furniro-swal-container"
-
-        }
-
-    }).then(function (result) {
-
-        if (result.isConfirmed) {
-
-            openAccountModal();
-
-            showLoginForm();
-
-        }
-
-        else if (result.isDenied) {
-
-            openAccountModal();
-
-            showRegisterForm();
-
-        }
-
-    });
-
-}
-
-
-/* =========================================================
-   PROTECTED PAGES
-========================================================= */
-
-const protectedPages = [
-
-    "Checkout.html",
-
-    "Orders.html",
-
-    "AccountSettings.html"
-
-];
-
-
-/* =========================================================
-   GET CURRENT PAGE
-========================================================= */
-
-function getCurrentPage() {
-
-    let page =
-        window.location.pathname
-            .split("/")
-            .pop();
-
-    if (!page) {
-
-        page = "index.html";
-
-    }
-
-    return page;
-
-}
-
-
-/* =========================================================
-   CHECK PROTECTED PAGE
-========================================================= */
-
-function isProtectedPage() {
-
-    const currentPage =
-        getCurrentPage();
-
-    return protectedPages.some(function (page) {
-
-        return page.toLowerCase() ===
-            currentPage.toLowerCase();
-
-    });
-
-}
-
-
-/* =========================================================
-   PROTECTED ACTIONS
-========================================================= */
-
-function isProtectedAction(element) {
-
-    if (!element) {
-
-        return false;
-
-    }
-
-
-    /*
-       ADD TO CART
-    */
-
-    const cartAction =
-        element.closest(
-            [
-                "#addToCart",
-
-                ".add-to-cart",
-
-                ".add-cart",
-
-                ".add-cart-btn",
-
-                ".add-to-cart-btn",
-
-                "#cartAction",
-
-                ".cart-action",
-
-                ".cart-remove",
-
-                ".remove-from-cart",
-
-                ".cart-update",
-
-                ".update-cart"
-
-            ].join(",")
-        );
-
-
-    if (cartAction) {
-
-        return true;
-
-    }
-
-
-    /*
-       WISHLIST
-    */
-
-    const wishlistAction =
-        element.closest(
-            [
-                "#addToWishlist",
-
-                "#wishlistButton",
-
-                ".add-to-wishlist",
-
-                ".wishlist-btn",
-
-                ".wishlist-button",
-
-                ".wishlist-icon",
-
-                ".wishlist-link",
-
-                ".wishlist-add",
-
-                ".add-wishlist",
-
-                ".product-wishlist",
-
-                ".product-wishlist-btn",
-
-                ".like-product",
-
-                ".wishlist-action",
-
-                ".remove-from-wishlist",
-
-                ".wishlist-remove",
-
-                ".wishlist-action-button",
-
-                "[data-wishlist]",
-
-                "[data-action='wishlist']",
-
-                "[data-action='add-wishlist']",
-
-                "[aria-label='Wishlist']",
-
-                "[aria-label='Add to wishlist']",
-
-                "[title='Wishlist']",
-
-                "[title='Add to wishlist']"
-
-            ].join(",")
-        );
-
-
-    if (wishlistAction) {
-
-        return true;
-
-    }
-
-
-    /*
-       COMPARE
-    */
-
-    const compareAction =
-        element.closest(
-            [
-                "#compareButton",
-
-                "#addToCompare",
-
-                ".compare-product",
-
-                ".compare-btn",
-
-                ".compare-button",
-
-                ".add-to-compare",
-
-                ".compare-product",
-
-                ".product-compare",
-
-                "[data-compare]",
-
-                "[data-action='compare']",
-
-                "[aria-label='Compare']",
-
-                "[title='Compare']"
-
-            ].join(",")
-        );
-
-
-    if (compareAction) {
-
-        return true;
-
-    }
-
-
-    /*
-       CHECKOUT
-    */
-
-    const checkoutAction =
-        element.closest(
-            [
-                "#checkoutButton",
-
-                ".checkout-button",
-
-                ".checkout-link"
-
-            ].join(",")
-        );
-
-
-    if (checkoutAction) {
-
-        return true;
-
-    }
-
-
-    /*
-       ORDERS
-    */
-
-    const ordersAction =
-        element.closest(
-            [
-                "#ordersButton",
-
-                ".orders-button",
-
-                ".orders-link"
-
-            ].join(",")
-        );
-
-
-    if (ordersAction) {
-
-        return true;
-
-    }
-
-
-    /*
-       ACCOUNT SETTINGS
-    */
-
-    const accountSettings =
-        element.closest(
-            [
-                "#accountSettings",
-
-                ".account-settings",
-
-                "[data-requires-login]"
-
-            ].join(",")
-        );
-
-
-    if (accountSettings) {
-
-        return true;
-
-    }
-
-
-    /*
-       FONT AWESOME HEART
-       Extra protection for heart icons
-    */
-
-    const heartIcon =
-        element.closest(
-            [
-                ".fa-heart",
-
-                ".fa-regular.fa-heart",
-
-                ".fa-solid.fa-heart"
-
-            ].join(",")
-        );
-
-
-    if (heartIcon) {
-
-        return true;
-
-    }
-
-
-    return false;
-
-}
-
-
-/* =========================================================
-   PUBLIC UI ELEMENTS
-========================================================= */
-
-function isPublicUI(element) {
-
-    if (!element) {
-
-        return false;
-
-    }
-
-
-    return !!element.closest(
-
-        [
-
-            /*
-               ACCOUNT
-            */
-
-            "#accountOpen",
-
-            "#accountModal",
-
-
-            /*
-               SEARCH
-            */
-
-            "#searchOpen",
-
-            ".search-icon",
-
-            ".search-button",
-
-            ".search-toggle",
-
-            ".search-input",
-
-            ".search-form",
-
-            "#searchInput",
-
-
-            /*
-               LANGUAGE
-            */
-
-            ".language-selector",
-
-            ".language-menu",
-
-            ".language-option",
-
-            "[data-language]",
-
-
-            /*
-               DARK MODE
-            */
-
-            "#darkModeToggle",
-
-            ".dark-mode-toggle",
-
-            ".theme-toggle",
-
-            "#themeToggle",
-
-
-            /*
-               MOBILE MENU
-            */
-
-            ".menu-toggle",
-
-            ".mobile-menu-toggle",
-
-            ".hamburger",
-
-            "#mobileMenu",
-
-
-            /*
-               PRODUCT DISPLAY
-               These are public only when the click
-               is NOT on a protected action.
-            */
-
-            ".product-card",
-
-            ".product-item",
-
-            ".product-image",
-
-            ".product-gallery",
-
-            ".gallery",
-
-            ".gallery-image",
-
-            ".product-modal",
-
-            ".product-details",
-
-            ".public-content"
-
-        ].join(",")
-
-    );
-
-}
-
-
-/* =========================================================
-   PUBLIC PAGE LINKS
-========================================================= */
-
-function isPublicPageLink(element) {
-
-    if (!element) {
-
-        return false;
-
-    }
-
-
-    const link =
-        element.closest("a");
-
-    if (!link) {
-
-        return false;
-
-    }
-
-
-    const href =
-        link.getAttribute("href");
-
-    if (!href) {
-
-        return false;
-
-    }
-
-
-    const publicPages = [
-
-        "index.html",
-
-        "Shop.html",
-
-        "About.html",
-
-        "Contact.html",
-
-        "Search.html",
-
-        "Wishlist.html",
-
-        "Cart.html",
-
-        "Single-Product.html",
-
-        "Product-Comparison.html",
-
-        "Returns.html"
-
-    ];
-
-
-    const cleanHref =
-        href
-            .split("?")[0]
-            .split("#")[0]
-            .split("/")
-            .pop();
-
-
-    return publicPages.some(function (page) {
-
-        return page.toLowerCase() ===
-            cleanHref.toLowerCase();
-
-    });
-
-}
-
-
-/* =========================================================
-   ACCOUNT MODAL
-========================================================= */
-
-document.addEventListener(
-    "click",
-    function (event) {
-
-        const accountButton =
-            event.target.closest("#accountOpen");
-
-
-        if (accountButton) {
-
-            /*
-               Account button itself is public.
-               It should open the account modal.
-            */
-
-            return;
-
-        }
-
-    },
-    true
-);
-
-
-/* =========================================================
-   GLOBAL AUTH GUARD
-========================================================= */
-
-document.addEventListener(
-    "click",
-    function (event) {
-
-        const element =
-            event.target;
-
-
-        /*
-           -------------------------------------------------
-           ALREADY LOGGED IN
-           -------------------------------------------------
-        */
-
-        if (isUserLoggedIn()) {
-
-            return;
-
-        }
-
-
-        /*
-           -------------------------------------------------
-           SWEETALERT ITSELF
-           -------------------------------------------------
-        */
-
-        if (
-            element.closest(".swal2-container") ||
-            element.closest(".swal2-popup")
-        ) {
-
-            return;
-
-        }
-
-
-        /*
-           -------------------------------------------------
-           ACCOUNT BUTTON
-           -------------------------------------------------
-        */
-
-        if (
-            element.closest("#accountOpen") ||
-            element.closest("#accountModal")
-        ) {
-
-            return;
-
-        }
-
-
-        /*
-           -------------------------------------------------
-           PROTECTED PAGE
-           -------------------------------------------------
-        */
-
-        if (isProtectedPage()) {
-
-            event.preventDefault();
-
-            event.stopPropagation();
-
-            showLoginRequiredAlert();
-
-            return;
-
-        }
-
-
-        /*
-           -------------------------------------------------
-           PROTECTED ACTION
-           -------------------------------------------------
-        */
-
-        if (isProtectedAction(element)) {
-
-            event.preventDefault();
-
-            event.stopPropagation();
-
-            event.stopImmediatePropagation();
-
-            showLoginRequiredAlert();
-
-            return;
-
-        }
-
-
-        /*
-           -------------------------------------------------
-           PUBLIC UI
-           -------------------------------------------------
-        */
-
-        if (isPublicUI(element)) {
-
-            return;
-
-        }
-
-
-        /*
-           -------------------------------------------------
-           PUBLIC PAGE LINK
-           -------------------------------------------------
-        */
-
-        if (isPublicPageLink(element)) {
-
-            return;
-
-        }
-
-
-        /*
-           -------------------------------------------------
-           EVERYTHING ELSE
-           -------------------------------------------------
-        */
-
-        return;
-
-    },
-    true
-);
-
-
-/* =========================================================
-   PROTECTED PAGE CHECK ON LOAD
-========================================================= */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-        if (
-            isProtectedPage() &&
-            !isUserLoggedIn()
-        ) {
-
-            showLoginRequiredAlert();
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   UPDATE ACCOUNT UI
-========================================================= */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-        const currentUser =
-            localStorage.getItem(
+(function () {
+    "use strict";
+
+    /* =====================================================
+       CHECK CURRENT USER
+    ===================================================== */
+
+    function getCurrentUser() {
+        try {
+            const storedUser = localStorage.getItem(
                 "furniroCurrentUser"
             );
 
+            if (!storedUser) {
+                return null;
+            }
 
-        if (!currentUser) {
+            const user = JSON.parse(storedUser);
 
-            return;
+            if (
+                !user ||
+                typeof user !== "object" ||
+                !user.email
+            ) {
+                return null;
+            }
 
-        }
-
-
-        let user = null;
-
-
-        try {
-
-            user =
-                JSON.parse(currentUser);
-
-        }
-
-        catch (error) {
-
+            return user;
+        } catch (error) {
             console.error(
-                "Invalid current user data.",
+                "Error reading current user:",
                 error
             );
 
-            return;
+            return null;
+        }
+    }
 
+    function isUserLoggedIn() {
+        return getCurrentUser() !== null;
+    }
+
+    /* =====================================================
+       LOGIN REQUIRED ALERT
+       OK BUTTON ONLY
+    ===================================================== */
+
+    let alertIsOpen = false;
+
+    function showLoginRequiredAlert() {
+        if (alertIsOpen) {
+            return;
         }
 
+        if (typeof window.Swal !== "undefined") {
+            alertIsOpen = true;
+
+            window.Swal.fire({
+                icon: "warning",
+                title: "Login Required",
+                text: "Please log in or create an account to continue.",
+                confirmButtonText: "OK",
+                confirmButtonColor: "#29251f",
+                showCancelButton: false,
+                showDenyButton: false,
+                allowOutsideClick: true,
+                allowEscapeKey: true
+            })
+                .then(function () {
+                    alertIsOpen = false;
+                })
+                .catch(function () {
+                    alertIsOpen = false;
+                });
+
+            return;
+        }
+
+        window.alert(
+            "Please log in or create an account to continue."
+        );
+    }
+
+    /* =====================================================
+       ACCOUNT MODAL HELPERS
+    ===================================================== */
+
+    function showLoginForm() {
+        const loginButton =
+            document.getElementById("showLogin");
+
+        const loginForm =
+            document.getElementById("loginForm");
+
+        const registerForm =
+            document.getElementById("registerForm");
+
+        if (loginForm) {
+            loginForm.style.display = "block";
+        }
+
+        if (registerForm) {
+            registerForm.style.display = "none";
+        }
+
+        if (loginButton) {
+            loginButton.classList.add("active");
+        }
+    }
+
+    function showRegisterForm() {
+        const loginForm =
+            document.getElementById("loginForm");
+
+        const registerForm =
+            document.getElementById("registerForm");
+
+        if (loginForm) {
+            loginForm.style.display = "none";
+        }
+
+        if (registerForm) {
+            registerForm.style.display = "block";
+        }
+    }
+
+    function openAccountModal() {
+        const accountModal =
+            document.getElementById("accountModal");
+
+        if (accountModal) {
+            accountModal.classList.add("active");
+            accountModal.style.display = "flex";
+        }
+    }
+
+    /* =====================================================
+       EXPOSE FUNCTIONS FOR OTHER SCRIPTS
+    ===================================================== */
+
+    window.getCurrentUser = getCurrentUser;
+    window.isUserLoggedIn = isUserLoggedIn;
+    window.showLoginRequiredAlert =
+        showLoginRequiredAlert;
+
+    window.showLoginForm = showLoginForm;
+    window.showRegisterForm = showRegisterForm;
+    window.openAccountModal = openAccountModal;
+
+    /* =====================================================
+       PROTECTED PAGES
+    ===================================================== */
+
+    const protectedPages = [
+        "Checkout.html",
+        "Orders.html",
+        "AccountSettings.html"
+    ];
+
+    function isProtectedPage() {
+        const currentPage = window.location.pathname
+            .split("/")
+            .pop()
+            .toLowerCase();
+
+        return protectedPages.some(function (page) {
+            return currentPage === page.toLowerCase();
+        });
+    }
+
+    /* =====================================================
+       PROTECTED ACTIONS
+       Does not include sidebar elements
+    ===================================================== */
+
+
+function isProtectedAction(element) {
+    if (!(element instanceof Element)) {
+        return false;
+    }
+
+    return Boolean(
+        element.closest([
+            /* Add to Cart */
+            "#addToCart",
+            "#addToCartBtn",
+            "#add-cart",
+            ".add-to-cart",
+            ".addToCart",
+            ".add-cart",
+            ".add-to-cart-btn",
+            "[data-action='add-to-cart']",
+
+            /* Checkout */
+            "#checkoutButton",
+            "#proceedToCheckout",
+            "#placeOrder",
+
+            /* Wishlist */
+            ".wishlist-button",
+            ".add-to-wishlist",
+            ".heart-icon",
+            ".fa-heart",
+
+            /* Compare */
+            ".compare-button",
+            ".add-to-compare",
+
+            /* Other protected actions */
+            "[data-protected='true']"
+        ].join(","))
+    );
+}
+
+    /* =====================================================
+       PUBLIC UI
+    ===================================================== */
+
+    function isPublicUI(element) {
+        if (!(element instanceof Element)) {
+            return false;
+        }
+
+        return Boolean(
+            element.closest([
+                "#accountModal",
+                "#loginForm",
+                "#registerForm",
+                ".swal2-container",
+                ".swal2-popup"
+            ].join(","))
+        );
+    }
+
+    /* =====================================================
+       PUBLIC LINKS
+    ===================================================== */
+
+    function isPublicPageLink(element) {
+        if (!(element instanceof Element)) {
+            return false;
+        }
+
+        const link = element.closest("a");
+
+        if (!link) {
+            return false;
+        }
+
+        const href = (
+            link.getAttribute("href") || ""
+        ).trim().toLowerCase();
+
+        return (
+            href === "" ||
+            href.startsWith("#") ||
+            href.startsWith("javascript:") ||
+            href.startsWith("mailto:") ||
+            href.startsWith("tel:") ||
+            href.includes("account.html") ||
+            href.includes("login") ||
+            href.includes("register")
+        );
+    }
+
+    /* =====================================================
+       LOCK ONLY THE HOME HEADER SIDEBAR ICON
+
+       Guest user:
+       - Sidebar icon does not open the sidebar.
+       - Login Required alert is displayed.
+       - Sidebar is not closed or modified.
+
+       Logged-in user:
+       - Original sidebar behavior remains unchanged.
+    ===================================================== */
+
+    document.addEventListener(
+        "click",
+        function (event) {
+            if (isUserLoggedIn()) {
+                return;
+            }
+
+            const target = event.target;
+
+            if (!(target instanceof Element)) {
+                return;
+            }
+
+            const sidebarToggle =
+                target.closest("#sidebarToggle");
+
+            if (!sidebarToggle) {
+                return;
+            }
+
+            event.preventDefault();
+            event.stopPropagation();
+            event.stopImmediatePropagation();
+
+            showLoginRequiredAlert();
+        },
+        true
+    );
+
+    /* =====================================================
+       HANDLE OTHER PROTECTED ACTIONS
+
+       Does not block or close sidebar content.
+    ===================================================== */
+
+    document.addEventListener(
+        "click",
+        function (event) {
+            if (isUserLoggedIn()) {
+                return;
+            }
+
+            const target = event.target;
+
+            if (!(target instanceof Element)) {
+                return;
+            }
+
+            if (
+                isPublicUI(target) ||
+                isPublicPageLink(target)
+            ) {
+                return;
+            }
+
+            if (!isProtectedAction(target)) {
+                return;
+            }
+
+            event.preventDefault();
+            event.stopPropagation();
+            event.stopImmediatePropagation();
+
+            showLoginRequiredAlert();
+        },
+        true
+    );
+
+    /* =====================================================
+       PROTECT DIRECT NAVIGATION TO ACCOUNT PAGES
+    ===================================================== */
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        function () {
+            if (!isUserLoggedIn()) {
+                if (isProtectedPage()) {
+                    document.body.innerHTML = `
+                        <main style="
+                            min-height: 100vh;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            padding: 24px;
+                            text-align: center;
+                            font-family: Arial, sans-serif;
+                            background: #f8f7f4;
+                            color: #29251f;
+                        ">
+                            <section>
+                                <h2>Login Required</h2>
+                                <p>
+                                    Please log in or create an
+                                    account to access this page.
+                                </p>
+                            </section>
+                        </main>
+                    `;
+                }
+
+                return;
+            }
+
+            updateAccountAvatar();
+        }
+    );
+
+    /* =====================================================
+       UPDATE ACCOUNT AVATAR
+    ===================================================== */
+
+    function updateAccountAvatar() {
+        const user = getCurrentUser();
 
         if (!user) {
-
             return;
-
         }
-
-
-        /*
-           Account avatar / initials
-        */
 
         const accountButtons =
             document.querySelectorAll(
-                "#accountOpen"
+                "#accountOpen, #sidebarToggle, " +
+                ".account-icon, [data-account-avatar]"
             );
 
-
-        accountButtons.forEach(
-            function (button) {
-
-                const icon =
-                    button.querySelector(
-                        "i"
-                    );
-
-
-                /*
-                   Get user's name
-                */
-
-                const fullName =
-                    user.name ||
-                    user.fullName ||
-                    user.username ||
-                    user.email ||
-                    "";
-
-
-                if (!fullName) {
-
-                    return;
-
-                }
-
-
-                const nameParts =
-                    fullName
-                        .trim()
-                        .split(/\s+/);
-
-
-                let initials = "";
-
-
-                if (nameParts.length >= 2) {
-
-                    initials =
-                        nameParts[0]
-                            .charAt(0)
-                            .toUpperCase() +
-
-                        nameParts[nameParts.length - 1]
-                            .charAt(0)
-                            .toUpperCase();
-
-                }
-
-                else {
-
-                    initials =
-                        nameParts[0]
-                            .substring(0, 2)
-                            .toUpperCase();
-
-                }
-
-
-                /*
-                   Keep original icon hidden
-                   and show initials.
-                */
-
-                if (icon) {
-
-                    icon.style.display =
-                        "none";
-
-                }
-
-
-                let avatar =
-                    button.querySelector(
-                        ".account-initials"
-                    );
-
-
-                if (!avatar) {
-
-                    avatar =
-                        document.createElement(
-                            "span"
-                        );
-
-                    avatar.className =
-                        "account-initials";
-
-
-                    button.appendChild(
-                        avatar
-                    );
-
-                }
-
-
-                avatar.textContent =
-                    initials;
-
-            }
+        const initials = getUserInitials(
+            user.name ||
+            user.fullName ||
+            user.email
         );
 
+        accountButtons.forEach(function (button) {
+            const avatar = button.querySelector(
+                "img, .user-avatar, .account-initials"
+            );
+
+            if (!avatar) {
+                return;
+            }
+
+            if (avatar.tagName === "IMG") {
+                if (user.photo) {
+                    avatar.src = user.photo;
+                    avatar.alt = user.name || "User";
+                }
+            } else {
+                avatar.textContent = initials;
+            }
+        });
     }
-);
+
+    /* =====================================================
+       GET USER INITIALS
+    ===================================================== */
+
+    function getUserInitials(name) {
+        if (!name || typeof name !== "string") {
+            return "U";
+        }
+
+        const parts = name
+            .trim()
+            .split(/\s+/)
+            .filter(Boolean);
+
+        if (parts.length === 0) {
+            return "U";
+        }
+
+        if (parts.length === 1) {
+            return parts[0]
+                .substring(0, 2)
+                .toUpperCase();
+        }
+
+        return (
+            parts[0].charAt(0) +
+            parts[parts.length - 1].charAt(0)
+        ).toUpperCase();
+    }
+})();
