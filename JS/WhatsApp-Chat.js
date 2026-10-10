@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
 
     const openButton =
@@ -19,7 +20,9 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("whatsappChatMessages");
 
 
-    /* Check elements */
+    /*
+       CHECK ELEMENTS
+    */
 
     if (
         !openButton ||
@@ -34,7 +37,80 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* 
+    /*
+       LOCAL STORAGE
+    */
+
+    const storageKey = "furniroWhatsAppMessages";
+
+    function getSavedMessages() {
+
+        try {
+            const messages = JSON.parse(
+                localStorage.getItem(storageKey) || "[]"
+            );
+
+            return Array.isArray(messages) ? messages : [];
+
+        } catch (error) {
+            console.error("Unable to load saved messages:", error);
+            return [];
+        }
+    }
+
+
+    function saveMessage(sender, text) {
+
+        const savedMessages = getSavedMessages();
+
+        savedMessages.push({
+            sender: sender,
+            text: text,
+            time: new Date().toISOString()
+        });
+
+        try {
+            localStorage.setItem(
+                storageKey,
+                JSON.stringify(savedMessages)
+            );
+
+            return true;
+
+        } catch (error) {
+            console.error("Unable to save message:", error);
+            return false;
+        }
+    }
+
+
+    /*
+       RESTORE SAVED MESSAGES
+    */
+
+    function restoreMessages() {
+
+        const savedMessages = getSavedMessages();
+
+        savedMessages.forEach(function (message) {
+
+            if (message.sender === "user") {
+                createUserMessage(message.text, message.time);
+            }
+
+            if (message.sender === "furniro") {
+                createFurniroReply(message.text, message.time);
+            }
+
+        });
+
+        scrollToBottom();
+    }
+
+    restoreMessages();
+
+
+    /*
        OPEN CHAT
     */
 
@@ -47,9 +123,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    /* 
+    /*
        CLOSE CHAT
-     */
+    */
 
     closeButton.addEventListener("click", function () {
 
@@ -58,9 +134,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    /* 
+    /*
        SEND MESSAGE
-     */
+    */
 
     sendButton.addEventListener("click", function () {
 
@@ -69,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    /* 
+    /*
        ENTER KEY
     */
 
@@ -89,9 +165,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    /* 
+    /*
        SEND MESSAGE FUNCTION
-     */
+    */
 
     function sendMessage() {
 
@@ -108,6 +184,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
+        // Save user message
+        if (!saveMessage("user", message)) {
+
+            alert("Message could not be saved. Please try again.");
+
+            return;
+        }
+
         createUserMessage(message);
 
         messageInput.value = "";
@@ -115,24 +199,34 @@ document.addEventListener("DOMContentLoaded", function () {
         scrollToBottom();
 
 
-        /* Automatic Furniro reply */
+        /*
+           AUTOMATIC FURNIRO REPLY
+        */
 
         setTimeout(function () {
 
-            createFurniroReply();
+            const reply =
+                "Thank you for your message! We will get back to you soon. 💚";
 
-            scrollToBottom();
+            // Save automatic reply
+            if (saveMessage("furniro", reply)) {
+
+                createFurniroReply(reply);
+
+                scrollToBottom();
+
+            }
 
         }, 700);
 
     }
 
 
-    /* 
+    /*
        USER MESSAGE
-     */
+    */
 
-    function createUserMessage(message) {
+    function createUserMessage(message, savedTime) {
 
         const messageElement =
             document.createElement("div");
@@ -155,7 +249,12 @@ document.addEventListener("DOMContentLoaded", function () {
             "message-time";
 
         timeElement.textContent =
-            "Now";
+            savedTime
+                ? new Date(savedTime).toLocaleTimeString([], {
+                    hour: "2-digit",
+                    minute: "2-digit"
+                })
+                : "Now";
 
 
         messageElement.appendChild(
@@ -174,11 +273,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* 
+    /*
        FURNIRO REPLY
-     */
+    */
 
-    function createFurniroReply() {
+    function createFurniroReply(message, savedTime) {
 
         const replyElement =
             document.createElement("div");
@@ -191,6 +290,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.createElement("p");
 
         textElement.textContent =
+            message ||
             "Thank you for your message! We will get back to you soon. 💚";
 
 
@@ -201,7 +301,12 @@ document.addEventListener("DOMContentLoaded", function () {
             "message-time";
 
         timeElement.textContent =
-            "Now";
+            savedTime
+                ? new Date(savedTime).toLocaleTimeString([], {
+                    hour: "2-digit",
+                    minute: "2-digit"
+                })
+                : "Now";
 
 
         replyElement.appendChild(
@@ -220,9 +325,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* 
+    /*
        SCROLL TO BOTTOM
-     */
+    */
 
     function scrollToBottom() {
 
@@ -232,9 +337,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* 
+    /*
        ESCAPE
-     */
+    */
 
     document.addEventListener("keydown", function (event) {
 
