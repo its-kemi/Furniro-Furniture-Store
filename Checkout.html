@@ -2,578 +2,555 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0">
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>Checkout - Furniro</title>
-
-
-    <!-- - Font Awesome -->
+    <title>Checkout | Furniro Furniture Store</title>
 
     <link
         rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-
-    <!-- - Main CSS -->
+        href="CSS/style.css"
+    >
 
     <link
         rel="stylesheet"
-        href="CSS/style.css">
-
-
-    <!-- - Checkout CSS -->
+        href="CSS/Checkout.css"
+    >
 
     <link
         rel="stylesheet"
-        href="CSS/Checkout.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
 
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-
 
 <body>
 
+    <!-- HEADER -->
+    <header class="checkout-header">
 
-    <!-- =========================================
-         HEADER
-    ========================================= -->
-
-    <header>
-
-        <!-- - Logo -->
-
-        <div class="logo">
-
+        <a href="index.html" class="checkout-logo">
             <img
                 src="assite/Header-images/logo.png"
-                alt="Furniro Logo">
+                alt="Furniro Logo"
+            >
 
-            <h3>
-                Furniro
-            </h3>
+            <span>Furniro</span>
+        </a>
 
-        </div>
-
-
-        <!-- - Navigation -->
-
-        <nav>
-
-            <ul>
-
-                <li>
-                    <a href="index.html">
-                        Home
-                    </a>
-                </li>
-
-                <li>
-                    <a href="Shop.html">
-                        Shop
-                    </a>
-                </li>
-
-                <li>
-                    <a href="About.html">
-                        About
-                    </a>
-                </li>
-
-                <li>
-                    <a href="Contact.html">
-                        Contact
-                    </a>
-                </li>
-
-            </ul>
-
+        <nav class="checkout-navigation">
+            <a href="index.html">Home</a>
+            <a href="Shop.html">Shop</a>
+            <a href="Cart.html">Cart</a>
+            <a href="Orders.html">My Orders</a>
         </nav>
-
-
-        <!-- - Icons -->
-
-        <div class="icons">
-
-            <a
-                href="Cart.html"
-                aria-label="Cart">
-
-                <i class="fa-solid fa-cart-shopping"></i>
-
-            </a>
-
-            <a
-                href="Wishlist.html"
-                aria-label="Wishlist">
-
-                <i class="fa-regular fa-heart"></i>
-
-            </a>
-
-        </div>
 
     </header>
 
 
-
-    <!-- =========================================
-         CHECKOUT BANNER
-    ========================================= -->
-
+    <!-- PAGE TITLE -->
     <section class="checkout-banner">
 
-        <div class="checkout-banner-bg"></div>
+        <div class="checkout-banner-icon">
+            <i class="fa-solid fa-credit-card"></i>
+        </div>
 
-        <div class="checkout-banner-overlay"></div>
+        <h1>Checkout</h1>
 
+        <p>
+            Complete your information and place your order.
+        </p>
 
-        <div class="checkout-banner-content">
-
-            <img
-                src="assite/Header-images/logo.png"
-                alt="Furniro Logo">
-
-
-            <h1>
-                Checkout
-            </h1>
-
-
-            <p>
-
-                <a href="index.html">
-                    Home
-                </a>
-
-                <span>
-                    ›
-                </span>
-
-                <a href="Cart.html">
-                    Cart
-                </a>
-
-                <span>
-                    ›
-                </span>
-
-                Checkout
-
-            </p>
-
+        <div class="checkout-breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <a href="Cart.html">Cart</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Checkout</span>
         </div>
 
     </section>
 
 
+    <!-- CHECKOUT CONTENT -->
+    <main class="checkout-main">
 
-    <!-- =========================================
-         CHECKOUT PAGE
-    ========================================= -->
+        <form id="checkoutForm">
 
-    <main class="checkout-page">
-
-
-        <!-- =====================================
-             CUSTOMER INFORMATION
-        ====================================== -->
-
-        <section class="checkout-form-section">
+            <div class="checkout-layout">
 
 
-            <div class="checkout-section-title">
+                <!-- LEFT SIDE -->
+                <section class="checkout-details">
 
-                <h2>
-                    Billing Details
-                </h2>
+                    <!-- CUSTOMER INFORMATION -->
+                    <div class="checkout-section">
 
-                <p>
-                    Please enter your information to complete your order.
-                </p>
+                        <div class="checkout-section-heading">
+
+                            <span class="checkout-step">
+                                01
+                            </span>
+
+                            <div>
+                                <h2>Billing Information</h2>
+
+                                <p>
+                                    Enter your contact information.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="checkout-form-grid">
+
+                            <div class="checkout-field">
+
+                                <label for="checkout-name">
+                                    Full Name *
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="checkout-name"
+                                    name="name"
+                                    placeholder="Enter your full name"
+                                    autocomplete="name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="checkout-field">
+
+                                <label for="checkout-email">
+                                    Email Address *
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="checkout-email"
+                                    name="email"
+                                    placeholder="example@email.com"
+                                    autocomplete="email"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="checkout-field">
+
+                                <label for="checkout-phone">
+                                    Phone Number *
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="checkout-phone"
+                                    name="phone"
+                                    placeholder="Enter your phone number"
+                                    autocomplete="tel"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="checkout-field">
+
+                                <label for="checkout-country">
+                                    Country *
+                                </label>
+
+                                <select
+                                    id="checkout-country"
+                                    name="country"
+                                    required
+                                >
+                                    <option value="AF" selected>
+                                        Afghanistan
+                                    </option>
+
+                                    <option value="US">
+                                        United States
+                                    </option>
+
+                                    <option value="GB">
+                                        United Kingdom
+                                    </option>
+
+                                    <option value="DE">
+                                        Germany
+                                    </option>
+
+                                    <option value="FR">
+                                        France
+                                    </option>
+
+                                    <option value="IT">
+                                        Italy
+                                    </option>
+
+                                    <option value="ES">
+                                        Spain
+                                    </option>
+
+                                    <option value="NL">
+                                        Netherlands
+                                    </option>
+
+                                    <option value="PK">
+                                        Pakistan
+                                    </option>
+
+                                    <option value="CA">
+                                        Canada
+                                    </option>
+
+                                    <option value="AU">
+                                        Australia
+                                    </option>
+
+                                    <option value="SA">
+                                        Saudi Arabia
+                                    </option>
+
+                                    <option value="AE">
+                                        United Arab Emirates
+                                    </option>
+
+                                    <option value="TR">
+                                        Turkey
+                                    </option>
+
+                                    <option value="IN">
+                                        India
+                                    </option>
+
+                                    <option value="ID">
+                                        Indonesia
+                                    </option>
+
+                                    <option value="JP">
+                                        Japan
+                                    </option>
+
+                                    <option value="CN">
+                                        China
+                                    </option>
+                                </select>
+
+                            </div>
+
+
+                            <div class="checkout-field full-width">
+
+                                <label for="checkout-address">
+                                    Street Address *
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="checkout-address"
+                                    name="address"
+                                    placeholder="House number and street name"
+                                    autocomplete="street-address"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="checkout-field">
+
+                                <label for="checkout-city">
+                                    City *
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="checkout-city"
+                                    name="city"
+                                    placeholder="Enter your city"
+                                    autocomplete="address-level2"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SHIPPING INFORMATION -->
+                    <div class="checkout-section">
+
+                        <div class="checkout-section-heading">
+
+                            <span class="checkout-step">
+                                02
+                            </span>
+
+                            <div>
+                                <h2>Shipping Method</h2>
+
+                                <p>
+                                    Choose how you want to receive your order.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="checkout-field">
+
+                            <label for="checkout-shipping">
+                                Delivery Option *
+                            </label>
+
+                            <select
+                                id="checkout-shipping"
+                                name="shipping"
+                                required
+                            >
+
+                                <option value="standard" selected>
+                                    Standard Shipping
+                                </option>
+
+                                <option value="express">
+                                    Express Shipping
+                                </option>
+
+                                <option value="pickup">
+                                    Store Pickup
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="checkout-shipping-note">
+
+                            <i class="fa-solid fa-truck-fast"></i>
+
+                            <p>
+                                Shipping costs are sample prices for this
+                                demonstration and can be adjusted.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PAYMENT INFORMATION -->
+                    <div class="checkout-section">
+
+                        <div class="checkout-section-heading">
+
+                            <span class="checkout-step">
+                                03
+                            </span>
+
+                            <div>
+                                <h2>Payment Method</h2>
+
+                                <p>
+                                    Select your preferred payment method.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="checkout-field">
+
+                            <label for="checkout-payment">
+                                Payment Option *
+                            </label>
+
+                            <select
+                                id="checkout-payment"
+                                name="payment"
+                                required
+                            >
+
+                                <option value="cash" selected>
+                                    Cash on Delivery
+                                </option>
+
+                                <option value="bank">
+                                    Bank Transfer
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div
+                            id="paymentNote"
+                            class="checkout-payment-note"
+                            aria-live="polite"
+                        >
+                            Cash on Delivery: pay the delivery person
+                            when your order arrives.
+                        </div>
+
+
+                        <div class="checkout-security-note">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                            <p>
+                                This demonstration does not process real
+                                bank payments. Never enter your bank password
+                                or card PIN on this page.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- RIGHT SIDE: ORDER SUMMARY -->
+                <aside class="checkout-summary">
+
+                    <div class="checkout-summary-heading">
+
+                        <h2>Your Order</h2>
+
+                        <span class="checkout-summary-icon">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </span>
+
+                    </div>
+
+
+                    <div class="checkout-currency">
+
+                        <i class="fa-solid fa-coins"></i>
+
+                        <span id="checkoutCurrency">
+                            Loading exchange rates...
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        id="checkoutProducts"
+                        class="checkout-products"
+                    >
+
+                        <p>Loading your products...</p>
+
+                    </div>
+
+
+                    <div class="checkout-summary-divider"></div>
+
+
+                    <div class="checkout-total-row">
+
+                        <span>Subtotal</span>
+
+                        <strong id="checkoutSubtotal">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="checkout-total-row">
+
+                        <span>Shipping</span>
+
+                        <strong id="checkoutShipping">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="checkout-summary-divider"></div>
+
+
+                    <div class="checkout-grand-total">
+
+                        <span>Total</span>
+
+                        <strong id="checkoutTotal">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="checkout-place-order"
+                    >
+
+                        <span>Place Order</span>
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+
+                    <p class="checkout-terms">
+                        By placing your order, you confirm that your
+                        information is correct.
+                    </p>
+
+
+                    <a
+                        href="Cart.html"
+                        class="checkout-back-cart"
+                    >
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Return to Cart
+                    </a>
+
+                </aside>
 
             </div>
 
-
-
-            <form id="checkoutForm">
-
-
-                <!-- - Full Name -->
-
-                <div class="checkout-field">
-
-                    <label for="checkout-name">
-                        Full Name
-                    </label>
-
-                    <input
-                        type="text"
-                        id="checkout-name"
-                        name="name"
-                        placeholder="Enter your full name"
-                        required>
-
-                </div>
-
-
-
-                <!-- - Email -->
-
-                <div class="checkout-field">
-
-                    <label for="checkout-email">
-                        Email Address
-                    </label>
-
-                    <input
-                        type="email"
-                        id="checkout-email"
-                        name="email"
-                        placeholder="Enter your email address"
-                        required>
-
-                </div>
-
-
-
-                <!-- - Phone -->
-
-                <div class="checkout-field">
-
-                    <label for="checkout-phone">
-                        Phone Number
-                    </label>
-
-                    <input
-                        type="tel"
-                        id="checkout-phone"
-                        name="phone"
-                        placeholder="Enter your phone number"
-                        required>
-
-                </div>
-
-
-
-                <!-- - Address -->
-
-                <div class="checkout-field">
-
-                    <label for="checkout-address">
-                        Address
-                    </label>
-
-                    <textarea
-                        id="checkout-address"
-                        name="address"
-                        rows="4"
-                        placeholder="Enter your full address"
-                        required></textarea>
-
-                </div>
-
-
-
-                <!-- - City -->
-
-                <div class="checkout-field">
-
-                    <label for="checkout-city">
-                        City
-                    </label>
-
-                    <input
-                        type="text"
-                        id="checkout-city"
-                        name="city"
-                        placeholder="Enter your city"
-                        required>
-
-                </div>
-
-
-
-                <!-- - Payment -->
-
-                <div class="checkout-field">
-
-                    <label for="checkout-payment">
-                        Payment Method
-                    </label>
-
-                    <select
-                        id="checkout-payment"
-                        name="payment"
-                        required>
-
-                        <option value="">
-                            Select payment method
-                        </option>
-
-                        <option value="Cash on Delivery">
-                            Cash on Delivery
-                        </option>
-
-                        <option value="Bank Transfer">
-                            Bank Transfer
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-
-                <!-- - Place Order -->
-
-                <button
-                    type="submit"
-                    class="place-order-button">
-
-                    <i class="fa-solid fa-check"></i>
-
-                    Place Order
-
-                </button>
-
-
-            </form>
-
-        </section>
-
-
-
-        <!-- =====================================
-             ORDER SUMMARY
-        ====================================== -->
-
-        <aside class="checkout-summary">
-
-
-            <h2>
-                Your Order
-            </h2>
-
-
-
-            <!-- - Products -->
-
-            <div
-                class="checkout-products"
-                id="checkoutProducts">
-
-                <!-- Products loaded by Checkout.js -->
-
-            </div>
-
-
-
-            <!-- - Summary -->
-
-            <div class="checkout-summary-details">
-
-
-                <div class="checkout-summary-row">
-
-                    <span>
-                        Subtotal
-                    </span>
-
-                    <strong id="checkoutSubtotal">
-                        Rp 0
-                    </strong>
-
-                </div>
-
-
-
-                <div class="checkout-summary-row">
-
-                    <span>
-                        Shipping
-                    </span>
-
-                    <strong>
-                        Free
-                    </strong>
-
-                </div>
-
-
-
-                <div class="checkout-summary-row checkout-total">
-
-                    <span>
-                        Total
-                    </span>
-
-                    <strong id="checkoutTotal">
-                        Rp 0
-                    </strong>
-
-                </div>
-
-
-            </div>
-
-        </aside>
-
+        </form>
 
     </main>
 
 
+    <!-- FOOTER -->
+    <footer class="checkout-footer">
 
-
-
-
-    <!-- =========================================
-         FOOTER
-    ========================================= -->
-
-
-    <footer>
-
-
-<div class="footer-line"></div>
-
-
-
-        <div class="footer-top">
-
-
-            <!-- - Brand -->
-
-            <div class="footer-brand">
-
-                <h2>
-                    Furniro
-                </h2>
-
-                <p>
-                    Modern furniture for beautiful and comfortable spaces.
-                </p>
-
-            </div>
-
-
-
-            <!-- - Links -->
-
-            <div class="footer-links">
-
-                <h3>
-                    Links
-                </h3>
-
-                <a href="index.html">
-                    Home
-                </a>
-
-                <a href="Shop.html">
-                    Shop
-                </a>
-
-                <a href="About.html">
-                    About
-                </a>
-
-                <a href="Contact.html">
-                    Contact
-                </a>
-
-            </div>
-
-
-
-            <!-- - Help -->
-
-            <div class="footer-help">
-
-                <h3>
-                    Help
-                </h3>
-
-                <a href="Payment-Options.html">
-                    Payment Options
-                </a>
-
-                <a href="Returns.html">
-                    Returns
-                </a>
-
-                <a href="#">
-                    Privacy Policies
-                </a>
-
-            </div>
-
-
-
-            <!-- - Newsletter -->
-
-            <div class="footer-newsletter">
-
-                <h3>
-                    Newsletter
-                </h3>
-
-                <div>
-
-                    <input
-                        type="email"
-                        placeholder="Enter your email">
-
-                    <button
-                        type="button">
-
-                        SUBSCRIBE
-
-                    </button>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-
-        <div class="footer-line"></div>
-
-
-
-        <div class="footer-bottom">
-
-            <p>
-                © 2026 Furniro. All rights reserved.
-            </p>
-
-        </div>
-
+        <p>
+            © 2026 Furniro Furniture Store.
+            All rights reserved.
+        </p>
 
     </footer>
 
 
-
-    <!-- =========================================
-         JAVASCRIPT
-    ========================================= -->
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- AUTH GUARD -->
     <script src="JS/Auth-Guard.js"></script>
 
-    <script
-        src="JS/Checkout.js">
-    </script>
-
+    <!-- CHECKOUT SYSTEM -->
+    <script src="JS/Checkout.js"></script>
 
 </body>
 
