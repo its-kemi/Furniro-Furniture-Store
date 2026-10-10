@@ -3821,6 +3821,33 @@ body.dark-mode .home-header .theme-button i {
 
 
 
+/* =====================================================
+   ACCOUNT DASHBOARD HEADER LINK
+===================================================== */
+
+.dashboard-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: inherit;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 50%;
+    transition:
+        color 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.dashboard-link:hover {
+    color: #b88e2f;
+    background-color: #f9f1df;
+}
+
+
+
+
 
 
 

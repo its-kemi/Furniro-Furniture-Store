@@ -1,9 +1,13 @@
+
 /*
 =========================================================
  FURNIRO CHECKOUT SYSTEM
+
  Currency Conversion
  Shipping Methods
- Payment Methods
+ Cash on Delivery
+ Demo Online Payment
+ Bank Transfer Demo
  Order Creation
 =========================================================
 */
@@ -14,7 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
        1. GET HTML ELEMENTS
     ===================================================== */
 
-    const checkoutForm = document.getElementById("checkoutForm");
+    const checkoutForm =
+        document.getElementById("checkoutForm");
 
     const productsContainer =
         document.getElementById("checkoutProducts");
@@ -43,46 +48,71 @@ document.addEventListener("DOMContentLoaded", function () {
     const paymentNote =
         document.getElementById("paymentNote");
 
-    const submitButton =
-        checkoutForm
-            ? checkoutForm.querySelector('[type="submit"]')
-            : null;
+    const submitButton = checkoutForm
+        ? checkoutForm.querySelector('[type="submit"]')
+        : null;
 
 
     /* =====================================================
-       2. GET CART
+       2. CHECK REQUIRED HTML ELEMENTS
+    ===================================================== */
+
+    if (!checkoutForm) {
+        console.error('Checkout form "#checkoutForm" not found.');
+        return;
+    }
+
+
+    /* =====================================================
+       3. GET CART FROM LOCAL STORAGE
     ===================================================== */
 
     let cart = [];
 
     try {
-        cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        cart = JSON.parse(
+            localStorage.getItem("cart")
+        ) || [];
+
+        if (!Array.isArray(cart)) {
+            cart = [];
+        }
+
     } catch (error) {
+
+        console.error("Unable to read cart:", error);
         cart = [];
+
     }
 
 
     /* =====================================================
-       3. GET CURRENT USER
+       4. GET CURRENT USER
     ===================================================== */
 
     let currentUser = null;
 
     try {
+
         currentUser = JSON.parse(
             localStorage.getItem("furniroCurrentUser")
         );
+
     } catch (error) {
+
         currentUser = null;
+
     }
 
 
     /* =====================================================
-       4. CURRENCY SETTINGS
-       Product prices are assumed to be in IDR.
+       5. COUNTRY AND CURRENCY SETTINGS
+       Original product prices are assumed to be IDR.
     ===================================================== */
 
     const countryCurrencies = {
+
         AF: { currency: "AFN", name: "Afghanistan" },
         US: { currency: "USD", name: "United States" },
         GB: { currency: "GBP", name: "United Kingdom" },
@@ -101,20 +131,26 @@ document.addEventListener("DOMContentLoaded", function () {
         ID: { currency: "IDR", name: "Indonesia" },
         JP: { currency: "JPY", name: "Japan" },
         CN: { currency: "CNY", name: "China" }
+
     };
 
     let selectedCurrency = "IDR";
-    let exchangeRates = { IDR: 1 };
+
+    let exchangeRates = {
+        IDR: 1
+    };
+
     let ratesLoaded = false;
+
+    let isSubmitting = false;
 
 
     /* =====================================================
-       5. SHIPPING METHODS
-       These are example prices in IDR.
-       Change them to your actual delivery fees.
+       6. SHIPPING METHODS
     ===================================================== */
 
     const shippingMethods = {
+
         standard: {
             name: "Standard Shipping",
             price: 50000
@@ -129,31 +165,29 @@ document.addEventListener("DOMContentLoaded", function () {
             name: "Store Pickup",
             price: 0
         }
+
     };
 
 
     /* =====================================================
-       6. GET SHIPPING COST
+       7. GET SHIPPING COST
     ===================================================== */
 
     function getShippingCost() {
 
-        if (!shippingSelect) {
-            return 0;
-        }
+        const method = shippingSelect
+            ? shippingSelect.value
+            : "standard";
 
-        const method = shippingSelect.value;
+        return shippingMethods[method]
+            ? shippingMethods[method].price
+            : shippingMethods.standard.price;
 
-        if (shippingMethods[method]) {
-            return shippingMethods[method].price;
-        }
-
-        return 0;
     }
 
 
     /* =====================================================
-       7. FORMAT CURRENCY
+       8. FORMAT CURRENCY
     ===================================================== */
 
     function formatPrice(price) {
@@ -161,38 +195,54 @@ document.addEventListener("DOMContentLoaded", function () {
         const amount = Number(price) || 0;
 
         try {
-            return new Intl.NumberFormat("en", {
+
+            return new Intl.NumberFormat("en-US", {
                 style: "currency",
                 currency: selectedCurrency,
                 maximumFractionDigits:
-                    ["IDR", "JPY", "AFN"].includes(selectedCurrency)
-                        ? 0
-                        : 2
+                    ["IDR", "JPY", "AFN"].includes(
+                        selectedCurrency
+                    ) ? 0 : 2
             }).format(amount);
+
         } catch (error) {
-            return selectedCurrency + " " + amount.toFixed(2);
+
+            return selectedCurrency + " " +
+                amount.toLocaleString("en-US");
+
         }
+
     }
 
 
     /* =====================================================
-       8. CONVERT IDR TO SELECTED CURRENCY
+       9. CONVERT IDR TO SELECTED CURRENCY
     ===================================================== */
 
     function convertPrice(idrAmount) {
 
         const rate = exchangeRates[selectedCurrency];
 
-        if (typeof rate !== "number" || !Number.isFinite(rate)) {
+        if (
+            typeof rate !== "number" ||
+            !Number.isFinite(rate)
+        ) {
             return null;
         }
 
-        return Number(idrAmount) * rate;
+        const amount = Number(idrAmount);
+
+        if (!Number.isFinite(amount)) {
+            return null;
+        }
+
+        return amount * rate;
+
     }
 
 
     /* =====================================================
-       9. LOAD LIVE EXCHANGE RATES
+       10. LOAD LIVE EXCHANGE RATES
     ===================================================== */
 
     async function loadExchangeRates() {
@@ -209,7 +259,9 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
             if (!response.ok) {
-                throw new Error("Exchange rate request failed.");
+                throw new Error(
+                    "Exchange rate request failed."
+                );
             }
 
             const data = await response.json();
@@ -219,16 +271,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 !data.rates ||
                 typeof data.rates.IDR !== "number"
             ) {
-                throw new Error("Invalid exchange rate data.");
+                throw new Error(
+                    "Invalid exchange rate response."
+                );
             }
 
             exchangeRates = data.rates;
             ratesLoaded = true;
-
-            if (currencyElement) {
-                currencyElement.textContent =
-                    "Currency: " + selectedCurrency;
-            }
 
             renderCheckout();
 
@@ -243,16 +292,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (currencyElement) {
                 currencyElement.textContent =
-                    "Exchange rates unavailable. Please try again.";
+                    "Exchange rates unavailable. Check your connection.";
             }
 
             renderCheckout();
+
         }
+
     }
 
 
     /* =====================================================
-       10. CALCULATE CART SUBTOTAL IN IDR
+       11. CALCULATE SUBTOTAL IN IDR
     ===================================================== */
 
     function calculateSubtotal() {
@@ -269,11 +320,12 @@ document.addEventListener("DOMContentLoaded", function () {
             return total + price * quantity;
 
         }, 0);
+
     }
 
 
     /* =====================================================
-       11. RENDER CHECKOUT PRODUCTS
+       12. RENDER CHECKOUT PRODUCTS
     ===================================================== */
 
     function renderProducts() {
@@ -303,57 +355,79 @@ document.addEventListener("DOMContentLoaded", function () {
                 Number(item.quantity) || 1
             );
 
-            const idrPrice =
-                (Number(item.price) || 0) * quantity;
+            const unitPrice = Number(item.price) || 0;
 
-            const convertedPrice = convertPrice(idrPrice);
+            const linePrice = unitPrice * quantity;
+
+            const convertedPrice =
+                convertPrice(linePrice);
 
             const priceText =
                 convertedPrice === null
                     ? "Exchange rate unavailable"
                     : formatPrice(convertedPrice);
 
-            const product = document.createElement("div");
+            const product =
+                document.createElement("div");
 
             product.className = "checkout-product";
 
-            const image = document.createElement("img");
+            const image =
+                document.createElement("img");
 
-            image.src = item.image || "assite/Header-images/logo.png";
-            image.alt = item.name || "Furniture product";
-            image.className = "checkout-product-image";
+            image.src =
+                item.image ||
+                "assite/Header-images/logo.png";
 
-            const info = document.createElement("div");
+            image.alt =
+                item.name || "Furniture product";
+
+            image.className =
+                "checkout-product-image";
+
+            image.onerror = function () {
+                this.onerror = null;
+                this.src = "assite/Header-images/logo.png";
+            };
+
+            const info =
+                document.createElement("div");
 
             info.className = "checkout-product-info";
 
-            const name = document.createElement("h3");
+            const name =
+                document.createElement("h3");
 
-            name.textContent = item.name || "Furniture Product";
+            name.textContent =
+                item.name || "Furniture Product";
 
-            const quantityText = document.createElement("p");
+            const quantityText =
+                document.createElement("p");
 
             quantityText.textContent =
                 "Quantity: " + quantity;
 
-            const priceTextElement = document.createElement("strong");
+            const priceElement =
+                document.createElement("strong");
 
-            priceTextElement.textContent = priceText;
+            priceElement.textContent = priceText;
 
             info.appendChild(name);
             info.appendChild(quantityText);
-            info.appendChild(priceTextElement);
+            info.appendChild(priceElement);
 
             product.appendChild(image);
             product.appendChild(info);
 
             productsContainer.appendChild(product);
+
         });
+
     }
 
 
     /* =====================================================
-       12. RENDER CHECKOUT TOTALS
+       13. RENDER CHECKOUT TOTALS
     ===================================================== */
 
     function renderCheckout() {
@@ -371,37 +445,46 @@ document.addEventListener("DOMContentLoaded", function () {
         const total = convertPrice(totalIDR);
 
         if (subtotalElement) {
+
             subtotalElement.textContent =
                 subtotal === null
                     ? "Unavailable"
                     : formatPrice(subtotal);
+
         }
 
         if (shippingElement) {
+
             shippingElement.textContent =
                 shipping === null
                     ? "Unavailable"
                     : formatPrice(shipping);
+
         }
 
         if (totalElement) {
+
             totalElement.textContent =
                 total === null
                     ? "Unavailable"
                     : formatPrice(total);
+
         }
 
         if (currencyElement && ratesLoaded) {
+
             currencyElement.textContent =
                 "Currency: " + selectedCurrency;
+
         }
 
         renderProducts();
+
     }
 
 
     /* =====================================================
-       13. UPDATE CURRENCY FROM COUNTRY
+       14. UPDATE CURRENCY FROM COUNTRY
     ===================================================== */
 
     function updateCurrency() {
@@ -412,20 +495,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const countryCode = countrySelect.value;
 
-        const country = countryCurrencies[countryCode];
+        const country =
+            countryCurrencies[countryCode];
 
-        if (!country) {
-            selectedCurrency = "IDR";
-        } else {
-            selectedCurrency = country.currency;
-        }
+        selectedCurrency = country
+            ? country.currency
+            : "IDR";
 
         renderCheckout();
+
     }
 
 
     /* =====================================================
-       14. UPDATE PAYMENT INFORMATION
+       15. UPDATE PAYMENT INFORMATION
     ===================================================== */
 
     function updatePaymentNote() {
@@ -434,29 +517,37 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        const paymentMethod = paymentSelect.value;
+        const method = paymentSelect.value;
 
-        if (paymentMethod === "cash") {
-
-            paymentNote.textContent =
-                "Cash on Delivery: pay the delivery person when your order arrives.";
-
-        } else if (paymentMethod === "bank") {
+        if (method === "cash") {
 
             paymentNote.textContent =
-                "Bank Transfer: this demo records your selected method only. " +
-                "It does not process or verify a real bank transfer.";
+                "Cash on Delivery: pay when your order arrives.";
+
+        } else if (method === "card") {
+
+            paymentNote.textContent =
+                "Demo Online Payment: continue to the payment page " +
+                "to complete the simulated payment.";
+
+        } else if (method === "bank") {
+
+            paymentNote.textContent =
+                "Bank Transfer Demo: continue to the payment page " +
+                "to view the demonstration bank details.";
 
         } else {
 
             paymentNote.textContent =
-                "Choose a payment method to see its information.";
+                "Please select a payment method.";
+
         }
+
     }
 
 
     /* =====================================================
-       15. FILL CUSTOMER INFORMATION
+       16. FILL CUSTOMER INFORMATION
     ===================================================== */
 
     if (currentUser) {
@@ -474,11 +565,12 @@ document.addEventListener("DOMContentLoaded", function () {
         if (emailInput && currentUser.email) {
             emailInput.value = currentUser.email;
         }
+
     }
 
 
     /* =====================================================
-       16. CREATE ORDER
+       17. CREATE ORDER
     ===================================================== */
 
     function createOrder(formData) {
@@ -489,21 +581,50 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const totalIDR = subtotalIDR + shippingIDR;
 
-        const convertedSubtotal = convertPrice(subtotalIDR);
+        const convertedSubtotal =
+            convertPrice(subtotalIDR);
 
-        const convertedShipping = convertPrice(shippingIDR);
+        const convertedShipping =
+            convertPrice(shippingIDR);
 
-        const convertedTotal = convertPrice(totalIDR);
+        const convertedTotal =
+            convertPrice(totalIDR);
+
+        if (
+            convertedSubtotal === null ||
+            convertedShipping === null ||
+            convertedTotal === null
+        ) {
+            throw new Error(
+                "Unable to convert order prices."
+            );
+        }
+
+        const shippingMethodValue = shippingSelect
+            ? shippingSelect.value
+            : "standard";
 
         const shippingMethod =
-            shippingMethods[
-                shippingSelect ? shippingSelect.value : "standard"
-            ] || shippingMethods.standard;
+            shippingMethods[shippingMethodValue] ||
+            shippingMethods.standard;
 
-        const paymentMethod =
-            paymentSelect ? paymentSelect.value : "cash";
+        const paymentMethod = paymentSelect
+            ? paymentSelect.value
+            : "cash";
 
-        const orderId = "ORD-" + Date.now();
+        const validPaymentMethods = [
+            "cash",
+            "card",
+            "bank"
+        ];
+
+        if (!validPaymentMethods.includes(paymentMethod)) {
+            throw new Error("Invalid payment method.");
+        }
+
+        const orderId =
+            "ORD-" + Date.now() + "-" +
+            Math.random().toString(36).slice(2, 7).toUpperCase();
 
         const order = {
 
@@ -512,11 +633,11 @@ document.addEventListener("DOMContentLoaded", function () {
             date: new Date().toISOString(),
 
             customer: {
-                name: formData.get("name"),
-                email: formData.get("email"),
-                phone: formData.get("phone"),
-                address: formData.get("address"),
-                city: formData.get("city"),
+                name: formData.get("name") || "",
+                email: formData.get("email") || "",
+                phone: formData.get("phone") || "",
+                address: formData.get("address") || "",
+                city: formData.get("city") || "",
                 country: countrySelect
                     ? countrySelect.value
                     : "ID"
@@ -524,29 +645,57 @@ document.addEventListener("DOMContentLoaded", function () {
 
             items: cart.map(function (item) {
 
+                const originalPrice =
+                    Number(item.price) || 0;
+
+                const displayPrice =
+                    convertPrice(originalPrice);
+
+                if (displayPrice === null) {
+                    throw new Error(
+                        "Unable to convert a product price."
+                    );
+                }
+
                 return {
+
                     id: item.id,
-                    name: item.name,
-                    image: item.image,
-                    price: Number(item.price) || 0,
+
+                    name: item.name || "Furniture Product",
+
+                    image: item.image ||
+                        "assite/Header-images/logo.png",
+
+                    price: originalPrice,
+
+                    displayPrice: displayPrice,
+
                     quantity: Math.max(
                         1,
                         Number(item.quantity) || 1
                     )
+
                 };
+
             }),
+
+            /*
+               Original amounts are stored in IDR.
+            */
 
             subtotal: subtotalIDR,
 
             shipping: {
-                method: shippingSelect
-                    ? shippingSelect.value
-                    : "standard",
+                method: shippingMethodValue,
                 name: shippingMethod.name,
                 cost: shippingIDR
             },
 
             total: totalIDR,
+
+            /*
+               Converted amounts are stored separately.
+            */
 
             currency: selectedCurrency,
 
@@ -563,27 +712,54 @@ document.addEventListener("DOMContentLoaded", function () {
             paymentStatus:
                 paymentMethod === "cash"
                     ? "Pay on Delivery"
-                    : "Awaiting Bank Transfer Review"
+                    : paymentMethod === "card"
+                        ? "Awaiting Demo Payment"
+                        : "Awaiting Bank Transfer Review"
+
         };
 
         return order;
+
     }
 
 
     /* =====================================================
-       17. SAVE ORDER AND PAYMENT NOTIFICATION
+       18. SAVE ORDER SAFELY
     ===================================================== */
+
+    function getStoredOrders() {
+
+        try {
+
+            const stored = JSON.parse(
+                localStorage.getItem("furniroOrders")
+            ) || [];
+
+            return Array.isArray(stored) ? stored : [];
+
+        } catch (error) {
+
+            return [];
+
+        }
+
+    }
+
 
     function saveOrder(order) {
 
-        let orders = [];
+        const orders = getStoredOrders();
 
-        try {
-            orders = JSON.parse(
-                localStorage.getItem("furniroOrders")
-            ) || [];
-        } catch (error) {
-            orders = [];
+        /*
+           Avoid saving the same order ID twice.
+        */
+
+        const alreadyExists = orders.some(function (existing) {
+            return existing.id === order.id;
+        });
+
+        if (alreadyExists) {
+            throw new Error("This order has already been saved.");
         }
 
         orders.push(order);
@@ -593,193 +769,254 @@ document.addEventListener("DOMContentLoaded", function () {
             JSON.stringify(orders)
         );
 
-        /*
-        Demo notification only.
-        This is not a secure admin notification.
-        */
-
-        if (order.payment === "bank") {
-
-            let notifications = [];
-
-            try {
-                notifications = JSON.parse(
-                    localStorage.getItem("furniroPaymentNotifications")
-                ) || [];
-            } catch (error) {
-                notifications = [];
-            }
-
-            notifications.push({
-                id: "PAY-" + Date.now(),
-                orderId: order.id,
-                customerName: order.customer.name,
-                customerEmail: order.customer.email,
-                amount: order.total,
-                currency: order.currency,
-                status: "Pending Review",
-                date: order.date
-            });
-
-            localStorage.setItem(
-                "furniroPaymentNotifications",
-                JSON.stringify(notifications)
-            );
-        }
     }
 
 
     /* =====================================================
-       18. HANDLE FORM SUBMISSION
+       19. SAVE TEMPORARY ORDER FOR PAYMENT PAGE
     ===================================================== */
 
-    if (checkoutForm) {
+    function savePendingOrder(order) {
 
-        checkoutForm.addEventListener(
-            "submit",
-            async function (event) {
+        /*
+           Store one pending order for this demonstration.
+           Payment.js must finalize and save it after confirmation.
+        */
 
-                event.preventDefault();
+        localStorage.setItem(
+            "furniroPendingOrder",
+            JSON.stringify(order)
+        );
 
-                if (cart.length === 0) {
+    }
 
-                    if (typeof Swal !== "undefined") {
 
-                        await Swal.fire({
-                            icon: "warning",
-                            title: "Your cart is empty",
-                            text: "Please add products before checkout."
-                        });
+    /* =====================================================
+       20. SHOW MESSAGE
+    ===================================================== */
 
-                    } else {
-                        alert("Your cart is empty.");
-                    }
+    async function showMessage(options) {
 
-                    return;
-                }
+        if (typeof Swal !== "undefined") {
 
-                if (!checkoutForm.checkValidity()) {
+            return await Swal.fire(options);
 
-                    checkoutForm.reportValidity();
+        }
 
-                    return;
-                }
+        alert(
+            (options.title || "") + "\n" +
+            (options.text || "")
+        );
 
-                if (!ratesLoaded) {
+        return {
+            isConfirmed: true
+        };
 
-                    if (typeof Swal !== "undefined") {
+    }
 
-                        await Swal.fire({
-                            icon: "warning",
-                            title: "Exchange rates unavailable",
-                            text:
-                                "Please check your internet connection " +
-                                "and try again before placing your order."
-                        });
 
-                    } else {
-                        alert("Exchange rates unavailable. Try again.");
-                    }
+    /* =====================================================
+       21. HANDLE CHECKOUT SUBMISSION
+    ===================================================== */
 
-                    return;
-                }
+    checkoutForm.addEventListener(
+        "submit",
+        async function (event) {
 
-                if (submitButton) {
-                    submitButton.disabled = true;
-                    submitButton.textContent = "Processing...";
-                }
+            event.preventDefault();
 
-                try {
+            if (isSubmitting) {
+                return;
+            }
 
-                    const formData = new FormData(checkoutForm);
+            if (cart.length === 0) {
 
-                    const order = createOrder(formData);
+                await showMessage({
+                    icon: "warning",
+                    title: "Your cart is empty",
+                    text: "Please add products before checkout."
+                });
+
+                return;
+
+            }
+
+            if (!checkoutForm.checkValidity()) {
+
+                checkoutForm.reportValidity();
+
+                return;
+
+            }
+
+            if (!ratesLoaded) {
+
+                await showMessage({
+                    icon: "warning",
+                    title: "Exchange Rates Unavailable",
+                    text:
+                        "Please check your internet connection " +
+                        "and try again."
+                });
+
+                return;
+
+            }
+
+            const paymentMethod = paymentSelect
+                ? paymentSelect.value
+                : "cash";
+
+            if (
+                !["cash", "card", "bank"].includes(paymentMethod)
+            ) {
+
+                await showMessage({
+                    icon: "warning",
+                    title: "Select a Payment Method",
+                    text: "Please select a valid payment method."
+                });
+
+                return;
+
+            }
+
+            isSubmitting = true;
+
+            if (submitButton) {
+
+                submitButton.disabled = true;
+
+                submitButton.textContent =
+                    paymentMethod === "cash"
+                        ? "Placing Order..."
+                        : "Continuing to Payment...";
+
+            }
+
+            try {
+
+                const formData =
+                    new FormData(checkoutForm);
+
+                const order = createOrder(formData);
+
+                if (paymentMethod === "cash") {
+
+                    /*
+                       Cash on Delivery:
+                       save the order immediately and go to Orders.
+                    */
 
                     saveOrder(order);
 
+                    localStorage.removeItem("furniroPendingOrder");
+
                     localStorage.removeItem("cart");
 
-                    if (typeof Swal !== "undefined") {
+                    await showMessage({
 
-                        await Swal.fire({
-                            icon: "success",
-                            title: "Order Placed Successfully!",
-                            html:
-                                "<p>Your order number is:</p>" +
-                                "<strong>" + order.id + "</strong>" +
-                                "<p>Payment status: " +
-                                order.paymentStatus +
-                                "</p>",
-                            confirmButtonText: "View My Orders"
-                        });
+                        icon: "success",
 
-                    } else {
+                        title: "Order Placed Successfully!",
 
-                        alert(
-                            "Order placed successfully! Order: " +
-                            order.id
-                        );
-                    }
+                        html:
+                            "<p>Your order number is:</p>" +
+                            "<strong>" + order.id + "</strong>" +
+                            "<p>You can pay when your order arrives.</p>",
+
+                        confirmButtonText: "View My Orders"
+
+                    });
 
                     window.location.href = "Orders.html";
 
-                } catch (error) {
+                    return;
 
-                    console.error("Checkout error:", error);
-
-                    if (typeof Swal !== "undefined") {
-
-                        await Swal.fire({
-                            icon: "error",
-                            title: "Something went wrong",
-                            text:
-                                "Your order could not be saved. " +
-                                "Please try again."
-                        });
-
-                    } else {
-                        alert("Unable to save your order.");
-                    }
-
-                    if (submitButton) {
-                        submitButton.disabled = false;
-                        submitButton.textContent = "Place Order";
-                    }
                 }
+
+                /*
+                   Card and Bank:
+                   save only a temporary order, then go to Payment.html.
+                   Payment.js is responsible for finalizing the order.
+                */
+
+                savePendingOrder(order);
+
+                window.location.href =
+                    "Payment.html?method=" +
+                    encodeURIComponent(paymentMethod);
+
+            } catch (error) {
+
+                console.error("Checkout error:", error);
+
+                await showMessage({
+
+                    icon: "error",
+
+                    title: "Checkout Error",
+
+                    text:
+                        "The order could not be processed. " +
+                        "Please check the information and try again."
+
+                });
+
+                isSubmitting = false;
+
+                if (submitButton) {
+
+                    submitButton.disabled = false;
+
+                    submitButton.textContent =
+                        "Continue to Payment / Place Order";
+
+                }
+
             }
-        );
-    }
+
+        }
+    );
 
 
     /* =====================================================
-       19. LISTEN FOR COUNTRY, SHIPPING AND PAYMENT CHANGES
+       22. LISTEN FOR FORM CHANGES
     ===================================================== */
 
     if (countrySelect) {
+
         countrySelect.addEventListener(
             "change",
             updateCurrency
         );
+
     }
 
     if (shippingSelect) {
+
         shippingSelect.addEventListener(
             "change",
             renderCheckout
         );
+
     }
 
     if (paymentSelect) {
+
         paymentSelect.addEventListener(
             "change",
             updatePaymentNote
         );
+
     }
 
 
     /* =====================================================
-       20. INITIALIZE CHECKOUT
+       23. INITIALIZE CHECKOUT
     ===================================================== */
+
+    updateCurrency();
 
     updatePaymentNote();
 

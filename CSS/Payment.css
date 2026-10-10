@@ -1,0 +1,280 @@
+
+/* =========================================================
+   FURNIRO DEMO PAYMENT PAGE
+========================================================= */
+
+.payment-header {
+    min-height: 85px;
+    padding: 16px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: #fff;
+    border-bottom: 1px solid #eee7dc;
+}
+
+.payment-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #292720;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.payment-logo img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.payment-back {
+    color: #6f604b;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.payment-back:hover {
+    color: #b88b4a;
+}
+
+.payment-page {
+    min-height: calc(100vh - 150px);
+    padding: 55px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: #faf8f4;
+}
+
+.payment-card {
+    width: 100%;
+    max-width: 620px;
+    padding: 38px;
+    border: 1px solid #eee4d6;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 12px 40px rgba(49, 39, 24, 0.07);
+}
+
+.payment-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f6eee1;
+    color: #a77b3f;
+    font-size: 26px;
+}
+
+.payment-eyebrow {
+    display: block;
+    text-align: center;
+    color: #a77b3f;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.payment-card h1 {
+    margin: 12px 0;
+    text-align: center;
+    color: #292720;
+    font-size: 30px;
+}
+
+#paymentDescription {
+    max-width: 460px;
+    margin: 0 auto 26px;
+    color: #777064;
+    text-align: center;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.payment-order-summary {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 13px;
+    padding: 20px;
+    margin-bottom: 25px;
+    border: 1px solid #eee5d8;
+    border-radius: 8px;
+    background: #fdfbf7;
+}
+
+.payment-order-summary span {
+    color: #777064;
+    font-size: 13px;
+}
+
+.payment-order-summary strong {
+    color: #292720;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+.payment-method-panel {
+    padding-top: 5px;
+}
+
+.payment-method-panel h2 {
+    margin-bottom: 12px;
+    color: #292720;
+    font-size: 19px;
+}
+
+.payment-method-panel > p {
+    color: #777064;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.demo-card-visual {
+    min-height: 175px;
+    margin: 22px 0;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #3f4038, #807054);
+    color: #fff;
+}
+
+.demo-card-visual > i {
+    font-size: 28px;
+}
+
+.demo-card-visual > span,
+.demo-card-visual small {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+.demo-card-visual strong {
+    font-size: 19px;
+    letter-spacing: 1px;
+}
+
+.demo-bank-details {
+    margin: 20px 0;
+    padding: 8px 18px;
+    border: 1px solid #eee5d8;
+    border-radius: 8px;
+}
+
+.demo-bank-details p {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee5d8;
+    font-size: 13px;
+}
+
+.demo-bank-details p:last-child {
+    border-bottom: 0;
+}
+
+.demo-bank-details span {
+    color: #777064;
+}
+
+.demo-bank-details strong {
+    color: #292720;
+    text-align: right;
+}
+
+.payment-confirm-button {
+    width: 100%;
+    min-height: 52px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border: 0;
+    border-radius: 6px;
+    background: #b88b4a;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.payment-confirm-button:hover {
+    background: #96703b;
+}
+
+.payment-confirm-button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.payment-disclaimer {
+    margin: 24px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 9px;
+    color: #777064;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.payment-disclaimer i {
+    margin-top: 3px;
+    color: #a77b3f;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 600px) {
+    .payment-header {
+        padding: 14px 5%;
+    }
+
+    .payment-logo {
+        font-size: 20px;
+    }
+
+    .payment-logo img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .payment-back {
+        font-size: 12px;
+    }
+
+    .payment-page {
+        padding: 28px 14px;
+    }
+
+    .payment-card {
+        padding: 25px 18px;
+    }
+
+    .payment-card h1 {
+        font-size: 25px;
+    }
+
+    .demo-bank-details p {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .demo-bank-details strong {
+        text-align: left;
+    }
+}

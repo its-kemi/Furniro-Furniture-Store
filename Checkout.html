@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,53 +12,72 @@
 
     <title>Checkout | Furniro Furniture Store</title>
 
+    <!-- MAIN CSS -->
     <link
         rel="stylesheet"
         href="CSS/style.css"
     >
 
+    <!-- CHECKOUT CSS -->
     <link
         rel="stylesheet"
         href="CSS/Checkout.css"
     >
 
+    <!-- FONT AWESOME -->
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     >
 
+    <!-- SWEETALERT -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
 
-    <!-- HEADER -->
+    <!-- ================================================
+         HEADER
+    ================================================= -->
+
     <header class="checkout-header">
 
         <a href="index.html" class="checkout-logo">
+
             <img
                 src="assite/Header-images/logo.png"
                 alt="Furniro Logo"
             >
 
             <span>Furniro</span>
+
         </a>
 
         <nav class="checkout-navigation">
+
             <a href="index.html">Home</a>
+
             <a href="Shop.html">Shop</a>
+
             <a href="Cart.html">Cart</a>
+
             <a href="Orders.html">My Orders</a>
+
         </nav>
 
     </header>
 
 
-    <!-- PAGE TITLE -->
+    <!-- ================================================
+         PAGE BANNER
+    ================================================= -->
+
     <section class="checkout-banner">
 
         <div class="checkout-banner-icon">
+
             <i class="fa-solid fa-credit-card"></i>
+
         </div>
 
         <h1>Checkout</h1>
@@ -67,17 +87,26 @@
         </p>
 
         <div class="checkout-breadcrumb">
+
             <a href="index.html">Home</a>
+
             <i class="fa-solid fa-chevron-right"></i>
+
             <a href="Cart.html">Cart</a>
+
             <i class="fa-solid fa-chevron-right"></i>
+
             <span>Checkout</span>
+
         </div>
 
     </section>
 
 
-    <!-- CHECKOUT CONTENT -->
+    <!-- ================================================
+         CHECKOUT CONTENT
+    ================================================= -->
+
     <main class="checkout-main">
 
         <form id="checkoutForm">
@@ -85,10 +114,17 @@
             <div class="checkout-layout">
 
 
-                <!-- LEFT SIDE -->
+                <!-- ====================================
+                     LEFT SIDE
+                ===================================== -->
+
                 <section class="checkout-details">
 
-                    <!-- CUSTOMER INFORMATION -->
+
+                    <!-- =================================
+                         01. BILLING INFORMATION
+                    ================================== -->
+
                     <div class="checkout-section">
 
                         <div class="checkout-section-heading">
@@ -98,17 +134,22 @@
                             </span>
 
                             <div>
+
                                 <h2>Billing Information</h2>
 
                                 <p>
                                     Enter your contact information.
                                 </p>
+
                             </div>
 
                         </div>
 
 
                         <div class="checkout-form-grid">
+
+
+                            <!-- FULL NAME -->
 
                             <div class="checkout-field">
 
@@ -128,6 +169,8 @@
                             </div>
 
 
+                            <!-- EMAIL -->
+
                             <div class="checkout-field">
 
                                 <label for="checkout-email">
@@ -145,6 +188,8 @@
 
                             </div>
 
+
+                            <!-- PHONE -->
 
                             <div class="checkout-field">
 
@@ -164,6 +209,8 @@
                             </div>
 
 
+                            <!-- COUNTRY -->
+
                             <div class="checkout-field">
 
                                 <label for="checkout-country">
@@ -175,6 +222,7 @@
                                     name="country"
                                     required
                                 >
+
                                     <option value="AF" selected>
                                         Afghanistan
                                     </option>
@@ -246,10 +294,13 @@
                                     <option value="CN">
                                         China
                                     </option>
+
                                 </select>
 
                             </div>
 
+
+                            <!-- STREET ADDRESS -->
 
                             <div class="checkout-field full-width">
 
@@ -268,6 +319,8 @@
 
                             </div>
 
+
+                            <!-- CITY -->
 
                             <div class="checkout-field">
 
@@ -291,7 +344,10 @@
                     </div>
 
 
-                    <!-- SHIPPING INFORMATION -->
+                    <!-- =================================
+                         02. SHIPPING INFORMATION
+                    ================================== -->
+
                     <div class="checkout-section">
 
                         <div class="checkout-section-heading">
@@ -301,11 +357,13 @@
                             </span>
 
                             <div>
+
                                 <h2>Shipping Method</h2>
 
                                 <p>
                                     Choose how you want to receive your order.
                                 </p>
+
                             </div>
 
                         </div>
@@ -354,7 +412,10 @@
                     </div>
 
 
-                    <!-- PAYMENT INFORMATION -->
+                    <!-- =================================
+                         03. PAYMENT METHOD
+                    ================================== -->
+
                     <div class="checkout-section">
 
                         <div class="checkout-section-heading">
@@ -364,11 +425,13 @@
                             </span>
 
                             <div>
+
                                 <h2>Payment Method</h2>
 
                                 <p>
                                     Select your preferred payment method.
                                 </p>
+
                             </div>
 
                         </div>
@@ -386,18 +449,30 @@
                                 required
                             >
 
+                                <!-- CASH ON DELIVERY -->
+
                                 <option value="cash" selected>
                                     Cash on Delivery
                                 </option>
 
+                                <!-- DEMO ONLINE PAYMENT -->
+
+                                <option value="card">
+                                    Demo Online Payment
+                                </option>
+
+                                <!-- DEMO BANK TRANSFER -->
+
                                 <option value="bank">
-                                    Bank Transfer
+                                    Bank Transfer Demo
                                 </option>
 
                             </select>
 
                         </div>
 
+
+                        <!-- PAYMENT DESCRIPTION -->
 
                         <div
                             id="paymentNote"
@@ -409,14 +484,16 @@
                         </div>
 
 
+                        <!-- PAYMENT SECURITY NOTE -->
+
                         <div class="checkout-security-note">
 
                             <i class="fa-solid fa-shield-halved"></i>
 
                             <p>
-                                This demonstration does not process real
-                                bank payments. Never enter your bank password
-                                or card PIN on this page.
+                                Demo payments only. No real money is transferred.
+                                Never enter your real card number, PIN,
+                                or bank password.
                             </p>
 
                         </div>
@@ -426,19 +503,29 @@
                 </section>
 
 
-                <!-- RIGHT SIDE: ORDER SUMMARY -->
+                <!-- ====================================
+                     RIGHT SIDE: ORDER SUMMARY
+                ===================================== -->
+
                 <aside class="checkout-summary">
+
+
+                    <!-- SUMMARY HEADING -->
 
                     <div class="checkout-summary-heading">
 
                         <h2>Your Order</h2>
 
                         <span class="checkout-summary-icon">
+
                             <i class="fa-solid fa-bag-shopping"></i>
+
                         </span>
 
                     </div>
 
+
+                    <!-- CURRENCY -->
 
                     <div class="checkout-currency">
 
@@ -451,6 +538,8 @@
                     </div>
 
 
+                    <!-- CART PRODUCTS -->
+
                     <div
                         id="checkoutProducts"
                         class="checkout-products"
@@ -461,8 +550,12 @@
                     </div>
 
 
+                    <!-- DIVIDER -->
+
                     <div class="checkout-summary-divider"></div>
 
+
+                    <!-- SUBTOTAL -->
 
                     <div class="checkout-total-row">
 
@@ -475,6 +568,8 @@
                     </div>
 
 
+                    <!-- SHIPPING COST -->
+
                     <div class="checkout-total-row">
 
                         <span>Shipping</span>
@@ -486,8 +581,12 @@
                     </div>
 
 
+                    <!-- DIVIDER -->
+
                     <div class="checkout-summary-divider"></div>
 
+
+                    <!-- GRAND TOTAL -->
 
                     <div class="checkout-grand-total">
 
@@ -500,30 +599,41 @@
                     </div>
 
 
+                    <!-- PLACE ORDER -->
+
                     <button
                         type="submit"
                         class="checkout-place-order"
                     >
 
-                        <span>Place Order</span>
+                        <span>Continue to Payment / Place Order</span>
 
                         <i class="fa-solid fa-arrow-right"></i>
 
                     </button>
 
 
+                    <!-- TERMS -->
+
                     <p class="checkout-terms">
+
                         By placing your order, you confirm that your
                         information is correct.
+
                     </p>
 
+
+                    <!-- RETURN TO CART -->
 
                     <a
                         href="Cart.html"
                         class="checkout-back-cart"
                     >
+
                         <i class="fa-solid fa-arrow-left"></i>
+
                         Return to Cart
+
                     </a>
 
                 </aside>
@@ -535,7 +645,10 @@
     </main>
 
 
-    <!-- FOOTER -->
+    <!-- ================================================
+         FOOTER
+    ================================================= -->
+
     <footer class="checkout-footer">
 
         <p>
@@ -546,10 +659,17 @@
     </footer>
 
 
-    <!-- AUTH GUARD -->
+    <!-- ================================================
+         AUTHENTICATION GUARD
+    ================================================= -->
+
     <script src="JS/Auth-Guard.js"></script>
 
-    <!-- CHECKOUT SYSTEM -->
+
+    <!-- ================================================
+         CHECKOUT SYSTEM
+    ================================================= -->
+
     <script src="JS/Checkout.js"></script>
 
 </body>

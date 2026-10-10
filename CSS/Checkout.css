@@ -1266,3 +1266,55 @@ body:has(.checkout-main) {
         transform: none;
     }
 }
+
+
+
+
+
+
+
+/* BANK TRANSFER REFERENCE BOX */
+
+.payment-reference-box[hidden] {
+    display: none !important;
+}
+
+.payment-reference-box {
+    margin-top: 18px;
+    padding: 20px;
+    border: 1px solid #e8dcc7;
+    border-radius: 8px;
+    background: #fffaf2;
+}
+
+.payment-reference-box label {
+    display: block;
+    margin-bottom: 10px;
+    color: #292720;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.payment-reference-box input {
+    width: 100%;
+    min-height: 46px;
+    padding: 12px 14px;
+    border: 1px solid #ded5c6;
+    border-radius: 5px;
+    background: #fff;
+    color: #292720;
+    font: inherit;
+}
+
+.payment-reference-box input:focus {
+    border-color: #b88b4a;
+    outline: 2px solid rgba(184, 139, 74, 0.18);
+}
+
+.payment-reference-box small {
+    display: block;
+    margin-top: 10px;
+    color: #777064;
+    font-size: 12px;
+    line-height: 1.7;
+}

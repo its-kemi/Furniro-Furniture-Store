@@ -1,562 +1,425 @@
+
 /*
    ACCOUNT PROFILE
 */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-        /* =====================================================
-           PROFILE MODAL ELEMENTS
-        ===================================================== */
+    "use strict";
 
-        const profileModal =
-            document.getElementById(
-                "profileModal"
-            );
+    /* =====================================================
+       PROFILE MODAL ELEMENTS
+    ===================================================== */
 
-        const profileModalClose =
-            document.getElementById(
-                "profileModalClose"
-            );
+    const profileModal =
+        document.getElementById("profileModal");
 
-        const profileModalView =
-            document.getElementById(
-                "profileModalView"
-            );
+    const profileModalClose =
+        document.getElementById("profileModalClose");
 
-        const profileModalEdit =
-            document.getElementById(
-                "profileModalEdit"
-            );
+    const profileModalView =
+        document.getElementById("profileModalView");
+
+    const profileModalEdit =
+        document.getElementById("profileModalEdit");
 
 
-        /* =====================================================
-           PROFILE MODAL INFORMATION
-        ===================================================== */
+    /* =====================================================
+       PROFILE MODAL INFORMATION
+    ===================================================== */
 
-        const modalProfilePhoto =
-            document.getElementById(
-                "modalProfilePhoto"
-            );
+    const modalProfilePhoto =
+        document.getElementById("modalProfilePhoto");
 
-        const modalProfileInitials =
-            document.getElementById(
-                "modalProfileInitials"
-            );
+    const modalProfileInitials =
+        document.getElementById("modalProfileInitials");
 
-        const modalProfileName =
-            document.getElementById(
-                "modalProfileName"
-            );
+    const modalProfileName =
+        document.getElementById("modalProfileName");
 
-        const modalProfileEmail =
-            document.getElementById(
-                "modalProfileEmail"
-            );
+    const modalProfileEmail =
+        document.getElementById("modalProfileEmail");
 
-        const modalEditPhotoPreview =
-            document.getElementById(
-                "modalEditPhotoPreview"
-            );
+    const modalEditPhotoPreview =
+        document.getElementById("modalEditPhotoPreview");
 
-        const modalEditPhotoInitials =
-            document.getElementById(
-                "modalEditPhotoInitials"
-            );
+    const modalEditPhotoInitials =
+        document.getElementById("modalEditPhotoInitials");
 
 
-        /* =====================================================
-           USER MENU
-        ===================================================== */
+    /* =====================================================
+       USER MENU
+    ===================================================== */
 
-        const myProfile =
-            document.getElementById(
-                "myProfile"
-            );
+    const myProfile =
+        document.getElementById("myProfile");
 
-        const userMenu =
-            document.getElementById(
-                "userMenu"
-            );
+    const userMenu =
+        document.getElementById("userMenu");
 
 
-        /* =====================================================
-           ACCOUNT PROFILE SECTION
-        ===================================================== */
+    /* =====================================================
+       ACCOUNT PROFILE SECTION
+    ===================================================== */
 
-        const profileSection =
-            document.querySelector(
-                ".profile-section"
-            );
+    const profileSection =
+        document.querySelector(".profile-section");
 
-        const profilePhoto =
-            document.getElementById(
-                "profilePhoto"
-            );
+    const profilePhoto =
+        document.getElementById("profilePhoto");
 
-        const profileInitials =
-            document.getElementById(
-                "profileInitials"
-            );
+    const profileInitials =
+        document.getElementById("profileInitials");
 
-        const profileName =
-            document.getElementById(
-                "profileName"
-            );
+    const profileName =
+        document.getElementById("profileName");
 
-        const profileEmail =
-            document.getElementById(
-                "profileEmail"
-            );
+    const profileEmail =
+        document.getElementById("profileEmail");
 
 
-        /* =====================================================
-           GET CURRENT USER
-        ===================================================== */
+    /* =====================================================
+       GET CURRENT USER
+    ===================================================== */
 
-        let currentUser =
-            JSON.parse(
-                localStorage.getItem(
-                    "furniroCurrentUser"
-                )
-            ) || null;
+    function getCurrentUser() {
 
+        try {
 
-        /* =====================================================
-           GET USER INITIALS
-        ===================================================== */
+            const storedUser =
+                localStorage.getItem("furniroCurrentUser");
 
-        function getUserInitials(name) {
-
-            if (!name) {
-                return "";
+            if (!storedUser) {
+                return null;
             }
 
+            const user = JSON.parse(storedUser);
 
-            const words =
-                name
-                    .trim()
-                    .split(/\s+/)
-                    .filter(Boolean);
-
-
-            if (words.length >= 2) {
-
-                return (
-                    words[0].charAt(0) +
-                    words[1].charAt(0)
-                ).toUpperCase();
-
+            if (
+                !user ||
+                typeof user !== "object" ||
+                Array.isArray(user)
+            ) {
+                return null;
             }
 
+            return user;
 
-            if (words.length === 1) {
+        } catch (error) {
 
-                return words[0]
-                    .charAt(0)
-                    .toUpperCase();
+            console.error(
+                "Unable to read current user:",
+                error
+            );
 
-            }
+            return null;
+        }
+    }
+
+    let currentUser = getCurrentUser();
 
 
+    /* =====================================================
+       GET USER INITIALS
+    ===================================================== */
+
+    function getUserInitials(name) {
+
+        if (typeof name !== "string" || !name.trim()) {
             return "";
+        }
+
+        const words = name
+            .trim()
+            .split(/\s+/)
+            .filter(Boolean);
+
+        if (words.length >= 2) {
+
+            return (
+                words[0].charAt(0) +
+                words[1].charAt(0)
+            ).toUpperCase();
 
         }
 
-
-        /* =====================================================
-           UPDATE PROFILE SECTION
-        ===================================================== */
-
-        function updateProfile() {
-
-            if (!currentUser) {
-                return;
-            }
+        return words[0].charAt(0).toUpperCase();
+    }
 
 
-            /* Profile name */
+    /* =====================================================
+       UPDATE PROFILE SECTION
+    ===================================================== */
 
-            if (profileName) {
+    function updateProfile() {
 
-                profileName.textContent =
-                    currentUser.name || "User";
-
-            }
-
-
-            /* Profile email */
-
-            if (profileEmail) {
-
-                profileEmail.textContent =
-                    currentUser.email || "";
-
-            }
-
-
-            const initials =
-                getUserInitials(
-                    currentUser.name
-                );
-
-
-            /* =================================================
-               REAL PHOTO
-            ================================================= */
-
-            if (currentUser.photo) {
-
-                if (profilePhoto) {
-
-                    profilePhoto.src =
-                        currentUser.photo;
-
-                    profilePhoto.style.display =
-                        "block";
-
-                }
-
-
-                if (profileInitials) {
-
-                    profileInitials.textContent =
-                        "";
-
-                    profileInitials.style.display =
-                        "none";
-
-                }
-
-            }
-
-
-            /* =================================================
-               NO PHOTO
-            ================================================= */
-
-            else {
-
-                if (profilePhoto) {
-
-                    profilePhoto.removeAttribute(
-                        "src"
-                    );
-
-                    profilePhoto.style.display =
-                        "none";
-
-                }
-
-
-                if (profileInitials) {
-
-                    profileInitials.textContent =
-                        initials;
-
-                    profileInitials.style.display =
-                        "flex";
-
-                }
-
-            }
-
+        if (!currentUser) {
+            return;
         }
 
-
-        /* =====================================================
-           UPDATE PROFILE MODAL
-        ===================================================== */
-
-        function updateProfileModal() {
-
-            if (!currentUser) {
-                return;
-            }
-
-
-            /* Modal name */
-
-            if (modalProfileName) {
-
-                modalProfileName.textContent =
-                    currentUser.name || "User";
-
-            }
-
-
-            /* Modal email */
-
-            if (modalProfileEmail) {
-
-                modalProfileEmail.textContent =
-                    currentUser.email || "";
-
-            }
-
-
-            const initials =
-                getUserInitials(
-                    currentUser.name
-                );
-
-
-            /* =================================================
-               MAIN PROFILE MODAL PHOTO
-            ================================================= */
-
-            if (currentUser.photo) {
-
-                if (modalProfilePhoto) {
-
-                    modalProfilePhoto.src =
-                        currentUser.photo;
-
-                    modalProfilePhoto.style.display =
-                        "block";
-
-                }
-
-
-                if (modalProfileInitials) {
-
-                    modalProfileInitials.textContent =
-                        "";
-
-                    modalProfileInitials.style.display =
-                        "none";
-
-                }
-
-            }
-
-
-            /* =================================================
-               NO PROFILE PHOTO
-            ================================================= */
-
-            else {
-
-                if (modalProfilePhoto) {
-
-                    modalProfilePhoto.removeAttribute(
-                        "src"
-                    );
-
-                    modalProfilePhoto.style.display =
-                        "none";
-
-                }
-
-
-                if (modalProfileInitials) {
-
-                    modalProfileInitials.textContent =
-                        initials;
-
-                    modalProfileInitials.style.display =
-                        "flex";
-
-                }
-
-            }
-
-
-            /* =================================================
-               EDIT PHOTO PREVIEW
-            ================================================= */
-
-            if (modalEditPhotoPreview) {
-
-                if (currentUser.photo) {
-
-                    modalEditPhotoPreview.src =
-                        currentUser.photo;
-
-                    modalEditPhotoPreview.style.display =
-                        "block";
-
-                }
-
-                else {
-
-                    modalEditPhotoPreview.removeAttribute(
-                        "src"
-                    );
-
-                    modalEditPhotoPreview.style.display =
-                        "none";
-
-                }
-
-            }
-
-
-            /* =================================================
-               EDIT PHOTO INITIALS
-            ================================================= */
-
-            if (modalEditPhotoInitials) {
-
-                if (currentUser.photo) {
-
-                    modalEditPhotoInitials.textContent =
-                        "";
-
-                    modalEditPhotoInitials.style.display =
-                        "none";
-
-                }
-
-                else {
-
-                    modalEditPhotoInitials.textContent =
-                        initials;
-
-                    modalEditPhotoInitials.style.display =
-                        "flex";
-
-                }
-
-            }
-
+        if (profileName) {
+            profileName.textContent =
+                currentUser.name || "User";
         }
 
-
-        /* =====================================================
-           MY PROFILE BUTTON
-        ===================================================== */
-
-        if (myProfile) {
-
-            myProfile.addEventListener(
-                "click",
-                function (event) {
-
-                    event.preventDefault();
-
-
-                    /* Get latest user */
-
-                    currentUser =
-                        JSON.parse(
-                            localStorage.getItem(
-                                "furniroCurrentUser"
-                            )
-                        ) || null;
-
-
-                    if (!currentUser) {
-                        return;
-                    }
-
-
-                    /* Close User Menu */
-
-                    if (userMenu) {
-
-                        userMenu.classList.remove(
-                            "active"
-                        );
-
-                    }
-
-
-                    /* Show Profile View */
-
-                    if (profileModalView) {
-
-                        profileModalView.style.display =
-                            "block";
-
-                    }
-
-
-                    /* Hide Edit Form */
-
-                    if (profileModalEdit) {
-
-                        profileModalEdit.classList.remove(
-                            "active"
-                        );
-
-                    }
-
-
-                    /* Update modal */
-
-                    updateProfileModal();
-
-
-                    /* Open modal */
-
-                    if (profileModal) {
-
-                        profileModal.classList.add(
-                            "active"
-                        );
-
-                    }
-
-                }
-            );
-
+        if (profileEmail) {
+            profileEmail.textContent =
+                currentUser.email || "";
         }
 
+        const initials =
+            getUserInitials(currentUser.name);
 
-        /* =====================================================
-           CLOSE PROFILE MODAL
-        ===================================================== */
-
-        if (profileModalClose) {
-
-            profileModalClose.addEventListener(
-                "click",
-                function () {
-
-                    if (profileModal) {
-
-                        profileModal.classList.remove(
-                            "active"
-                        );
-
-                    }
+        const photo =
+            typeof currentUser.photo === "string"
+                ? currentUser.photo.trim()
+                : "";
 
 
-                    if (profileModalView) {
+        /* Profile photo */
 
-                        profileModalView.style.display =
-                            "block";
+        if (photo) {
 
-                    }
+            if (profilePhoto) {
+                profilePhoto.src = photo;
+                profilePhoto.style.display = "block";
+            }
 
+            if (profileInitials) {
+                profileInitials.textContent = "";
+                profileInitials.style.display = "none";
+            }
 
-                    if (profileModalEdit) {
+        } else {
 
-                        profileModalEdit.classList.remove(
-                            "active"
-                        );
+            if (profilePhoto) {
+                profilePhoto.removeAttribute("src");
+                profilePhoto.style.display = "none";
+            }
 
-                    }
-
-                }
-            );
-
-        }
-
-
-        /* =====================================================
-           INITIAL UI
-        ===================================================== */
-
-        if (currentUser) {
-
-            updateProfile();
-
-            updateProfileModal();
+            if (profileInitials) {
+                profileInitials.textContent = initials;
+                profileInitials.style.display = "flex";
+            }
 
         }
 
     }
-);
+
+
+    /* =====================================================
+       UPDATE PROFILE MODAL
+    ===================================================== */
+
+    function updateProfileModal() {
+
+        if (!currentUser) {
+            return;
+        }
+
+        if (modalProfileName) {
+            modalProfileName.textContent =
+                currentUser.name || "User";
+        }
+
+        if (modalProfileEmail) {
+            modalProfileEmail.textContent =
+                currentUser.email || "";
+        }
+
+        const initials =
+            getUserInitials(currentUser.name);
+
+        const photo =
+            typeof currentUser.photo === "string"
+                ? currentUser.photo.trim()
+                : "";
+
+
+        /* Main profile photo */
+
+        if (photo) {
+
+            if (modalProfilePhoto) {
+                modalProfilePhoto.src = photo;
+                modalProfilePhoto.style.display = "block";
+            }
+
+            if (modalProfileInitials) {
+                modalProfileInitials.textContent = "";
+                modalProfileInitials.style.display = "none";
+            }
+
+        } else {
+
+            if (modalProfilePhoto) {
+                modalProfilePhoto.removeAttribute("src");
+                modalProfilePhoto.style.display = "none";
+            }
+
+            if (modalProfileInitials) {
+                modalProfileInitials.textContent = initials;
+                modalProfileInitials.style.display = "flex";
+            }
+
+        }
+
+
+        /* Edit photo preview */
+
+        if (modalEditPhotoPreview) {
+
+            if (photo) {
+                modalEditPhotoPreview.src = photo;
+                modalEditPhotoPreview.style.display = "block";
+            } else {
+                modalEditPhotoPreview.removeAttribute("src");
+                modalEditPhotoPreview.style.display = "none";
+            }
+
+        }
+
+
+        /* Edit photo initials */
+
+        if (modalEditPhotoInitials) {
+
+            if (photo) {
+                modalEditPhotoInitials.textContent = "";
+                modalEditPhotoInitials.style.display = "none";
+            } else {
+                modalEditPhotoInitials.textContent = initials;
+                modalEditPhotoInitials.style.display = "flex";
+            }
+
+        }
+
+    }
+
+
+    /* =====================================================
+       OPEN EXISTING PROFILE MODAL
+    ===================================================== */
+
+    function openProfileModal() {
+
+        currentUser = getCurrentUser();
+
+        if (!currentUser || !profileModal) {
+            return false;
+        }
+
+        if (userMenu) {
+            userMenu.classList.remove("active");
+        }
+
+        if (profileModalView) {
+            profileModalView.style.display = "block";
+        }
+
+        if (profileModalEdit) {
+            profileModalEdit.classList.remove("active");
+        }
+
+        updateProfile();
+        updateProfileModal();
+
+        profileModal.classList.add("active");
+
+        return true;
+    }
+
+
+    /* =====================================================
+       MY PROFILE FROM EXISTING USER MENU
+    ===================================================== */
+
+    if (myProfile) {
+
+        myProfile.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            openProfileModal();
+
+        });
+
+    }
+
+
+    /* =====================================================
+       OPEN PROFILE FROM ACCOUNT DASHBOARD
+       URL: Account.html?openProfile=true
+    ===================================================== */
+
+    const urlParams =
+        new URLSearchParams(window.location.search);
+
+    if (urlParams.get("openProfile") === "true") {
+
+        if (!getCurrentUser()) {
+
+            window.location.replace("Account.html");
+
+            return;
+        }
+
+        if (!openProfileModal()) {
+
+            console.error(
+                "Profile modal was not found on Account.html."
+            );
+
+        } else {
+
+            /*
+               Remove the parameter after opening the modal.
+               This prevents reopening it on a later refresh.
+            */
+
+            window.history.replaceState(
+                {},
+                document.title,
+                window.location.pathname
+            );
+
+        }
+
+    }
+
+
+    /* =====================================================
+       CLOSE PROFILE MODAL
+    ===================================================== */
+
+    if (profileModalClose) {
+
+        profileModalClose.addEventListener("click", function () {
+
+            if (profileModal) {
+                profileModal.classList.remove("active");
+            }
+
+            if (profileModalView) {
+                profileModalView.style.display = "block";
+            }
+
+            if (profileModalEdit) {
+                profileModalEdit.classList.remove("active");
+            }
+
+        });
+
+    }
+
+
+    /* =====================================================
+       INITIAL UI
+    ===================================================== */
+
+    if (currentUser) {
+        updateProfile();
+        updateProfileModal();
+    }
+
+});

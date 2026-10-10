@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Demo Payment | Furniro Furniture Store</title>
+
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/Payment.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <header class="payment-header">
+        <a href="index.html" class="payment-logo">
+            <img src="assite/Header-images/logo.png" alt="Furniro Logo">
+            <span>Furniro</span>
+        </a>
+        <a href="Checkout.html" class="payment-back">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Checkout
+        </a>
+    </header>
+
+    <main class="payment-page">
+        <div class="payment-card">
+            <div class="payment-icon">
+                <i id="paymentIcon" class="fa-solid fa-credit-card"></i>
+            </div>
+
+            <span class="payment-eyebrow">FURNIRO SECURE CHECKOUT DEMO</span>
+            <h1 id="paymentTitle">Demo Payment</h1>
+
+            <p id="paymentDescription">
+                This is a university demonstration. No real money will be transferred.
+            </p>
+
+            <div class="payment-order-summary">
+                <span>Order Number</span>
+                <strong id="paymentOrderId">Loading...</strong>
+
+                <span>Order Total</span>
+                <strong id="paymentTotal">Loading...</strong>
+            </div>
+
+            <div id="cardDemo" class="payment-method-panel" hidden>
+                <h2><i class="fa-regular fa-credit-card"></i> Demo Online Payment</h2>
+
+                <p>
+                    This button simulates a successful online payment.
+                    Do not enter real card details.
+                </p>
+
+                <div class="demo-card-visual">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <span>FURNIRO DEMO CARD</span>
+                    <strong>0000 • 0000 • 0000 • 0000</strong>
+                    <small>NOT A REAL PAYMENT CARD</small>
+                </div>
+
+                <button id="confirmCardPayment" class="payment-confirm-button"
+                    type="button">
+                    Simulate Successful Payment
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <div id="bankDemo" class="payment-method-panel" hidden>
+                <h2><i class="fa-solid fa-building-columns"></i> Bank Transfer Demo</h2>
+
+                <p>
+                    This is a simulated transfer for demonstration only.
+                    No real bank account or transfer is involved.
+                </p>
+
+                <div class="demo-bank-details">
+                    <p><span>Demo Bank</span><strong>Furniro Test Bank</strong></p>
+                    <p><span>Demo Reference</span><strong>DEMO-TRANSFER-001</strong></p>
+                    <p><span>Real transfer</span><strong>Not required</strong></p>
+                </div>
+
+                <button id="confirmBankPayment" class="payment-confirm-button"
+                    type="button">
+                    Simulate Bank Transfer
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <p class="payment-disclaimer">
+                <i class="fa-solid fa-shield-halved"></i>
+                Demonstration only. This page does not connect to a bank or payment gateway.
+            </p>
+        </div>
+    </main>
+
+    <script src="JS/Payment.js"></script>
+</body>
+</html>

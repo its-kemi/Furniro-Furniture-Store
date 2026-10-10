@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Account Dashboard | Furniro</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- Dashboard CSS -->
+    <link rel="stylesheet" href="CSS/Account-Sidebar.css">
+</head>
+
+<body>
+
+    <!-- Mobile Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="account-sidebar" id="accountSidebar">
+
+        <a href="index.html" class="sidebar-brand">
+            <span class="brand-icon">
+                <i class="fa-solid fa-couch"></i>
+            </span>
+            <span>Furniro<span class="brand-dot">.</span></span>
+        </a>
+
+        <!-- User Information -->
+        <div class="sidebar-user">
+
+            <div class="sidebar-avatar">
+                <img id="sidebarUserPhoto" alt="User photo">
+                <span id="sidebarUserInitials">U</span>
+            </div>
+
+            <div class="sidebar-user-info">
+                <h3 id="sidebarUserName">Welcome, User</h3>
+                <p id="sidebarUserEmail">Your account</p>
+            </div>
+
+        </div>
+
+        <p class="sidebar-section-title">MAIN MENU</p>
+
+        <nav class="sidebar-navigation" aria-label="Account navigation">
+
+            <a href="AccountDashboard.html" class="sidebar-link active">
+                <i class="fa-solid fa-table-columns"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="Account.html#profile" class="sidebar-link">
+                <i class="fa-regular fa-user"></i>
+                <span>My Profile</span>
+            </a>
+
+            <a href="Wishlist.html" class="sidebar-link">
+                <i class="fa-regular fa-heart"></i>
+                <span>My Wishlist</span>
+            </a>
+
+            <a href="Cart.html" class="sidebar-link">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>My Cart</span>
+            </a>
+
+            <a href="Orders.html" class="sidebar-link">
+                <i class="fa-solid fa-box"></i>
+                <span>My Orders</span>
+            </a>
+
+            <a href="AccountSettings.html" class="sidebar-link">
+                <i class="fa-solid fa-gear"></i>
+                <span>Account Settings</span>
+            </a>
+
+        </nav>
+
+        <p class="sidebar-section-title secondary-title">DISCOVER</p>
+
+        <nav class="sidebar-navigation" aria-label="More options">
+
+            <a href="Shop.html" class="sidebar-link">
+                <i class="fa-solid fa-store"></i>
+                <span>Continue Shopping</span>
+            </a>
+
+            <a href="Contact.html" class="sidebar-link">
+                <i class="fa-regular fa-circle-question"></i>
+                <span>Help & Support</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="index.html" class="sidebar-link">
+                <i class="fa-solid fa-house"></i>
+                <span>Back to Store</span>
+            </a>
+
+            <button type="button" class="sidebar-logout" id="sidebarLogout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+
+        <!-- Topbar -->
+        <header class="dashboard-topbar">
+
+            <button
+                type="button"
+                class="sidebar-toggle"
+                id="sidebarToggle"
+                aria-label="Open navigation menu"
+                aria-controls="accountSidebar"
+                aria-expanded="false"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="topbar-heading">
+                <span class="topbar-eyebrow">YOUR PERSONAL SPACE</span>
+                <h1>Account Dashboard</h1>
+            </div>
+
+            <a href="Shop.html" class="topbar-shop-link">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span>Explore Shop</span>
+            </a>
+
+        </header>
+
+        <!-- Welcome Banner -->
+        <section class="welcome-banner">
+
+            <div class="welcome-content">
+                <span class="welcome-label">WELCOME TO FURNIRO</span>
+
+                <h2>
+                    Hello, <span id="dashboardUserName">there</span>!
+                </h2>
+
+                <p>
+                    Your personal space to manage your account
+                    and discover beautiful furniture.
+                </p>
+
+                <a href="Shop.html" class="welcome-button">
+                    Explore Collection
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="welcome-decoration" aria-hidden="true">
+                <i class="fa-solid fa-couch"></i>
+            </div>
+
+        </section>
+
+        <!-- Quick Access -->
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+                <div>
+                    <span class="section-eyebrow">YOUR ACCOUNT</span>
+                    <h2>Quick Access</h2>
+                </div>
+
+                <p>Everything you need, in one place.</p>
+            </div>
+
+            <div class="quick-access-grid">
+
+                <a href="Account.html#profile" class="access-card">
+                    <span class="access-icon profile-icon">
+                        <i class="fa-regular fa-user"></i>
+                    </span>
+
+                    <span class="access-card-title">My Profile</span>
+                    <span class="access-card-description">
+                        Manage your personal information
+                    </span>
+
+                    <i class="fa-solid fa-arrow-up-right-from-square access-arrow"></i>
+                </a>
+
+                <a href="Wishlist.html" class="access-card">
+                    <span class="access-icon wishlist-icon">
+                        <i class="fa-regular fa-heart"></i>
+                    </span>
+
+                    <span class="access-card-title">My Wishlist</span>
+                    <span class="access-card-description">
+                        Revisit your favorite products
+                    </span>
+
+                    <i class="fa-solid fa-arrow-up-right-from-square access-arrow"></i>
+                </a>
+
+                <a href="Cart.html" class="access-card">
+                    <span class="access-icon cart-icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </span>
+
+                    <span class="access-card-title">My Cart</span>
+                    <span class="access-card-description">
+                        Review your shopping selection
+                    </span>
+
+                    <i class="fa-solid fa-arrow-up-right-from-square access-arrow"></i>
+                </a>
+
+                <a href="Orders.html" class="access-card">
+                    <span class="access-icon orders-icon">
+                        <i class="fa-solid fa-box"></i>
+                    </span>
+
+                    <span class="access-card-title">My Orders</span>
+                    <span class="access-card-description">
+                        Visit your order history
+                    </span>
+
+                    <i class="fa-solid fa-arrow-up-right-from-square access-arrow"></i>
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Account Information -->
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+                <div>
+                    <span class="section-eyebrow">ACCOUNT DETAILS</span>
+                    <h2>Your Information</h2>
+                </div>
+            </div>
+
+            <div class="information-card">
+
+                <div class="information-heading">
+                    <span class="information-icon">
+                        <i class="fa-regular fa-id-card"></i>
+                    </span>
+
+                    <div>
+                        <h3>Personal Information</h3>
+                        <p>Your current account details</p>
+                    </div>
+
+                    <a href="Account.html#profile" class="edit-information-link">
+                        View Profile
+                    </a>
+                </div>
+
+                <div class="information-divider"></div>
+
+                <div class="information-grid">
+
+                    <div class="information-item">
+                        <span>FULL NAME</span>
+                        <strong id="dashboardFullName">—</strong>
+                    </div>
+
+                    <div class="information-item">
+                        <span>EMAIL ADDRESS</span>
+                        <strong id="dashboardEmail">—</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Recently Viewed Placeholder -->
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+                <div>
+                    <span class="section-eyebrow">KEEP EXPLORING</span>
+                    <h2>Discover More</h2>
+                </div>
+            </div>
+
+            <div class="discover-card">
+
+                <div class="discover-icon">
+                    <i class="fa-solid fa-chair"></i>
+                </div>
+
+                <div class="discover-content">
+                    <h3>Find Something Beautiful</h3>
+                    <p>
+                        Explore our furniture collection and find
+                        something special for your space.
+                    </p>
+                </div>
+
+                <a href="Shop.html" class="discover-button">
+                    Browse Products
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Footer -->
+        <footer class="dashboard-footer">
+            <p>© 2026 Furniro. All rights reserved.</p>
+            <a href="Contact.html">Need help?</a>
+        </footer>
+
+    </main>
+
+    <!-- Dashboard JS -->
+    <script src="JS/Accountjs/Account-Sidebar.js"></script>
+
+</body>
+</html>

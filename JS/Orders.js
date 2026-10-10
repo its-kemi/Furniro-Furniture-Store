@@ -21,26 +21,35 @@ document.addEventListener("DOMContentLoaded", function () {
     let orders = [];
 
     try {
+
         orders = JSON.parse(
             localStorage.getItem("furniroOrders")
         ) || [];
+
+        if (!Array.isArray(orders)) {
+            orders = [];
+        }
+
     } catch (error) {
+
         console.error("Unable to read orders:", error);
         orders = [];
+
     }
 
 
     /* =====================================================
        3. FORMAT PRICE
+       Supports converted prices and original IDR prices
     ===================================================== */
 
     function formatOrderPrice(order, price) {
 
         const currency = order.currency || "IDR";
-
         const amount = Number(price) || 0;
 
         try {
+
             return new Intl.NumberFormat("en-US", {
                 style: "currency",
                 currency: currency,
@@ -48,13 +57,72 @@ document.addEventListener("DOMContentLoaded", function () {
             }).format(amount);
 
         } catch (error) {
-            return currency + " " + amount.toLocaleString("en-US");
+
+            return currency + " " +
+                amount.toLocaleString("en-US");
+
         }
+
     }
 
 
     /* =====================================================
-       4. FORMAT DATE
+       4. GET DISPLAY TOTALS
+       Prefer amounts converted in Checkout.js
+    ===================================================== */
+
+    function getOrderAmounts(order) {
+
+        const displayTotals = order.displayTotals || {};
+        const shipping = order.shipping || {};
+
+        const originalSubtotal =
+            Number(order.subtotal) || 0;
+
+        const originalShipping =
+            Number(
+                typeof shipping === "object"
+                    ? shipping.cost
+                    : order.shippingCost
+            ) || 0;
+
+        const originalTotal =
+            Number(order.total) ||
+            originalSubtotal + originalShipping;
+
+        /*
+           If displayTotals exists, use converted values.
+           Otherwise, use original saved values.
+        */
+
+        const subtotal =
+            displayTotals.subtotal != null
+                ? Number(displayTotals.subtotal)
+                : originalSubtotal;
+
+        const shippingCost =
+            displayTotals.shipping != null
+                ? Number(displayTotals.shipping)
+                : originalShipping;
+
+        const total =
+            displayTotals.total != null
+                ? Number(displayTotals.total)
+                : originalTotal;
+
+        return {
+            subtotal: Number.isFinite(subtotal) ? subtotal : 0,
+            shipping: Number.isFinite(shippingCost)
+                ? shippingCost
+                : 0,
+            total: Number.isFinite(total) ? total : 0
+        };
+
+    }
+
+
+    /* =====================================================
+       5. FORMAT DATE
     ===================================================== */
 
     function formatOrderDate(date) {
@@ -74,11 +142,12 @@ document.addEventListener("DOMContentLoaded", function () {
             month: "long",
             day: "numeric"
         });
+
     }
 
 
     /* =====================================================
-       5. CREATE SAFE HTML TEXT
+       6. ESCAPE HTML
     ===================================================== */
 
     function escapeHTML(value) {
@@ -96,13 +165,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 };
 
                 return entities[character];
+
             }
         );
+
     }
 
 
     /* =====================================================
-       6. GET ORDER STATUS CLASS
+       7. GET ORDER STATUS CLASS
     ===================================================== */
 
     function getStatusClass(status) {
@@ -114,31 +185,80 @@ document.addEventListener("DOMContentLoaded", function () {
         if (
             normalizedStatus.includes("approved") ||
             normalizedStatus.includes("completed") ||
-            normalizedStatus.includes("delivered")
+            normalizedStatus.includes("delivered") ||
+            normalizedStatus.includes("successful")
         ) {
+
             return "status-success";
+
         }
 
         if (
             normalizedStatus.includes("rejected") ||
-            normalizedStatus.includes("cancelled")
+            normalizedStatus.includes("cancelled") ||
+            normalizedStatus.includes("failed")
         ) {
+
             return "status-danger";
+
         }
 
         if (
             normalizedStatus.includes("pending") ||
-            normalizedStatus.includes("awaiting")
+            normalizedStatus.includes("awaiting") ||
+            normalizedStatus.includes("submitted")
         ) {
+
             return "status-pending";
+
         }
 
         return "status-processing";
+
     }
 
 
     /* =====================================================
-       7. GET PAYMENT STATUS
+       8. FORMAT PAYMENT METHOD
+    ===================================================== */
+
+    function getPaymentMethod(order) {
+
+        const method = String(
+            order.payment || ""
+        ).toLowerCase();
+
+        if (
+            method === "cash" ||
+            method.includes("cash on delivery")
+        ) {
+
+            return "Cash on Delivery";
+
+        }
+
+        if (
+            method === "card" ||
+            method.includes("online")
+        ) {
+
+            return "Demo Online Payment";
+
+        }
+
+        if (method === "bank" || method.includes("bank")) {
+
+            return "Bank Transfer Demo";
+
+        }
+
+        return order.payment || "Not specified";
+
+    }
+
+
+    /* =====================================================
+       9. GET PAYMENT STATUS
     ===================================================== */
 
     function getPaymentStatus(order) {
@@ -147,19 +267,56 @@ document.addEventListener("DOMContentLoaded", function () {
             return order.paymentStatus;
         }
 
-        if (
-            String(order.payment || "").toLowerCase()
-                .includes("bank")
-        ) {
+        const method = String(
+            order.payment || ""
+        ).toLowerCase();
+
+        if (method === "card") {
+            return "Demo Payment Successful";
+        }
+
+        if (method === "bank" || method.includes("bank")) {
             return "Awaiting Bank Transfer Review";
         }
 
         return "Pay on Delivery";
+
     }
 
 
     /* =====================================================
-       8. RENDER ORDER PRODUCTS
+       10. GET PRODUCT DISPLAY PRICE
+    ===================================================== */
+
+    function getItemDisplayPrice(order, item) {
+
+        /*
+           displayPrice is the converted price saved by
+           Checkout.js. Use it when available.
+        */
+
+        if (item.displayPrice != null) {
+
+            const displayPrice = Number(item.displayPrice);
+
+            if (Number.isFinite(displayPrice)) {
+                return displayPrice;
+            }
+
+        }
+
+        /*
+           For older orders, try the saved converted subtotal.
+           Otherwise use the original product price.
+        */
+
+        return Number(item.price) || 0;
+
+    }
+
+
+    /* =====================================================
+       11. RENDER ORDER PRODUCTS
     ===================================================== */
 
     function renderOrderItems(order) {
@@ -168,11 +325,13 @@ document.addEventListener("DOMContentLoaded", function () {
             !Array.isArray(order.items) ||
             order.items.length === 0
         ) {
+
             return `
                 <p class="orders-no-items">
                     No product details available.
                 </p>
             `;
+
         }
 
         return order.items.map(function (item) {
@@ -190,18 +349,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 Number(item.quantity) || 1
             );
 
-            const price = Number(item.price) || 0;
+            const price = getItemDisplayPrice(order, item);
 
             return `
                 <div class="order-item">
 
                     <div class="order-item-image">
+
                         <img
                             src="${image}"
                             alt="${name}"
                             loading="lazy"
                             onerror="this.style.display='none'"
                         >
+
                     </div>
 
                     <div class="order-item-info">
@@ -222,11 +383,12 @@ document.addEventListener("DOMContentLoaded", function () {
             `;
 
         }).join("");
+
     }
 
 
     /* =====================================================
-       9. RENDER ONE ORDER
+       12. RENDER ONE ORDER
     ===================================================== */
 
     function renderOrder(order) {
@@ -268,7 +430,7 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         const payment = escapeHTML(
-            order.payment || "Not specified"
+            getPaymentMethod(order)
         );
 
         const paymentStatus = escapeHTML(
@@ -287,17 +449,7 @@ document.addEventListener("DOMContentLoaded", function () {
             order.currency || "IDR"
         );
 
-        const subtotal = Number(order.subtotal) || 0;
-
-        const shippingCost = Number(
-            typeof shipping === "object"
-                ? shipping.cost
-                : order.shippingCost
-        ) || 0;
-
-        const total = Number(
-            order.total
-        ) || 0;
+        const amounts = getOrderAmounts(order);
 
         const orderCard = document.createElement("article");
 
@@ -310,11 +462,11 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="order-header">
 
                 <div>
+
                     <h2>Order #${orderId}</h2>
 
-                    <p>
-                        ${orderDate}
-                    </p>
+                    <p>${orderDate}</p>
+
                 </div>
 
                 <span class="order-status ${getStatusClass(status)}">
@@ -382,7 +534,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 <p>
                     <strong>Shipping Cost:</strong>
-                    ${formatOrderPrice(order, shippingCost)}
+                    ${formatOrderPrice(order, amounts.shipping)}
                 </p>
 
             </section>
@@ -404,6 +556,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 <p>
                     <strong>Payment Status:</strong>
+
                     <span class="payment-status">
                         ${paymentStatus}
                     </span>
@@ -431,27 +584,33 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="order-footer">
 
                 <div class="order-total-row">
+
                     <span>Subtotal</span>
 
                     <strong>
-                        ${formatOrderPrice(order, subtotal)}
+                        ${formatOrderPrice(order, amounts.subtotal)}
                     </strong>
+
                 </div>
 
                 <div class="order-total-row">
+
                     <span>Shipping</span>
 
                     <strong>
-                        ${formatOrderPrice(order, shippingCost)}
+                        ${formatOrderPrice(order, amounts.shipping)}
                     </strong>
+
                 </div>
 
                 <div class="order-total-row order-grand-total">
+
                     <span>Total</span>
 
                     <strong>
-                        ${formatOrderPrice(order, total)}
+                        ${formatOrderPrice(order, amounts.total)}
                     </strong>
+
                 </div>
 
                 <p class="order-currency-note">
@@ -463,21 +622,24 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
 
         return orderCard;
+
     }
 
 
     /* =====================================================
-       10. RENDER ALL ORDERS
+       13. RENDER ALL ORDERS
     ===================================================== */
 
     function renderOrders() {
 
         if (!ordersList) {
+
             console.error(
                 'Element "#ordersList" was not found.'
             );
 
             return;
+
         }
 
         ordersList.innerHTML = "";
@@ -489,6 +651,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             return;
+
         }
 
         if (emptyOrders) {
@@ -507,7 +670,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       11. INITIALIZE ORDERS PAGE
+       14. INITIALIZE ORDERS PAGE
     ===================================================== */
 
     renderOrders();
