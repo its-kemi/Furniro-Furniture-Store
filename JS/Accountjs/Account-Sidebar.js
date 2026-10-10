@@ -1,166 +1,119 @@
-
-/* =====================================================
-   FURNIRO ACCOUNT DASHBOARD
-   Independent Sidebar JavaScript
-===================================================== */
-
 document.addEventListener("DOMContentLoaded", function () {
-
     "use strict";
 
-    /* =====================================================
-       ELEMENTS
-    ===================================================== */
-
-    const sidebar =
-        document.getElementById("accountSidebar");
-
-    const sidebarToggle =
-        document.getElementById("sidebarToggle");
-
-    const sidebarOverlay =
-        document.getElementById("sidebarOverlay");
-
-    const sidebarLogout =
-        document.getElementById("sidebarLogout");
-
-    const sidebarProfile =
-        document.getElementById("sidebarProfile");
-
-    const sidebarUserName =
-        document.getElementById("sidebarUserName");
-
-    const sidebarUserEmail =
-        document.getElementById("sidebarUserEmail");
-
-    const sidebarUserPhoto =
-        document.getElementById("sidebarUserPhoto");
-
-    const sidebarUserInitials =
-        document.getElementById("sidebarUserInitials");
-
-    const dashboardUserName =
-        document.getElementById("dashboardUserName");
-
-    const dashboardFullName =
-        document.getElementById("dashboardFullName");
-
-    const dashboardEmail =
-        document.getElementById("dashboardEmail");
-
-
-    /* =====================================================
-       GET CURRENT USER
-    ===================================================== */
+    /* =========================================
+       CURRENT USER
+    ========================================= */
 
     function getCurrentUser() {
-
         try {
-
-            const storedUser =
-                localStorage.getItem("furniroCurrentUser");
-
-            if (!storedUser) {
-                return null;
-            }
-
-            const user = JSON.parse(storedUser);
-
-            if (
-                !user ||
-                typeof user !== "object" ||
-                Array.isArray(user)
-            ) {
-                return null;
-            }
-
-            return user;
-
+            const data = localStorage.getItem("furniroCurrentUser");
+            return data ? JSON.parse(data) : null;
         } catch (error) {
-
-            console.error(
-                "Unable to read current user:",
-                error
-            );
-
+            console.error("Could not read current user:", error);
             return null;
         }
     }
 
-
-    /* =====================================================
-       GET USER INITIALS
-    ===================================================== */
+    /* =========================================
+       USER INITIALS
+    ========================================= */
 
     function getUserInitials(name) {
-
-        if (typeof name !== "string" || !name.trim()) {
+        if (!name || typeof name !== "string") {
             return "U";
         }
 
-        const words = name
-            .trim()
-            .split(/\s+/)
-            .filter(Boolean);
+        const words = name.trim().split(/\s+/).filter(Boolean);
 
-        if (words.length >= 2) {
-
-            return (
-                words[0].charAt(0) +
-                words[1].charAt(0)
-            ).toUpperCase();
-
+        if (words.length === 0) {
+            return "U";
         }
 
-        return words[0].charAt(0).toUpperCase();
+        if (words.length === 1) {
+            return words[0].substring(0, 2).toUpperCase();
+        }
+
+        return (
+            words[0].charAt(0) +
+            words[words.length - 1].charAt(0)
+        ).toUpperCase();
     }
 
+    /* =========================================
+       DASHBOARD ELEMENTS
+    ========================================= */
 
-    /* =====================================================
-       DISPLAY USER INFORMATION
-    ===================================================== */
+    const sidebar = document.getElementById("accountSidebar");
+    const overlay = document.getElementById("sidebarOverlay");
+    const toggleButton = document.getElementById("sidebarToggle");
+    const logoutButton = document.getElementById("sidebarLogout");
+
+    const sidebarUserName = document.getElementById("sidebarUserName");
+    const sidebarUserEmail = document.getElementById("sidebarUserEmail");
+    const sidebarUserPhoto = document.getElementById("sidebarUserPhoto");
+    const sidebarUserInitials = document.getElementById("sidebarUserInitials");
+
+    const dashboardUserName = document.getElementById("dashboardUserName");
+    const dashboardFullName = document.getElementById("dashboardFullName");
+    const dashboardEmail = document.getElementById("dashboardEmail");
+
+    /* =========================================
+       UPDATE USER INFORMATION
+    ========================================= */
 
     function updateDashboard() {
+        const user = getCurrentUser();
 
-        const currentUser = getCurrentUser();
+        /*
+           Do not redirect automatically.
+           This prevents unexpected navigation to Account.html.
+        */
 
-        if (!currentUser) {
-
-            window.location.replace("Account.html");
-
+        if (!user) {
+            console.warn("No logged-in user found.");
             return;
         }
 
-        const name =
-            typeof currentUser.name === "string" &&
-            currentUser.name.trim()
-                ? currentUser.name.trim()
-                : "User";
-
-        const email =
-            typeof currentUser.email === "string"
-                ? currentUser.email
-                : "";
-
+        const name = user.name || "User";
+        const email = user.email || "";
+        const photo = user.photo || "";
         const initials = getUserInitials(name);
 
-        const photo =
-            typeof currentUser.photo === "string"
-                ? currentUser.photo.trim()
-                : "";
-
-
         if (sidebarUserName) {
-            sidebarUserName.textContent = name;
+            sidebarUserName.textContent = "Welcome, " + name;
         }
 
         if (sidebarUserEmail) {
             sidebarUserEmail.textContent = email;
         }
 
+        if (sidebarUserInitials) {
+            sidebarUserInitials.textContent = initials;
+            sidebarUserInitials.hidden = Boolean(photo);
+        }
+
+        if (sidebarUserPhoto) {
+            sidebarUserPhoto.onerror = function () {
+                sidebarUserPhoto.hidden = true;
+
+                if (sidebarUserInitials) {
+                    sidebarUserInitials.hidden = false;
+                }
+            };
+
+            if (photo) {
+                sidebarUserPhoto.src = photo;
+                sidebarUserPhoto.hidden = false;
+            } else {
+                sidebarUserPhoto.removeAttribute("src");
+                sidebarUserPhoto.hidden = true;
+            }
+        }
+
         if (dashboardUserName) {
             dashboardUserName.textContent =
-                name.split(/\s+/)[0];
+                name.trim().split(/\s+/)[0] || "User";
         }
 
         if (dashboardFullName) {
@@ -168,274 +121,182 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (dashboardEmail) {
-            dashboardEmail.textContent =
-                email || "Not provided";
+            dashboardEmail.textContent = email || "Not provided";
         }
-
-        if (sidebarUserInitials) {
-            sidebarUserInitials.textContent = initials;
-        }
-
-
-        /* Profile photo */
-
-        if (sidebarUserPhoto) {
-
-            sidebarUserPhoto.onerror = function () {
-
-                sidebarUserPhoto.removeAttribute("src");
-
-                if (sidebarUserPhoto.parentElement) {
-                    sidebarUserPhoto.parentElement
-                        .classList.remove("has-photo");
-                }
-
-            };
-
-            sidebarUserPhoto.onload = function () {
-
-                if (sidebarUserPhoto.parentElement) {
-                    sidebarUserPhoto.parentElement
-                        .classList.add("has-photo");
-                }
-
-            };
-
-            if (photo) {
-                sidebarUserPhoto.src = photo;
-            } else {
-                sidebarUserPhoto.removeAttribute("src");
-
-                if (sidebarUserPhoto.parentElement) {
-                    sidebarUserPhoto.parentElement
-                        .classList.remove("has-photo");
-                }
-            }
-
-        }
-
     }
 
-
-    /* =====================================================
+    /* =========================================
        OPEN SIDEBAR
-    ===================================================== */
+    ========================================= */
 
     function openSidebar() {
-
-        if (!sidebar || !sidebarToggle || !sidebarOverlay) {
-            return;
+        if (sidebar) {
+            sidebar.classList.add("active");
+            sidebar.setAttribute("aria-hidden", "false");
         }
 
-        sidebar.classList.add("is-open");
-        sidebarOverlay.classList.add("is-visible");
+        if (overlay) {
+            overlay.classList.add("active");
+            overlay.setAttribute("aria-hidden", "false");
+        }
 
-        sidebarToggle.setAttribute("aria-expanded", "true");
+        if (toggleButton) {
+            toggleButton.setAttribute("aria-expanded", "true");
+            toggleButton.setAttribute(
+                "aria-label",
+                "Close navigation menu"
+            );
+        }
 
         document.body.classList.add("sidebar-open");
-
     }
 
-
-    /* =====================================================
+    /* =========================================
        CLOSE SIDEBAR
-    ===================================================== */
+    ========================================= */
 
     function closeSidebar() {
-
-        if (!sidebar || !sidebarToggle || !sidebarOverlay) {
-            return;
+        if (sidebar) {
+            sidebar.classList.remove("active");
+            sidebar.setAttribute("aria-hidden", "true");
         }
 
-        sidebar.classList.remove("is-open");
-        sidebarOverlay.classList.remove("is-visible");
+        if (overlay) {
+            overlay.classList.remove("active");
+            overlay.setAttribute("aria-hidden", "true");
+        }
 
-        sidebarToggle.setAttribute("aria-expanded", "false");
+        if (toggleButton) {
+            toggleButton.setAttribute("aria-expanded", "false");
+            toggleButton.setAttribute(
+                "aria-label",
+                "Open navigation menu"
+            );
+        }
 
         document.body.classList.remove("sidebar-open");
-
     }
 
+    /* =========================================
+       SIDEBAR TOGGLE BUTTON
+    ========================================= */
 
-    /* =====================================================
-       MOBILE SIDEBAR TOGGLE
-    ===================================================== */
+    if (toggleButton) {
+        toggleButton.addEventListener("click", function (event) {
+            event.preventDefault();
 
-    if (sidebarToggle) {
-
-        sidebarToggle.addEventListener("click", function () {
-
-            if (sidebar && sidebar.classList.contains("is-open")) {
+            if (sidebar && sidebar.classList.contains("active")) {
                 closeSidebar();
             } else {
                 openSidebar();
             }
-
         });
-
     }
 
+    /* =========================================
+       OVERLAY CLICK
+    ========================================= */
 
-    /* =====================================================
-       CLOSE SIDEBAR OVERLAY
-    ===================================================== */
-
-    if (sidebarOverlay) {
-        sidebarOverlay.addEventListener("click", closeSidebar);
+    if (overlay) {
+        overlay.addEventListener("click", closeSidebar);
     }
 
-
-    /* =====================================================
-       CLOSE WITH ESCAPE KEY
-    ===================================================== */
+    /* =========================================
+       ESCAPE KEY
+    ========================================= */
 
     document.addEventListener("keydown", function (event) {
-
         if (event.key === "Escape") {
             closeSidebar();
         }
-
     });
 
+    /* =========================================
+       PROFILE LINKS
+    ========================================= */
 
-    /* =====================================================
-       CLOSE AFTER NAVIGATION ON MOBILE
-    ===================================================== */
+    document.addEventListener("click", function (event) {
+        const target = event.target;
 
-    if (sidebar) {
+        if (!(target instanceof Element)) {
+            return;
+        }
 
-        sidebar.querySelectorAll("a").forEach(function (link) {
+        const link = target.closest(
+            "#sidebarProfile, " +
+            ".quick-access-grid a, " +
+            ".information-heading a"
+        );
 
-            link.addEventListener("click", function () {
-                closeSidebar();
-            });
+        if (!link) {
+            return;
+        }
 
-        });
+        const href = link.getAttribute("href") || "";
+        const linkText = (link.textContent || "").trim();
 
+        const isProfileLink =
+            link.id === "sidebarProfile" ||
+            href.includes("openProfile") ||
+            /my\s*profile|view\s*profile/i.test(linkText);
+
+        if (!isProfileLink) {
+            return;
+        }
+
+        event.preventDefault();
+
+       const user = getCurrentUser();
+
+if (!user) {
+    console.warn("No logged-in user found.");
+    return;
+}
+
+/*
+   Open the profile modal on the homepage.
+*/
+
+window.location.href = "index.html?openProfile=true";
+});
+    /* =========================================
+       LOGOUT
+    ========================================= */
+
+    function performLogout() {
+        localStorage.removeItem("furniroCurrentUser");
+        window.location.href = "index.html";
     }
 
-
-    /* =====================================================
-       MY PROFILE
-       Requires id="sidebarProfile" on the dashboard link.
-    ===================================================== */
-
-    if (sidebarProfile) {
-
-        sidebarProfile.addEventListener("click", function (event) {
-
+    if (logoutButton) {
+        logoutButton.addEventListener("click", function (event) {
             event.preventDefault();
 
-            const currentUser = getCurrentUser();
-
-            if (!currentUser) {
-
-                window.location.href = "Account.html";
-
-                return;
-            }
-
-            window.location.href =
-                "Account.html?openProfile=true";
-
-        });
-
-    }
-
-
-    /* =====================================================
-       LOGOUT
-       Keeps registered users intact.
-    ===================================================== */
-
-    if (sidebarLogout) {
-
-        sidebarLogout.addEventListener("click", function () {
-
-            /*
-               Use SweetAlert2 when available.
-               Otherwise, use the browser confirmation dialog.
-            */
-
-            function finishLogout() {
-
-                try {
-
-                    localStorage.removeItem(
-                        "furniroCurrentUser"
-                    );
-
-                    window.location.href = "index.html";
-
-                } catch (error) {
-
-                    console.error("Logout failed:", error);
-
-                    if (typeof Swal !== "undefined") {
-
-                        Swal.fire({
-                            icon: "error",
-                            title: "Logout Failed",
-                            text: "Unable to log out. Please try again."
-                        });
-
-                    } else {
-
-                        window.alert(
-                            "Unable to log out. Please try again."
-                        );
-
-                    }
-
-                }
-
-            }
-
-
             if (typeof Swal !== "undefined") {
-
                 Swal.fire({
-                    icon: "warning",
-                    title: "Logout?",
-                    text: "Are you sure you want to logout?",
+                    title: "Log out?",
+                    text: "Are you sure you want to log out?",
+                    icon: "question",
                     showCancelButton: true,
-                    confirmButtonText: "Yes, Logout",
+                    confirmButtonText: "Yes, log out",
                     cancelButtonText: "Cancel",
-                    position: "top",
-                    customClass: {
-                        container: "furniro-swal-container"
-                    }
+                    confirmButtonColor: "#29251f"
                 }).then(function (result) {
-
-                    if (!result.isConfirmed) {
-                        return;
+                    if (result.isConfirmed) {
+                        performLogout();
                     }
-
-                    finishLogout();
-
                 });
-
             } else {
-
-                const confirmed = window.confirm(
-                    "Are you sure you want to log out?"
-                );
-
-                if (confirmed) {
-                    finishLogout();
+                if (window.confirm("Are you sure you want to log out?")) {
+                    performLogout();
                 }
-
             }
-
         });
-
     }
 
-
-    /* =====================================================
-       INITIALIZE DASHBOARD
-    ===================================================== */
+    /* =========================================
+       INITIALIZE
+    ========================================= */
 
     updateDashboard();
-
 });

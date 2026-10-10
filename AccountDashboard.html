@@ -1,9 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#29251f">
+    <meta name="description" content="Manage your Furniro account, profile, wishlist, cart and furniture comparisons.">
 
     <title>Account Dashboard | Furniro</title>
 
@@ -15,28 +19,104 @@
 
     <!-- Dashboard CSS -->
     <link rel="stylesheet" href="CSS/Account-Sidebar.css">
+
+    <!-- Dashboard-specific refinements -->
+    <style>
+        .account-sidebar .sidebar-link,
+        .account-sidebar .sidebar-logout {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .account-sidebar .sidebar-link > i,
+        .account-sidebar .sidebar-logout > i {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 21px;
+            min-width: 21px;
+            height: 21px;
+            font-size: 16px;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .account-sidebar .sidebar-link > span,
+        .account-sidebar .sidebar-logout > span {
+            min-width: 0;
+        }
+
+        .dashboard-main {
+            min-width: 0;
+        }
+
+        .quick-access-grid > a {
+            text-decoration: none;
+        }
+
+        .access-card:focus-visible,
+        .sidebar-link:focus-visible,
+        .sidebar-logout:focus-visible,
+        .sidebar-toggle:focus-visible {
+            outline: 2px solid #c6a76b;
+            outline-offset: 4px;
+        }
+
+        .dashboard-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        @media (max-width: 600px) {
+            .dashboard-footer {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
     <!-- Mobile Overlay -->
-    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+        aria-hidden="true"
+    ></div>
 
-    <!-- Sidebar -->
-    <aside class="account-sidebar" id="accountSidebar">
+    <!-- Account Sidebar -->
+    <aside
+        class="account-sidebar"
+        id="accountSidebar"
+        aria-label="Account sidebar"
+    >
 
+        <!-- Brand -->
         <a href="index.html" class="sidebar-brand">
             <span class="brand-icon">
-                <i class="fa-solid fa-couch"></i>
+                <i class="fa-solid fa-couch" aria-hidden="true"></i>
             </span>
-            <span>Furniro<span class="brand-dot">.</span></span>
+
+            <span>
+                Furniro<span class="brand-dot">.</span>
+            </span>
         </a>
 
         <!-- User Information -->
         <div class="sidebar-user">
 
             <div class="sidebar-avatar">
-                <img id="sidebarUserPhoto" alt="User photo">
+                <img
+                    id="sidebarUserPhoto"
+                    alt="User profile"
+                    hidden
+                >
+
                 <span id="sidebarUserInitials">U</span>
             </div>
 
@@ -47,67 +127,99 @@
 
         </div>
 
+        <!-- Main Navigation -->
         <p class="sidebar-section-title">MAIN MENU</p>
 
-        <nav class="sidebar-navigation" aria-label="Account navigation">
+        <nav
+            class="sidebar-navigation"
+            aria-label="Account navigation"
+        >
 
-            <a href="AccountDashboard.html" class="sidebar-link active">
-                <i class="fa-solid fa-table-columns"></i>
+            <a
+                href="AccountDashboard.html"
+                class="sidebar-link active"
+                aria-current="page"
+            >
+                <i class="fa-solid fa-gauge-high" aria-hidden="true"></i>
                 <span>Dashboard</span>
             </a>
 
-            <a href="Account.html#profile" class="sidebar-link">
-                <i class="fa-regular fa-user"></i>
+            <!-- My Profile: Sidebar -->
+            <a
+                href="Account.html?openProfile=true"
+                class="sidebar-link"
+                id="sidebarProfile"
+            >
+                <i class="fa-solid fa-user" aria-hidden="true"></i>
                 <span>My Profile</span>
             </a>
 
             <a href="Wishlist.html" class="sidebar-link">
-                <i class="fa-regular fa-heart"></i>
+                <i class="fa-solid fa-heart" aria-hidden="true"></i>
                 <span>My Wishlist</span>
             </a>
 
             <a href="Cart.html" class="sidebar-link">
-                <i class="fa-solid fa-cart-shopping"></i>
+                <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
                 <span>My Cart</span>
             </a>
 
             <a href="Orders.html" class="sidebar-link">
-                <i class="fa-solid fa-box"></i>
+                <i class="fa-solid fa-box-open" aria-hidden="true"></i>
                 <span>My Orders</span>
             </a>
 
+            <a href="Product-Comparison.html" class="sidebar-link">
+                <i class="fa-solid fa-code-compare" aria-hidden="true"></i>
+                <span>Compare Products</span>
+            </a>
+
             <a href="AccountSettings.html" class="sidebar-link">
-                <i class="fa-solid fa-gear"></i>
+                <i class="fa-solid fa-gear" aria-hidden="true"></i>
                 <span>Account Settings</span>
             </a>
 
         </nav>
 
-        <p class="sidebar-section-title secondary-title">DISCOVER</p>
+        <!-- Discover -->
+        <p class="sidebar-section-title secondary-title">
+            DISCOVER
+        </p>
 
-        <nav class="sidebar-navigation" aria-label="More options">
+        <nav
+            class="sidebar-navigation"
+            aria-label="Shopping and support"
+        >
 
             <a href="Shop.html" class="sidebar-link">
-                <i class="fa-solid fa-store"></i>
+                <i class="fa-solid fa-store" aria-hidden="true"></i>
                 <span>Continue Shopping</span>
             </a>
 
             <a href="Contact.html" class="sidebar-link">
-                <i class="fa-regular fa-circle-question"></i>
-                <span>Help & Support</span>
+                <i class="fa-solid fa-headset" aria-hidden="true"></i>
+                <span>Help &amp; Support</span>
             </a>
 
         </nav>
 
+        <!-- Sidebar Footer -->
         <div class="sidebar-bottom">
 
             <a href="index.html" class="sidebar-link">
-                <i class="fa-solid fa-house"></i>
+                <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
                 <span>Back to Store</span>
             </a>
 
-            <button type="button" class="sidebar-logout" id="sidebarLogout">
-                <i class="fa-solid fa-right-from-bracket"></i>
+            <button
+                type="button"
+                class="sidebar-logout"
+                id="sidebarLogout"
+            >
+                <i
+                    class="fa-solid fa-right-from-bracket"
+                    aria-hidden="true"
+                ></i>
                 <span>Logout</span>
             </button>
 
@@ -129,16 +241,19 @@
                 aria-controls="accountSidebar"
                 aria-expanded="false"
             >
-                <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
             </button>
 
             <div class="topbar-heading">
-                <span class="topbar-eyebrow">YOUR PERSONAL SPACE</span>
+                <span class="topbar-eyebrow">
+                    YOUR PERSONAL SPACE
+                </span>
+
                 <h1>Account Dashboard</h1>
             </div>
 
             <a href="Shop.html" class="topbar-shop-link">
-                <i class="fa-solid fa-bag-shopping"></i>
+                <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
                 <span>Explore Shop</span>
             </a>
 
@@ -148,21 +263,26 @@
         <section class="welcome-banner">
 
             <div class="welcome-content">
-                <span class="welcome-label">WELCOME TO FURNIRO</span>
+
+                <span class="welcome-label">
+                    WELCOME TO FURNIRO
+                </span>
 
                 <h2>
                     Hello, <span id="dashboardUserName">there</span>!
                 </h2>
 
                 <p>
-                    Your personal space to manage your account
-                    and discover beautiful furniture.
+                    Welcome to your personal space.
+                    Manage your account, save your favorite furniture,
+                    and compare products before making a choice.
                 </p>
 
                 <a href="Shop.html" class="welcome-button">
                     Explore Collection
-                    <i class="fa-solid fa-arrow-right"></i>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                 </a>
+
             </div>
 
             <div class="welcome-decoration" aria-hidden="true">
@@ -185,56 +305,115 @@
 
             <div class="quick-access-grid">
 
-                <a href="Account.html#profile" class="access-card">
+                <!-- My Profile: Quick Access Card -->
+                <a
+                    href="Account.html?openProfile=true"
+                    class="access-card"
+                >
                     <span class="access-icon profile-icon">
-                        <i class="fa-regular fa-user"></i>
+                        <i class="fa-solid fa-user" aria-hidden="true"></i>
                     </span>
 
                     <span class="access-card-title">My Profile</span>
+
                     <span class="access-card-description">
                         Manage your personal information
                     </span>
 
-                    <i class="fa-solid fa-arrow-up-right-from-square access-arrow"></i>
+                    <i
+                        class="fa-solid fa-arrow-up-right-from-square access-arrow"
+                        aria-hidden="true"
+                    ></i>
                 </a>
 
+                <!-- Wishlist -->
                 <a href="Wishlist.html" class="access-card">
                     <span class="access-icon wishlist-icon">
-                        <i class="fa-regular fa-heart"></i>
+                        <i class="fa-solid fa-heart" aria-hidden="true"></i>
                     </span>
 
                     <span class="access-card-title">My Wishlist</span>
+
                     <span class="access-card-description">
-                        Revisit your favorite products
+                        Find your saved favorite products
                     </span>
 
-                    <i class="fa-solid fa-arrow-up-right-from-square access-arrow"></i>
+                    <i
+                        class="fa-solid fa-arrow-up-right-from-square access-arrow"
+                        aria-hidden="true"
+                    ></i>
                 </a>
 
+                <!-- Cart -->
                 <a href="Cart.html" class="access-card">
                     <span class="access-icon cart-icon">
-                        <i class="fa-solid fa-cart-shopping"></i>
+                        <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
                     </span>
 
                     <span class="access-card-title">My Cart</span>
+
                     <span class="access-card-description">
-                        Review your shopping selection
+                        Review your selected products
                     </span>
 
-                    <i class="fa-solid fa-arrow-up-right-from-square access-arrow"></i>
+                    <i
+                        class="fa-solid fa-arrow-up-right-from-square access-arrow"
+                        aria-hidden="true"
+                    ></i>
                 </a>
 
+                <!-- Orders -->
                 <a href="Orders.html" class="access-card">
                     <span class="access-icon orders-icon">
-                        <i class="fa-solid fa-box"></i>
+                        <i class="fa-solid fa-box-open" aria-hidden="true"></i>
                     </span>
 
                     <span class="access-card-title">My Orders</span>
+
                     <span class="access-card-description">
-                        Visit your order history
+                        View your order history
                     </span>
 
-                    <i class="fa-solid fa-arrow-up-right-from-square access-arrow"></i>
+                    <i
+                        class="fa-solid fa-arrow-up-right-from-square access-arrow"
+                        aria-hidden="true"
+                    ></i>
+                </a>
+
+                <!-- Comparison -->
+                <a href="Product-Comparison.html" class="access-card">
+                    <span class="access-icon comparison-icon">
+                        <i class="fa-solid fa-code-compare" aria-hidden="true"></i>
+                    </span>
+
+                    <span class="access-card-title">Compare Products</span>
+
+                    <span class="access-card-description">
+                        Compare furniture features and prices
+                    </span>
+
+                    <i
+                        class="fa-solid fa-arrow-up-right-from-square access-arrow"
+                        aria-hidden="true"
+                    ></i>
+                </a>
+
+                <!-- Settings -->
+                <a href="AccountSettings.html" class="access-card">
+                    <span class="access-icon settings-icon">
+                        <i class="fa-solid fa-gear" aria-hidden="true"></i>
+                    </span>
+
+                    <span class="access-card-title">Account Settings</span>
+
+                    <span class="access-card-description">
+                        Manage your account preferences
+                    </span>
+
+                    <i
+                        class="fa-solid fa-arrow-up-right-from-square access-arrow"
+                        aria-hidden="true"
+                    ></i>
                 </a>
 
             </div>
@@ -254,8 +433,9 @@
             <div class="information-card">
 
                 <div class="information-heading">
+
                     <span class="information-icon">
-                        <i class="fa-regular fa-id-card"></i>
+                        <i class="fa-solid fa-address-card" aria-hidden="true"></i>
                     </span>
 
                     <div>
@@ -263,9 +443,14 @@
                         <p>Your current account details</p>
                     </div>
 
-                    <a href="Account.html#profile" class="edit-information-link">
+                    <!-- My Profile: View Profile Link -->
+                    <a
+                        href="Account.html?openProfile=true"
+                        class="edit-information-link"
+                    >
                         View Profile
                     </a>
+
                 </div>
 
                 <div class="information-divider"></div>
@@ -288,7 +473,7 @@
 
         </section>
 
-        <!-- Recently Viewed Placeholder -->
+        <!-- Discover Products -->
         <section class="dashboard-section">
 
             <div class="section-heading">
@@ -301,14 +486,15 @@
             <div class="discover-card">
 
                 <div class="discover-icon">
-                    <i class="fa-solid fa-chair"></i>
+                    <i class="fa-solid fa-couch" aria-hidden="true"></i>
                 </div>
 
                 <div class="discover-content">
                     <h3>Find Something Beautiful</h3>
+
                     <p>
-                        Explore our furniture collection and find
-                        something special for your space.
+                        Explore our furniture collection and discover
+                        pieces that complement your space.
                     </p>
                 </div>
 
@@ -323,13 +509,14 @@
         <!-- Footer -->
         <footer class="dashboard-footer">
             <p>© 2026 Furniro. All rights reserved.</p>
+
             <a href="Contact.html">Need help?</a>
         </footer>
 
     </main>
 
-    <!-- Dashboard JS -->
-    <script src="JS/Accountjs/Account-Sidebar.js"></script>
+    <!-- Dashboard JavaScript -->
+    <script src="JS/Accountjs/Account-Sidebar.js" defer></script>
 
 </body>
 </html>
