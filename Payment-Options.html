@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,8 +9,10 @@
     <title>Payment Options | Furniro</title>
 
     <!-- Font Awesome -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
 
     <!-- CSS -->
     <link rel="stylesheet" href="CSS/Payment-Options.css">
@@ -20,148 +23,102 @@
 
 <body>
 
-    <!-- =========================
-         HEADER
-    ========================== -->
-
+    <!-- HEADER -->
     <header>
 
         <!-- Logo -->
         <div class="logo">
-            <img src="assite/Header-images/logo.png" alt="Furniro Logo">
+            <img
+                src="assite/Header-images/logo.png"
+                alt="Furniro Logo"
+            >
             <h3>Furniro</h3>
         </div>
-
 
         <!-- Desktop Navigation -->
         <nav>
             <ul>
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
-
-                <li>
-                    <a href="Shop.html">Shop</a>
-                </li>
-
-                <li>
-                    <a href="About.html">About</a>
-                </li>
-
-                <li>
-                    <a href="Contact.html">Contact</a>
-                </li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Shop.html">Shop</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Contact.html">Contact</a></li>
             </ul>
         </nav>
-
 
         <!-- Mobile Menu Button -->
         <button
             class="mobile-menu-button"
             id="mobileMenuButton"
             type="button"
-            aria-label="Open menu">
-
+            aria-label="Open menu"
+        >
             <i class="fa-solid fa-bars"></i>
-
         </button>
-
 
         <!-- Header Icons -->
         <div class="icons">
 
-           
-
-
-<!-- Account -->
-
-        <a
-            href="#"
-            class="account-icon"
-            id="accountOpen"
-            aria-label="Account"
-        >
-
-            <i class="fas fa-user-alt"></i>
-
-        </a>
-
-
-
-
-
-
-
-
+            <!-- Account -->
+            <a
+                href="#"
+                class="account-icon"
+                id="accountOpen"
+                aria-label="Account"
+            >
+                <i class="fas fa-user-alt"></i>
+            </a>
 
             <!-- Wishlist -->
-            <a
-                href="Wishlist.html"
-                aria-label="Wishlist">
-
+            <a href="Wishlist.html" aria-label="Wishlist">
                 <i class="fa-regular fa-heart"></i>
-
             </a>
 
+            <!-- Search -->
+            <div class="header-search">
 
-            
-            <!-- SEARCH -->
+                <button
+                    type="button"
+                    class="search-icon"
+                    id="searchIcon"
+                    aria-label="Search"
+                >
+                    <i class="fa fa-search"></i>
+                </button>
 
-<div class="header-search">
+                <div class="search-box" id="searchBox">
 
-    <button
-        type="button"
-        class="search-icon"
-        id="searchIcon"
-        aria-label="Search">
+                    <div class="search-input">
 
-        <i class="fa fa-search"></i>
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Search products..."
+                            autocomplete="off"
+                        >
 
-    </button>
+                        <button
+                            type="button"
+                            id="searchButton"
+                            aria-label="Search"
+                        >
+                            <i class="fa fa-search"></i>
+                        </button>
 
+                    </div>
 
-    <div
-        class="search-box"
-        id="searchBox">
+                    <div
+                        class="search-results"
+                        id="searchResults"
+                    ></div>
 
-        <div class="search-input">
+                </div>
 
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Search products..."
-                autocomplete="off">
-
-            <button
-                type="button"
-                id="searchButton"
-                aria-label="Search">
-
-                <i class="fa fa-search"></i>
-
-            </button>
-
-        </div>
-
-        <div
-            class="search-results"
-            id="searchResults">
-        </div>
-
-    </div>
-
-</div>
-
+            </div>
 
             <!-- Cart -->
-            <a
-                href="Cart.html"
-                aria-label="Cart">
-
+            <a href="Cart.html" aria-label="Cart">
                 <i class="fa-solid fa-cart-shopping"></i>
-
             </a>
-
 
             <!-- Language -->
             <div class="language-menu">
@@ -170,240 +127,171 @@
                     class="language-button"
                     id="languageButton"
                     type="button"
-                    aria-label="Language">
-
+                    aria-label="Language"
+                >
                     <i class="fa-solid fa-globe"></i>
-
                 </button>
-
 
                 <div
                     class="language-dropdown"
-                    id="languageDropdown">
-
+                    id="languageDropdown"
+                >
                     <button
                         class="language-option"
                         data-language="en"
-                        type="button">
-
+                        type="button"
+                    >
                         English
-
                     </button>
 
                     <button
                         class="language-option"
                         data-language="fa"
-                        type="button">
-
-                        فارسی
-
+                        type="button"
+                    >
+                        دری
                     </button>
 
                     <button
                         class="language-option"
                         data-language="ps"
-                        type="button">
-
+                        type="button"
+                    >
                         پښتو
-
                     </button>
 
                     <button
                         class="language-option"
                         data-language="uz"
-                        type="button">
-
+                        type="button"
+                    >
                         Uzbek
-
                     </button>
 
                     <button
                         class="language-option"
                         data-language="ar"
-                        type="button">
-
+                        type="button"
+                    >
                         العربية
-
                     </button>
 
                     <button
                         class="language-option"
                         data-language="fr"
-                        type="button">
-
+                        type="button"
+                    >
                         Français
-
                     </button>
-
                 </div>
 
             </div>
-
 
             <!-- Dark Mode -->
             <button
                 class="theme-button"
                 id="themeButton"
                 type="button"
-                aria-label="Change theme">
-
+                aria-label="Change theme"
+            >
                 <i class="fa-solid fa-moon"></i>
-
             </button>
 
         </div>
 
     </header>
 
-
-
-    <!-- =========================
-         MOBILE MENU
-    ========================== -->
-
-    <div
-        class="mobile-menu"
-        id="mobileMenu">
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
 
         <button
             class="mobile-menu-close"
             id="mobileMenuClose"
             type="button"
-            aria-label="Close menu">
-
+            aria-label="Close menu"
+        >
             <i class="fa-solid fa-xmark"></i>
-
         </button>
 
-
         <ul>
-
-            <li>
-                <a href="index.html">Home</a>
-            </li>
-
-            <li>
-                <a href="Shop.html">Shop</a>
-            </li>
-
-            <li>
-                <a href="About.html">About</a>
-            </li>
-
-            <li>
-                <a href="Contact.html">Contact</a>
-            </li>
-
-            <li>
-                <a href="Blog.html">Blog</a>
-            </li>
-
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Shop.html">Shop</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="Blog.html">Blog</a></li>
         </ul>
 
     </div>
 
-
-
-    <!-- =========================
-         PAGE BANNER
-    ========================== -->
-
+    <!-- PAGE BANNER -->
     <section class="page-banner">
 
         <div class="page-banner-bg"></div>
-
         <div class="page-banner-overlay"></div>
-
 
         <div class="page-banner-content">
 
             <img
                 src="assite/Header-images/logo.png"
-                alt="Furniro Logo">
+                alt="Furniro Logo"
+            >
 
             <h1>Payment Options</h1>
 
             <p>
-
                 <a href="index.html">Home</a>
-
                 <span>›</span>
-
                 Payment Options
-
             </p>
 
         </div>
 
     </section>
 
-
-
-    <!-- =========================
-         PAYMENT PAGE
-    ========================== -->
-
+    <!-- PAYMENT PAGE -->
     <main class="payment-page">
 
         <div class="payment-container">
 
             <h2>Payment Options</h2>
 
-
             <p class="intro">
-
-                At Furniro, we offer several convenient and secure
-                payment options to make your shopping experience
-                simple and comfortable.
-
+                Explore the payment methods available for your order.
+                Choose the option that best suits your needs.
             </p>
 
-
-
-            <!-- Credit / Debit Cards -->
-
+            <!-- CREDIT / DEBIT CARDS -->
             <div class="payment-box">
 
                 <div class="payment-icon">
-
                     <i class="fa-solid fa-credit-card"></i>
-
                 </div>
-
 
                 <div class="payment-text">
 
                     <h3>Credit and Debit Cards</h3>
 
                     <p>
-                        You can pay securely using your credit or
-                        debit card at checkout.
+                        Choose your preferred card payment method
+                        when placing your order.
                     </p>
 
                     <ul>
-
                         <li>Visa</li>
                         <li>Mastercard</li>
                         <li>Other supported cards</li>
-
                     </ul>
 
                 </div>
 
             </div>
 
-
-
-            <!-- Cash on Delivery -->
-
+            <!-- CASH ON DELIVERY -->
             <div class="payment-box">
 
                 <div class="payment-icon">
-
                     <i class="fa-solid fa-money-bill-wave"></i>
-
                 </div>
-
 
                 <div class="payment-text">
 
@@ -418,103 +306,81 @@
 
             </div>
 
-
-
-            <!-- Bank Transfer -->
-
+            <!-- BANK TRANSFER -->
             <div class="payment-box">
 
                 <div class="payment-icon">
-
                     <i class="fa-solid fa-building-columns"></i>
-
                 </div>
-
 
                 <div class="payment-text">
 
                     <h3>Bank Transfer</h3>
 
                     <p>
-                        You can transfer the payment directly to our
-                        bank account using the provided bank details.
+                        Select bank transfer as your payment method
+                        and follow the payment instructions provided
+                        during checkout.
                     </p>
 
                 </div>
 
             </div>
 
-
-
-            <!-- Online Payment -->
-
+            <!-- ONLINE PAYMENT -->
             <div class="payment-box">
 
                 <div class="payment-icon">
-
                     <i class="fa-solid fa-wallet"></i>
-
                 </div>
-
 
                 <div class="payment-text">
 
                     <h3>Online Payment</h3>
 
                     <p>
-                        Use available online payment services to
-                        complete your order quickly and securely.
+                        Choose your preferred online payment method
+                        from the available options at checkout.
                     </p>
 
                 </div>
 
             </div>
 
-
-
-            <!-- Payment Security -->
-
+            <!-- PAYMENT INFORMATION -->
             <div class="payment-security">
 
                 <i class="fa-solid fa-shield-halved"></i>
 
-
                 <div>
 
-                    <h3>Secure Payment</h3>
+                    <h3>Payment Information</h3>
 
                     <p>
-                        Your payment information is handled securely.
-                        We take reasonable measures to protect your
-                        information during the payment process.
+                        Please review your payment method and order
+                        details before completing your purchase.
                     </p>
 
                 </div>
 
             </div>
 
-
-
-            <!-- Important Information -->
-
+            <!-- IMPORTANT INFORMATION -->
             <div class="payment-info">
 
                 <h3>Important Information</h3>
 
                 <p>
-                    Payment methods may vary depending on your
-                    location and order. Please make sure that your
-                    payment details are correct before completing
-                    your purchase.
+                    Choose your preferred payment method and review
+                    your order details before checkout. For assistance
+                    with payment options, please contact our support team.
                 </p>
-
 
                 <a
                     href="Contact.html"
-                    class="contact-button">
-
+                    class="contact-button"
+                >
                     Contact Us
-
                 </a>
 
             </div>
@@ -523,90 +389,89 @@
 
     </main>
 
+    <!-- FOOTER -->
+    <footer>
 
+        <div class="footer-line"></div>
 
+        <div class="footer-top">
 
-<footer>
-<div class="footer-line"></div>
-    <div class="footer-top">
+            <div class="footer-brand">
 
-        <div class="footer-brand">
-            <h2>Furniro.</h2>
+                <h2>Furniro.</h2>
 
-            <p>
-                400 University Drive Suite 200 Coral Gables,
-                FL 33134 USA
-            </p>
-        </div>
+                <p>
+                    400 University Drive Suite 200 Coral Gables,
+                    FL 33134 USA
+                </p>
 
+            </div>
 
-        <div class="footer-links">
+            <div class="footer-links">
 
-            <h3>Links</h3>
+                <h3>Links</h3>
 
-            <a href="index.html">Home</a>
-            <a href="Shop.html">Shop</a>
-            <a href="About.html">About</a>
-            <a href="Contact.html">Contact</a>
-            <a href="Blog.html">Blog</a>
+                <a href="index.html">Home</a>
+                <a href="Shop.html">Shop</a>
+                <a href="About.html">About</a>
+                <a href="Contact.html">Contact</a>
+                <a href="Blog.html">Blog</a>
 
-        </div>
+            </div>
 
+            <div class="footer-help">
 
-        <div class="footer-help">
+                <h3>Help</h3>
 
-            <h3>Help</h3>
+                <a href="Payment-Options.html">Payment Options</a>
+                <a href="Returns.html">Returns</a>
+                <a href="Privacy-Policy.html">Privacy Policies</a>
 
-            <a href="Payment-Options.html">Payment Options</a>
-            <a href="Returns.html">Returns</a>
-            <a href="Privacy-Policy.html">Privacy Policies</a>
+            </div>
 
-        </div>
+            <div class="footer-newsletter">
 
+                <h3>Newsletter</h3>
 
-        <div class="footer-newsletter">
-
-            <h3>Newsletter</h3>
-
-            <form class="newsletter-form" id="newsletterForm">
-
-                <input
-                    type="email"
-                    id="newsletterEmail"
-                    placeholder="Enter your email"
-                    required
+                <form
+                    class="newsletter-form"
+                    id="newsletterForm"
                 >
 
-                <button type="submit">
-                    SUBSCRIBE
-                </button>
+                    <input
+                        type="email"
+                        id="newsletterEmail"
+                        placeholder="Enter your email"
+                        required
+                    >
 
-            </form>
+                    <button type="submit">
+                        SUBSCRIBE
+                    </button>
+
+                </form>
+
+            </div>
 
         </div>
 
-    </div>
+        <div class="footer-line"></div>
 
- <div class="footer-line"></div>
-    <div class="footer-bottom">
+        <div class="footer-bottom">
 
-        <p>
-            2026 Furniro. All rights reserved.
-        </p>
+            <p>
+                2026 Furniro. All rights reserved.
+            </p>
 
-    </div>
+        </div>
 
-</footer>
+    </footer>
 
-
-
-    <!-- =========================
-         WHATSAPP CHAT
-    ========================== -->
-
+    <!-- WHATSAPP CHAT -->
     <div
         class="whatsapp-chat-box"
-        id="whatsappChatBox">
+        id="whatsappChatBox"
+    >
 
         <div class="whatsapp-chat-header">
 
@@ -615,14 +480,12 @@
             <button
                 id="closeWhatsappChat"
                 type="button"
-                aria-label="Close WhatsApp chat">
-
+                aria-label="Close WhatsApp chat"
+            >
                 <i class="fa-solid fa-xmark"></i>
-
             </button>
 
         </div>
-
 
         <div class="whatsapp-chat-body">
 
@@ -632,65 +495,61 @@
 
         </div>
 
-
         <div class="whatsapp-chat-footer">
 
             <input
                 type="text"
                 id="whatsappInput"
                 placeholder="Write a message..."
-                aria-label="WhatsApp message">
-
+                aria-label="WhatsApp message"
+            >
 
             <button
                 id="sendWhatsappMessage"
                 type="button"
-                aria-label="Send message">
-
+                aria-label="Send message"
+            >
                 <i class="fa-solid fa-paper-plane"></i>
-
             </button>
 
         </div>
 
     </div>
 
-
-
-    <!-- WhatsApp Button -->
-
+    <!-- WHATSAPP BUTTON -->
     <button
         class="open-whatsapp-chat"
         id="openWhatsappChat"
         type="button"
-        aria-label="Open WhatsApp chat">
-
+        aria-label="Open WhatsApp chat"
+    >
         <i class="fa-brands fa-whatsapp"></i>
-
     </button>
 
-
-
-    <!-- =========================
-         JAVASCRIPT
-    ========================== -->
-
-
+    <!-- JAVASCRIPT -->
 
     <!-- SweetAlert2 -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="JS/Auth-Guard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <!-- Authentication Guard -->
+    <script src="JS/Auth-Guard.js"></script>
+
+    <!-- Newsletter -->
     <script src="JS/Newsletter.js"></script>
 
+    <!-- Search -->
     <script src="JS/Search.js"></script>
 
+    <!-- Language -->
     <script src="JS/Language.js"></script>
 
+    <!-- Dark Mode -->
     <script src="JS/Dark-Mode.js"></script>
 
+    <!-- Scroll Animation -->
     <script src="JS/Scroll-Animation.js"></script>
 
+    <!-- WhatsApp Chat -->
     <script src="JS/WhatsApp-Chat.js"></script>
 
 </body>

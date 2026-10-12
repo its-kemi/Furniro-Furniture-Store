@@ -36,10 +36,7 @@
 
 <body>
 
-    <!-- ================================================
-         HEADER
-    ================================================= -->
-
+    <!-- HEADER -->
     <header class="checkout-header">
 
         <a href="index.html" class="checkout-logo">
@@ -56,11 +53,8 @@
         <nav class="checkout-navigation">
 
             <a href="index.html">Home</a>
-
             <a href="Shop.html">Shop</a>
-
             <a href="Cart.html">Cart</a>
-
             <a href="Orders.html">My Orders</a>
 
         </nav>
@@ -68,16 +62,11 @@
     </header>
 
 
-    <!-- ================================================
-         PAGE BANNER
-    ================================================= -->
-
+    <!-- PAGE BANNER -->
     <section class="checkout-banner">
 
         <div class="checkout-banner-icon">
-
             <i class="fa-solid fa-credit-card"></i>
-
         </div>
 
         <h1>Checkout</h1>
@@ -103,35 +92,22 @@
     </section>
 
 
-    <!-- ================================================
-         CHECKOUT CONTENT
-    ================================================= -->
-
+    <!-- CHECKOUT CONTENT -->
     <main class="checkout-main">
 
         <form id="checkoutForm">
 
             <div class="checkout-layout">
 
-
-                <!-- ====================================
-                     LEFT SIDE
-                ===================================== -->
-
+                <!-- LEFT SIDE -->
                 <section class="checkout-details">
 
-
-                    <!-- =================================
-                         01. BILLING INFORMATION
-                    ================================== -->
-
+                    <!-- 01. BILLING INFORMATION -->
                     <div class="checkout-section">
 
                         <div class="checkout-section-heading">
 
-                            <span class="checkout-step">
-                                01
-                            </span>
+                            <span class="checkout-step">01</span>
 
                             <div>
 
@@ -145,12 +121,9 @@
 
                         </div>
 
-
                         <div class="checkout-form-grid">
 
-
                             <!-- FULL NAME -->
-
                             <div class="checkout-field">
 
                                 <label for="checkout-name">
@@ -168,9 +141,7 @@
 
                             </div>
 
-
                             <!-- EMAIL -->
-
                             <div class="checkout-field">
 
                                 <label for="checkout-email">
@@ -188,9 +159,7 @@
 
                             </div>
 
-
                             <!-- PHONE -->
-
                             <div class="checkout-field">
 
                                 <label for="checkout-phone">
@@ -208,9 +177,7 @@
 
                             </div>
 
-
                             <!-- COUNTRY -->
-
                             <div class="checkout-field">
 
                                 <label for="checkout-country">
@@ -299,9 +266,7 @@
 
                             </div>
 
-
                             <!-- STREET ADDRESS -->
-
                             <div class="checkout-field full-width">
 
                                 <label for="checkout-address">
@@ -319,9 +284,7 @@
 
                             </div>
 
-
                             <!-- CITY -->
-
                             <div class="checkout-field">
 
                                 <label for="checkout-city">
@@ -344,85 +307,70 @@
                     </div>
 
 
-                    <!-- =================================
-                         02. SHIPPING INFORMATION
-                    ================================== -->
+                 <!-- 02. SHIPPING INFORMATION -->
+<div class="checkout-section">
 
+    <div class="checkout-section-heading">
+
+        <span class="checkout-step">02</span>
+
+        <div>
+            <h2>Shipping Method</h2>
+
+            <p>
+                Choose how you want to receive your order.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="checkout-field">
+
+        <label for="checkout-shipping">
+            Delivery Option *
+        </label>
+
+        <select
+            id="checkout-shipping"
+            name="shipping"
+            required
+        >
+
+            <option value="standard" selected>
+                Standard Shipping
+            </option>
+
+            <option value="express">
+                Express Shipping
+            </option>
+
+            <option value="pickup">
+                Store Pickup
+            </option>
+
+        </select>
+
+    </div>
+
+    <div class="checkout-shipping-note">
+
+        <i class="fa-solid fa-truck-fast"></i>
+
+        <p id="shippingNote" aria-live="polite">
+            Standard Shipping: Receive your order at your delivery address.
+        </p>
+
+    </div>
+
+</div>
+
+
+                    <!-- 03. PAYMENT METHOD -->
                     <div class="checkout-section">
 
                         <div class="checkout-section-heading">
 
-                            <span class="checkout-step">
-                                02
-                            </span>
-
-                            <div>
-
-                                <h2>Shipping Method</h2>
-
-                                <p>
-                                    Choose how you want to receive your order.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="checkout-field">
-
-                            <label for="checkout-shipping">
-                                Delivery Option *
-                            </label>
-
-                            <select
-                                id="checkout-shipping"
-                                name="shipping"
-                                required
-                            >
-
-                                <option value="standard" selected>
-                                    Standard Shipping
-                                </option>
-
-                                <option value="express">
-                                    Express Shipping
-                                </option>
-
-                                <option value="pickup">
-                                    Store Pickup
-                                </option>
-
-                            </select>
-
-                        </div>
-
-
-                        <div class="checkout-shipping-note">
-
-                            <i class="fa-solid fa-truck-fast"></i>
-
-                            <p>
-                                Shipping costs are sample prices for this
-                                demonstration and can be adjusted.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- =================================
-                         03. PAYMENT METHOD
-                    ================================== -->
-
-                    <div class="checkout-section">
-
-                        <div class="checkout-section-heading">
-
-                            <span class="checkout-step">
-                                03
-                            </span>
+                            <span class="checkout-step">03</span>
 
                             <div>
 
@@ -436,7 +384,6 @@
 
                         </div>
 
-
                         <div class="checkout-field">
 
                             <label for="checkout-payment">
@@ -449,52 +396,41 @@
                                 required
                             >
 
-                                <!-- CASH ON DELIVERY -->
-
                                 <option value="cash" selected>
                                     Cash on Delivery
                                 </option>
 
-                                <!-- DEMO ONLINE PAYMENT -->
-
                                 <option value="card">
-                                    Demo Online Payment
+                                    Credit / Debit Card
                                 </option>
 
-                                <!-- DEMO BANK TRANSFER -->
-
                                 <option value="bank">
-                                    Bank Transfer Demo
+                                    Bank Transfer
                                 </option>
 
                             </select>
 
                         </div>
 
-
                         <!-- PAYMENT DESCRIPTION -->
-
                         <div
                             id="paymentNote"
                             class="checkout-payment-note"
                             aria-live="polite"
                         >
-                            Cash on Delivery: pay the delivery person
-                            when your order arrives.
+                            Cash on Delivery: Pay for your order
+                            when it arrives.
                         </div>
 
-
-                        <!-- PAYMENT SECURITY NOTE -->
-
+                        <!-- PAYMENT INFORMATION -->
                         <div class="checkout-security-note">
 
                             <i class="fa-solid fa-shield-halved"></i>
 
-                            <p>
-                                Demo payments only. No real money is transferred.
-                                Never enter your real card number, PIN,
-                                or bank password.
-                            </p>
+                            <span>
+                                Please review your order and payment
+                                details before placing your order.
+                            </span>
 
                         </div>
 
@@ -503,30 +439,21 @@
                 </section>
 
 
-                <!-- ====================================
-                     RIGHT SIDE: ORDER SUMMARY
-                ===================================== -->
-
+                <!-- RIGHT SIDE: ORDER SUMMARY -->
                 <aside class="checkout-summary">
 
-
                     <!-- SUMMARY HEADING -->
-
                     <div class="checkout-summary-heading">
 
                         <h2>Your Order</h2>
 
                         <span class="checkout-summary-icon">
-
                             <i class="fa-solid fa-bag-shopping"></i>
-
                         </span>
 
                     </div>
 
-
                     <!-- CURRENCY -->
-
                     <div class="checkout-currency">
 
                         <i class="fa-solid fa-coins"></i>
@@ -537,9 +464,7 @@
 
                     </div>
 
-
                     <!-- CART PRODUCTS -->
-
                     <div
                         id="checkoutProducts"
                         class="checkout-products"
@@ -549,14 +474,10 @@
 
                     </div>
 
-
                     <!-- DIVIDER -->
-
                     <div class="checkout-summary-divider"></div>
 
-
                     <!-- SUBTOTAL -->
-
                     <div class="checkout-total-row">
 
                         <span>Subtotal</span>
@@ -567,9 +488,7 @@
 
                     </div>
 
-
                     <!-- SHIPPING COST -->
-
                     <div class="checkout-total-row">
 
                         <span>Shipping</span>
@@ -580,14 +499,10 @@
 
                     </div>
 
-
                     <!-- DIVIDER -->
-
                     <div class="checkout-summary-divider"></div>
 
-
                     <!-- GRAND TOTAL -->
-
                     <div class="checkout-grand-total">
 
                         <span>Total</span>
@@ -598,9 +513,7 @@
 
                     </div>
 
-
                     <!-- PLACE ORDER -->
-
                     <button
                         type="submit"
                         class="checkout-place-order"
@@ -612,19 +525,13 @@
 
                     </button>
 
-
                     <!-- TERMS -->
-
                     <p class="checkout-terms">
-
                         By placing your order, you confirm that your
                         information is correct.
-
                     </p>
 
-
                     <!-- RETURN TO CART -->
-
                     <a
                         href="Cart.html"
                         class="checkout-back-cart"
@@ -645,10 +552,7 @@
     </main>
 
 
-    <!-- ================================================
-         FOOTER
-    ================================================= -->
-
+    <!-- FOOTER -->
     <footer class="checkout-footer">
 
         <p>
@@ -659,17 +563,10 @@
     </footer>
 
 
-    <!-- ================================================
-         AUTHENTICATION GUARD
-    ================================================= -->
-
+    <!-- AUTHENTICATION GUARD -->
     <script src="JS/Auth-Guard.js"></script>
 
-
-    <!-- ================================================
-         CHECKOUT SYSTEM
-    ================================================= -->
-
+    <!-- CHECKOUT SYSTEM -->
     <script src="JS/Checkout.js"></script>
 
 </body>

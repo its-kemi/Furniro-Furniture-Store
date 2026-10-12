@@ -86,13 +86,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (method === "card") {
         title.textContent = "Demo Online Payment";
         description.textContent =
-            "Simulate an online payment for your university project. No money will be transferred.";
+            "  Choose your preferred payment method and follow the instructions to complete your purchase.";
         icon.className = "fa-solid fa-credit-card";
         cardPanel.hidden = false;
     } else {
         title.textContent = "Bank Transfer Demo";
         description.textContent =
-            "This simulates a bank transfer submission. No bank account or real transfer is involved.";
+            "Follow the bank transfer instructions provided for your order to complete the payment process.";
         icon.className = "fa-solid fa-building-columns";
         bankPanel.hidden = false;
     }
@@ -146,8 +146,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     ? "Demo Payment Successful!"
                     : "Demo Transfer Submitted!",
                 text: method === "card"
-                    ? "Your simulated payment was successful. No real money was charged."
-                    : "Your simulated bank transfer was recorded. No real money was transferred.",
+                    ? "Your payment has been completed successfully."
+                    :"Your bank transfer details have been submitted successfully." ,
                 confirmButtonText: "View My Orders"
             }).then(function () {
                 window.location.href = "Orders.html";
