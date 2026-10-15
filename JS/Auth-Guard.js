@@ -178,44 +178,50 @@
        Does not include sidebar elements
     ===================================================== */
 
+    function isProtectedAction(element) {
+        if (!(element instanceof Element)) {
+            return false;
+        }
 
-function isProtectedAction(element) {
-    if (!(element instanceof Element)) {
-        return false;
+        return Boolean(
+            element.closest([
+                /* Add to Cart */
+                "#addToCart",
+                "#addToCartBtn",
+                "#add-cart",
+                ".add-to-cart",
+                ".addToCart",
+                ".add-cart",
+                ".add-to-cart-btn",
+                "[data-action='add-to-cart']",
+
+                /* Checkout */
+                "#checkoutButton",
+                "#proceedToCheckout",
+                "#placeOrder",
+
+                /* Wishlist */
+                ".wishlist-button",
+                ".add-to-wishlist",
+                ".heart-icon",
+                ".fa-heart",
+
+                /* Compare */
+                ".compare-button",
+                ".add-to-compare",
+
+                /* Contact Form */
+                "#contactForm",
+
+                /* Customer Feedback */
+                ".feedback-submit",
+                ".feedback-textarea",
+
+                /* Other protected actions */
+                "[data-protected='true']"
+            ].join(","))
+        );
     }
-
-    return Boolean(
-        element.closest([
-            /* Add to Cart */
-            "#addToCart",
-            "#addToCartBtn",
-            "#add-cart",
-            ".add-to-cart",
-            ".addToCart",
-            ".add-cart",
-            ".add-to-cart-btn",
-            "[data-action='add-to-cart']",
-
-            /* Checkout */
-            "#checkoutButton",
-            "#proceedToCheckout",
-            "#placeOrder",
-
-            /* Wishlist */
-            ".wishlist-button",
-            ".add-to-wishlist",
-            ".heart-icon",
-            ".fa-heart",
-
-            /* Compare */
-            ".compare-button",
-            ".add-to-compare",
-
-            /* Other protected actions */
-            "[data-protected='true']"
-        ].join(","))
-    );
-}
 
     /* =====================================================
        PUBLIC UI
